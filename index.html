@@ -17,7 +17,6 @@
             warm: { 400: '#F59E0B', 500: '#D97706', 600: '#B45309', 700: '#92400E' },
             clay: { 400: '#F97316', 500: '#EA580C', 600: '#C2410C' },
             amber: { 400: '#FBBF24', 500: '#F59E0B' },
-            // Cool blue for CV
             cyber: { 400: '#38BDF8', 500: '#0EA5E9', 600: '#0284C7', 700: '#0369A1' },
           }
         }
@@ -49,6 +48,72 @@
     }
     ::-webkit-scrollbar-thumb:hover {
       background: #D97706;
+    }
+
+    /* Theme variables */
+    :root {
+      --bg-primary: #000000;
+      --bg-secondary: #0a0a0c;
+      --bg-card: #0a0a0c;
+      --text-primary: #ffffff;
+      --text-secondary: #a3a3a3;
+      --border-color: rgba(255,255,255,0.1);
+      --bg-nav: rgba(0,0,0,0.85);
+    }
+
+    .light-theme {
+      --bg-primary: #f5f5f5;
+      --bg-secondary: #ffffff;
+      --bg-card: #ffffff;
+      --text-primary: #1a1a1a;
+      --text-secondary: #4a4a4a;
+      --border-color: rgba(0,0,0,0.1);
+      --bg-nav: rgba(255,255,255,0.9);
+    }
+
+    body {
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    #nav {
+      background: var(--bg-nav) !important;
+      backdrop-filter: blur(12px);
+      transition: background 0.3s ease, border-color 0.3s ease;
+    }
+
+    .bg-neutral-950 {
+      background: var(--bg-secondary) !important;
+    }
+    .bg-black {
+      background: var(--bg-primary) !important;
+    }
+    .border-white\/10 {
+      border-color: var(--border-color) !important;
+    }
+    .border-white\/20 {
+      border-color: var(--border-color) !important;
+    }
+    .text-neutral-400 {
+      color: var(--text-secondary) !important;
+    }
+    .text-neutral-500 {
+      color: var(--text-secondary) !important;
+    }
+    .text-neutral-600 {
+      color: var(--text-secondary) !important;
+    }
+
+    .theme-toggle {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      transition: all 0.3s ease;
+    }
+    .theme-toggle:hover {
+      border-color: #D97706;
+      background: rgba(217,119,6,0.1);
     }
 
     /* scroll progress */
@@ -152,21 +217,11 @@
       opacity: 1;
       transform: translateY(0);
     }
-    .pf-delay-1 {
-      transition-delay: .1s;
-    }
-    .pf-delay-2 {
-      transition-delay: .2s;
-    }
-    .pf-delay-3 {
-      transition-delay: .3s;
-    }
-    .pf-delay-4 {
-      transition-delay: .4s;
-    }
-    .pf-delay-5 {
-      transition-delay: .5s;
-    }
+    .pf-delay-1 { transition-delay: .1s; }
+    .pf-delay-2 { transition-delay: .2s; }
+    .pf-delay-3 { transition-delay: .3s; }
+    .pf-delay-4 { transition-delay: .4s; }
+    .pf-delay-5 { transition-delay: .5s; }
 
     /* sticky cta */
     #sticky-cta {
@@ -178,17 +233,10 @@
     }
 
     @keyframes pulse-soft {
-      0%,
-      100% {
-        box-shadow: 0 0 0 0 rgba(217, 119, 6, .4);
-      }
-      50% {
-        box-shadow: 0 0 0 12px rgba(217, 119, 6, 0);
-      }
+      0%, 100% { box-shadow: 0 0 0 0 rgba(217, 119, 6, .4); }
+      50% { box-shadow: 0 0 0 12px rgba(217, 119, 6, 0); }
     }
-    .pulse-cta {
-      animation: pulse-soft 2.5s ease-in-out infinite;
-    }
+    .pulse-cta { animation: pulse-soft 2.5s ease-in-out infinite; }
 
     /* carousel */
     .carousel-track {
@@ -198,31 +246,19 @@
       user-select: none;
       will-change: transform;
     }
-    .carousel-track:active {
-      cursor: grabbing;
-    }
-    .carousel-track.snap {
-      transition: transform .5s cubic-bezier(.16, 1, .3, 1);
-    }
+    .carousel-track:active { cursor: grabbing; }
+    .carousel-track.snap { transition: transform .5s cubic-bezier(.16, 1, .3, 1); }
 
     /* typing cursor */
     @keyframes blink {
-      0%,
-      50% {
-        opacity: 1;
-      }
-      51%,
-      100% {
-        opacity: 0;
-      }
+      0%, 50% { opacity: 1; }
+      51%, 100% { opacity: 0; }
     }
-    .typing-cursor {
-      animation: blink 1s step-end infinite;
-    }
+    .typing-cursor { animation: blink 1s step-end infinite; }
 
     .grid-pattern {
-      background-image: linear-gradient(rgba(255, 255, 255, .02) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, .02) 1px, transparent 1px);
+      background-image: linear-gradient(rgba(255,255,255,.02) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(255,255,255,.02) 1px, transparent 1px);
       background-size: 40px 40px;
     }
 
@@ -245,30 +281,17 @@
       overflow: hidden;
     }
 
-    .counter {
-      font-variant-numeric: tabular-nums;
-    }
+    .counter { font-variant-numeric: tabular-nums; }
 
     @keyframes float {
-      0%,
-      100% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(-8px);
-      }
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
     }
-    .float-anim {
-      animation: float 6s ease-in-out infinite;
-    }
+    .float-anim { animation: float 6s ease-in-out infinite; }
 
     @keyframes scan-line {
-      0% {
-        top: -2px;
-      }
-      100% {
-        top: 100%;
-      }
+      0% { top: -2px; }
+      100% { top: 100%; }
     }
     .scan-line-fx::after {
       content: '';
@@ -283,6 +306,24 @@
 
     .featured-glow {
       box-shadow: 0 0 60px rgba(217, 119, 6, .15), 0 0 120px rgba(217, 119, 6, .05);
+    }
+
+    /* Typing area - scrollable */
+    .typing-area {
+      max-height: 90px;
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: #D97706 transparent;
+    }
+    .typing-area::-webkit-scrollbar {
+      width: 4px;
+    }
+    .typing-area::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .typing-area::-webkit-scrollbar-thumb {
+      background: #D97706;
+      border-radius: 2px;
     }
 
     /* ─── CV OVERLAY (Cool Blue Theme) ─── */
@@ -306,36 +347,46 @@
     }
     #cv-close-btn {
       position: fixed;
-      top: 24px;
+      top: 20px;
       right: 24px;
       z-index: 50010;
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, .05);
-      border: 1px solid rgba(255, 255, 255, .1);
+      padding: 10px 20px;
+      border-radius: 8px;
+      background: rgba(56, 189, 248, 0.15);
+      border: 1px solid rgba(56, 189, 248, 0.3);
       display: flex;
       align-items: center;
-      justify-content: center;
-      color: #fff;
+      gap: 8px;
+      color: #38BDF8;
       cursor: pointer;
       transition: all .3s ease;
-      opacity: 0;
-      transform: scale(.8);
-      pointer-events: none;
-    }
-    #cv-close-btn.show {
-      opacity: 1;
-      transform: scale(1);
+      font-size: 13px;
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
       pointer-events: auto;
+      opacity: 1;
+      transform: none;
     }
     #cv-close-btn:hover {
-      background: rgba(56, 189, 248, .2);
-      border-color: rgba(56, 189, 248, .5);
-      transform: scale(1.1);
+      background: rgba(56, 189, 248, 0.25);
+      border-color: #38BDF8;
+      transform: scale(1.05);
+    }
+    #cv-close-btn .iconify {
+      font-size: 18px;
+    }
+    @media(max-width:768px) {
+      #cv-close-btn {
+        padding: 8px 14px;
+        font-size: 11px;
+        top: 16px;
+        right: 16px;
+      }
+      #cv-close-btn .iconify {
+        font-size: 14px;
+      }
     }
 
-    /* CV Glitch (blue themed) */
     .cv-glitch {
       position: relative;
       animation: cv-glitch-skew 4s infinite linear alternate-reverse;
@@ -364,87 +415,40 @@
       opacity: .8;
     }
     @keyframes cv-glitch1 {
-      0% {
-        transform: translate(0);
-      }
-      20% {
-        transform: translate(-3px, 3px);
-      }
-      40% {
-        transform: translate(-3px, -3px);
-      }
-      60% {
-        transform: translate(3px, 3px);
-      }
-      80% {
-        transform: translate(3px, -3px);
-      }
-      100% {
-        transform: translate(0);
-      }
+      0% { transform: translate(0); }
+      20% { transform: translate(-3px, 3px); }
+      40% { transform: translate(-3px, -3px); }
+      60% { transform: translate(3px, 3px); }
+      80% { transform: translate(3px, -3px); }
+      100% { transform: translate(0); }
     }
     @keyframes cv-glitch2 {
-      0% {
-        transform: translate(0);
-      }
-      20% {
-        transform: translate(3px, -3px);
-      }
-      40% {
-        transform: translate(3px, 3px);
-      }
-      60% {
-        transform: translate(-3px, -3px);
-      }
-      80% {
-        transform: translate(-3px, 3px);
-      }
-      100% {
-        transform: translate(0);
-      }
+      0% { transform: translate(0); }
+      20% { transform: translate(3px, -3px); }
+      40% { transform: translate(3px, 3px); }
+      60% { transform: translate(-3px, -3px); }
+      80% { transform: translate(-3px, 3px); }
+      100% { transform: translate(0); }
     }
     @keyframes cv-glitch-skew {
-      0% {
-        transform: skew(0);
-      }
-      2% {
-        transform: skew(.5deg);
-      }
-      4% {
-        transform: skew(0);
-      }
-      48% {
-        transform: skew(0);
-      }
-      50% {
-        transform: skew(-.5deg);
-      }
-      52% {
-        transform: skew(0);
-      }
-      100% {
-        transform: skew(0);
-      }
+      0% { transform: skew(0); }
+      2% { transform: skew(.5deg); }
+      4% { transform: skew(0); }
+      48% { transform: skew(0); }
+      50% { transform: skew(-.5deg); }
+      52% { transform: skew(0); }
+      100% { transform: skew(0); }
     }
     @media(max-width:768px) {
       .cv-glitch::before,
-      .cv-glitch::after {
-        display: none;
-      }
+      .cv-glitch::after { display: none; }
     }
 
     .cv-neon-text {
       text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #38BDF8, 0 0 82px #0EA5E9, 0 0 92px #0284C7;
     }
-    .cv-neon-blue {
-      text-shadow: 0 0 7px #38BDF8, 0 0 10px #0EA5E9, 0 0 21px #0EA5E9, 0 0 42px #0EA5E9;
-    }
-    .cv-neon-border {
-      box-shadow: 0 0 5px rgba(56, 189, 248, .3), 0 0 10px rgba(56, 189, 248, .2), inset 0 0 5px rgba(56, 189, 248, .1);
-    }
-    .cv-neon-border-blue {
-      box-shadow: 0 0 5px rgba(56, 189, 248, .3), 0 0 10px rgba(56, 189, 248, .2), inset 0 0 5px rgba(56, 189, 248, .1);
-    }
+    .cv-neon-blue { text-shadow: 0 0 7px #38BDF8, 0 0 10px #0EA5E9, 0 0 21px #0EA5E9, 0 0 42px #0EA5E9; }
+    .cv-neon-border { box-shadow: 0 0 5px rgba(56,189,248,.3), 0 0 10px rgba(56,189,248,.2), inset 0 0 5px rgba(56,189,248,.1); }
     .cv-scanline::after {
       content: '';
       position: absolute;
@@ -452,7 +456,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: repeating-linear-gradient(0deg, rgba(0, 0, 0, .03) 0px, rgba(0, 0, 0, .03) 1px, transparent 1px, transparent 2px);
+      background: repeating-linear-gradient(0deg, rgba(0,0,0,.03) 0px, rgba(0,0,0,.03) 1px, transparent 1px, transparent 2px);
       pointer-events: none;
       z-index: 9999;
     }
@@ -471,28 +475,18 @@
       animation: cv-float-up linear infinite;
     }
     @keyframes cv-float-up {
-      0% {
-        transform: translateY(100vh) scale(0);
-        opacity: 0;
-      }
-      10% {
-        opacity: 1;
-      }
-      90% {
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(-10vh) scale(1);
-        opacity: 0;
-      }
+      0% { transform: translateY(100vh) scale(0); opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { transform: translateY(-10vh) scale(1); opacity: 0; }
     }
     .cv-skill-fill {
       transition: width 2s cubic-bezier(.25, .46, .45, .94);
       width: 0%;
     }
     .cyber-card {
-      background: rgba(255, 255, 255, .03);
-      border: 1px solid rgba(255, 255, 255, .08);
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.08);
       backdrop-filter: blur(10px);
       transition: all .4s cubic-bezier(.25, .46, .45, .94);
       position: relative;
@@ -508,12 +502,10 @@
       background: linear-gradient(90deg, transparent, #38BDF8, #0EA5E9, #38BDF8, transparent);
       transition: left .6s ease;
     }
-    .cyber-card:hover::before {
-      left: 100%;
-    }
+    .cyber-card:hover::before { left: 100%; }
     .cyber-card:hover {
-      border-color: rgba(56, 189, 248, .4);
-      box-shadow: 0 0 30px -5px rgba(56, 189, 248, .15);
+      border-color: rgba(56,189,248,.4);
+      box-shadow: 0 0 30px -5px rgba(56,189,248,.15);
       transform: translateY(-4px);
     }
     .corner-deco {
@@ -525,7 +517,7 @@
       position: absolute;
       width: 20px;
       height: 20px;
-      border-color: rgba(56, 189, 248, .5);
+      border-color: rgba(56,189,248,.5);
       border-style: solid;
     }
     .corner-deco::before {
@@ -544,33 +536,23 @@
       width: max-content;
     }
     @keyframes cv-marquee {
-      0% {
-        transform: translateX(0);
-      }
-      100% {
-        transform: translateX(-50%);
-      }
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
     }
     .cv-pulse-ring {
       animation: cv-pulse-ring 2s ease-out infinite;
     }
     @keyframes cv-pulse-ring {
-      0% {
-        transform: scale(1);
-        opacity: .6;
-      }
-      100% {
-        transform: scale(2.5);
-        opacity: 0;
-      }
+      0% { transform: scale(1); opacity: .6; }
+      100% { transform: scale(2.5); opacity: 0; }
     }
     .cv-hex-bg {
-      background-image: linear-gradient(30deg, rgba(56, 189, 248, .03) 12%, transparent 12.5%, transparent 87%, rgba(56, 189, 248, .03) 87.5%),
-        linear-gradient(150deg, rgba(56, 189, 248, .03) 12%, transparent 12.5%, transparent 87%, rgba(56, 189, 248, .03) 87.5%),
-        linear-gradient(30deg, rgba(56, 189, 248, .03) 12%, transparent 12.5%, transparent 87%, rgba(56, 189, 248, .03) 87.5%),
-        linear-gradient(150deg, rgba(56, 189, 248, .03) 12%, transparent 12.5%, transparent 87%, rgba(56, 189, 248, .03) 87.5%),
-        linear-gradient(60deg, rgba(14, 165, 233, .04) 25%, transparent 25.5%, transparent 75%, rgba(14, 165, 233, .04) 75%),
-        linear-gradient(60deg, rgba(14, 165, 233, .04) 25%, transparent 25.5%, transparent 75%, rgba(14, 165, 233, .04) 75%);
+      background-image: linear-gradient(30deg, rgba(56,189,248,.03) 12%, transparent 12.5%, transparent 87%, rgba(56,189,248,.03) 87.5%),
+                        linear-gradient(150deg, rgba(56,189,248,.03) 12%, transparent 12.5%, transparent 87%, rgba(56,189,248,.03) 87.5%),
+                        linear-gradient(30deg, rgba(56,189,248,.03) 12%, transparent 12.5%, transparent 87%, rgba(56,189,248,.03) 87.5%),
+                        linear-gradient(150deg, rgba(56,189,248,.03) 12%, transparent 12.5%, transparent 87%, rgba(56,189,248,.03) 87.5%),
+                        linear-gradient(60deg, rgba(14,165,233,.04) 25%, transparent 25.5%, transparent 75%, rgba(14,165,233,.04) 75%),
+                        linear-gradient(60deg, rgba(14,165,233,.04) 25%, transparent 25.5%, transparent 75%, rgba(14,165,233,.04) 75%);
       background-size: 80px 140px;
       background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px;
     }
@@ -585,24 +567,14 @@
       transform: translateY(0) scale(1);
       filter: blur(0);
     }
-    .cv-delay-1 {
-      transition-delay: 100ms;
-    }
-    .cv-delay-2 {
-      transition-delay: 200ms;
-    }
-    .cv-delay-3 {
-      transition-delay: 300ms;
-    }
-    .cv-delay-4 {
-      transition-delay: 400ms;
-    }
-    .cv-delay-5 {
-      transition-delay: 500ms;
-    }
+    .cv-delay-1 { transition-delay: 100ms; }
+    .cv-delay-2 { transition-delay: 200ms; }
+    .cv-delay-3 { transition-delay: 300ms; }
+    .cv-delay-4 { transition-delay: 400ms; }
+    .cv-delay-5 { transition-delay: 500ms; }
     .terminal-header {
-      background: rgba(255, 255, 255, .05);
-      border-bottom: 1px solid rgba(255, 255, 255, .08);
+      background: rgba(255,255,255,.05);
+      border-bottom: 1px solid rgba(255,255,255,.08);
     }
     .terminal-dot {
       width: 10px;
@@ -610,8 +582,8 @@
       border-radius: 50%;
     }
     .cyber-tag {
-      border: 1px solid rgba(56, 189, 248, .3);
-      background: rgba(56, 189, 248, .08);
+      border: 1px solid rgba(56,189,248,.3);
+      background: rgba(56,189,248,.08);
       color: #7DD3FC;
       font-size: 10px;
       letter-spacing: .1em;
@@ -633,26 +605,18 @@
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      background: rgba(255, 255, 255, .2);
+      background: rgba(255,255,255,.2);
       transition: all .3s ease;
       cursor: pointer;
     }
     .cv-side-dot.active {
       background: #38BDF8;
-      box-shadow: 0 0 10px rgba(56, 189, 248, .5);
+      box-shadow: 0 0 10px rgba(56,189,248,.5);
       transform: scale(1.4);
     }
-    .cv-side-dot:hover {
-      background: rgba(56, 189, 248, .6);
-    }
-    @media(max-width:768px) {
-      .cv-side-nav {
-        display: none;
-      }
-    }
-    .cv-count-up {
-      font-variant-numeric: tabular-nums;
-    }
+    .cv-side-dot:hover { background: rgba(56,189,248,.6); }
+    @media(max-width:768px) { .cv-side-nav { display: none; } }
+    .cv-count-up { font-variant-numeric: tabular-nums; }
     .cv-noise {
       position: absolute;
       top: 0;
@@ -673,9 +637,7 @@
       pointer-events: none;
       transition: opacity .15s ease;
     }
-    #transition-flash.flash {
-      opacity: 1;
-    }
+    #transition-flash.flash { opacity: 1; }
     #cv-matrix-canvas {
       position: absolute;
       top: 0;
@@ -686,7 +648,6 @@
       z-index: 0;
       opacity: .04;
     }
-    /* CV button styles matching portfolio */
     .cv-btn-warm {
       background: #D97706;
       color: #fff;
@@ -697,43 +658,63 @@
       transform: scale(1.05);
     }
     .cv-btn-outline {
-      border: 1px solid rgba(255, 255, 255, .15);
+      border: 1px solid rgba(255,255,255,.15);
       color: #e2e8f0;
       transition: all .3s ease;
     }
     .cv-btn-outline:hover {
       border-color: #38BDF8;
       color: #38BDF8;
-      background: rgba(56, 189, 248, .05);
+      background: rgba(56,189,248,.05);
     }
-    /* CV project card blue accent */
-    .cv-project-card {
-      border-color: rgba(56, 189, 248, .15);
-    }
-    .cv-project-card:hover {
-      border-color: rgba(56, 189, 248, .4);
-    }
+    .cv-project-card { border-color: rgba(56,189,248,.15); }
+    .cv-project-card:hover { border-color: rgba(56,189,248,.4); }
     .cv-project-card .cv-tag {
-      background: rgba(56, 189, 248, .1);
+      background: rgba(56,189,248,.1);
       color: #7DD3FC;
-      border-color: rgba(56, 189, 248, .2);
+      border-color: rgba(56,189,248,.2);
     }
-    /* CV skill fill blue gradient */
-    .cv-skill-fill-blue {
-      background: linear-gradient(90deg, #0EA5E9, #38BDF8);
-    }
-    /* CV hero accent */
+    .cv-skill-fill-blue { background: linear-gradient(90deg, #0EA5E9, #38BDF8); }
     .cv-hero-accent {
-      background: radial-gradient(circle, rgba(56, 189, 248, .12) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(56,189,248,.12) 0%, transparent 70%);
       filter: blur(80px);
     }
     .cv-hero-accent-2 {
-      background: radial-gradient(circle, rgba(14, 165, 233, .08) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(14,165,233,.08) 0%, transparent 70%);
       filter: blur(60px);
     }
     .cv-neon-blue-glow {
       text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #38BDF8, 0 0 42px #38BDF8, 0 0 82px #0EA5E9;
     }
+
+    .cv-lang-tag {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 20px;
+      background: rgba(56,189,248,.1);
+      border: 1px solid rgba(56,189,248,.2);
+      color: #7DD3FC;
+      font-size: 11px;
+      font-weight: 500;
+    }
+    .cv-lang-tag .level {
+      color: #94a3b8;
+      font-size: 9px;
+      margin-left: 4px;
+    }
+
+    /* fix card backgrounds in light mode */
+    .light-theme .bg-neutral-950 { background: #ffffff !important; }
+    .light-theme .bg-black { background: #f5f5f5 !important; }
+    .light-theme .border-white\/10 { border-color: rgba(0,0,0,0.08) !important; }
+    .light-theme .border-white\/20 { border-color: rgba(0,0,0,0.12) !important; }
+    .light-theme .bg-neutral-950\/80 { background: rgba(255,255,255,0.9) !important; }
+    .light-theme .cyber-card { background: rgba(0,0,0,.02); border-color: rgba(0,0,0,.06); }
+    .light-theme .terminal-header { background: rgba(0,0,0,.04); border-color: rgba(0,0,0,.06); }
+    .light-theme .flip-card-front,
+    .light-theme .flip-card-back { background: #ffffff !important; }
+    .light-theme .flip-card-front .bg-neutral-950 { background: #ffffff !important; }
+    .light-theme .flip-card-back .bg-neutral-950 { background: #ffffff !important; }
   </style>
 </head>
 
@@ -745,19 +726,27 @@
   <div class="grain" id="grain"></div>
 
   <!-- NAV -->
-  <nav id="nav" class="fixed top-0 left-0 w-full z-[9000] transition-all duration-500">
+  <nav id="nav" class="fixed top-0 left-0 w-full z-[9000] transition-all duration-500 border-b border-transparent">
     <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-      <a href="#hero" class="text-white font-bold text-lg tracking-tight">IB<span class="text-warm-500">.</span></a>
-      <div class="hidden md:flex items-center gap-8">
-        <a href="#projects" class="text-[11px] font-semibold tracking-[.2em] uppercase text-neutral-400 hover:text-white transition-colors">Projects</a>
-        <a href="#stockipa" class="text-[11px] font-semibold tracking-[.2em] uppercase text-neutral-400 hover:text-white transition-colors">Stockipa</a>
-        <a href="#cases" class="text-[11px] font-semibold tracking-[.2em] uppercase text-neutral-400 hover:text-white transition-colors">Case Studies</a>
-        <a href="#stack" class="text-[11px] font-semibold tracking-[.2em] uppercase text-neutral-400 hover:text-white transition-colors">Stack</a>
+      <a href="#hero" class="text-white font-bold text-lg tracking-tight" style="color:var(--text-primary)">IB<span class="text-warm-500">.</span></a>
+      <div class="hidden md:flex items-center gap-6">
+        <a href="#projects" class="text-[11px] font-semibold tracking-[.2em] uppercase text-neutral-400 hover:text-white transition-colors" style="color:var(--text-secondary)">Projects</a>
+        <a href="#stockipa" class="text-[11px] font-semibold tracking-[.2em] uppercase text-neutral-400 hover:text-white transition-colors" style="color:var(--text-secondary)">Stockipa</a>
+        <a href="#cases" class="text-[11px] font-semibold tracking-[.2em] uppercase text-neutral-400 hover:text-white transition-colors" style="color:var(--text-secondary)">Case Studies</a>
+        <a href="#stack" class="text-[11px] font-semibold tracking-[.2em] uppercase text-neutral-400 hover:text-white transition-colors" style="color:var(--text-secondary)">Stack</a>
+        <button onclick="toggleTheme()" class="theme-toggle w-9 h-9 rounded-full flex items-center justify-center" aria-label="Toggle theme">
+          <iconify-icon icon="lucide:moon" width="16" id="theme-icon"></iconify-icon>
+        </button>
         <a href="https://mail.google.com/mail/?view=cm&fs=1&to=injuguna308@gmail.com" target="_blank" rel="noopener noreferrer" class="text-[11px] font-semibold tracking-[.2em] uppercase bg-warm-500 text-white px-5 py-2.5 rounded-sm hover:bg-warm-600 transition-colors">Hire Me</a>
       </div>
-      <button id="mobile-menu-btn" class="md:hidden text-white"><iconify-icon icon="lucide:menu" width="24"></iconify-icon></button>
+      <div class="flex items-center gap-3 md:hidden">
+        <button onclick="toggleTheme()" class="theme-toggle w-9 h-9 rounded-full flex items-center justify-center" aria-label="Toggle theme">
+          <iconify-icon icon="lucide:moon" width="16" id="theme-icon-mobile"></iconify-icon>
+        </button>
+        <button id="mobile-menu-btn" class="text-white" style="color:var(--text-primary)"><iconify-icon icon="lucide:menu" width="24"></iconify-icon></button>
+      </div>
     </div>
-    <div id="mobile-menu" class="md:hidden hidden bg-black/95 backdrop-blur-md border-t border-white/10">
+    <div id="mobile-menu" class="md:hidden hidden bg-black/95 backdrop-blur-md border-t border-white/10" style="background:var(--bg-nav)">
       <div class="px-6 py-6 flex flex-col gap-4">
         <a href="#projects" class="text-sm font-semibold tracking-wider uppercase text-neutral-300 hover:text-warm-500 transition-colors mobile-link">Projects</a>
         <a href="#stockipa" class="text-sm font-semibold tracking-wider uppercase text-neutral-300 hover:text-warm-500 transition-colors mobile-link">Stockipa</a>
@@ -774,58 +763,58 @@
     <div class="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-warm-500/10 rounded-full blur-[150px]"></div>
     <div class="absolute bottom-1/3 right-1/5 w-[400px] h-[400px] bg-clay-500/5 rounded-full blur-[120px]"></div>
     <div class="relative z-10 text-center px-4">
-      <p class="text-[10px] font-semibold tracking-[.3em] uppercase text-warm-400 mb-6 pf-reveal">Mobile Developer · AI Engineer · Problem Solver</p>
-      <h1 class="text-[clamp(3rem,12vw,10rem)] font-black leading-[.85] tracking-tighter text-white pf-reveal pf-delay-1">
+      <p class="text-[10px] font-semibold tracking-[.3em] uppercase text-warm-400 mb-6 pf-reveal" style="color:var(--text-secondary)">Mobile Developer · AI Engineer · Problem Solver</p>
+      <h1 class="text-[clamp(3rem,12vw,10rem)] font-black leading-[.85] tracking-tighter pf-reveal pf-delay-1" style="color:var(--text-primary)">
         <span class="block">ISAAC</span>
         <span class="block text-transparent" style="-webkit-text-stroke:2px rgba(255,255,255,.2)">BRIDGET</span>
       </h1>
-      <div class="mt-6 pf-reveal pf-delay-2"><p class="text-neutral-500 text-sm md:text-base max-w-md mx-auto">Building apps that solve real problems, from finance tracking for small businesses to AI-powered image detection.</p></div>
+      <div class="mt-6 pf-reveal pf-delay-2"><p class="text-neutral-500 text-sm md:text-base max-w-md mx-auto" style="color:var(--text-secondary)">Building apps that solve real problems — from finance tracking for small businesses to AI-powered image detection.</p></div>
       <div class="mt-10 max-w-lg mx-auto pf-reveal pf-delay-3">
-        <div class="bg-neutral-950/80 border border-white/10 rounded-lg p-4 text-left font-mono text-[13px] backdrop-blur-sm">
+        <div class="bg-neutral-950/80 border border-white/10 rounded-lg p-4 text-left font-mono text-[13px] backdrop-blur-sm" style="background:var(--bg-card);border-color:var(--border-color)">
           <div class="flex items-center gap-2 mb-3">
             <div class="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
             <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div>
             <div class="w-2.5 h-2.5 rounded-full bg-green-500/80"></div>
-            <span class="ml-2 text-neutral-600 text-[10px]">isaac_bridget.js</span>
+            <span class="ml-2 text-neutral-600 text-[10px]" style="color:var(--text-secondary)">isaac_bridget.js</span>
           </div>
-          <div class="text-neutral-400 h-[72px] overflow-hidden leading-relaxed"><span id="typing-text"></span><span class="typing-cursor text-warm-500">│</span></div>
+          <div class="typing-area text-neutral-400 leading-relaxed" style="color:var(--text-secondary)"><span id="typing-text"></span><span class="typing-cursor text-warm-500">│</span></div>
         </div>
       </div>
       <div class="mt-8 flex items-center justify-center gap-4 pf-reveal pf-delay-4">
         <a href="#stockipa" class="inline-flex items-center gap-2 bg-warm-500 text-white text-[11px] font-bold tracking-[.15em] uppercase px-7 py-3.5 rounded-sm hover:bg-warm-600 transition-colors"><iconify-icon icon="lucide:star" width="13"></iconify-icon>Featured: Stockipa</a>
-        <button onclick="openCV()" class="inline-flex items-center gap-2 border border-white/20 text-white text-[11px] font-bold tracking-[.15em] uppercase px-7 py-3.5 rounded-sm hover:bg-white/5 transition-all"><iconify-icon icon="lucide:file-text" width="13"></iconify-icon>View CV</button>
+        <button onclick="openCV()" class="inline-flex items-center gap-2 border border-white/20 text-white text-[11px] font-bold tracking-[.15em] uppercase px-7 py-3.5 rounded-sm hover:bg-white/5 transition-all" style="border-color:var(--border-color);color:var(--text-primary)"><iconify-icon icon="lucide:file-text" width="13"></iconify-icon>View CV</button>
       </div>
     </div>
     <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 pf-reveal pf-delay-5">
-      <span class="text-[10px] tracking-[.2em] uppercase text-neutral-600">Scroll</span>
+      <span class="text-[10px] tracking-[.2em] uppercase text-neutral-600" style="color:var(--text-secondary)">Scroll</span>
       <div class="w-px h-10 bg-gradient-to-b from-warm-500/60 to-transparent"></div>
     </div>
   </section>
 
   <!-- STATS -->
-  <section class="relative border-y border-white/10 bg-neutral-950">
+  <section class="relative border-y border-white/10 bg-neutral-950" style="border-color:var(--border-color);background:var(--bg-secondary)">
     <div class="max-w-7xl mx-auto px-6 py-8 grid grid-cols-2 md:grid-cols-4 gap-6">
-      <div class="text-center pf-reveal"><div class="text-3xl md:text-4xl font-black text-white counter" data-target="7">0</div><div class="text-[10px] tracking-[.2em] uppercase text-neutral-500 mt-1">Projects Built</div></div>
-      <div class="text-center pf-reveal pf-delay-1"><div class="text-3xl md:text-4xl font-black text-white counter" data-target="4">0</div><div class="text-[10px] tracking-[.2em] uppercase text-neutral-500 mt-1">Languages</div></div>
-      <div class="text-center pf-reveal pf-delay-2"><div class="text-3xl md:text-4xl font-black text-white counter" data-target="5">0</div><div class="text-[10px] tracking-[.2em] uppercase text-neutral-500 mt-1">AI Models Trained</div></div>
-      <div class="text-center pf-reveal pf-delay-3"><div class="text-3xl md:text-4xl font-black text-white">100<span class="text-warm-500">%</span></div><div class="text-[10px] tracking-[.2em] uppercase text-neutral-500 mt-1">Offline Capable</div></div>
+      <div class="text-center pf-reveal"><div class="text-3xl md:text-4xl font-black counter" data-target="7" style="color:var(--text-primary)">0</div><div class="text-[10px] tracking-[.2em] uppercase text-neutral-500 mt-1" style="color:var(--text-secondary)">Projects Built</div></div>
+      <div class="text-center pf-reveal pf-delay-1"><div class="text-3xl md:text-4xl font-black counter" data-target="4" style="color:var(--text-primary)">0</div><div class="text-[10px] tracking-[.2em] uppercase text-neutral-500 mt-1" style="color:var(--text-secondary)">Languages</div></div>
+      <div class="text-center pf-reveal pf-delay-2"><div class="text-3xl md:text-4xl font-black counter" data-target="5" style="color:var(--text-primary)">0</div><div class="text-[10px] tracking-[.2em] uppercase text-neutral-500 mt-1" style="color:var(--text-secondary)">AI Models Trained</div></div>
+      <div class="text-center pf-reveal pf-delay-3"><div class="text-3xl md:text-4xl font-black" style="color:var(--text-primary)">100<span class="text-warm-500">%</span></div><div class="text-[10px] tracking-[.2em] uppercase text-neutral-500 mt-1" style="color:var(--text-secondary)">Offline Capable</div></div>
     </div>
   </section>
 
   <!-- STOCKIPA -->
-  <section id="stockipa" class="relative py-24 md:py-32 overflow-hidden">
+  <section id="stockipa" class="relative py-24 md:py-32 overflow-hidden" style="background:var(--bg-primary)">
     <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-warm-500/5 rounded-full blur-[150px]"></div>
     <div class="max-w-7xl mx-auto px-6">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
         <div>
           <div class="pf-reveal"><div class="inline-flex items-center gap-2 bg-warm-500/10 border border-warm-500/20 rounded-sm px-3 py-1.5 mb-6"><iconify-icon icon="lucide:star" width="12" class="text-warm-500"></iconify-icon><span class="text-[10px] font-bold tracking-[.2em] uppercase text-warm-500">Featured Project</span></div></div>
-          <h2 class="text-5xl md:text-7xl font-black tracking-tighter text-white pf-reveal pf-delay-1">STOCKIPA</h2>
-          <p class="text-neutral-400 mt-4 text-sm leading-relaxed pf-reveal pf-delay-2">No more overspending. No more business bankruptcy. A finance-tracking app built for real business people from mtumba sellers to mama mbogas.</p>
+          <h2 class="text-5xl md:text-7xl font-black tracking-tighter pf-reveal pf-delay-1" style="color:var(--text-primary)">STOCKIPA</h2>
+          <p class="mt-4 text-sm leading-relaxed pf-reveal pf-delay-2" style="color:var(--text-secondary)">No more overspending. No more business bankruptcy. A finance-tracking app built for real business people — from mtumba sellers to mama mbogas.</p>
           <div class="mt-8 space-y-4 pf-reveal pf-delay-3">
-            <div class="flex items-start gap-3"><div class="w-6 h-6 rounded-sm bg-warm-500/10 border border-warm-500/20 flex items-center justify-center flex-shrink-0 mt-0.5"><iconify-icon icon="lucide:scan-line" width="12" class="text-warm-500"></iconify-icon></div><div><h4 class="text-sm font-bold text-white">Bill Scanning</h4><p class="text-xs text-neutral-500">Scan physical money to add sales or expenses sell a pen at 10 bob, scan it, done.</p></div></div>
-            <div class="flex items-start gap-3"><div class="w-6 h-6 rounded-sm bg-warm-500/10 border border-warm-500/20 flex items-center justify-center flex-shrink-0 mt-0.5"><iconify-icon icon="lucide:message-square" width="12" class="text-warm-500"></iconify-icon></div><div><h4 class="text-sm font-bold text-white">M-Pesa Auto-Tracking</h4><p class="text-xs text-neutral-500">M-Pesa messages are automatically recorded send money, it's logged as expense. Receive money, it's a sale.</p></div></div>
-            <div class="flex items-start gap-3"><div class="w-6 h-6 rounded-sm bg-warm-500/10 border border-warm-500/20 flex items-center justify-center flex-shrink-0 mt-0.5"><iconify-icon icon="lucide:bar-chart-3" width="12" class="text-warm-500"></iconify-icon></div><div><h4 class="text-sm font-bold text-white">Smart Tracking</h4><p class="text-xs text-neutral-500">Daily, weekly, monthly, yearly views. Charts, calendar pickers, search see exactly where your money goes.</p></div></div>
-            <div class="flex items-start gap-3"><div class="w-6 h-6 rounded-sm bg-warm-500/10 border border-warm-500/20 flex items-center justify-center flex-shrink-0 mt-0.5"><iconify-icon icon="lucide:package" width="12" class="text-warm-500"></iconify-icon></div><div><h4 class="text-sm font-bold text-white">Stock Management</h4><p class="text-xs text-neutral-500">Add items with buying price, quantity, selling price. Low stock alerts. Profit tracking per item.</p></div></div>
+            <div class="flex items-start gap-3"><div class="w-6 h-6 rounded-sm bg-warm-500/10 border border-warm-500/20 flex items-center justify-center flex-shrink-0 mt-0.5"><iconify-icon icon="lucide:scan-line" width="12" class="text-warm-500"></iconify-icon></div><div><h4 class="text-sm font-bold" style="color:var(--text-primary)">Bill Scanning</h4><p class="text-xs" style="color:var(--text-secondary)">Scan physical money to add sales or expenses — sell a pen at 10 bob, scan it, done.</p></div></div>
+            <div class="flex items-start gap-3"><div class="w-6 h-6 rounded-sm bg-warm-500/10 border border-warm-500/20 flex items-center justify-center flex-shrink-0 mt-0.5"><iconify-icon icon="lucide:message-square" width="12" class="text-warm-500"></iconify-icon></div><div><h4 class="text-sm font-bold" style="color:var(--text-primary)">M-Pesa Auto-Tracking</h4><p class="text-xs" style="color:var(--text-secondary)">M-Pesa messages are automatically recorded — send money, it's logged as expense. Receive money, it's a sale.</p></div></div>
+            <div class="flex items-start gap-3"><div class="w-6 h-6 rounded-sm bg-warm-500/10 border border-warm-500/20 flex items-center justify-center flex-shrink-0 mt-0.5"><iconify-icon icon="lucide:bar-chart-3" width="12" class="text-warm-500"></iconify-icon></div><div><h4 class="text-sm font-bold" style="color:var(--text-primary)">Smart Tracking</h4><p class="text-xs" style="color:var(--text-secondary)">Daily, weekly, monthly, yearly views. Charts, calendar pickers, search — see exactly where your money goes.</p></div></div>
+            <div class="flex items-start gap-3"><div class="w-6 h-6 rounded-sm bg-warm-500/10 border border-warm-500/20 flex items-center justify-center flex-shrink-0 mt-0.5"><iconify-icon icon="lucide:package" width="12" class="text-warm-500"></iconify-icon></div><div><h4 class="text-sm font-bold" style="color:var(--text-primary)">Stock Management</h4><p class="text-xs" style="color:var(--text-secondary)">Add items with buying price, quantity, selling price. Low stock alerts. Profit tracking per item.</p></div></div>
           </div>
           <div class="mt-8 flex flex-wrap gap-3 pf-reveal pf-delay-4">
             <span class="text-[9px] font-semibold tracking-wider uppercase bg-green-500/10 text-green-400 border border-green-500/20 px-3 py-1.5 rounded-sm">Offline</span>
@@ -836,7 +825,7 @@
           </div>
         </div>
         <div class="relative pf-reveal pf-delay-2">
-          <div class="relative rounded-sm border border-white/10 overflow-hidden featured-glow scan-line-fx">
+          <div class="relative rounded-sm border border-white/10 overflow-hidden featured-glow scan-line-fx" style="border-color:var(--border-color)">
             <img src="https://picsum.photos/seed/stockipa-main-screen/700/900.jpg" alt="Stockipa App" class="w-full h-[500px] md:h-[600px] object-cover" style="filter:contrast(1.1) brightness(.8)" loading="lazy" />
             <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
             <div class="absolute bottom-6 left-6 right-6">
@@ -848,7 +837,7 @@
               </div>
             </div>
           </div>
-          <div class="hidden lg:block absolute -right-8 top-16 w-40 h-72 rounded-xl border border-white/10 overflow-hidden float-anim">
+          <div class="hidden lg:block absolute -right-8 top-16 w-40 h-72 rounded-xl border border-white/10 overflow-hidden float-anim" style="border-color:var(--border-color)">
             <img src="https://picsum.photos/seed/stockipa-tracking/300/540.jpg" alt="Stockipa Tracking" class="w-full h-full object-cover" style="filter:contrast(1.15) brightness(.7)" loading="lazy" />
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
             <div class="absolute bottom-3 left-3 right-3"><div class="text-[8px] font-bold tracking-widest uppercase text-warm-500">Yearly Chart</div><div class="text-[10px] text-neutral-300 mt-0.5">Monthly overview</div></div>
@@ -856,24 +845,24 @@
         </div>
       </div>
       <div class="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div class="border border-white/10 rounded-sm bg-neutral-950 p-5 pf-reveal pf-delay-1 hover:border-warm-500/30 transition-colors"><div class="w-8 h-8 rounded-sm bg-warm-500/10 flex items-center justify-center mb-3"><iconify-icon icon="lucide:home" width="14" class="text-warm-500"></iconify-icon></div><h4 class="text-sm font-bold text-white mb-1">Home Page</h4><p class="text-[11px] text-neutral-500">Add sales/expenses manually or scan bills. M-Pesa auto-recorded. Daily totals show saved or overspent.</p></div>
-        <div class="border border-white/10 rounded-sm bg-neutral-950 p-5 pf-reveal pf-delay-2 hover:border-warm-500/30 transition-colors"><div class="w-8 h-8 rounded-sm bg-warm-500/10 flex items-center justify-center mb-3"><iconify-icon icon="lucide:trending-up" width="14" class="text-warm-500"></iconify-icon></div><h4 class="text-sm font-bold text-white mb-1">Tracking Page</h4><p class="text-[11px] text-neutral-500">Daily, weekly, monthly, yearly views. Yearly chart. Calendar picker. Search. Daily performance.</p></div>
-        <div class="border border-white/10 rounded-sm bg-neutral-950 p-5 pf-reveal pf-delay-3 hover:border-warm-500/30 transition-colors"><div class="w-8 h-8 rounded-sm bg-warm-500/10 flex items-center justify-center mb-3"><iconify-icon icon="lucide:package" width="14" class="text-warm-500"></iconify-icon></div><h4 class="text-sm font-bold text-white mb-1">Stock Management</h4><p class="text-[11px] text-neutral-500">Item name, buying price, quantity, selling price. Whole-item mode. Low stock alerts. Profit tracking.</p></div>
-        <div class="border border-white/10 rounded-sm bg-neutral-950 p-5 pf-reveal pf-delay-4 hover:border-warm-500/30 transition-colors"><div class="w-8 h-8 rounded-sm bg-warm-500/10 flex items-center justify-center mb-3"><iconify-icon icon="lucide:settings" width="14" class="text-warm-500"></iconify-icon></div><h4 class="text-sm font-bold text-white mb-1">Settings</h4><p class="text-[11px] text-neutral-500">Language (English, Kiswahili, Chinese — currency auto-switches). Light/dark mode. Clear all data.</p></div>
+        <div class="border border-white/10 rounded-sm bg-neutral-950 p-5 pf-reveal pf-delay-1 hover:border-warm-500/30 transition-colors" style="border-color:var(--border-color);background:var(--bg-card)"><div class="w-8 h-8 rounded-sm bg-warm-500/10 flex items-center justify-center mb-3"><iconify-icon icon="lucide:home" width="14" class="text-warm-500"></iconify-icon></div><h4 class="text-sm font-bold mb-1" style="color:var(--text-primary)">Home Page</h4><p class="text-[11px]" style="color:var(--text-secondary)">Add sales/expenses manually or scan bills. M-Pesa auto-recorded. Daily totals show saved or overspent.</p></div>
+        <div class="border border-white/10 rounded-sm bg-neutral-950 p-5 pf-reveal pf-delay-2 hover:border-warm-500/30 transition-colors" style="border-color:var(--border-color);background:var(--bg-card)"><div class="w-8 h-8 rounded-sm bg-warm-500/10 flex items-center justify-center mb-3"><iconify-icon icon="lucide:trending-up" width="14" class="text-warm-500"></iconify-icon></div><h4 class="text-sm font-bold mb-1" style="color:var(--text-primary)">Tracking Page</h4><p class="text-[11px]" style="color:var(--text-secondary)">Daily, weekly, monthly, yearly views. Yearly chart. Calendar picker. Search. Daily performance.</p></div>
+        <div class="border border-white/10 rounded-sm bg-neutral-950 p-5 pf-reveal pf-delay-3 hover:border-warm-500/30 transition-colors" style="border-color:var(--border-color);background:var(--bg-card)"><div class="w-8 h-8 rounded-sm bg-warm-500/10 flex items-center justify-center mb-3"><iconify-icon icon="lucide:package" width="14" class="text-warm-500"></iconify-icon></div><h4 class="text-sm font-bold mb-1" style="color:var(--text-primary)">Stock Management</h4><p class="text-[11px]" style="color:var(--text-secondary)">Item name, buying price, quantity, selling price. Whole-item mode. Low stock alerts. Profit tracking.</p></div>
+        <div class="border border-white/10 rounded-sm bg-neutral-950 p-5 pf-reveal pf-delay-4 hover:border-warm-500/30 transition-colors" style="border-color:var(--border-color);background:var(--bg-card)"><div class="w-8 h-8 rounded-sm bg-warm-500/10 flex items-center justify-center mb-3"><iconify-icon icon="lucide:settings" width="14" class="text-warm-500"></iconify-icon></div><h4 class="text-sm font-bold mb-1" style="color:var(--text-primary)">Settings</h4><p class="text-[11px]" style="color:var(--text-secondary)">Language (English, Kiswahili, Chinese — currency auto-switches). Light/dark mode. Clear all data.</p></div>
       </div>
     </div>
   </section>
 
   <!-- PROJECTS -->
-  <section id="projects" class="relative py-24 md:py-32 border-t border-white/10">
+  <section id="projects" class="relative py-24 md:py-32 border-t border-white/10" style="border-color:var(--border-color);background:var(--bg-primary)">
     <div class="max-w-7xl mx-auto px-6">
       <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
-        <div class="pf-reveal"><p class="text-[10px] font-semibold tracking-[.3em] uppercase text-warm-400 mb-3">All Work</p><h2 class="text-4xl md:text-5xl font-black tracking-tighter uppercase">Projects</h2></div>
+        <div class="pf-reveal"><p class="text-[10px] font-semibold tracking-[.3em] uppercase text-warm-400 mb-3">All Work</p><h2 class="text-4xl md:text-5xl font-black tracking-tighter uppercase" style="color:var(--text-primary)">Projects</h2></div>
         <div class="flex gap-2 pf-reveal pf-delay-1 flex-wrap" id="filter-buttons">
-          <button class="filter-btn active text-[10px] font-semibold tracking-[.15em] uppercase border border-white/20 px-4 py-2 rounded-sm transition-all" data-filter="all">All</button>
-          <button class="filter-btn text-[10px] font-semibold tracking-[.15em] uppercase border border-white/20 text-neutral-400 px-4 py-2 rounded-sm hover:text-white hover:border-white/40 transition-all" data-filter="mobile">Mobile</button>
-          <button class="filter-btn text-[10px] font-semibold tracking-[.15em] uppercase border border-white/20 text-neutral-400 px-4 py-2 rounded-sm hover:text-white hover:border-white/40 transition-all" data-filter="ai">AI / ML</button>
-          <button class="filter-btn text-[10px] font-semibold tracking-[.15em] uppercase border border-white/20 text-neutral-400 px-4 py-2 rounded-sm hover:text-white hover:border-white/40 transition-all" data-filter="web">Web</button>
+          <button class="filter-btn active text-[10px] font-semibold tracking-[.15em] uppercase border border-white/20 px-4 py-2 rounded-sm transition-all" data-filter="all" style="border-color:var(--border-color)">All</button>
+          <button class="filter-btn text-[10px] font-semibold tracking-[.15em] uppercase border border-white/20 text-neutral-400 px-4 py-2 rounded-sm hover:text-white hover:border-white/40 transition-all" data-filter="mobile" style="border-color:var(--border-color);color:var(--text-secondary)">Mobile</button>
+          <button class="filter-btn text-[10px] font-semibold tracking-[.15em] uppercase border border-white/20 text-neutral-400 px-4 py-2 rounded-sm hover:text-white hover:border-white/40 transition-all" data-filter="ai" style="border-color:var(--border-color);color:var(--text-secondary)">AI / ML</button>
+          <button class="filter-btn text-[10px] font-semibold tracking-[.15em] uppercase border border-white/20 text-neutral-400 px-4 py-2 rounded-sm hover:text-white hover:border-white/40 transition-all" data-filter="web" style="border-color:var(--border-color);color:var(--text-secondary)">Web</button>
         </div>
       </div>
       <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
@@ -881,74 +870,74 @@
   </section>
 
   <!-- CASE STUDIES -->
-  <section id="cases" class="relative py-24 md:py-32 border-t border-white/10">
+  <section id="cases" class="relative py-24 md:py-32 border-t border-white/10" style="border-color:var(--border-color);background:var(--bg-secondary)">
     <div class="max-w-7xl mx-auto px-6 mb-12">
-      <div class="pf-reveal"><p class="text-[10px] font-semibold tracking-[.3em] uppercase text-warm-400 mb-3">Deep Dives</p><h2 class="text-4xl md:text-5xl font-black tracking-tighter uppercase">Case Studies</h2></div>
+      <div class="pf-reveal"><p class="text-[10px] font-semibold tracking-[.3em] uppercase text-warm-400 mb-3">Deep Dives</p><h2 class="text-4xl md:text-5xl font-black tracking-tighter uppercase" style="color:var(--text-primary)">Case Studies</h2></div>
     </div>
     <div class="relative overflow-hidden" id="carousel-container">
       <div class="carousel-track px-6 md:px-[max(1.5rem,calc((100vw-80rem)/2+1.5rem))]" id="carousel-track"></div>
     </div>
     <div class="max-w-7xl mx-auto px-6 mt-8 flex items-center gap-4 pf-reveal">
-      <button id="carousel-prev" class="w-12 h-12 border border-white/20 rounded-sm flex items-center justify-center text-neutral-400 hover:text-white hover:border-warm-500 hover:bg-warm-500/10 transition-all"><iconify-icon icon="lucide:arrow-left" width="18"></iconify-icon></button>
-      <button id="carousel-next" class="w-12 h-12 border border-white/20 rounded-sm flex items-center justify-center text-neutral-400 hover:text-white hover:border-warm-500 hover:bg-warm-500/10 transition-all"><iconify-icon icon="lucide:arrow-right" width="18"></iconify-icon></button>
-      <div class="flex-1 h-px bg-white/10"></div>
+      <button id="carousel-prev" class="w-12 h-12 border border-white/20 rounded-sm flex items-center justify-center transition-all" style="border-color:var(--border-color);color:var(--text-secondary)"><iconify-icon icon="lucide:arrow-left" width="18"></iconify-icon></button>
+      <button id="carousel-next" class="w-12 h-12 border border-white/20 rounded-sm flex items-center justify-center transition-all" style="border-color:var(--border-color);color:var(--text-secondary)"><iconify-icon icon="lucide:arrow-right" width="18"></iconify-icon></button>
+      <div class="flex-1 h-px bg-white/10" style="background:var(--border-color)"></div>
       <div id="carousel-dots" class="flex gap-2"></div>
     </div>
   </section>
 
   <!-- TECH STACK + Acknowledgements -->
-  <section id="stack" class="relative py-24 md:py-32 border-t border-white/10">
+  <section id="stack" class="relative py-24 md:py-32 border-t border-white/10" style="border-color:var(--border-color);background:var(--bg-primary)">
     <div class="max-w-7xl mx-auto px-6">
-      <div class="text-center mb-16 pf-reveal"><p class="text-[10px] font-semibold tracking-[.3em] uppercase text-warm-400 mb-3">Arsenal</p><h2 class="text-4xl md:text-5xl font-black tracking-tighter uppercase">Tech Stack</h2></div>
+      <div class="text-center mb-16 pf-reveal"><p class="text-[10px] font-semibold tracking-[.3em] uppercase text-warm-400 mb-3">Arsenal</p><h2 class="text-4xl md:text-5xl font-black tracking-tighter uppercase" style="color:var(--text-primary)">Tech Stack</h2></div>
       <div id="tech-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"></div>
 
       <!-- Acknowledgements & Tools -->
-      <div class="mt-24 border-t border-white/10 pt-16 pf-reveal">
+      <div class="mt-24 border-t border-white/10 pt-16 pf-reveal" style="border-color:var(--border-color)">
         <div class="text-center mb-12">
           <p class="text-[10px] font-semibold tracking-[.3em] uppercase text-clay-400 mb-3">Context</p>
-          <h3 class="text-3xl md:text-4xl font-black tracking-tight">Acknowledgements &amp; Tools</h3>
-          <p class="text-neutral-400 max-w-2xl mx-auto mt-4 text-sm">The people and tools that amplified my thinking and the hands-on work that made it real.</p>
+          <h3 class="text-3xl md:text-4xl font-black tracking-tight" style="color:var(--text-primary)">Acknowledgements &amp; Tools</h3>
+          <p class="max-w-2xl mx-auto mt-4 text-sm" style="color:var(--text-secondary)">The people and tools that amplified my thinking — and the hands-on work that made it real.</p>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
-          <div class="bg-neutral-950/80 border border-white/10 rounded-lg p-6 hover:border-warm-500/30 transition-colors">
+          <div class="bg-neutral-950/80 border border-white/10 rounded-lg p-6 hover:border-warm-500/30 transition-colors" style="background:var(--bg-card);border-color:var(--border-color)">
             <h4 class="text-warm-400 font-bold mb-2">🧠 My Cousin Jermain</h4>
-            <p class="text-neutral-400 leading-relaxed">The simplest debugger. Explaining problems to an 8-year-old forced me to break down complexity into plain language, prompt engineering started with him, not ChatGPT.</p>
+            <p class="leading-relaxed" style="color:var(--text-secondary)">The simplest debugger. Explaining problems to an 8-year-old forced me to break down complexity into plain language — prompt engineering started with him, not ChatGPT.</p>
           </div>
-          <div class="bg-neutral-950/80 border border-white/10 rounded-lg p-6 hover:border-warm-500/30 transition-colors">
+          <div class="bg-neutral-950/80 border border-white/10 rounded-lg p-6 hover:border-warm-500/30 transition-colors" style="background:var(--bg-card);border-color:var(--border-color)">
             <h4 class="text-warm-400 font-bold mb-2">📺 YouTube</h4>
-            <p class="text-neutral-400 leading-relaxed">My classroom. Visual, step-by-step environment setup VS Code extensions, terminals, paths. Free, accessible, and foundational.</p>
+            <p class="leading-relaxed" style="color:var(--text-secondary)">My classroom. Visual, step-by-step environment setup — VS Code extensions, terminals, paths. Free, accessible, and foundational.</p>
           </div>
-          <div class="bg-neutral-950/80 border border-white/10 rounded-lg p-6 hover:border-warm-500/30 transition-colors">
+          <div class="bg-neutral-950/80 border border-white/10 rounded-lg p-6 hover:border-warm-500/30 transition-colors" style="background:var(--bg-card);border-color:var(--border-color)">
             <h4 class="text-warm-400 font-bold mb-2">🤖 ChatGPT</h4>
-            <p class="text-neutral-400 leading-relaxed">Prompt engineering partner. Iterative refinement, structuring messy ideas, and teaching me that output quality depends entirely on input quality.</p>
+            <p class="leading-relaxed" style="color:var(--text-secondary)">Prompt engineering partner. Iterative refinement, structuring messy ideas, and teaching me that output quality depends entirely on input quality.</p>
           </div>
-          <div class="bg-neutral-950/80 border border-white/10 rounded-lg p-6 hover:border-warm-500/30 transition-colors">
+          <div class="bg-neutral-950/80 border border-white/10 rounded-lg p-6 hover:border-warm-500/30 transition-colors" style="background:var(--bg-card);border-color:var(--border-color)">
             <h4 class="text-warm-400 font-bold mb-2">🧬 Claude</h4>
-            <p class="text-neutral-400 leading-relaxed">Advanced debugger. Deep reasoning, long-context understanding, and honest explanations the senior developer voice that catches what others miss.</p>
+            <p class="leading-relaxed" style="color:var(--text-secondary)">Advanced debugger. Deep reasoning, long-context understanding, and honest explanations — the senior developer voice that catches what others miss.</p>
           </div>
-          <div class="bg-neutral-950/80 border border-white/10 rounded-lg p-6 hover:border-warm-500/30 transition-colors">
+          <div class="bg-neutral-950/80 border border-white/10 rounded-lg p-6 hover:border-warm-500/30 transition-colors" style="background:var(--bg-card);border-color:var(--border-color)">
             <h4 class="text-warm-400 font-bold mb-2">⚡ Gemini</h4>
-            <p class="text-neutral-400 leading-relaxed">Feature expansion. Adding new features fast, cross-referencing APIs, and iterative debugging the growth engine from prototype to product.</p>
+            <p class="leading-relaxed" style="color:var(--text-secondary)">Feature expansion. Adding new features fast, cross-referencing APIs, and iterative debugging — the growth engine from prototype to product.</p>
           </div>
-          <div class="bg-neutral-950/80 border border-white/10 rounded-lg p-6 hover:border-warm-500/30 transition-colors">
+          <div class="bg-neutral-950/80 border border-white/10 rounded-lg p-6 hover:border-warm-500/30 transition-colors" style="background:var(--bg-card);border-color:var(--border-color)">
             <h4 class="text-warm-400 font-bold mb-2">⌨️ GitHub Copilot</h4>
-            <p class="text-neutral-400 leading-relaxed">Inline code generation. Boilerplate, configs, and repetitive code so I could keep thinking while it typed.</p>
+            <p class="leading-relaxed" style="color:var(--text-secondary)">Inline code generation. Boilerplate, configs, and repetitive code — so I could keep thinking while it typed.</p>
           </div>
-          <div class="bg-neutral-950/80 border border-white/10 rounded-lg p-6 hover:border-warm-500/30 transition-colors">
+          <div class="bg-neutral-950/80 border border-white/10 rounded-lg p-6 hover:border-warm-500/30 transition-colors" style="background:var(--bg-card);border-color:var(--border-color)">
             <h4 class="text-warm-400 font-bold mb-2">🎨 Visily</h4>
-            <p class="text-neutral-400 leading-relaxed">Rapid UI prototyping. AI-powered layouts from text descriptions low barrier, high speed, perfect for early-stage flow testing.</p>
+            <p class="leading-relaxed" style="color:var(--text-secondary)">Rapid UI prototyping. AI-powered layouts from text descriptions — low barrier, high speed, perfect for early-stage flow testing.</p>
           </div>
-          <div class="bg-neutral-950/80 border border-white/10 rounded-lg p-6 hover:border-warm-500/30 transition-colors">
+          <div class="bg-neutral-950/80 border border-white/10 rounded-lg p-6 hover:border-warm-500/30 transition-colors" style="background:var(--bg-card);border-color:var(--border-color)">
             <h4 class="text-warm-400 font-bold mb-2">✨ Figma AI</h4>
-            <p class="text-neutral-400 leading-relaxed">Polished UI design. Refining layouts, consistent styles, and responsive components bridging the gap between "it works" and "it looks professional."</p>
+            <p class="leading-relaxed" style="color:var(--text-secondary)">Polished UI design. Refining layouts, consistent styles, and responsive components — bridging the gap between "it works" and "it looks professional."</p>
           </div>
-          <div class="bg-neutral-950/80 border border-white/10 rounded-lg p-6 hover:border-warm-500/30 transition-colors md:col-span-2">
+          <div class="bg-neutral-950/80 border border-white/10 rounded-lg p-6 hover:border-warm-500/30 transition-colors md:col-span-2" style="background:var(--bg-card);border-color:var(--border-color)">
             <h4 class="text-clay-400 font-bold mb-2">🖥️ PowerShell — My Own Hands-On Effort</h4>
-            <p class="text-neutral-400 leading-relaxed">No AI wrote my PowerShell scripts. I wrote them to manage files, run builds, automate tasks, and navigate my system when GUI tools fell short.</p>
+            <p class="leading-relaxed" style="color:var(--text-secondary)">No AI wrote my PowerShell scripts. I wrote them to manage files, run builds, automate tasks, and navigate my system when GUI tools fell short. This is the unsexy, unglamorous work that proves I wasn't just prompting — I was building.</p>
           </div>
-          <div class="bg-neutral-950/80 border border-white/10 rounded-lg p-6 hover:border-warm-500/30 transition-colors md:col-span-2">
-            <h4 class="text-white font-bold mb-2">💡 What I Want People to Understand</h4>
-            <p class="text-neutral-400 leading-relaxed">I did not take a shortcut. I took a smart route. Every AI tool required me to know what to ask, recognise when the answer was wrong, test and adapt, and make the final decision on every line. AI didn't replace my thinking it amplified it.</p>
+          <div class="bg-neutral-950/80 border border-white/10 rounded-lg p-6 hover:border-warm-500/30 transition-colors md:col-span-2" style="background:var(--bg-card);border-color:var(--border-color)">
+            <h4 class="font-bold" style="color:var(--text-primary)">💡 What I Want People to Understand</h4>
+            <p class="leading-relaxed" style="color:var(--text-secondary)">I did not take a shortcut. I took a smart route. Every AI tool required me to know what to ask, recognise when the answer was wrong, test and adapt, and make the final decision on every line. AI didn't replace my thinking — it amplified it.</p>
           </div>
         </div>
       </div>
@@ -956,52 +945,57 @@
   </section>
 
   <!-- CONTACT -->
-  <section id="contact" class="relative py-24 md:py-32 border-t border-white/10">
+  <section id="contact" class="relative py-24 md:py-32 border-t border-white/10" style="border-color:var(--border-color);background:var(--bg-secondary)">
     <div class="max-w-3xl mx-auto px-6 text-center">
       <p class="text-[10px] font-semibold tracking-[.3em] uppercase text-warm-400 mb-4 pf-reveal">Available for Work</p>
-      <h2 class="text-4xl md:text-6xl font-black tracking-tighter uppercase pf-reveal pf-delay-1">Let's Build<br>Something <span class="text-warm-500">Real</span></h2>
-      <p class="text-neutral-400 mt-6 text-sm leading-relaxed max-w-md mx-auto pf-reveal pf-delay-2">I build apps that solve actual problems for real people. If you have an idea or just need a solid developer let's talk.</p>
+      <h2 class="text-4xl md:text-6xl font-black tracking-tighter uppercase pf-reveal pf-delay-1" style="color:var(--text-primary)">Let's Build<br>Something <span class="text-warm-500">Real</span></h2>
+      <p class="mt-6 text-sm leading-relaxed max-w-md mx-auto pf-reveal pf-delay-2" style="color:var(--text-secondary)">I build apps that solve actual problems for real people. If you have an idea — or just need a solid developer — let's talk.</p>
       <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center pf-reveal pf-delay-3">
         <a href="https://mail.google.com/mail/?view=cm&fs=1&to=injuguna308@gmail.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 bg-warm-500 text-white text-[11px] font-bold tracking-[.15em] uppercase px-8 py-4 rounded-sm hover:bg-warm-600 transition-colors pulse-cta"><iconify-icon icon="lucide:mail" width="14"></iconify-icon>Get in Touch</a>
-        <button onclick="openCV()" class="inline-flex items-center justify-center gap-2 border border-white/20 text-white text-[11px] font-bold tracking-[.15em] uppercase px-8 py-4 rounded-sm hover:bg-white/5 hover:border-white/40 transition-all"><iconify-icon icon="lucide:file-text" width="14"></iconify-icon>View CV</button>
+        <button onclick="openCV()" class="inline-flex items-center justify-center gap-2 border border-white/20 text-white text-[11px] font-bold tracking-[.15em] uppercase px-8 py-4 rounded-sm hover:bg-white/5 hover:border-white/40 transition-all" style="border-color:var(--border-color);color:var(--text-primary)"><iconify-icon icon="lucide:file-text" width="14"></iconify-icon>View CV</button>
       </div>
       <div class="mt-16 flex justify-center gap-6 pf-reveal pf-delay-4">
-        <a href="#" class="text-neutral-500 hover:text-warm-500 transition-colors"><iconify-icon icon="lucide:github" width="20"></iconify-icon></a>
-        <a href="#" class="text-neutral-500 hover:text-warm-500 transition-colors"><iconify-icon icon="lucide:linkedin" width="20"></iconify-icon></a>
-        <a href="#" class="text-neutral-500 hover:text-warm-500 transition-colors"><iconify-icon icon="lucide:twitter" width="20"></iconify-icon></a>
-        <a href="#" class="text-neutral-500 hover:text-warm-500 transition-colors"><iconify-icon icon="lucide:instagram" width="20"></iconify-icon></a>
+        <a href="#" class="text-neutral-500 hover:text-warm-500 transition-colors" style="color:var(--text-secondary)"><iconify-icon icon="lucide:github" width="20"></iconify-icon></a>
+        <a href="#" class="text-neutral-500 hover:text-warm-500 transition-colors" style="color:var(--text-secondary)"><iconify-icon icon="lucide:linkedin" width="20"></iconify-icon></a>
+        <a href="#" class="text-neutral-500 hover:text-warm-500 transition-colors" style="color:var(--text-secondary)"><iconify-icon icon="lucide:twitter" width="20"></iconify-icon></a>
+        <a href="#" class="text-neutral-500 hover:text-warm-500 transition-colors" style="color:var(--text-secondary)"><iconify-icon icon="lucide:instagram" width="20"></iconify-icon></a>
       </div>
     </div>
   </section>
 
-  <footer class="border-t border-white/10 py-8">
+  <footer class="border-t border-white/10 py-8" style="border-color:var(--border-color);background:var(--bg-primary)">
     <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
-      <p class="text-[11px] text-neutral-600">© 2026 Isaac Bridget. All rights reserved.</p>
-      <p class="text-[11px] text-neutral-600">Designed & coded with purpose.</p>
+      <p class="text-[11px]" style="color:var(--text-secondary)">© 2024 Isaac Bridget. All rights reserved.</p>
+      <p class="text-[11px]" style="color:var(--text-secondary)">Designed & coded with purpose.</p>
     </div>
   </footer>
 
   <!-- STICKY CTA -->
-  <div id="sticky-cta" class="fixed bottom-0 left-0 w-full z-[8000] bg-black/90 backdrop-blur-md border-t border-white/10 py-4 px-6">
+  <div id="sticky-cta" class="fixed bottom-0 left-0 w-full z-[8000] bg-black/90 backdrop-blur-md border-t border-white/10 py-4 px-6" style="background:var(--bg-nav);border-color:var(--border-color)">
     <div class="max-w-7xl mx-auto flex items-center justify-between">
-      <p class="text-sm text-neutral-300 hidden sm:block">Have a project in mind?</p>
+      <p class="text-sm hidden sm:block" style="color:var(--text-secondary)">Have a project in mind?</p>
       <a href="https://mail.google.com/mail/?view=cm&fs=1&to=injuguna308@gmail.com" target="_blank" rel="noopener noreferrer" class="ml-auto inline-flex items-center gap-2 bg-warm-500 text-white text-[11px] font-bold tracking-[.15em] uppercase px-6 py-3 rounded-sm hover:bg-warm-600 transition-colors pulse-cta">Hire Me <iconify-icon icon="lucide:arrow-up-right" width="14"></iconify-icon></a>
     </div>
   </div>
 
-  <!-- ==================== CV OVERLAY (Cool Blue Theme) ==================== -->
+  <!-- ==================== CV OVERLAY (Complete CV with all sections) ==================== -->
   <div id="cv-overlay" class="cv-hex-bg">
     <div class="cv-noise"></div>
     <canvas id="cv-matrix-canvas"></canvas>
     <div id="cv-particles" style="position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:1;"></div>
     <div class="cv-scanline" style="position:absolute;inset:0;pointer-events:none;z-index:9999;"></div>
-    <button id="cv-close-btn" onclick="closeCV()" title="Go Back"><iconify-icon icon="lucide:x" width="20"></iconify-icon></button>
+    <button id="cv-close-btn" onclick="closeCV()">
+      <iconify-icon icon="lucide:arrow-left" width="16"></iconify-icon>
+      Go Back
+    </button>
     <nav class="cv-side-nav" id="cvSideNav">
       <div class="cv-side-dot active" data-section="cv-hero" title="Home"></div>
       <div class="cv-side-dot" data-section="cv-about" title="About"></div>
+      <div class="cv-side-dot" data-section="cv-experience" title="Experience"></div>
       <div class="cv-side-dot" data-section="cv-skills" title="Skills"></div>
       <div class="cv-side-dot" data-section="cv-projects" title="Projects"></div>
       <div class="cv-side-dot" data-section="cv-education" title="Education"></div>
+      <div class="cv-side-dot" data-section="cv-certifications" title="Certifications"></div>
       <div class="cv-side-dot" data-section="cv-contact" title="Contact"></div>
     </nav>
 
@@ -1027,7 +1021,7 @@
     </section>
 
     <!-- CV MARQUEE -->
-    <div class="relative py-4 border-y overflow-hidden" style="border-color:rgba(255,255,255,.05);z-index:2;"><div class="cv-marquee-track"><span class="flex items-center gap-8 px-4 text-xs uppercase tracking-[.2em] text-slate-600 font-medium whitespace-nowrap"><span>◆ FLUTTER</span><span>◆ C++</span><span>◆ PYTHON</span><span>◆ TENSORFLOW</span><span>◆ MYSQL</span><span>◆ PENETRATION TESTING</span><span>◆ BUG BOUNTY</span><span>◆ MOBILE DEV</span><span>◆ PROBLEM SOLVING</span><span>◆ STENCIL ART</span><span>◆ FOOTBALL</span><span>◆ TEAMWORK</span><span>◆ FLUTTER</span><span>◆ C++</span><span>◆ PYTHON</span><span>◆ TENSORFLOW</span><span>◆ MYSQL</span><span>◆ PENETRATION TESTING</span><span>◆ BUG BOUNTY</span><span>◆ MOBILE DEV</span><span>◆ PROBLEM SOLVING</span><span>◆ STENCIL ART</span><span>◆ FOOTBALL</span><span>◆ TEAMWORK</span></span></div></div>
+    <div class="relative py-4 border-y overflow-hidden" style="border-color:rgba(255,255,255,.05);z-index:2;"><div class="cv-marquee-track"><span class="flex items-center gap-8 px-4 text-xs uppercase tracking-[.2em] text-slate-600 font-medium whitespace-nowrap"><span>◆ FLUTTER</span><span>◆ C++</span><span>◆ PYTHON</span><span>◆ TENSORFLOW</span><span>◆ MYSQL</span><span>◆ PENETRATION TESTING (PLANNING)</span><span>◆ MOBILE DEV</span><span>◆ PROBLEM SOLVING</span><span>◆ STENCIL ART</span><span>◆ FOOTBALL</span><span>◆ TEAMWORK</span><span>◆ FLUTTER</span><span>◆ C++</span><span>◆ PYTHON</span><span>◆ TENSORFLOW</span><span>◆ MYSQL</span><span>◆ PENETRATION TESTING (PLANNING)</span><span>◆ MOBILE DEV</span><span>◆ PROBLEM SOLVING</span><span>◆ STENCIL ART</span><span>◆ FOOTBALL</span><span>◆ TEAMWORK</span></span></div></div>
 
     <!-- CV ABOUT -->
     <section id="cv-about" class="relative py-24 px-6" style="z-index:2;">
@@ -1043,7 +1037,7 @@
                 <p class="pl-4"><span class="text-purple-400">role</span>: <span class="text-amber-300">"Applied CS Student"</span>,</p>
                 <p class="pl-4"><span class="text-purple-400">focus</span>: <span class="text-amber-300">"Mobile App & AI Development"</span>,</p>
                 <p class="pl-4"><span class="text-purple-400">university</span>: <span class="text-amber-300">"Chuka University"</span>,</p>
-                <p class="pl-4"><span class="text-purple-400">flagship</span>: <span class="text-amber-300">"Stockipa  Finance Tracker"</span>,</p>
+                <p class="pl-4"><span class="text-purple-400">flagship</span>: <span class="text-amber-300">"Stockipa — Finance Tracker"</span>,</p>
                 <p class="pl-4"><span class="text-purple-400">passion</span>: <span class="text-amber-300">"Solving real-world problems with tech"</span>,</p>
                 <p class="pl-4"><span class="text-purple-400">hobbies</span>: [<span class="text-amber-300">"Football"</span>, <span class="text-amber-300">"Stencil Art"</span>],</p>
                 <p class="pl-4"><span class="text-purple-400">mindset</span>: <span class="text-amber-300">"Break things → Understand things → Build things"</span>,</p>
@@ -1056,9 +1050,40 @@
             </div>
           </div>
           <div class="cv-reveal cv-delay-2 md:col-span-2 space-y-4">
-            <div class="cyber-card rounded-xl p-5"><div class="flex items-center gap-3 mb-2"><div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background:rgba(56,189,248,.15);"><span class="iconify text-cyber-400 text-xl" data-icon="lucide:shield-check"></span></div><h3 class="font-semibold text-white">Pentester Mindset</h3></div><p class="text-slate-400 text-sm">I think like an attacker to build better defenses. Bug bounty hunter in training.</p></div>
+            <div class="cyber-card rounded-xl p-5"><div class="flex items-center gap-3 mb-2"><div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background:rgba(56,189,248,.15);"><span class="iconify text-cyber-400 text-xl" data-icon="lucide:shield-check"></span></div><h3 class="font-semibold text-white">Pentester Mindset</h3></div><p class="text-slate-400 text-sm">I think like an attacker to build better defenses. Bug bounty hunter in training (planning to start).</p></div>
             <div class="cyber-card rounded-xl p-5"><div class="flex items-center gap-3 mb-2"><div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background:rgba(56,189,248,.15);"><span class="iconify text-cyber-400 text-xl" data-icon="lucide:palette"></span></div><h3 class="font-semibold text-white">Stencil Artist</h3></div><p class="text-slate-400 text-sm">Creativity flows through code AND spray paint. Art teaches me to see patterns others miss.</p></div>
             <div class="cyber-card rounded-xl p-5"><div class="flex items-center gap-3 mb-2"><div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background:rgba(56,189,248,.15);"><span class="iconify text-cyber-400 text-xl" data-icon="lucide:trophy"></span></div><h3 class="font-semibold text-white">Football Discipline</h3></div><p class="text-slate-400 text-sm">The pitch taught me teamwork, grit, and showing up when it matters most.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CV EXPERIENCE (NEW) -->
+    <section id="cv-experience" class="relative py-24 px-6" style="z-index:2;">
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full" style="background:radial-gradient(circle,rgba(56,189,248,.05) 0%,transparent 70%);filter:blur(100px);"></div>
+      <div class="max-w-5xl mx-auto relative">
+        <div class="cv-reveal flex items-center gap-3 mb-4"><div class="w-8 h-px bg-cyber-400"></div><span class="cyber-tag">// EXPERIENCE</span></div>
+        <h2 class="cv-reveal cv-delay-1 text-3xl sm:text-4xl font-bold tracking-tight mb-12"><span class="bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent">Work Experience</span><span class="text-cyber-400">.</span></h2>
+        <div class="cv-reveal cv-delay-2 cyber-card rounded-xl p-6 cv-neon-border-blue">
+          <div class="flex flex-wrap items-start justify-between gap-3 mb-3">
+            <div>
+              <h3 class="text-xl font-bold text-white">ICT Support Intern</h3>
+              <p class="text-cyber-400 text-sm font-medium">General Hospital</p>
+            </div>
+            <span class="cyber-tag" style="border-color:rgba(56,189,248,.3);background:rgba(56,189,248,.08);color:#7DD3FC;">2023 — 2024</span>
+          </div>
+          <div class="space-y-2 text-slate-300 text-sm leading-relaxed">
+            <p>• Assisted the ICT department with hardware and software troubleshooting, ensuring minimal downtime for hospital operations.</p>
+            <p>• Provided technical support to hospital staff, resolving issues with computers, printers, and medical software systems.</p>
+            <p>• Helped maintain and update the hospital's computer inventory and asset tracking system.</p>
+            <p>• Supported the setup and configuration of new workstations and network connections.</p>
+            <p>• Documented common technical issues and created user guides to help staff solve basic problems independently.</p>
+          </div>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="cv-tag px-2 py-1 text-[10px] rounded-md bg-white/5 text-slate-400 border border-white/10">Hardware Support</span>
+            <span class="cv-tag px-2 py-1 text-[10px] rounded-md bg-white/5 text-slate-400 border border-white/10">Software Troubleshooting</span>
+            <span class="cv-tag px-2 py-1 text-[10px] rounded-md bg-white/5 text-slate-400 border border-white/10">IT Documentation</span>
+            <span class="cv-tag px-2 py-1 text-[10px] rounded-md bg-white/5 text-slate-400 border border-white/10">Asset Management</span>
           </div>
         </div>
       </div>
@@ -1069,16 +1094,29 @@
       <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full" style="background:radial-gradient(circle,rgba(56,189,248,.06) 0%,transparent 70%);filter:blur(100px);"></div>
       <div class="max-w-5xl mx-auto relative">
         <div class="cv-reveal flex items-center gap-3 mb-4"><div class="w-8 h-px bg-cyber-400"></div><span class="cyber-tag">// SKILL_MATRIX</span></div>
-        <h2 class="cv-reveal cv-delay-1 text-3xl sm:text-4xl font-bold tracking-tight mb-12"><span class="bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent">Arsenal</span><span class="text-cyber-400">.</span></h2>
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <h2 class="cv-reveal cv-delay-1 text-3xl sm:text-4xl font-bold tracking-tight mb-12"><span class="bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent">Skills & Languages</span><span class="text-cyber-400">.</span></h2>
+
+        <!-- Technical Skills -->
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
           <div class="cv-reveal cv-delay-1 cyber-card rounded-xl p-6"><div class="flex items-center justify-between mb-4"><div class="flex items-center gap-3"><span class="iconify text-sky-400 text-2xl" data-icon="logos:flutter"></span><span class="font-semibold text-white">Flutter</span></div><span class="text-xs text-slate-500 font-mono">BEGINNER</span></div><div class="w-full h-1.5 rounded-full bg-white/5 overflow-hidden"><div class="cv-skill-fill h-full rounded-full cv-skill-fill-blue" data-width="30"></div></div><p class="text-slate-500 text-xs mt-3">Mobile app development with Dart &amp; Flutter</p></div>
           <div class="cv-reveal cv-delay-2 cyber-card rounded-xl p-6"><div class="flex items-center justify-between mb-4"><div class="flex items-center gap-3"><span class="iconify text-blue-400 text-2xl" data-icon="logos:c-plusplus"></span><span class="font-semibold text-white">C++</span></div><span class="text-xs text-emerald-400 font-mono">STRONG</span></div><div class="w-full h-1.5 rounded-full bg-white/5 overflow-hidden"><div class="cv-skill-fill h-full rounded-full" data-width="75" style="background:linear-gradient(90deg,#10b981,#34d399);"></div></div><p class="text-slate-500 text-xs mt-3">Primary language — algorithms, data structures, OOP</p></div>
           <div class="cv-reveal cv-delay-3 cyber-card rounded-xl p-6"><div class="flex items-center justify-between mb-4"><div class="flex items-center gap-3"><span class="iconify text-yellow-400 text-2xl" data-icon="logos:python"></span><span class="font-semibold text-white">Python</span></div><span class="text-xs text-amber-400 font-mono">INTERMEDIATE</span></div><div class="w-full h-1.5 rounded-full bg-white/5 overflow-hidden"><div class="cv-skill-fill h-full rounded-full" data-width="55" style="background:linear-gradient(90deg,#f59e0b,#eab308);"></div></div><p class="text-slate-500 text-xs mt-3">AI/ML, TensorFlow, scripting, data processing</p></div>
           <div class="cv-reveal cv-delay-1 cyber-card rounded-xl p-6"><div class="flex items-center justify-between mb-4"><div class="flex items-center gap-3"><span class="iconify text-blue-300 text-2xl" data-icon="logos:mysql"></span><span class="font-semibold text-white">MySQL</span></div><span class="text-xs text-slate-500 font-mono">BASIC</span></div><div class="w-full h-1.5 rounded-full bg-white/5 overflow-hidden"><div class="cv-skill-fill h-full rounded-full cv-skill-fill-blue" data-width="35"></div></div><p class="text-slate-500 text-xs mt-3">Database design, queries, data management</p></div>
           <div class="cv-reveal cv-delay-2 cyber-card rounded-xl p-6"><div class="flex items-center justify-between mb-4"><div class="flex items-center gap-3"><span class="iconify text-orange-400 text-2xl" data-icon="logos:tensorflow"></span><span class="font-semibold text-white">TensorFlow</span></div><span class="text-xs text-slate-500 font-mono">BEGINNER</span></div><div class="w-full h-1.5 rounded-full bg-white/5 overflow-hidden"><div class="cv-skill-fill h-full rounded-full" data-width="20" style="background:linear-gradient(90deg,#f97316,#ef4444);"></div></div><p class="text-slate-500 text-xs mt-3">Image detection, model training, inference</p></div>
-          <div class="cv-reveal cv-delay-3 cyber-card rounded-xl p-6"><div class="flex items-center justify-between mb-4"><div class="flex items-center gap-3"><span class="iconify text-red-400 text-2xl" data-icon="lucide:bug"></span><span class="font-semibold text-white">Pentesting</span></div><span class="text-xs text-slate-500 font-mono">BASIC</span></div><div class="w-full h-1.5 rounded-full bg-white/5 overflow-hidden"><div class="cv-skill-fill h-full rounded-full" data-width="25" style="background:linear-gradient(90deg,#ef4444,#f97316);"></div></div><p class="text-slate-500 text-xs mt-3">Penetration testing, bug bounty, vulnerability research</p></div>
+          <div class="cv-reveal cv-delay-3 cyber-card rounded-xl p-6"><div class="flex items-center justify-between mb-4"><div class="flex items-center gap-3"><span class="iconify text-red-400 text-2xl" data-icon="lucide:bug"></span><span class="font-semibold text-white">Pentesting</span></div><span class="text-xs text-amber-400 font-mono">PLANNING</span></div><div class="w-full h-1.5 rounded-full bg-white/5 overflow-hidden"><div class="cv-skill-fill h-full rounded-full" data-width="10" style="background:linear-gradient(90deg,#fbbf24,#f59e0b);"></div></div><p class="text-slate-500 text-xs mt-3">Planning to start — penetration testing, bug bounty, vulnerability research</p></div>
           <div class="cv-reveal cv-delay-1 cyber-card rounded-xl p-6"><div class="flex items-center justify-between mb-4"><div class="flex items-center gap-3"><span class="iconify text-amber-400 text-2xl" data-icon="lucide:brain"></span><span class="font-semibold text-white">Problem Solving</span></div><span class="text-xs text-emerald-400 font-mono">STRONG</span></div><div class="w-full h-1.5 rounded-full bg-white/5 overflow-hidden"><div class="cv-skill-fill h-full rounded-full" data-width="80" style="background:linear-gradient(90deg,#f59e0b,#eab308);"></div></div><p class="text-slate-500 text-xs mt-3">Analytical thinking, debugging, breaking down complex problems</p></div>
           <div class="cv-reveal cv-delay-2 cyber-card rounded-xl p-6" style="border-color:rgba(56,189,248,.2);"><div class="flex items-center justify-between mb-4"><div class="flex items-center gap-3"><span class="iconify text-cyber-400 text-2xl" data-icon="lucide:users"></span><span class="font-semibold text-white">Soft Skills</span></div><span class="text-xs text-cyber-400 font-mono">⚡ MAX</span></div><div class="flex flex-wrap gap-2 mt-2"><span class="px-2 py-1 text-xs rounded-md text-cyber-300" style="background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.2);">Teamwork</span><span class="px-2 py-1 text-xs rounded-md text-cyber-300" style="background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.2);">Discipline</span><span class="px-2 py-1 text-xs rounded-md text-cyber-300" style="background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.2);">Creativity</span><span class="px-2 py-1 text-xs rounded-md text-cyber-300" style="background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.2);">Communication</span></div></div>
+        </div>
+
+        <!-- Languages Section -->
+        <div class="cv-reveal cv-delay-3 cyber-card rounded-xl p-6">
+          <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2"><span class="iconify text-cyber-400 text-xl" data-icon="lucide:languages"></span> Languages</h3>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <div class="flex items-center gap-2"><span class="cv-lang-tag">Kiswahili <span class="level">Native</span></span></div>
+            <div class="flex items-center gap-2"><span class="cv-lang-tag">English <span class="level">Fluent</span></span></div>
+            <div class="flex items-center gap-2"><span class="cv-lang-tag">Kikuyu <span class="level">Native</span></span></div>
+            <div class="flex items-center gap-2"><span class="cv-lang-tag">Kimeru <span class="level">Native</span></span></div>
+          </div>
         </div>
       </div>
     </section>
@@ -1137,6 +1175,31 @@
       </div>
     </section>
 
+    <!-- CV CERTIFICATIONS (NEW) -->
+    <section id="cv-certifications" class="relative py-24 px-6" style="z-index:2;">
+      <div class="max-w-5xl mx-auto">
+        <div class="cv-reveal flex items-center gap-3 mb-4"><div class="w-8 h-px bg-cyber-400"></div><span class="cyber-tag">// CERTIFICATIONS</span></div>
+        <h2 class="cv-reveal cv-delay-1 text-3xl sm:text-4xl font-bold tracking-tight mb-12"><span class="bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent">Certifications</span><span class="text-cyber-400">.</span></h2>
+        <div class="cv-reveal cv-delay-2 cyber-card rounded-xl p-6">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(56,189,248,.15);border:1px solid rgba(56,189,248,.2);">
+              <span class="iconify text-cyber-400 text-2xl" data-icon="lucide:scroll-text"></span>
+            </div>
+            <div>
+              <h3 class="text-lg font-bold text-white">Christian Discipleship Certificate</h3>
+              <p class="text-cyber-400 text-sm font-medium">Issued: 2024</p>
+              <p class="text-slate-400 text-sm mt-2 leading-relaxed">Completed a comprehensive discipleship program focused on Christian foundations, leadership, and service. This training shaped my character, discipline, and commitment to integrity — values I carry into every project I build.</p>
+              <div class="mt-3 flex flex-wrap gap-2">
+                <span class="cv-tag px-2 py-1 text-[10px] rounded-md bg-white/5 text-slate-400 border border-white/10">Character Development</span>
+                <span class="cv-tag px-2 py-1 text-[10px] rounded-md bg-white/5 text-slate-400 border border-white/10">Leadership</span>
+                <span class="cv-tag px-2 py-1 text-[10px] rounded-md bg-white/5 text-slate-400 border border-white/10">Integrity</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- CV CONTACT -->
     <section id="cv-contact" class="relative py-24 px-6" style="z-index:2;">
       <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] rounded-full" style="background:radial-gradient(circle,rgba(56,189,248,.1) 0%,transparent 70%);filter:blur(100px);"></div>
@@ -1169,8 +1232,8 @@
 
     <footer class="relative py-8 px-6 border-t" style="border-color:rgba(255,255,255,.05);z-index:2;">
       <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-        <p class="text-slate-600 text-xs font-mono">&lt;/&gt; Built with raw HTML, CSS &amp; JS no frameworks, no bullshit.</p>
-        <p class="text-slate-700 text-xs">© 2026 ISAAC BRIDGET. All rights reserved.</p>
+        <p class="text-slate-600 text-xs font-mono">&lt;/&gt; Built with raw HTML, CSS &amp; JS — no frameworks, no bullshit.</p>
+        <p class="text-slate-700 text-xs">© 2024 ISAAC BRIDGET. All rights reserved.</p>
       </div>
     </footer>
   </div>
@@ -1300,16 +1363,25 @@
 
     const techCategories = [
       { name: "Mobile", icon: "lucide:smartphone", items: ["Flutter", "Dart", "Android", "iOS", "SQLite", "Local DB"] },
-      { name: "AI & ML", icon: "lucide:brain", items: ["Python", "TensorFlow", "TensorFlow Lite", "OpenCV", "NLTK",
-          "NumPy"
-        ] },
-      { name: "Web", icon: "lucide:globe", items: ["Flask", "FastAPI", "React", "Chart.js", "BeautifulSoup",
-          "HTML/CSS"
-        ] },
-      { name: "Tools", icon: "lucide:wrench", items: ["Git", "VS Code", "Android Studio", "PDF Gen", "Share Plugin",
-          "Figma"
-        ] }
+      { name: "AI & ML", icon: "lucide:brain", items: ["Python", "TensorFlow", "TensorFlow Lite", "OpenCV", "NLTK", "NumPy"] },
+      { name: "Web", icon: "lucide:globe", items: ["Flask", "FastAPI", "React", "Chart.js", "BeautifulSoup", "HTML/CSS"] },
+      { name: "Tools", icon: "lucide:wrench", items: ["Git", "VS Code", "Android Studio", "PDF Gen", "Share Plugin", "Figma"] }
     ];
+
+    // Theme toggle
+    let isDark = true;
+    function toggleTheme() {
+      isDark = !isDark;
+      document.documentElement.classList.toggle('light-theme', !isDark);
+      const icons = document.querySelectorAll('#theme-icon, #theme-icon-mobile');
+      icons.forEach(icon => {
+        icon.setAttribute('icon', isDark ? 'lucide:moon' : 'lucide:sun');
+      });
+      // Update nav text colors
+      document.querySelectorAll('#nav a:not(.bg-warm-500)').forEach(el => {
+        el.style.color = isDark ? '' : '#1a1a1a';
+      });
+    }
 
     function renderProjects(filter = 'all') {
       const g = document.getElementById('projects-grid'),
@@ -1320,13 +1392,11 @@
         c.className = `flip-card pf-reveal pf-delay-${Math.min(i % 3 + 1, 6)}`;
         const n = String(p.id).padStart(2, '0'),
           cl = p.category === 'ai' ? 'AI / ML' : p.category.charAt(0).toUpperCase() + p.category.slice(1),
-          fb = p.featured ?
-          '<span class="absolute top-3 left-14 text-[8px] font-bold tracking-widest uppercase text-white bg-warm-500 px-2 py-0.5 rounded-sm">★ Featured</span>' :
-          '';
+          fb = p.featured ? '<span class="absolute top-3 left-14 text-[8px] font-bold tracking-widest uppercase text-white bg-warm-500 px-2 py-0.5 rounded-sm">★ Featured</span>' : '';
         const sourceCodeUrl = p.sourceCodeUrl || '#';
         c.innerHTML = `
             <div class="flip-card-inner">
-              <div class="flip-card-front rounded-sm border ${p.featured?'border-warm-500/30':'border-white/10'} overflow-hidden bg-neutral-950 flex flex-col">
+              <div class="flip-card-front rounded-sm border ${p.featured?'border-warm-500/30':'border-white/10'} overflow-hidden bg-neutral-950 flex flex-col" style="border-color:var(--border-color);background:var(--bg-card)">
                 <div class="relative h-48 overflow-hidden flex-shrink-0">
                   <img src="${p.img}" alt="${p.title}" class="w-full h-full object-cover transition-transform duration-700" style="filter:contrast(1.1) brightness(.85)" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'" loading="lazy"/>
                   <div class="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/20 to-transparent"></div>
@@ -1336,29 +1406,29 @@
                 </div>
                 <div class="p-5 flex flex-col flex-1">
                   <div class="flex items-center justify-between mb-2">
-                    <h3 class="text-lg font-bold text-white tracking-tight">${p.title}</h3>
-                    <span class="text-[10px] text-neutral-600 font-medium">${p.year}</span>
+                    <h3 class="text-lg font-bold tracking-tight" style="color:var(--text-primary)">${p.title}</h3>
+                    <span class="text-[10px] font-medium" style="color:var(--text-secondary)">${p.year}</span>
                   </div>
-                  <p class="text-sm text-neutral-500 leading-relaxed line-clamp-2 flex-1">${p.desc}</p>
+                  <p class="text-sm leading-relaxed line-clamp-2 flex-1" style="color:var(--text-secondary)">${p.desc}</p>
                   <div class="mt-4 flex items-center gap-2 text-warm-500/70 text-[10px] font-semibold tracking-wider uppercase">
                     <span>Flip for details</span>
                     <iconify-icon icon="lucide:rotate-3d" width="12"></iconify-icon>
                   </div>
                 </div>
               </div>
-              <div class="flip-card-back rounded-sm border border-warm-500/20 overflow-hidden bg-neutral-950 p-6 flex flex-col justify-between">
+              <div class="flip-card-back rounded-sm border border-warm-500/20 overflow-hidden bg-neutral-950 p-6 flex flex-col justify-between" style="background:var(--bg-card)">
                 <div>
                   <div class="flex items-center justify-between mb-3">
                     <span class="text-[9px] font-bold tracking-[.2em] uppercase text-warm-500">${p.role}</span>
-                    <span class="text-[10px] text-neutral-600">${p.year}</span>
+                    <span class="text-[10px]" style="color:var(--text-secondary)">${p.year}</span>
                   </div>
-                  <h3 class="text-xl font-bold text-white tracking-tight mb-3">${p.title}</h3>
-                  <p class="text-[13px] text-neutral-400 leading-relaxed line-clamp-3 mb-5">${p.details}</p>
-                  <div class="flex flex-wrap gap-1.5">${p.tech.map(t => `<span class="text-[9px] font-semibold tracking-wider uppercase bg-white/5 text-neutral-300 border border-white/5 px-2 py-1 rounded-sm">${t}</span>`).join('')}</div>
+                  <h3 class="text-xl font-bold tracking-tight mb-3" style="color:var(--text-primary)">${p.title}</h3>
+                  <p class="text-[13px] leading-relaxed line-clamp-3 mb-5" style="color:var(--text-secondary)">${p.details}</p>
+                  <div class="flex flex-wrap gap-1.5">${p.tech.map(t => `<span class="text-[9px] font-semibold tracking-wider uppercase bg-white/5 text-neutral-300 border border-white/5 px-2 py-1 rounded-sm" style="color:var(--text-secondary)">${t}</span>`).join('')}</div>
                 </div>
                 <div class="flex gap-3 mt-5">
                   <a href="${sourceCodeUrl}" target="_blank" rel="noopener noreferrer" class="flex-1 text-center text-[10px] font-bold tracking-wider uppercase bg-warm-500 text-white py-2.5 rounded-sm hover:bg-warm-600 transition-colors cursor-pointer">View Project</a>
-                  <a href="${p.sourceCodeUrl || '#'}" target="_blank" rel="noopener noreferrer" class="flex-1 text-center text-[10px] font-bold tracking-wider uppercase border border-white/15 text-white py-2.5 rounded-sm hover:bg-white/5 transition-colors cursor-pointer">Source Code</a>
+                  <a href="${p.sourceCodeUrl || '#'}" target="_blank" rel="noopener noreferrer" class="flex-1 text-center text-[10px] font-bold tracking-wider uppercase border border-white/15 text-white py-2.5 rounded-sm hover:bg-white/5 transition-colors cursor-pointer" style="border-color:var(--border-color);color:var(--text-primary)">Source Code</a>
                 </div>
               </div>
             </div>`;
@@ -1383,7 +1453,7 @@
         const c = document.createElement('div');
         c.className = 'flex-shrink-0 w-[85vw] md:w-[520px] lg:w-[580px]';
         c.innerHTML = `
-            <div class="rounded-sm border border-white/10 overflow-hidden bg-neutral-950 h-full flex flex-col">
+            <div class="rounded-sm border border-white/10 overflow-hidden bg-neutral-950 h-full flex flex-col" style="border-color:var(--border-color);background:var(--bg-card)">
               <div class="relative h-56 md:h-64 overflow-hidden flex-shrink-0">
                 <img src="${cs.img}" alt="${cs.project.title}" class="w-full h-full object-cover" style="filter:contrast(1.15) brightness(.7)" loading="lazy"/>
                 <div class="absolute inset-0 bg-gradient-to-t from-neutral-950 via-neutral-950/30 to-transparent"></div>
@@ -1394,19 +1464,19 @@
               </div>
               <div class="p-5 flex flex-col flex-1">
                 <div class="mb-4">
-                  <h4 class="text-[10px] font-bold tracking-[.15em] uppercase text-neutral-500 mb-1.5">The Problem</h4>
-                  <p class="text-[13px] text-neutral-400 leading-relaxed">${cs.challenge}</p>
+                  <h4 class="text-[10px] font-bold tracking-[.15em] uppercase text-neutral-500 mb-1.5" style="color:var(--text-secondary)">The Problem</h4>
+                  <p class="text-[13px] leading-relaxed" style="color:var(--text-secondary)">${cs.challenge}</p>
                 </div>
                 <div class="mb-5">
-                  <h4 class="text-[10px] font-bold tracking-[.15em] uppercase text-neutral-500 mb-1.5">The Solution</h4>
-                  <p class="text-[13px] text-neutral-400 leading-relaxed line-clamp-3">${cs.solution}</p>
+                  <h4 class="text-[10px] font-bold tracking-[.15em] uppercase text-neutral-500 mb-1.5" style="color:var(--text-secondary)">The Solution</h4>
+                  <p class="text-[13px] leading-relaxed line-clamp-3" style="color:var(--text-secondary)">${cs.solution}</p>
                 </div>
-                <div class="mt-auto flex items-center justify-between border-t border-white/5 pt-4">
+                <div class="mt-auto flex items-center justify-between border-t border-white/5 pt-4" style="border-color:var(--border-color)">
                   <div>
                     <div class="text-2xl font-black text-warm-500">${cs.metric}</div>
-                    <div class="text-[9px] tracking-[.15em] uppercase text-neutral-600 font-semibold">${cs.metricLabel}</div>
+                    <div class="text-[9px] tracking-[.15em] uppercase font-semibold" style="color:var(--text-secondary)">${cs.metricLabel}</div>
                   </div>
-                  <div class="flex gap-2">${cs.project.tech.slice(0,3).map(t => `<span class="text-[8px] font-semibold tracking-wider uppercase bg-white/5 text-neutral-400 px-2 py-0.5 rounded-sm">${t}</span>`).join('')}</div>
+                  <div class="flex gap-2">${cs.project.tech.slice(0,3).map(t => `<span class="text-[8px] font-semibold tracking-wider uppercase bg-white/5 text-neutral-400 px-2 py-0.5 rounded-sm" style="color:var(--text-secondary)">${t}</span>`).join('')}</div>
                 </div>
               </div>
             </div>`;
@@ -1425,12 +1495,12 @@
         const c = document.createElement('div');
         c.className = `pf-reveal pf-delay-${ci+1}`;
         c.innerHTML = `
-            <div class="border border-white/10 rounded-sm bg-neutral-950 p-5 h-full hover:border-warm-500/20 transition-colors duration-500">
+            <div class="border border-white/10 rounded-sm bg-neutral-950 p-5 h-full hover:border-warm-500/20 transition-colors duration-500" style="border-color:var(--border-color);background:var(--bg-card)">
               <div class="flex items-center gap-3 mb-5">
                 <div class="w-9 h-9 rounded-sm bg-warm-500/10 border border-warm-500/20 flex items-center justify-center text-warm-500"><iconify-icon icon="${cat.icon}" width="16"></iconify-icon></div>
-                <h3 class="text-sm font-bold tracking-tight text-white">${cat.name}</h3>
+                <h3 class="text-sm font-bold tracking-tight" style="color:var(--text-primary)">${cat.name}</h3>
               </div>
-              <div class="flex flex-wrap gap-2">${cat.items.map(t => `<span class="text-[10px] font-semibold tracking-wider uppercase text-neutral-400 bg-white/[.03] border border-white/5 px-3 py-1.5 rounded-sm hover:border-warm-500/30 hover:text-warm-500 transition-all duration-300 cursor-default">${t}</span>`).join('')}</div>
+              <div class="flex flex-wrap gap-2">${cat.items.map(t => `<span class="text-[10px] font-semibold tracking-wider uppercase bg-white/[.03] border border-white/5 px-3 py-1.5 rounded-sm hover:border-warm-500/30 hover:text-warm-500 transition-all duration-300 cursor-default" style="color:var(--text-secondary);border-color:var(--border-color)">${t}</span>`).join('')}</div>
             </div>`;
         g.appendChild(c);
       });
@@ -1518,9 +1588,7 @@
         container = document.getElementById('carousel-container');
 
       function maxT() { return Math.max(0, track.scrollWidth - container.offsetWidth); }
-
       function rb(v, m) { if (v > 0) return v * .25; if (v < -m) return -m + (v + m) * .25; return v; }
-
       function setP(x) { track.style.transform = `translateX(${x}px)`; }
 
       function snap(i) {
@@ -1629,9 +1697,7 @@
       window.addEventListener('scroll', () => {
         const st = window.scrollY,
           docH = document.documentElement.scrollHeight - window.innerHeight;
-        nav.style.background = st > 80 ? 'rgba(0,0,0,.85)' : 'transparent';
-        nav.style.backdropFilter = st > 80 ? 'blur(12px)' : 'none';
-        nav.style.borderBottom = st > 80 ? '1px solid rgba(255,255,255,.05)' : '1px solid transparent';
+        nav.style.borderBottom = st > 80 ? '1px solid var(--border-color)' : '1px solid transparent';
         prog.style.width = (st / docH * 100) + '%';
         sticky.classList.toggle('visible', st > window.innerHeight * .8);
         grain.style.transform = `translate(${st*.02}px,${st*.015}px)`;
@@ -1648,14 +1714,12 @@
 
     function openCV() {
       const flash = document.getElementById('transition-flash'),
-        overlay = document.getElementById('cv-overlay'),
-        closeBtn = document.getElementById('cv-close-btn');
+        overlay = document.getElementById('cv-overlay');
       flash.classList.add('flash');
       setTimeout(() => { flash.classList.remove('flash'); }, 200);
       document.body.style.overflow = 'hidden';
       document.getElementById('grain').style.opacity = '0';
       overlay.classList.add('open');
-      setTimeout(() => closeBtn.classList.add('show'), 400);
       if (!cvMatrixRunning) startCVMatrix();
       initCVReveals();
       initCVCounters();
@@ -1664,9 +1728,7 @@
 
     function closeCV() {
       const flash = document.getElementById('transition-flash'),
-        overlay = document.getElementById('cv-overlay'),
-        closeBtn = document.getElementById('cv-close-btn');
-      closeBtn.classList.remove('show');
+        overlay = document.getElementById('cv-overlay');
       flash.classList.add('flash');
       setTimeout(() => { flash.classList.remove('flash'); }, 200);
       overlay.classList.remove('open');
@@ -1734,7 +1796,7 @@
       if (cvTypingRunning) return;
       cvTypingRunning = true;
       const phrases = ['Applied Computer Science Student', 'Mobile App Developer (Flutter)', 'C++ Enthusiast',
-        'AI/ML Explorer (TensorFlow)', 'Bug Bounty Hunter 🐛', 'Stencil Artist 🎨', 'Footballer ⚽',
+        'AI/ML Explorer (TensorFlow)', 'Bug Bounty Hunter 🐛 (Planning)', 'Stencil Artist 🎨', 'Footballer ⚽',
         'Problem Solver 🧠', 'echo "Ready to build the future"'
       ];
       let pi = 0,

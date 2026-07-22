@@ -17,6 +17,8 @@
             warm: { 400: '#F59E0B', 500: '#D97706', 600: '#B45309', 700: '#92400E' },
             clay: { 400: '#F97316', 500: '#EA580C', 600: '#C2410C' },
             amber: { 400: '#FBBF24', 500: '#F59E0B' },
+            // Cool blue for CV
+            cyber: { 400: '#38BDF8', 500: '#0EA5E9', 600: '#0284C7', 700: '#0369A1' },
           }
         }
       }
@@ -283,13 +285,13 @@
       box-shadow: 0 0 60px rgba(217, 119, 6, .15), 0 0 120px rgba(217, 119, 6, .05);
     }
 
-    /* ─── CV OVERLAY (kept original colors) ─── */
+    /* ─── CV OVERLAY (Cool Blue Theme) ─── */
     #cv-overlay {
       position: fixed;
       inset: 0;
       z-index: 50000;
-      background: #0a0a0c;
-      color: #fff;
+      background: #0a0c14;
+      color: #e2e8f0;
       overflow-y: auto;
       overflow-x: hidden;
       transform: translateX(100%);
@@ -328,11 +330,12 @@
       pointer-events: auto;
     }
     #cv-close-btn:hover {
-      background: rgba(217, 119, 6, .2);
-      border-color: rgba(217, 119, 6, .5);
+      background: rgba(56, 189, 248, .2);
+      border-color: rgba(56, 189, 248, .5);
       transform: scale(1.1);
     }
 
+    /* CV Glitch (blue themed) */
     .cv-glitch {
       position: relative;
       animation: cv-glitch-skew 4s infinite linear alternate-reverse;
@@ -347,14 +350,14 @@
       height: 100%;
     }
     .cv-glitch::before {
-      color: #F97316;
+      color: #38BDF8;
       animation: cv-glitch1 3s infinite linear alternate-reverse;
       clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
       transform: translate(-3px, -2px);
       opacity: .8;
     }
     .cv-glitch::after {
-      color: #D97706;
+      color: #0EA5E9;
       animation: cv-glitch2 2s infinite linear alternate-reverse;
       clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
       transform: translate(3px, 2px);
@@ -431,16 +434,16 @@
     }
 
     .cv-neon-text {
-      text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #D97706, 0 0 82px #D97706, 0 0 92px #D97706;
+      text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #38BDF8, 0 0 82px #0EA5E9, 0 0 92px #0284C7;
     }
-    .cv-neon-green {
-      text-shadow: 0 0 7px #F97316, 0 0 10px #F97316, 0 0 21px #F97316, 0 0 42px #F97316;
+    .cv-neon-blue {
+      text-shadow: 0 0 7px #38BDF8, 0 0 10px #0EA5E9, 0 0 21px #0EA5E9, 0 0 42px #0EA5E9;
     }
     .cv-neon-border {
-      box-shadow: 0 0 5px rgba(217, 119, 6, .3), 0 0 10px rgba(217, 119, 6, .2), inset 0 0 5px rgba(217, 119, 6, .1);
+      box-shadow: 0 0 5px rgba(56, 189, 248, .3), 0 0 10px rgba(56, 189, 248, .2), inset 0 0 5px rgba(56, 189, 248, .1);
     }
-    .cv-neon-border-green {
-      box-shadow: 0 0 5px rgba(250, 115, 22, .3), 0 0 10px rgba(250, 115, 22, .2), inset 0 0 5px rgba(250, 115, 22, .1);
+    .cv-neon-border-blue {
+      box-shadow: 0 0 5px rgba(56, 189, 248, .3), 0 0 10px rgba(56, 189, 248, .2), inset 0 0 5px rgba(56, 189, 248, .1);
     }
     .cv-scanline::after {
       content: '';
@@ -456,13 +459,13 @@
     .cv-typing-cursor::after {
       content: '█';
       animation: blink 1s step-end infinite;
-      color: #D97706;
+      color: #38BDF8;
     }
     .cv-particle {
       position: absolute;
       width: 2px;
       height: 2px;
-      background: rgba(217, 119, 6, .6);
+      background: rgba(56, 189, 248, .6);
       border-radius: 50%;
       pointer-events: none;
       animation: cv-float-up linear infinite;
@@ -502,15 +505,15 @@
       left: -100%;
       width: 100%;
       height: 2px;
-      background: linear-gradient(90deg, transparent, #D97706, #F97316, #D97706, transparent);
+      background: linear-gradient(90deg, transparent, #38BDF8, #0EA5E9, #38BDF8, transparent);
       transition: left .6s ease;
     }
     .cyber-card:hover::before {
       left: 100%;
     }
     .cyber-card:hover {
-      border-color: rgba(217, 119, 6, .4);
-      box-shadow: 0 0 30px -5px rgba(217, 119, 6, .15);
+      border-color: rgba(56, 189, 248, .4);
+      box-shadow: 0 0 30px -5px rgba(56, 189, 248, .15);
       transform: translateY(-4px);
     }
     .corner-deco {
@@ -522,7 +525,7 @@
       position: absolute;
       width: 20px;
       height: 20px;
-      border-color: rgba(217, 119, 6, .5);
+      border-color: rgba(56, 189, 248, .5);
       border-style: solid;
     }
     .corner-deco::before {
@@ -562,12 +565,12 @@
       }
     }
     .cv-hex-bg {
-      background-image: linear-gradient(30deg, rgba(217, 119, 6, .03) 12%, transparent 12.5%, transparent 87%, rgba(217, 119, 6, .03) 87.5%),
-        linear-gradient(150deg, rgba(217, 119, 6, .03) 12%, transparent 12.5%, transparent 87%, rgba(217, 119, 6, .03) 87.5%),
-        linear-gradient(30deg, rgba(217, 119, 6, .03) 12%, transparent 12.5%, transparent 87%, rgba(217, 119, 6, .03) 87.5%),
-        linear-gradient(150deg, rgba(217, 119, 6, .03) 12%, transparent 12.5%, transparent 87%, rgba(217, 119, 6, .03) 87.5%),
-        linear-gradient(60deg, rgba(250, 115, 22, .04) 25%, transparent 25.5%, transparent 75%, rgba(250, 115, 22, .04) 75%),
-        linear-gradient(60deg, rgba(250, 115, 22, .04) 25%, transparent 25.5%, transparent 75%, rgba(250, 115, 22, .04) 75%);
+      background-image: linear-gradient(30deg, rgba(56, 189, 248, .03) 12%, transparent 12.5%, transparent 87%, rgba(56, 189, 248, .03) 87.5%),
+        linear-gradient(150deg, rgba(56, 189, 248, .03) 12%, transparent 12.5%, transparent 87%, rgba(56, 189, 248, .03) 87.5%),
+        linear-gradient(30deg, rgba(56, 189, 248, .03) 12%, transparent 12.5%, transparent 87%, rgba(56, 189, 248, .03) 87.5%),
+        linear-gradient(150deg, rgba(56, 189, 248, .03) 12%, transparent 12.5%, transparent 87%, rgba(56, 189, 248, .03) 87.5%),
+        linear-gradient(60deg, rgba(14, 165, 233, .04) 25%, transparent 25.5%, transparent 75%, rgba(14, 165, 233, .04) 75%),
+        linear-gradient(60deg, rgba(14, 165, 233, .04) 25%, transparent 25.5%, transparent 75%, rgba(14, 165, 233, .04) 75%);
       background-size: 80px 140px;
       background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px;
     }
@@ -607,9 +610,9 @@
       border-radius: 50%;
     }
     .cyber-tag {
-      border: 1px solid rgba(217, 119, 6, .3);
-      background: rgba(217, 119, 6, .08);
-      color: #fcd34d;
+      border: 1px solid rgba(56, 189, 248, .3);
+      background: rgba(56, 189, 248, .08);
+      color: #7DD3FC;
       font-size: 10px;
       letter-spacing: .1em;
       text-transform: uppercase;
@@ -635,12 +638,12 @@
       cursor: pointer;
     }
     .cv-side-dot.active {
-      background: #D97706;
-      box-shadow: 0 0 10px rgba(217, 119, 6, .5);
+      background: #38BDF8;
+      box-shadow: 0 0 10px rgba(56, 189, 248, .5);
       transform: scale(1.4);
     }
     .cv-side-dot:hover {
-      background: rgba(217, 119, 6, .6);
+      background: rgba(56, 189, 248, .6);
     }
     @media(max-width:768px) {
       .cv-side-nav {
@@ -682,6 +685,54 @@
       pointer-events: none;
       z-index: 0;
       opacity: .04;
+    }
+    /* CV button styles matching portfolio */
+    .cv-btn-warm {
+      background: #D97706;
+      color: #fff;
+      transition: all .3s ease;
+    }
+    .cv-btn-warm:hover {
+      background: #B45309;
+      transform: scale(1.05);
+    }
+    .cv-btn-outline {
+      border: 1px solid rgba(255, 255, 255, .15);
+      color: #e2e8f0;
+      transition: all .3s ease;
+    }
+    .cv-btn-outline:hover {
+      border-color: #38BDF8;
+      color: #38BDF8;
+      background: rgba(56, 189, 248, .05);
+    }
+    /* CV project card blue accent */
+    .cv-project-card {
+      border-color: rgba(56, 189, 248, .15);
+    }
+    .cv-project-card:hover {
+      border-color: rgba(56, 189, 248, .4);
+    }
+    .cv-project-card .cv-tag {
+      background: rgba(56, 189, 248, .1);
+      color: #7DD3FC;
+      border-color: rgba(56, 189, 248, .2);
+    }
+    /* CV skill fill blue gradient */
+    .cv-skill-fill-blue {
+      background: linear-gradient(90deg, #0EA5E9, #38BDF8);
+    }
+    /* CV hero accent */
+    .cv-hero-accent {
+      background: radial-gradient(circle, rgba(56, 189, 248, .12) 0%, transparent 70%);
+      filter: blur(80px);
+    }
+    .cv-hero-accent-2 {
+      background: radial-gradient(circle, rgba(14, 165, 233, .08) 0%, transparent 70%);
+      filter: blur(60px);
+    }
+    .cv-neon-blue-glow {
+      text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #38BDF8, 0 0 42px #38BDF8, 0 0 82px #0EA5E9;
     }
   </style>
 </head>
@@ -938,7 +989,7 @@
     </div>
   </div>
 
-  <!-- ==================== CV OVERLAY (kept original colors) ==================== -->
+  <!-- ==================== CV OVERLAY (Cool Blue Theme) ==================== -->
   <div id="cv-overlay" class="cv-hex-bg">
     <div class="cv-noise"></div>
     <canvas id="cv-matrix-canvas"></canvas>
@@ -956,12 +1007,12 @@
 
     <!-- CV HERO -->
     <section id="cv-hero" class="relative min-h-screen flex items-center justify-center px-6" style="z-index:2;">
-      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full" style="background:radial-gradient(circle,rgba(217,119,6,.12) 0%,transparent 70%);filter:blur(80px);"></div>
-      <div class="absolute top-1/3 left-1/4 w-[300px] h-[300px] rounded-full" style="background:radial-gradient(circle,rgba(250,115,22,.08) 0%,transparent 70%);filter:blur(60px);"></div>
+      <div class="cv-hero-accent absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full"></div>
+      <div class="cv-hero-accent-2 absolute top-1/3 left-1/4 w-[300px] h-[300px] rounded-full"></div>
       <div class="relative text-center max-w-4xl mx-auto">
-        <div class="cv-reveal inline-flex items-center gap-2 mb-8 px-4 py-2 rounded-full" style="background:rgba(250,115,22,.1);border:1px solid rgba(250,115,22,.2);"><span class="relative flex h-2 w-2"><span class="cv-pulse-ring absolute inline-flex h-full w-full rounded-full bg-clay-400"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-clay-500"></span></span><span class="text-clay-400 text-xs font-medium tracking-wider uppercase">Available for Opportunities</span></div>
-        <h1 class="cv-glitch text-5xl sm:text-7xl md:text-8xl font-black tracking-tighter leading-none mb-4" data-text="ISAAC BRIDGET"><span class="bg-gradient-to-r from-white via-warm-200 to-white bg-clip-text text-transparent">ISAAC BRIDGET</span></h1>
-        <div class="cv-reveal cv-delay-1 mt-6 mb-8"><div class="inline-flex items-center gap-3 px-5 py-3 rounded-lg terminal-header"><span class="text-warm-500 font-mono text-sm">$</span><span class="text-slate-300 font-mono text-sm cv-typing-cursor" id="cv-typing-text"></span></div></div>
+        <div class="cv-reveal inline-flex items-center gap-2 mb-8 px-4 py-2 rounded-full" style="background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.2);"><span class="relative flex h-2 w-2"><span class="cv-pulse-ring absolute inline-flex h-full w-full rounded-full bg-cyber-400"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-cyber-500"></span></span><span class="text-cyber-400 text-xs font-medium tracking-wider uppercase">Available for Opportunities</span></div>
+        <h1 class="cv-glitch text-5xl sm:text-7xl md:text-8xl font-black tracking-tighter leading-none mb-4" data-text="ISAAC BRIDGET"><span class="bg-gradient-to-r from-white via-cyber-200 to-white bg-clip-text text-transparent">ISAAC BRIDGET</span></h1>
+        <div class="cv-reveal cv-delay-1 mt-6 mb-8"><div class="inline-flex items-center gap-3 px-5 py-3 rounded-lg terminal-header"><span class="text-cyber-400 font-mono text-sm">$</span><span class="text-slate-300 font-mono text-sm cv-typing-cursor" id="cv-typing-text"></span></div></div>
         <div class="cv-reveal cv-delay-2 flex flex-wrap justify-center gap-8 mt-10">
           <div class="text-center"><div class="text-3xl font-bold text-white cv-count-up" data-target="2027">0</div><div class="text-xs text-slate-500 uppercase tracking-wider mt-1">Graduation</div></div>
           <div class="w-px h-12 bg-white/10"></div>
@@ -981,13 +1032,13 @@
     <!-- CV ABOUT -->
     <section id="cv-about" class="relative py-24 px-6" style="z-index:2;">
       <div class="max-w-5xl mx-auto">
-        <div class="cv-reveal flex items-center gap-3 mb-12"><div class="w-8 h-px bg-warm-500"></div><span class="cyber-tag">// ABOUT_ME</span></div>
+        <div class="cv-reveal flex items-center gap-3 mb-12"><div class="w-8 h-px bg-cyber-400"></div><span class="cyber-tag">// ABOUT_ME</span></div>
         <div class="grid md:grid-cols-5 gap-10">
           <div class="cv-reveal cv-delay-1 md:col-span-3">
-            <div class="cyber-card corner-deco rounded-xl overflow-hidden">
+            <div class="cyber-card corner-deco rounded-xl overflow-hidden cv-neon-border">
               <div class="terminal-header px-4 py-3 flex items-center gap-2"><div class="terminal-dot bg-red-500/80"></div><div class="terminal-dot bg-yellow-500/80"></div><div class="terminal-dot bg-green-500/80"></div><span class="text-slate-500 text-xs font-mono ml-2">profile.sh</span></div>
               <div class="p-6 font-mono text-sm leading-relaxed space-y-2">
-                <p><span class="text-warm-400">const</span> <span class="text-clay-400">developer</span> = {</p>
+                <p><span class="text-cyber-400">const</span> <span class="text-cyber-300">developer</span> = {</p>
                 <p class="pl-4"><span class="text-purple-400">name</span>: <span class="text-amber-300">"Isaac Bridget"</span>,</p>
                 <p class="pl-4"><span class="text-purple-400">role</span>: <span class="text-amber-300">"Applied CS Student"</span>,</p>
                 <p class="pl-4"><span class="text-purple-400">focus</span>: <span class="text-amber-300">"Mobile App & AI Development"</span>,</p>
@@ -1005,9 +1056,9 @@
             </div>
           </div>
           <div class="cv-reveal cv-delay-2 md:col-span-2 space-y-4">
-            <div class="cyber-card rounded-xl p-5"><div class="flex items-center gap-3 mb-2"><div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background:rgba(217,119,6,.15);"><span class="iconify text-warm-400 text-xl" data-icon="lucide:shield-check"></span></div><h3 class="font-semibold text-white">Pentester Mindset</h3></div><p class="text-slate-400 text-sm">I think like an attacker to build better defenses. Bug bounty hunter in training.</p></div>
-            <div class="cyber-card rounded-xl p-5"><div class="flex items-center gap-3 mb-2"><div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background:rgba(250,115,22,.15);"><span class="iconify text-clay-400 text-xl" data-icon="lucide:palette"></span></div><h3 class="font-semibold text-white">Stencil Artist</h3></div><p class="text-slate-400 text-sm">Creativity flows through code AND spray paint. Art teaches me to see patterns others miss.</p></div>
-            <div class="cyber-card rounded-xl p-5"><div class="flex items-center gap-3 mb-2"><div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background:rgba(16,185,129,.15);"><span class="iconify text-emerald-400 text-xl" data-icon="lucide:trophy"></span></div><h3 class="font-semibold text-white">Football Discipline</h3></div><p class="text-slate-400 text-sm">The pitch taught me teamwork, grit, and showing up when it matters most.</p></div>
+            <div class="cyber-card rounded-xl p-5"><div class="flex items-center gap-3 mb-2"><div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background:rgba(56,189,248,.15);"><span class="iconify text-cyber-400 text-xl" data-icon="lucide:shield-check"></span></div><h3 class="font-semibold text-white">Pentester Mindset</h3></div><p class="text-slate-400 text-sm">I think like an attacker to build better defenses. Bug bounty hunter in training.</p></div>
+            <div class="cyber-card rounded-xl p-5"><div class="flex items-center gap-3 mb-2"><div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background:rgba(56,189,248,.15);"><span class="iconify text-cyber-400 text-xl" data-icon="lucide:palette"></span></div><h3 class="font-semibold text-white">Stencil Artist</h3></div><p class="text-slate-400 text-sm">Creativity flows through code AND spray paint. Art teaches me to see patterns others miss.</p></div>
+            <div class="cyber-card rounded-xl p-5"><div class="flex items-center gap-3 mb-2"><div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background:rgba(56,189,248,.15);"><span class="iconify text-cyber-400 text-xl" data-icon="lucide:trophy"></span></div><h3 class="font-semibold text-white">Football Discipline</h3></div><p class="text-slate-400 text-sm">The pitch taught me teamwork, grit, and showing up when it matters most.</p></div>
           </div>
         </div>
       </div>
@@ -1015,53 +1066,53 @@
 
     <!-- CV SKILLS -->
     <section id="cv-skills" class="relative py-24 px-6" style="z-index:2;">
-      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full" style="background:radial-gradient(circle,rgba(250,115,22,.06) 0%,transparent 70%);filter:blur(100px);"></div>
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full" style="background:radial-gradient(circle,rgba(56,189,248,.06) 0%,transparent 70%);filter:blur(100px);"></div>
       <div class="max-w-5xl mx-auto relative">
-        <div class="cv-reveal flex items-center gap-3 mb-4"><div class="w-8 h-px bg-clay-500"></div><span class="cyber-tag">// SKILL_MATRIX</span></div>
-        <h2 class="cv-reveal cv-delay-1 text-3xl sm:text-4xl font-bold tracking-tight mb-12"><span class="bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent">Arsenal</span><span class="text-warm-400">.</span></h2>
+        <div class="cv-reveal flex items-center gap-3 mb-4"><div class="w-8 h-px bg-cyber-400"></div><span class="cyber-tag">// SKILL_MATRIX</span></div>
+        <h2 class="cv-reveal cv-delay-1 text-3xl sm:text-4xl font-bold tracking-tight mb-12"><span class="bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent">Arsenal</span><span class="text-cyber-400">.</span></h2>
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          <div class="cv-reveal cv-delay-1 cyber-card rounded-xl p-6"><div class="flex items-center justify-between mb-4"><div class="flex items-center gap-3"><span class="iconify text-sky-400 text-2xl" data-icon="logos:flutter"></span><span class="font-semibold text-white">Flutter</span></div><span class="text-xs text-slate-500 font-mono">BEGINNER</span></div><div class="w-full h-1.5 rounded-full bg-white/5 overflow-hidden"><div class="cv-skill-fill h-full rounded-full" data-width="30" style="background:linear-gradient(90deg,#D97706,#F97316);"></div></div><p class="text-slate-500 text-xs mt-3">Mobile app development with Dart &amp; Flutter</p></div>
+          <div class="cv-reveal cv-delay-1 cyber-card rounded-xl p-6"><div class="flex items-center justify-between mb-4"><div class="flex items-center gap-3"><span class="iconify text-sky-400 text-2xl" data-icon="logos:flutter"></span><span class="font-semibold text-white">Flutter</span></div><span class="text-xs text-slate-500 font-mono">BEGINNER</span></div><div class="w-full h-1.5 rounded-full bg-white/5 overflow-hidden"><div class="cv-skill-fill h-full rounded-full cv-skill-fill-blue" data-width="30"></div></div><p class="text-slate-500 text-xs mt-3">Mobile app development with Dart &amp; Flutter</p></div>
           <div class="cv-reveal cv-delay-2 cyber-card rounded-xl p-6"><div class="flex items-center justify-between mb-4"><div class="flex items-center gap-3"><span class="iconify text-blue-400 text-2xl" data-icon="logos:c-plusplus"></span><span class="font-semibold text-white">C++</span></div><span class="text-xs text-emerald-400 font-mono">STRONG</span></div><div class="w-full h-1.5 rounded-full bg-white/5 overflow-hidden"><div class="cv-skill-fill h-full rounded-full" data-width="75" style="background:linear-gradient(90deg,#10b981,#34d399);"></div></div><p class="text-slate-500 text-xs mt-3">Primary language — algorithms, data structures, OOP</p></div>
           <div class="cv-reveal cv-delay-3 cyber-card rounded-xl p-6"><div class="flex items-center justify-between mb-4"><div class="flex items-center gap-3"><span class="iconify text-yellow-400 text-2xl" data-icon="logos:python"></span><span class="font-semibold text-white">Python</span></div><span class="text-xs text-amber-400 font-mono">INTERMEDIATE</span></div><div class="w-full h-1.5 rounded-full bg-white/5 overflow-hidden"><div class="cv-skill-fill h-full rounded-full" data-width="55" style="background:linear-gradient(90deg,#f59e0b,#eab308);"></div></div><p class="text-slate-500 text-xs mt-3">AI/ML, TensorFlow, scripting, data processing</p></div>
-          <div class="cv-reveal cv-delay-1 cyber-card rounded-xl p-6"><div class="flex items-center justify-between mb-4"><div class="flex items-center gap-3"><span class="iconify text-blue-300 text-2xl" data-icon="logos:mysql"></span><span class="font-semibold text-white">MySQL</span></div><span class="text-xs text-slate-500 font-mono">BASIC</span></div><div class="w-full h-1.5 rounded-full bg-white/5 overflow-hidden"><div class="cv-skill-fill h-full rounded-full" data-width="35" style="background:linear-gradient(90deg,#D97706,#F59E0B);"></div></div><p class="text-slate-500 text-xs mt-3">Database design, queries, data management</p></div>
+          <div class="cv-reveal cv-delay-1 cyber-card rounded-xl p-6"><div class="flex items-center justify-between mb-4"><div class="flex items-center gap-3"><span class="iconify text-blue-300 text-2xl" data-icon="logos:mysql"></span><span class="font-semibold text-white">MySQL</span></div><span class="text-xs text-slate-500 font-mono">BASIC</span></div><div class="w-full h-1.5 rounded-full bg-white/5 overflow-hidden"><div class="cv-skill-fill h-full rounded-full cv-skill-fill-blue" data-width="35"></div></div><p class="text-slate-500 text-xs mt-3">Database design, queries, data management</p></div>
           <div class="cv-reveal cv-delay-2 cyber-card rounded-xl p-6"><div class="flex items-center justify-between mb-4"><div class="flex items-center gap-3"><span class="iconify text-orange-400 text-2xl" data-icon="logos:tensorflow"></span><span class="font-semibold text-white">TensorFlow</span></div><span class="text-xs text-slate-500 font-mono">BEGINNER</span></div><div class="w-full h-1.5 rounded-full bg-white/5 overflow-hidden"><div class="cv-skill-fill h-full rounded-full" data-width="20" style="background:linear-gradient(90deg,#f97316,#ef4444);"></div></div><p class="text-slate-500 text-xs mt-3">Image detection, model training, inference</p></div>
           <div class="cv-reveal cv-delay-3 cyber-card rounded-xl p-6"><div class="flex items-center justify-between mb-4"><div class="flex items-center gap-3"><span class="iconify text-red-400 text-2xl" data-icon="lucide:bug"></span><span class="font-semibold text-white">Pentesting</span></div><span class="text-xs text-slate-500 font-mono">BASIC</span></div><div class="w-full h-1.5 rounded-full bg-white/5 overflow-hidden"><div class="cv-skill-fill h-full rounded-full" data-width="25" style="background:linear-gradient(90deg,#ef4444,#f97316);"></div></div><p class="text-slate-500 text-xs mt-3">Penetration testing, bug bounty, vulnerability research</p></div>
           <div class="cv-reveal cv-delay-1 cyber-card rounded-xl p-6"><div class="flex items-center justify-between mb-4"><div class="flex items-center gap-3"><span class="iconify text-amber-400 text-2xl" data-icon="lucide:brain"></span><span class="font-semibold text-white">Problem Solving</span></div><span class="text-xs text-emerald-400 font-mono">STRONG</span></div><div class="w-full h-1.5 rounded-full bg-white/5 overflow-hidden"><div class="cv-skill-fill h-full rounded-full" data-width="80" style="background:linear-gradient(90deg,#f59e0b,#eab308);"></div></div><p class="text-slate-500 text-xs mt-3">Analytical thinking, debugging, breaking down complex problems</p></div>
-          <div class="cv-reveal cv-delay-2 cyber-card rounded-xl p-6" style="border-color:rgba(250,115,22,.2);"><div class="flex items-center justify-between mb-4"><div class="flex items-center gap-3"><span class="iconify text-clay-400 text-2xl" data-icon="lucide:users"></span><span class="font-semibold text-white">Soft Skills</span></div><span class="text-xs text-clay-400 font-mono">⚡ MAX</span></div><div class="flex flex-wrap gap-2 mt-2"><span class="px-2 py-1 text-xs rounded-md text-clay-300" style="background:rgba(250,115,22,.1);border:1px solid rgba(250,115,22,.2);">Teamwork</span><span class="px-2 py-1 text-xs rounded-md text-clay-300" style="background:rgba(250,115,22,.1);border:1px solid rgba(250,115,22,.2);">Discipline</span><span class="px-2 py-1 text-xs rounded-md text-clay-300" style="background:rgba(250,115,22,.1);border:1px solid rgba(250,115,22,.2);">Creativity</span><span class="px-2 py-1 text-xs rounded-md text-clay-300" style="background:rgba(250,115,22,.1);border:1px solid rgba(250,115,22,.2);">Communication</span></div></div>
+          <div class="cv-reveal cv-delay-2 cyber-card rounded-xl p-6" style="border-color:rgba(56,189,248,.2);"><div class="flex items-center justify-between mb-4"><div class="flex items-center gap-3"><span class="iconify text-cyber-400 text-2xl" data-icon="lucide:users"></span><span class="font-semibold text-white">Soft Skills</span></div><span class="text-xs text-cyber-400 font-mono">⚡ MAX</span></div><div class="flex flex-wrap gap-2 mt-2"><span class="px-2 py-1 text-xs rounded-md text-cyber-300" style="background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.2);">Teamwork</span><span class="px-2 py-1 text-xs rounded-md text-cyber-300" style="background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.2);">Discipline</span><span class="px-2 py-1 text-xs rounded-md text-cyber-300" style="background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.2);">Creativity</span><span class="px-2 py-1 text-xs rounded-md text-cyber-300" style="background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.2);">Communication</span></div></div>
         </div>
       </div>
     </section>
 
     <!-- CV PROJECTS -->
     <section id="cv-projects" class="relative py-24 px-6" style="z-index:2;">
-      <div class="absolute top-0 right-0 w-[400px] h-[400px] rounded-full" style="background:radial-gradient(circle,rgba(250,115,22,.06) 0%,transparent 70%);filter:blur(100px);"></div>
+      <div class="absolute top-0 right-0 w-[400px] h-[400px] rounded-full" style="background:radial-gradient(circle,rgba(56,189,248,.06) 0%,transparent 70%);filter:blur(100px);"></div>
       <div class="max-w-5xl mx-auto relative">
-        <div class="cv-reveal flex items-center gap-3 mb-4"><div class="w-8 h-px bg-clay-500"></div><span class="cyber-tag">// PROJECTS</span></div>
-        <h2 class="cv-reveal cv-delay-1 text-3xl sm:text-4xl font-bold tracking-tight mb-12"><span class="bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent">Things I've Built</span><span class="text-clay-400">.</span></h2>
-        <div class="cv-reveal cv-delay-2 cyber-card rounded-2xl overflow-hidden cv-neon-border-green mb-6">
-          <div class="relative h-48 sm:h-56 overflow-hidden" style="background:linear-gradient(135deg,rgba(250,115,22,.15),rgba(217,119,6,.15));">
-            <div class="absolute inset-0 flex items-center justify-center"><div class="relative w-28 h-48 rounded-2xl border-2 border-white/20 overflow-hidden" style="background:#0A0A0C;"><div class="absolute top-0 left-1/2 -translate-x-1/2 w-12 h-5 rounded-b-xl bg-black/80"></div><div class="p-3 pt-8 space-y-2"><div class="h-2 w-16 rounded bg-clay-500/30"></div><div class="h-2 w-20 rounded bg-white/10"></div><div class="mt-4 space-y-1.5"><div class="flex justify-between text-[8px]"><span class="text-clay-400">Income</span><span class="text-clay-400">+KES 45,000</span></div><div class="w-full h-1 rounded bg-white/5"><div class="w-3/4 h-full rounded bg-clay-500/40"></div></div><div class="flex justify-between text-[8px] mt-2"><span class="text-red-400">Expense</span><span class="text-red-400">-KES 12,300</span></div><div class="w-full h-1 rounded bg-white/5"><div class="w-1/3 h-full rounded bg-red-500/40"></div></div></div><div class="mt-3 space-y-1"><div class="h-1.5 w-full rounded bg-white/5"></div><div class="h-1.5 w-4/5 rounded bg-white/5"></div><div class="h-1.5 w-3/5 rounded bg-white/5"></div></div></div></div></div>
+        <div class="cv-reveal flex items-center gap-3 mb-4"><div class="w-8 h-px bg-cyber-400"></div><span class="cyber-tag">// PROJECTS</span></div>
+        <h2 class="cv-reveal cv-delay-1 text-3xl sm:text-4xl font-bold tracking-tight mb-12"><span class="bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent">Things I've Built</span><span class="text-cyber-400">.</span></h2>
+        <div class="cv-reveal cv-delay-2 cyber-card rounded-2xl overflow-hidden cv-neon-border-blue cv-project-card mb-6">
+          <div class="relative h-48 sm:h-56 overflow-hidden" style="background:linear-gradient(135deg,rgba(56,189,248,.15),rgba(14,165,233,.15));">
+            <div class="absolute inset-0 flex items-center justify-center"><div class="relative w-28 h-48 rounded-2xl border-2 border-white/20 overflow-hidden" style="background:#0A0A0C;"><div class="absolute top-0 left-1/2 -translate-x-1/2 w-12 h-5 rounded-b-xl bg-black/80"></div><div class="p-3 pt-8 space-y-2"><div class="h-2 w-16 rounded bg-cyber-500/30"></div><div class="h-2 w-20 rounded bg-white/10"></div><div class="mt-4 space-y-1.5"><div class="flex justify-between text-[8px]"><span class="text-cyber-400">Income</span><span class="text-cyber-400">+KES 45,000</span></div><div class="w-full h-1 rounded bg-white/5"><div class="w-3/4 h-full rounded bg-cyber-500/40"></div></div><div class="flex justify-between text-[8px] mt-2"><span class="text-red-400">Expense</span><span class="text-red-400">-KES 12,300</span></div><div class="w-full h-1 rounded bg-white/5"><div class="w-1/3 h-full rounded bg-red-500/40"></div></div></div><div class="mt-3 space-y-1"><div class="h-1.5 w-full rounded bg-white/5"></div><div class="h-1.5 w-4/5 rounded bg-white/5"></div><div class="h-1.5 w-3/5 rounded bg-white/5"></div></div></div></div></div>
             <div class="absolute top-6 left-6 cyber-tag">FEATURED PROJECT</div>
-            <div class="absolute bottom-4 right-6 flex gap-2"><span class="px-2 py-1 text-[10px] rounded-md bg-white/5 text-slate-400 border border-white/10">Flutter</span><span class="px-2 py-1 text-[10px] rounded-md bg-white/5 text-slate-400 border border-white/10">SQLite</span><span class="px-2 py-1 text-[10px] rounded-md bg-white/5 text-slate-400 border border-white/10">M-Pesa</span></div>
+            <div class="absolute bottom-4 right-6 flex gap-2"><span class="cv-tag px-2 py-1 text-[10px] rounded-md bg-white/5 text-slate-400 border border-white/10">Flutter</span><span class="cv-tag px-2 py-1 text-[10px] rounded-md bg-white/5 text-slate-400 border border-white/10">SQLite</span><span class="cv-tag px-2 py-1 text-[10px] rounded-md bg-white/5 text-slate-400 border border-white/10">M-Pesa</span></div>
           </div>
           <div class="p-6 sm:p-8">
-            <div class="flex items-start justify-between flex-wrap gap-4"><div><h3 class="text-2xl font-bold text-white mb-2">StocKipa</h3><p class="text-clay-400 font-mono text-sm mb-4">💰 Finance Tracking App</p></div><a href="#" class="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 hover:scale-105" style="background:rgba(250,115,22,.15);border:1px solid rgba(250,115,22,.3);color:#fb923c;"><span class="iconify" data-icon="lucide:github"></span>View Code</a></div>
+            <div class="flex items-start justify-between flex-wrap gap-4"><div><h3 class="text-2xl font-bold text-white mb-2">StocKipa</h3><p class="text-cyber-400 font-mono text-sm mb-4">💰 Finance Tracking App</p></div><a href="https://github.com/Grimzeero78/Stockipa.git" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 hover:scale-105" style="background:rgba(56,189,248,.15);border:1px solid rgba(56,189,248,.3);color:#7DD3FC;"><span class="iconify" data-icon="lucide:github"></span>Source Code</a></div>
             <p class="text-slate-400 leading-relaxed max-w-2xl">A mobile application that <span class="text-white font-medium">automatically tracks income and expenses</span> by reading M-Pesa SMS messages and scanning physical bills. Offline, free, secure, fast, and multi-language.</p>
             <div class="mt-6 grid sm:grid-cols-3 gap-3">
-              <div class="flex items-center gap-2 text-sm text-slate-500"><span class="iconify text-clay-500" data-icon="lucide:check-circle-2"></span>Auto-reads M-Pesa SMS</div>
-              <div class="flex items-center gap-2 text-sm text-slate-500"><span class="iconify text-clay-500" data-icon="lucide:check-circle-2"></span>Bill scanning &amp; stock mgmt</div>
-              <div class="flex items-center gap-2 text-sm text-slate-500"><span class="iconify text-clay-500" data-icon="lucide:check-circle-2"></span>Built for business owners</div>
+              <div class="flex items-center gap-2 text-sm text-slate-500"><span class="iconify text-cyber-500" data-icon="lucide:check-circle-2"></span>Auto-reads M-Pesa SMS</div>
+              <div class="flex items-center gap-2 text-sm text-slate-500"><span class="iconify text-cyber-500" data-icon="lucide:check-circle-2"></span>Bill scanning &amp; stock mgmt</div>
+              <div class="flex items-center gap-2 text-sm text-slate-500"><span class="iconify text-cyber-500" data-icon="lucide:check-circle-2"></span>Built for business owners</div>
             </div>
           </div>
         </div>
-        <div class="cv-reveal cv-delay-3 cyber-card rounded-2xl overflow-hidden mb-6">
+        <div class="cv-reveal cv-delay-3 cyber-card rounded-2xl overflow-hidden cv-project-card mb-6">
           <div class="p-6 sm:p-8">
-            <div class="flex items-start justify-between flex-wrap gap-4"><div><h3 class="text-xl font-bold text-white mb-2 flex items-center gap-3"><span class="iconify text-orange-400 text-2xl" data-icon="lucide:brain"></span>AI Image Detector</h3><p class="text-orange-400 font-mono text-sm mb-4">🧠 TensorFlow Image Classification</p></div><a href="#" class="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 hover:scale-105" style="background:rgba(250,115,22,.15);border:1px solid rgba(250,115,22,.3);color:#fb923c;"><span class="iconify" data-icon="lucide:github"></span>View Code</a></div>
+            <div class="flex items-start justify-between flex-wrap gap-4"><div><h3 class="text-xl font-bold text-white mb-2 flex items-center gap-3"><span class="iconify text-cyber-400 text-2xl" data-icon="lucide:brain"></span>AI Image Detector</h3><p class="text-cyber-400 font-mono text-sm mb-4">🧠 TensorFlow Image Classification</p></div><a href="https://github.com/Grimzeero78/Currencytraining.git" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 hover:scale-105" style="background:rgba(56,189,248,.15);border:1px solid rgba(56,189,248,.3);color:#7DD3FC;"><span class="iconify" data-icon="lucide:github"></span>Source Code</a></div>
             <p class="text-slate-400 leading-relaxed max-w-2xl">Python software using <span class="text-white font-medium">TensorFlow models to detect and classify objects</span> in user-selected images. Successfully detected a jeep at 8% confidence — accuracy scales with model quality.</p>
-            <div class="mt-4 flex flex-wrap gap-2"><span class="px-2 py-1 text-[10px] rounded-md bg-white/5 text-slate-400 border border-white/10">Python</span><span class="px-2 py-1 text-[10px] rounded-md bg-white/5 text-slate-400 border border-white/10">TensorFlow</span><span class="px-2 py-1 text-[10px] rounded-md bg-white/5 text-slate-400 border border-white/10">OpenCV</span></div>
+            <div class="mt-4 flex flex-wrap gap-2"><span class="cv-tag px-2 py-1 text-[10px] rounded-md bg-white/5 text-slate-400 border border-white/10">Python</span><span class="cv-tag px-2 py-1 text-[10px] rounded-md bg-white/5 text-slate-400 border border-white/10">TensorFlow</span><span class="cv-tag px-2 py-1 text-[10px] rounded-md bg-white/5 text-slate-400 border border-white/10">OpenCV</span></div>
           </div>
         </div>
-        <div class="cv-reveal cv-delay-4 cyber-card rounded-2xl p-6 sm:p-8">
+        <div class="cv-reveal cv-delay-4 cyber-card rounded-2xl cv-project-card p-6 sm:p-8">
           <div class="flex items-start justify-between flex-wrap gap-4"><div><h3 class="text-xl font-bold text-white mb-2 flex items-center gap-3"><span class="iconify text-slate-400 text-2xl" data-icon="lucide:folder-git-2"></span>More on GitHub</h3><p class="text-slate-400 text-sm">C++ algorithms, Flutter basics, pentesting notes.</p></div><a href="https://github.com/Grimzeero78/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 hover:scale-105" style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:#94a3b8;"><span class="iconify" data-icon="lucide:external-link"></span>Visit GitHub</a></div>
           <div class="mt-6 space-y-2">
             <div class="flex items-center justify-between p-3 rounded-lg hover:bg-white/[.02] transition-colors"><div class="flex items-center gap-3"><span class="iconify text-slate-600" data-icon="lucide:book-open"></span><span class="text-sm text-slate-300 font-mono">cpp-algorithms</span></div><span class="text-xs text-slate-600">C++</span></div>
@@ -1075,12 +1126,12 @@
     <!-- CV EDUCATION -->
     <section id="cv-education" class="relative py-24 px-6" style="z-index:2;">
       <div class="max-w-5xl mx-auto">
-        <div class="cv-reveal flex items-center gap-3 mb-4"><div class="w-8 h-px bg-amber-500"></div><span class="cyber-tag">// EDUCATION</span></div>
-        <h2 class="cv-reveal cv-delay-1 text-3xl sm:text-4xl font-bold tracking-tight mb-12"><span class="bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent">Learning Path</span><span class="text-amber-400">.</span></h2>
+        <div class="cv-reveal flex items-center gap-3 mb-4"><div class="w-8 h-px bg-cyber-400"></div><span class="cyber-tag">// EDUCATION</span></div>
+        <h2 class="cv-reveal cv-delay-1 text-3xl sm:text-4xl font-bold tracking-tight mb-12"><span class="bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent">Learning Path</span><span class="text-cyber-400">.</span></h2>
         <div class="relative">
-          <div class="absolute left-4 sm:left-6 top-0 bottom-0 w-px" style="background:linear-gradient(to bottom,rgba(245,158,11,.5),rgba(217,119,6,.5),transparent);"></div>
-          <div class="cv-reveal cv-delay-1 relative pl-12 sm:pl-16 pb-12"><div class="absolute left-2.5 sm:left-[18px] top-1 w-3 h-3 rounded-full bg-amber-400" style="box-shadow:0 0 12px rgba(245,158,11,.5);"></div><div class="cyber-card rounded-xl p-6"><div class="flex flex-wrap items-start justify-between gap-3 mb-3"><div><h3 class="text-lg font-bold text-white">BSc. Applied Computer Science</h3><p class="text-amber-400 text-sm font-medium mt-1">Chuka University</p></div><span class="cyber-tag" style="border-color:rgba(245,158,11,.3);background:rgba(245,158,11,.08);color:#fbbf24;">2023 — 2027</span></div><p class="text-slate-400 text-sm">Specializing in mobile application development &amp; AI.</p><div class="flex items-center gap-2 mt-3"><span class="relative flex h-2 w-2"><span class="cv-pulse-ring absolute inline-flex h-full w-full rounded-full bg-emerald-400"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span></span><span class="text-emerald-400 text-xs font-medium">In Progress</span></div></div></div>
-          <div class="cv-reveal cv-delay-2 relative pl-12 sm:pl-16 pb-12"><div class="absolute left-2.5 sm:left-[18px] top-1 w-3 h-3 rounded-full bg-warm-400" style="box-shadow:0 0 12px rgba(217,119,6,.5);"></div><div class="cyber-card rounded-xl p-6"><div class="flex flex-wrap items-start justify-between gap-3 mb-3"><div><h3 class="text-lg font-bold text-white">Kagumo High School</h3><p class="text-warm-400 text-sm font-medium mt-1">Secondary Education</p></div><span class="cyber-tag">2019 — 2022</span></div><p class="text-slate-400 text-sm">Built the foundation of discipline, teamwork, and analytical thinking.</p></div></div>
+          <div class="absolute left-4 sm:left-6 top-0 bottom-0 w-px" style="background:linear-gradient(to bottom,rgba(56,189,248,.5),rgba(14,165,233,.5),transparent);"></div>
+          <div class="cv-reveal cv-delay-1 relative pl-12 sm:pl-16 pb-12"><div class="absolute left-2.5 sm:left-[18px] top-1 w-3 h-3 rounded-full bg-cyber-400" style="box-shadow:0 0 12px rgba(56,189,248,.5);"></div><div class="cyber-card rounded-xl p-6"><div class="flex flex-wrap items-start justify-between gap-3 mb-3"><div><h3 class="text-lg font-bold text-white">BSc. Applied Computer Science</h3><p class="text-cyber-400 text-sm font-medium mt-1">Chuka University</p></div><span class="cyber-tag" style="border-color:rgba(56,189,248,.3);background:rgba(56,189,248,.08);color:#7DD3FC;">2023 — 2027</span></div><p class="text-slate-400 text-sm">Specializing in mobile application development &amp; AI.</p><div class="flex items-center gap-2 mt-3"><span class="relative flex h-2 w-2"><span class="cv-pulse-ring absolute inline-flex h-full w-full rounded-full bg-emerald-400"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span></span><span class="text-emerald-400 text-xs font-medium">In Progress</span></div></div></div>
+          <div class="cv-reveal cv-delay-2 relative pl-12 sm:pl-16 pb-12"><div class="absolute left-2.5 sm:left-[18px] top-1 w-3 h-3 rounded-full bg-cyber-400" style="box-shadow:0 0 12px rgba(56,189,248,.5);"></div><div class="cyber-card rounded-xl p-6"><div class="flex flex-wrap items-start justify-between gap-3 mb-3"><div><h3 class="text-lg font-bold text-white">Kagumo High School</h3><p class="text-cyber-400 text-sm font-medium mt-1">Secondary Education</p></div><span class="cyber-tag">2019 — 2022</span></div><p class="text-slate-400 text-sm">Built the foundation of discipline, teamwork, and analytical thinking.</p></div></div>
           <div class="cv-reveal cv-delay-3 relative pl-12 sm:pl-16"><div class="absolute left-2.5 sm:left-[18px] top-1 w-3 h-3 rounded-full bg-slate-500" style="box-shadow:0 0 8px rgba(100,116,139,.3);"></div><div class="cyber-card rounded-xl p-6" style="opacity:.7;"><div class="flex flex-wrap items-start justify-between gap-3"><div><h3 class="text-lg font-bold text-white">Ngenia Primary School</h3><p class="text-slate-400 text-sm font-medium mt-1">Primary Education</p></div><span class="text-xs text-slate-600 font-mono">— 2019</span></div></div></div>
         </div>
       </div>
@@ -1088,14 +1139,14 @@
 
     <!-- CV CONTACT -->
     <section id="cv-contact" class="relative py-24 px-6" style="z-index:2;">
-      <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] rounded-full" style="background:radial-gradient(circle,rgba(217,119,6,.1) 0%,transparent 70%);filter:blur(100px);"></div>
+      <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] rounded-full" style="background:radial-gradient(circle,rgba(56,189,248,.1) 0%,transparent 70%);filter:blur(100px);"></div>
       <div class="max-w-3xl mx-auto relative text-center">
-        <div class="cv-reveal flex items-center justify-center gap-3 mb-4"><div class="w-8 h-px bg-warm-500"></div><span class="cyber-tag">// CONTACT</span><div class="w-8 h-px bg-warm-500"></div></div>
-        <h2 class="cv-reveal cv-delay-1 text-4xl sm:text-5xl font-bold tracking-tight mb-4"><span class="cv-glitch cv-neon-text" data-text="GET IN TOUCH">GET IN TOUCH</span></h2>
+        <div class="cv-reveal flex items-center justify-center gap-3 mb-4"><div class="w-8 h-px bg-cyber-400"></div><span class="cyber-tag">// CONTACT</span><div class="w-8 h-px bg-cyber-400"></div></div>
+        <h2 class="cv-reveal cv-delay-1 text-4xl sm:text-5xl font-bold tracking-tight mb-4"><span class="cv-glitch cv-neon-blue-glow" data-text="GET IN TOUCH">GET IN TOUCH</span></h2>
         <p class="cv-reveal cv-delay-2 text-slate-400 text-lg mb-10 max-w-md mx-auto">Got a project? Need a developer? Want to collaborate? Reach out below.</p>
         <div class="cv-reveal cv-delay-3 grid sm:grid-cols-3 gap-4 mb-12">
           <a href="https://mail.google.com/mail/?view=cm&fs=1&to=injuguna308@gmail.com" target="_blank" rel="noopener noreferrer" class="cyber-card rounded-xl p-5 text-center group hover:scale-105 transition-transform duration-300">
-            <span class="iconify text-warm-400 text-2xl mx-auto mb-2 group-hover:scale-110 transition-transform" data-icon="lucide:mail"></span>
+            <span class="iconify text-cyber-400 text-2xl mx-auto mb-2 group-hover:scale-110 transition-transform" data-icon="lucide:mail"></span>
             <p class="text-white text-sm font-medium">Email</p>
             <p class="text-slate-500 text-xs mt-1">injuguna308@gmail.com</p>
           </a>
@@ -1650,7 +1701,7 @@
         }
         ctx.fillStyle = 'rgba(3,3,4,0.05)';
         ctx.fillRect(0, 0, canvas.width, canvas.height);
-        ctx.fillStyle = '#D97706';
+        ctx.fillStyle = '#38BDF8';
         ctx.font = fontSize + 'px monospace';
         for (let i = 0; i < drops.length; i++) {
           const t = chars[Math.floor(Math.random() * chars.length)];
@@ -1672,7 +1723,7 @@
         p.style.animationDuration = (8 + Math.random() * 12) + 's';
         p.style.animationDelay = Math.random() * 10 + 's';
         p.style.width = p.style.height = (1 + Math.random() * 2) + 'px';
-        if (Math.random() > .5) p.style.background = 'rgba(250,115,22,.5)';
+        if (Math.random() > .5) p.style.background = 'rgba(56,189,248,.5)';
         c.appendChild(p);
       }
     })();
@@ -1776,7 +1827,7 @@
       if (e.target.closest('#cv-close-btn') || e.target.closest('a') || e.target.closest('button')) return;
       const r = document.createElement('div');
       r.style.cssText =
-        `position:fixed;left:${e.clientX}px;top:${e.clientY}px;width:0;height:0;border-radius:50%;border:1px solid rgba(217,119,6,.5);transform:translate(-50%,-50%);pointer-events:none;z-index:9999;transition:all .6s ease-out`;
+        `position:fixed;left:${e.clientX}px;top:${e.clientY}px;width:0;height:0;border-radius:50%;border:1px solid rgba(56,189,248,.5);transform:translate(-50%,-50%);pointer-events:none;z-index:9999;transition:all .6s ease-out`;
       document.getElementById('cv-overlay').appendChild(r);
       requestAnimationFrame(() => { r.style.width = r.style.height = '100px';
         r.style.opacity = '0'; });

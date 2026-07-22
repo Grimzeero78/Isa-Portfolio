@@ -59,6 +59,7 @@
       --text-secondary: #a3a3a3;
       --border-color: rgba(255,255,255,0.1);
       --bg-nav: rgba(0,0,0,0.85);
+      --hero-stroke: rgba(255,255,255,0.2);
     }
 
     .light-theme {
@@ -69,6 +70,7 @@
       --text-secondary: #4a4a4a;
       --border-color: rgba(0,0,0,0.1);
       --bg-nav: rgba(255,255,255,0.9);
+      --hero-stroke: rgba(0,0,0,0.2);
     }
 
     body {
@@ -105,15 +107,66 @@
       color: var(--text-secondary) !important;
     }
 
-    .theme-toggle {
+    /* Theme toggle button - prominent like Go Back */
+    .theme-toggle-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      border-radius: 8px;
       background: rgba(255,255,255,0.05);
       border: 1px solid var(--border-color);
       color: var(--text-primary);
+      cursor: pointer;
       transition: all 0.3s ease;
+      font-size: 13px;
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
     }
-    .theme-toggle:hover {
+    .theme-toggle-btn:hover {
       border-color: #D97706;
       background: rgba(217,119,6,0.1);
+      transform: scale(1.05);
+    }
+    .theme-toggle-btn .iconify {
+      font-size: 16px;
+    }
+    .theme-toggle-btn-mobile {
+      padding: 6px 12px;
+      font-size: 11px;
+    }
+    /* Light mode hero text fix */
+    .light-theme .hero-stroke-text {
+      -webkit-text-stroke: 2px rgba(0,0,0,0.3) !important;
+      color: transparent !important;
+    }
+    /* Fix for hero in light mode */
+    .light-theme #hero h1 .block:last-child {
+      -webkit-text-stroke: 2px rgba(0,0,0,0.25) !important;
+    }
+    /* Fix nav text in light mode */
+    .light-theme #nav a:not(.bg-warm-500):not(.theme-toggle-btn) {
+      color: #1a1a1a !important;
+    }
+    .light-theme #nav a:not(.bg-warm-500):not(.theme-toggle-btn):hover {
+      color: #D97706 !important;
+    }
+    .light-theme #nav .text-neutral-400 {
+      color: #4a4a4a !important;
+    }
+    /* Fix flip card back text */
+    .light-theme .flip-card-back .text-neutral-300 {
+      color: #4a4a4a !important;
+    }
+    .light-theme .flip-card-back .border-white\/5 {
+      border-color: rgba(0,0,0,0.05) !important;
+    }
+    .light-theme .flip-card-back .bg-white\/5 {
+      background: rgba(0,0,0,0.03) !important;
+    }
+    /* Fix grain opacity in light mode */
+    .light-theme .grain {
+      opacity: 0.015 !important;
     }
 
     /* scroll progress */
@@ -715,6 +768,7 @@
     .light-theme .flip-card-back { background: #ffffff !important; }
     .light-theme .flip-card-front .bg-neutral-950 { background: #ffffff !important; }
     .light-theme .flip-card-back .bg-neutral-950 { background: #ffffff !important; }
+    .light-theme .flip-card-back .text-slate-300 { color: #4a4a4a !important; }
   </style>
 </head>
 
@@ -734,14 +788,15 @@
         <a href="#stockipa" class="text-[11px] font-semibold tracking-[.2em] uppercase text-neutral-400 hover:text-white transition-colors" style="color:var(--text-secondary)">Stockipa</a>
         <a href="#cases" class="text-[11px] font-semibold tracking-[.2em] uppercase text-neutral-400 hover:text-white transition-colors" style="color:var(--text-secondary)">Case Studies</a>
         <a href="#stack" class="text-[11px] font-semibold tracking-[.2em] uppercase text-neutral-400 hover:text-white transition-colors" style="color:var(--text-secondary)">Stack</a>
-        <button onclick="toggleTheme()" class="theme-toggle w-9 h-9 rounded-full flex items-center justify-center" aria-label="Toggle theme">
+        <button onclick="toggleTheme()" class="theme-toggle-btn" aria-label="Toggle theme">
           <iconify-icon icon="lucide:moon" width="16" id="theme-icon"></iconify-icon>
+          <span id="theme-label">Dark</span>
         </button>
         <a href="https://mail.google.com/mail/?view=cm&fs=1&to=injuguna308@gmail.com" target="_blank" rel="noopener noreferrer" class="text-[11px] font-semibold tracking-[.2em] uppercase bg-warm-500 text-white px-5 py-2.5 rounded-sm hover:bg-warm-600 transition-colors">Hire Me</a>
       </div>
       <div class="flex items-center gap-3 md:hidden">
-        <button onclick="toggleTheme()" class="theme-toggle w-9 h-9 rounded-full flex items-center justify-center" aria-label="Toggle theme">
-          <iconify-icon icon="lucide:moon" width="16" id="theme-icon-mobile"></iconify-icon>
+        <button onclick="toggleTheme()" class="theme-toggle-btn theme-toggle-btn-mobile" aria-label="Toggle theme">
+          <iconify-icon icon="lucide:moon" width="14" id="theme-icon-mobile"></iconify-icon>
         </button>
         <button id="mobile-menu-btn" class="text-white" style="color:var(--text-primary)"><iconify-icon icon="lucide:menu" width="24"></iconify-icon></button>
       </div>
@@ -766,7 +821,7 @@
       <p class="text-[10px] font-semibold tracking-[.3em] uppercase text-warm-400 mb-6 pf-reveal" style="color:var(--text-secondary)">Mobile Developer · AI Engineer · Problem Solver</p>
       <h1 class="text-[clamp(3rem,12vw,10rem)] font-black leading-[.85] tracking-tighter pf-reveal pf-delay-1" style="color:var(--text-primary)">
         <span class="block">ISAAC</span>
-        <span class="block text-transparent" style="-webkit-text-stroke:2px rgba(255,255,255,.2)">BRIDGET</span>
+        <span class="block hero-stroke-text" style="-webkit-text-stroke:2px var(--hero-stroke);color:transparent;">BRIDGET</span>
       </h1>
       <div class="mt-6 pf-reveal pf-delay-2"><p class="text-neutral-500 text-sm md:text-base max-w-md mx-auto" style="color:var(--text-secondary)">Building apps that solve real problems — from finance tracking for small businesses to AI-powered image detection.</p></div>
       <div class="mt-10 max-w-lg mx-auto pf-reveal pf-delay-3">
@@ -1374,11 +1429,15 @@
       isDark = !isDark;
       document.documentElement.classList.toggle('light-theme', !isDark);
       const icons = document.querySelectorAll('#theme-icon, #theme-icon-mobile');
+      const labels = document.querySelectorAll('#theme-label');
       icons.forEach(icon => {
         icon.setAttribute('icon', isDark ? 'lucide:moon' : 'lucide:sun');
       });
+      labels.forEach(label => {
+        if (label) label.textContent = isDark ? 'Dark' : 'Light';
+      });
       // Update nav text colors
-      document.querySelectorAll('#nav a:not(.bg-warm-500)').forEach(el => {
+      document.querySelectorAll('#nav a:not(.bg-warm-500):not(.theme-toggle-btn)').forEach(el => {
         el.style.color = isDark ? '' : '#1a1a1a';
       });
     }

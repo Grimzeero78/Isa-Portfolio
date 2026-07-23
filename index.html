@@ -907,6 +907,142 @@
       </div>
     </div>
   </section>
+    <!-- ==================== POWER BEAMING PROJECT ==================== -->
+  <section id="power-beaming" class="relative py-24 md:py-32 border-t border-white/10 overflow-hidden" style="border-color:var(--border-color);background:var(--bg-secondary)">
+    <!-- Background Glow -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-cyber-400/5 rounded-full blur-[120px]"></div>
+    <div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-warm-500/5 rounded-full blur-[100px]"></div>
+
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+      <!-- Header -->
+      <div class="text-center mb-16 pf-reveal">
+        <div class="inline-flex items-center gap-2 bg-cyber-500/10 border border-cyber-500/20 rounded-full px-4 py-1.5 mb-6">
+          <span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyber-400 opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-cyber-500"></span></span>
+          <span class="text-[10px] font-bold tracking-[.2em] uppercase text-cyber-400">Future Project</span>
+        </div>
+        <h2 class="text-4xl md:text-6xl font-black tracking-tighter" style="color:var(--text-primary)">Power Beaming<span class="text-warm-500">.</span></h2>
+        <p class="mt-4 max-w-3xl mx-auto text-sm md:text-base" style="color:var(--text-secondary)">
+          Sending electricity through the air over 1 km, 10 km, or from orbit. Using phased-array microwaves, laser links, and rectenna receivers to cut the last wire.
+        </p>
+      </div>
+
+      <!-- Vision & Key Details -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-16">
+        <!-- Vision Card -->
+        <div class="lg:col-span-2 cyber-card rounded-xl p-6 md:p-8 pf-reveal pf-delay-1" style="border-color:var(--border-color);background:var(--bg-card)">
+          <h3 class="text-xl font-bold mb-3 flex items-center gap-2" style="color:var(--text-primary)"><span class="iconify text-warm-400 text-2xl" data-icon="lucide:eye"></span> The Vision</h3>
+          <p class="text-sm leading-relaxed" style="color:var(--text-secondary)">
+            Power lines are the last analog infrastructure. We beam data across the planet at the speed of light. We beam images from Mars. But to send power 5 kilometers to a remote village, we still string copper on wooden poles. That ends now.
+          </p>
+          <p class="text-sm leading-relaxed mt-3" style="color:var(--text-secondary)">
+            Long-range wireless power beaming converts electricity into a directed electromagnetic beam — microwave or laser — transmits it through free space, and converts it back to DC at the receiver. No wires, no fuel, no emissions at the point of use.
+          </p>
+        </div>
+        <!-- Stats Card -->
+        <div class="cyber-card rounded-xl p-6 pf-reveal pf-delay-2" style="border-color:var(--border-color);background:var(--bg-card)">
+          <h4 class="text-[10px] font-bold tracking-[.2em] uppercase text-neutral-500 mb-4">Near-Term Target</h4>
+          <div class="space-y-4">
+            <div><div class="text-3xl font-black text-cyber-400">1km</div><div class="text-[10px] text-neutral-500">Range Target</div></div>
+            <div><div class="text-3xl font-black text-warm-400">50%</div><div class="text-[10px] text-neutral-500">End-to-End Efficiency</div></div>
+            <div><div class="text-3xl font-black text-green-400">10kW</div><div class="text-[10px] text-neutral-500">Receiver Output</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tech Breakdown -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+        <!-- Microwave -->
+        <div class="cyber-card rounded-xl p-6 pf-reveal pf-delay-1 hover:border-cyber-500/30 transition-colors" style="border-color:var(--border-color);background:var(--bg-card)">
+          <div class="w-12 h-12 rounded-xl bg-cyber-500/10 flex items-center justify-center mb-4"><span class="iconify text-cyber-400 text-2xl" data-icon="lucide:radio"></span></div>
+          <h4 class="text-lg font-bold" style="color:var(--text-primary)">5.8 GHz Microwave</h4>
+          <p class="text-xs text-cyber-400 font-mono mb-2">Primary Focus · 0.1–10 km</p>
+          <p class="text-sm leading-relaxed" style="color:var(--text-secondary)">Punches through rain, fog, and dust. Rectenna converts at 85–90% efficiency. Perfect for disaster zones, remote islands, and offshore platforms.</p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="text-[9px] font-semibold uppercase bg-green-500/10 text-green-400 px-2 py-1 rounded-sm">Weather Tolerant</span>
+            <span class="text-[9px] font-semibold uppercase bg-warm-500/10 text-warm-400 px-2 py-1 rounded-sm">85–92% Beam Eff.</span>
+          </div>
+        </div>
+        <!-- Laser -->
+        <div class="cyber-card rounded-xl p-6 pf-reveal pf-delay-2 hover:border-cyber-500/30 transition-colors" style="border-color:var(--border-color);background:var(--bg-card)">
+          <div class="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center mb-4"><span class="iconify text-amber-400 text-2xl" data-icon="lucide:lightbulb"></span></div>
+          <h4 class="text-lg font-bold" style="color:var(--text-primary)">850nm–1550nm Laser</h4>
+          <p class="text-xs text-cyber-400 font-mono mb-2">Space & Clear Sky · 1–100 km</p>
+          <p class="text-sm leading-relaxed" style="color:var(--text-secondary)">Tight collimated beam. Photovoltaic cells convert at 50–60%. Extremely low divergence means small receivers even at long range.</p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="text-[9px] font-semibold uppercase bg-red-500/10 text-red-400 px-2 py-1 rounded-sm">Poor Weather</span>
+            <span class="text-[9px] font-semibold uppercase bg-warm-500/10 text-warm-400 px-2 py-1 rounded-sm">95–99% Beam Eff.</span>
+          </div>
+        </div>
+        <!-- mmWave -->
+        <div class="cyber-card rounded-xl p-6 pf-reveal pf-delay-3 hover:border-cyber-500/30 transition-colors" style="border-color:var(--border-color);background:var(--bg-card)">
+          <div class="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center mb-4"><span class="iconify text-purple-400 text-2xl" data-icon="lucide:signal"></span></div>
+          <h4 class="text-lg font-bold" style="color:var(--text-primary)">24–100 GHz mmWave</h4>
+          <p class="text-xs text-cyber-400 font-mono mb-2">Urban & Drones · 0.1–1 km</p>
+          <p class="text-sm leading-relaxed" style="color:var(--text-secondary)">Silicon-based phased arrays with electronic steering. High attenuation limits range but enables compact, flat-panel transmitters.</p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="text-[9px] font-semibold uppercase bg-blue-500/10 text-blue-400 px-2 py-1 rounded-sm">Moderate Weather</span>
+            <span class="text-[9px] font-semibold uppercase bg-warm-500/10 text-warm-400 px-2 py-1 rounded-sm">60–70% Rectenna</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Demo & Roadmap -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+        <!-- Interactive Demo Placeholder -->
+        <div class="cyber-card rounded-xl p-6 pf-reveal pf-delay-1" style="border-color:var(--border-color);background:var(--bg-card)">
+          <h3 class="text-lg font-bold mb-4 flex items-center gap-2" style="color:var(--text-primary)"><span class="iconify text-warm-400 text-xl" data-icon="lucide:play"></span> Interactive Simulation</h3>
+          <div class="aspect-video rounded-lg bg-black/50 border border-white/10 flex flex-col items-center justify-center p-6 text-center">
+            <span class="iconify text-6xl text-neutral-700 mb-4" data-icon="lucide:radio-tower"></span>
+            <p class="text-sm font-medium" style="color:var(--text-primary)">Beam Propagation Demo</p>
+            <p class="text-xs" style="color:var(--text-secondary)">Fire the microwave beam and watch it propagate.</p>
+            <a href="https://grimzeero78.github.io/power/" target="_blank" rel="noopener noreferrer" class="mt-4 inline-flex items-center gap-2 bg-warm-500 text-white text-[10px] font-bold tracking-[.15em] uppercase px-5 py-2.5 rounded-sm hover:bg-warm-600 transition-colors">
+              <span class="iconify" data-icon="lucide:external-link"></span> View Live Demo
+            </a>
+            <a href="https://github.com/Grimzeero78/power.git" target="_blank" rel="noopener noreferrer" class="mt-2 text-[10px] text-cyber-400 hover:text-cyber-300 transition-colors">View Source Code</a>
+          </div>
+        </div>
+        <!-- Roadmap -->
+        <div class="cyber-card rounded-xl p-6 pf-reveal pf-delay-2" style="border-color:var(--border-color);background:var(--bg-card)">
+          <h3 class="text-lg font-bold mb-4 flex items-center gap-2" style="color:var(--text-primary)"><span class="iconify text-cyber-400 text-xl" data-icon="lucide:map-pin"></span> Roadmap</h3>
+          <div class="space-y-4 text-sm">
+            <div class="flex items-start gap-3 border-b border-white/5 pb-3"><div class="w-8 h-8 rounded-full bg-warm-500/10 flex items-center justify-center flex-shrink-0"><span class="text-[10px] font-bold text-warm-500">1</span></div><div><h4 class="font-bold" style="color:var(--text-primary)">Benchtop Proof-of-Concept</h4><p class="text-xs" style="color:var(--text-secondary)">100W SSPA, 64-element rectenna. 10m range. Target: 50% efficiency.</p><span class="text-[9px] text-warm-500 font-semibold">In Progress · Q1 2025</span></div></div>
+            <div class="flex items-start gap-3 border-b border-white/5 pb-3"><div class="w-8 h-8 rounded-full bg-cyber-500/10 flex items-center justify-center flex-shrink-0"><span class="text-[10px] font-bold text-cyber-400">2</span></div><div><h4 class="font-bold" style="color:var(--text-primary)">100m Outdoor Link</h4><p class="text-xs" style="color:var(--text-secondary)">1 kW SSPA, 1m dish. Full safety interlocks. Target: 45%.</p><span class="text-[9px] text-cyber-400 font-semibold">Planned · Q3 2025</span></div></div>
+            <div class="flex items-start gap-3"><div class="w-8 h-8 rounded-full bg-purple-500/10 flex items-center justify-center flex-shrink-0"><span class="text-[10px] font-bold text-purple-400">3</span></div><div><h4 class="font-bold" style="color:var(--text-primary)">1km Cross-Field Beam</h4><p class="text-xs" style="color:var(--text-secondary)">5 kW GaN SSPA, 3m dish. Phased-array steering. Target: 40%.</p><span class="text-[9px] text-purple-400 font-semibold">Planned · Q2 2026</span></div></div>
+          </div>
+          <div class="mt-4 p-3 rounded-lg border border-cyber-500/20 bg-cyber-500/5">
+            <p class="text-xs" style="color:var(--text-secondary)"><span class="text-cyber-400 font-bold">Endgame:</span> Space-Based Solar Power — 36,000 km GEO beam-down. 1 MW solar array in orbit, 5.8 GHz beam to ground rectenna.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Why This Matters & Disclaimer -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="cyber-card rounded-xl p-6 pf-reveal pf-delay-1" style="border-color:var(--border-color);background:var(--bg-card)">
+          <h3 class="text-lg font-bold mb-3 flex items-center gap-2" style="color:var(--text-primary)"><span class="iconify text-warm-400 text-xl" data-icon="lucide:zap"></span> Why This Matters</h3>
+          <p class="text-sm leading-relaxed" style="color:var(--text-secondary)">
+            Space-based solar power is not science fiction. NASA, ESA, JAXA, and China's CASIC all have active programs. This is the ultimate application — baseload clean energy, 24/7, from orbit.
+          </p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="text-[9px] font-semibold uppercase bg-cyber-500/10 text-cyber-400 px-2 py-1 rounded-sm">NASA SBIR 2024</span>
+            <span class="text-[9px] font-semibold uppercase bg-cyber-500/10 text-cyber-400 px-2 py-1 rounded-sm">ESA SOLARIS</span>
+            <span class="text-[9px] font-semibold uppercase bg-cyber-500/10 text-cyber-400 px-2 py-1 rounded-sm">JAXA SSPS</span>
+          </div>
+        </div>
+        <div class="cyber-card rounded-xl p-6 pf-reveal pf-delay-2" style="border-color:var(--border-color);background:var(--bg-card)">
+          <h3 class="text-lg font-bold mb-3 flex items-center gap-2" style="color:var(--text-primary)"><span class="iconify text-amber-400 text-xl" data-icon="lucide:alert-triangle"></span> Honest Assessment</h3>
+          <ul class="space-y-2 text-sm" style="color:var(--text-secondary)">
+            <li class="flex items-start gap-2"><span class="text-warm-400 mt-0.5">•</span> <span><strong class="text-white">Thermal Management:</strong> 5 kW of heat at 20 kW scale. Need liquid cooling.</span></li>
+            <li class="flex items-start gap-2"><span class="text-warm-400 mt-0.5">•</span> <span><strong class="text-white">Rectenna Cost:</strong> 500,000 elements at ~$937,000. Need printed electronics.</span></li>
+            <li class="flex items-start gap-2"><span class="text-warm-400 mt-0.5">•</span> <span><strong class="text-white">Public Perception:</strong> "Microwave beam" sounds terrifying. Need transparency.</span></li>
+          </ul>
+          <div class="mt-4 p-3 rounded-lg border border-amber-500/20 bg-amber-500/5">
+            <p class="text-[10px] text-amber-400 font-medium uppercase tracking-wider">Future Project</p>
+            <p class="text-xs" style="color:var(--text-secondary)">This is a long-term vision — maybe when I'm in my 50s. For now, it's a passion project, a learning journey, and a glimpse of what's possible.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- PROJECTS -->
   <section id="projects" class="relative py-24 md:py-32 border-t border-white/10" style="border-color:var(--border-color);background:var(--bg-primary)">

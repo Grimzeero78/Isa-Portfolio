@@ -769,6 +769,41 @@
     .light-theme .flip-card-front .bg-neutral-950 { background: #ffffff !important; }
     .light-theme .flip-card-back .bg-neutral-950 { background: #ffffff !important; }
     .light-theme .flip-card-back .text-slate-300 { color: #4a4a4a !important; }
+
+    /* fix mobile nav visibility */
+    @media(max-width:768px) {
+      #nav .flex.items-center.gap-3 {
+        display: flex !important;
+      }
+      #nav .theme-toggle-btn-mobile {
+        display: flex !important;
+      }
+      #mobile-menu-btn {
+        display: flex !important;
+      }
+    }
+    @media(min-width:769px) {
+      .theme-toggle-btn-mobile { display: none !important; }
+      #mobile-menu-btn { display: none !important; }
+    }
+
+    /* power beaming carousel */
+    .pb-carousel-track {
+      display: flex;
+      gap: 24px;
+      cursor: grab;
+      user-select: none;
+      will-change: transform;
+    }
+    .pb-carousel-track:active { cursor: grabbing; }
+    .pb-carousel-track.snap { transition: transform .5s cubic-bezier(.16, 1, .3, 1); }
+    .pb-card {
+      min-width: 280px;
+      flex-shrink: 0;
+    }
+    @media(max-width:640px) {
+      .pb-card { min-width: 260px; }
+    }
   </style>
 </head>
 
@@ -907,14 +942,13 @@
       </div>
     </div>
   </section>
-    <!-- ==================== POWER BEAMING PROJECT ==================== -->
+
+  <!-- ==================== POWER BEAMING PROJECT ==================== -->
   <section id="power-beaming" class="relative py-24 md:py-32 border-t border-white/10 overflow-hidden" style="border-color:var(--border-color);background:var(--bg-secondary)">
-    <!-- Background Glow -->
     <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-cyber-400/5 rounded-full blur-[120px]"></div>
     <div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-warm-500/5 rounded-full blur-[100px]"></div>
 
     <div class="max-w-7xl mx-auto px-6 relative z-10">
-      <!-- Header -->
       <div class="text-center mb-16 pf-reveal">
         <div class="inline-flex items-center gap-2 bg-cyber-500/10 border border-cyber-500/20 rounded-full px-4 py-1.5 mb-6">
           <span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyber-400 opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-cyber-500"></span></span>
@@ -928,7 +962,6 @@
 
       <!-- Vision & Key Details -->
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-16">
-        <!-- Vision Card -->
         <div class="lg:col-span-2 cyber-card rounded-xl p-6 md:p-8 pf-reveal pf-delay-1" style="border-color:var(--border-color);background:var(--bg-card)">
           <h3 class="text-xl font-bold mb-3 flex items-center gap-2" style="color:var(--text-primary)"><span class="iconify text-warm-400 text-2xl" data-icon="lucide:eye"></span> The Vision</h3>
           <p class="text-sm leading-relaxed" style="color:var(--text-secondary)">
@@ -938,7 +971,6 @@
             Long-range wireless power beaming converts electricity into a directed electromagnetic beam — microwave or laser — transmits it through free space, and converts it back to DC at the receiver. No wires, no fuel, no emissions at the point of use.
           </p>
         </div>
-        <!-- Stats Card -->
         <div class="cyber-card rounded-xl p-6 pf-reveal pf-delay-2" style="border-color:var(--border-color);background:var(--bg-card)">
           <h4 class="text-[10px] font-bold tracking-[.2em] uppercase text-neutral-500 mb-4">Near-Term Target</h4>
           <div class="space-y-4">
@@ -949,46 +981,53 @@
         </div>
       </div>
 
-      <!-- Tech Breakdown -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-        <!-- Microwave -->
-        <div class="cyber-card rounded-xl p-6 pf-reveal pf-delay-1 hover:border-cyber-500/30 transition-colors" style="border-color:var(--border-color);background:var(--bg-card)">
-          <div class="w-12 h-12 rounded-xl bg-cyber-500/10 flex items-center justify-center mb-4"><span class="iconify text-cyber-400 text-2xl" data-icon="lucide:radio"></span></div>
-          <h4 class="text-lg font-bold" style="color:var(--text-primary)">5.8 GHz Microwave</h4>
-          <p class="text-xs text-cyber-400 font-mono mb-2">Primary Focus · 0.1–10 km</p>
-          <p class="text-sm leading-relaxed" style="color:var(--text-secondary)">Punches through rain, fog, and dust. Rectenna converts at 85–90% efficiency. Perfect for disaster zones, remote islands, and offshore platforms.</p>
-          <div class="mt-4 flex flex-wrap gap-2">
-            <span class="text-[9px] font-semibold uppercase bg-green-500/10 text-green-400 px-2 py-1 rounded-sm">Weather Tolerant</span>
-            <span class="text-[9px] font-semibold uppercase bg-warm-500/10 text-warm-400 px-2 py-1 rounded-sm">85–92% Beam Eff.</span>
+      <!-- Tech Breakdown (now as a carousel) -->
+      <div class="relative overflow-hidden mb-12">
+        <div class="pb-carousel-track px-2" id="pb-carousel-track">
+          <!-- Microwave -->
+          <div class="pb-card cyber-card rounded-xl p-6 hover:border-cyber-500/30 transition-colors" style="border-color:var(--border-color);background:var(--bg-card);min-width:280px;">
+            <div class="w-12 h-12 rounded-xl bg-cyber-500/10 flex items-center justify-center mb-4"><span class="iconify text-cyber-400 text-2xl" data-icon="lucide:radio"></span></div>
+            <h4 class="text-lg font-bold" style="color:var(--text-primary)">5.8 GHz Microwave</h4>
+            <p class="text-xs text-cyber-400 font-mono mb-2">Primary Focus · 0.1–10 km</p>
+            <p class="text-sm leading-relaxed" style="color:var(--text-secondary)">Punches through rain, fog, and dust. Rectenna converts at 85–90% efficiency. Perfect for disaster zones, remote islands, and offshore platforms.</p>
+            <div class="mt-4 flex flex-wrap gap-2">
+              <span class="text-[9px] font-semibold uppercase bg-green-500/10 text-green-400 px-2 py-1 rounded-sm">Weather Tolerant</span>
+              <span class="text-[9px] font-semibold uppercase bg-warm-500/10 text-warm-400 px-2 py-1 rounded-sm">85–92% Beam Eff.</span>
+            </div>
           </div>
+          <!-- Laser -->
+          <div class="pb-card cyber-card rounded-xl p-6 hover:border-cyber-500/30 transition-colors" style="border-color:var(--border-color);background:var(--bg-card);min-width:280px;">
+            <div class="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center mb-4"><span class="iconify text-amber-400 text-2xl" data-icon="lucide:lightbulb"></span></div>
+            <h4 class="text-lg font-bold" style="color:var(--text-primary)">850nm–1550nm Laser</h4>
+            <p class="text-xs text-cyber-400 font-mono mb-2">Space & Clear Sky · 1–100 km</p>
+            <p class="text-sm leading-relaxed" style="color:var(--text-secondary)">Tight collimated beam. Photovoltaic cells convert at 50–60%. Extremely low divergence means small receivers even at long range.</p>
+            <div class="mt-4 flex flex-wrap gap-2">
+              <span class="text-[9px] font-semibold uppercase bg-red-500/10 text-red-400 px-2 py-1 rounded-sm">Poor Weather</span>
+              <span class="text-[9px] font-semibold uppercase bg-warm-500/10 text-warm-400 px-2 py-1 rounded-sm">95–99% Beam Eff.</span>
+            </div>
+          </div>
+          <!-- mmWave -->
+          <div class="pb-card cyber-card rounded-xl p-6 hover:border-cyber-500/30 transition-colors" style="border-color:var(--border-color);background:var(--bg-card);min-width:280px;">
+            <div class="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center mb-4"><span class="iconify text-purple-400 text-2xl" data-icon="lucide:signal"></span></div>
+            <h4 class="text-lg font-bold" style="color:var(--text-primary)">24–100 GHz mmWave</h4>
+            <p class="text-xs text-cyber-400 font-mono mb-2">Urban & Drones · 0.1–1 km</p>
+            <p class="text-sm leading-relaxed" style="color:var(--text-secondary)">Silicon-based phased arrays with electronic steering. High attenuation limits range but enables compact, flat-panel transmitters.</p>
+            <div class="mt-4 flex flex-wrap gap-2">
+              <span class="text-[9px] font-semibold uppercase bg-blue-500/10 text-blue-400 px-2 py-1 rounded-sm">Moderate Weather</span>
+              <span class="text-[9px] font-semibold uppercase bg-warm-500/10 text-warm-400 px-2 py-1 rounded-sm">60–70% Rectenna</span>
+            </div>
+          </div>
+          <!-- extra card for spacing -->
+          <div class="pb-card cyber-card rounded-xl p-6 opacity-0" style="min-width:20px;"></div>
         </div>
-        <!-- Laser -->
-        <div class="cyber-card rounded-xl p-6 pf-reveal pf-delay-2 hover:border-cyber-500/30 transition-colors" style="border-color:var(--border-color);background:var(--bg-card)">
-          <div class="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center mb-4"><span class="iconify text-amber-400 text-2xl" data-icon="lucide:lightbulb"></span></div>
-          <h4 class="text-lg font-bold" style="color:var(--text-primary)">850nm–1550nm Laser</h4>
-          <p class="text-xs text-cyber-400 font-mono mb-2">Space & Clear Sky · 1–100 km</p>
-          <p class="text-sm leading-relaxed" style="color:var(--text-secondary)">Tight collimated beam. Photovoltaic cells convert at 50–60%. Extremely low divergence means small receivers even at long range.</p>
-          <div class="mt-4 flex flex-wrap gap-2">
-            <span class="text-[9px] font-semibold uppercase bg-red-500/10 text-red-400 px-2 py-1 rounded-sm">Poor Weather</span>
-            <span class="text-[9px] font-semibold uppercase bg-warm-500/10 text-warm-400 px-2 py-1 rounded-sm">95–99% Beam Eff.</span>
-          </div>
-        </div>
-        <!-- mmWave -->
-        <div class="cyber-card rounded-xl p-6 pf-reveal pf-delay-3 hover:border-cyber-500/30 transition-colors" style="border-color:var(--border-color);background:var(--bg-card)">
-          <div class="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center mb-4"><span class="iconify text-purple-400 text-2xl" data-icon="lucide:signal"></span></div>
-          <h4 class="text-lg font-bold" style="color:var(--text-primary)">24–100 GHz mmWave</h4>
-          <p class="text-xs text-cyber-400 font-mono mb-2">Urban & Drones · 0.1–1 km</p>
-          <p class="text-sm leading-relaxed" style="color:var(--text-secondary)">Silicon-based phased arrays with electronic steering. High attenuation limits range but enables compact, flat-panel transmitters.</p>
-          <div class="mt-4 flex flex-wrap gap-2">
-            <span class="text-[9px] font-semibold uppercase bg-blue-500/10 text-blue-400 px-2 py-1 rounded-sm">Moderate Weather</span>
-            <span class="text-[9px] font-semibold uppercase bg-warm-500/10 text-warm-400 px-2 py-1 rounded-sm">60–70% Rectenna</span>
-          </div>
+        <div class="flex justify-center mt-6 gap-3">
+          <button id="pb-prev" class="w-10 h-10 border border-white/20 rounded-full flex items-center justify-center transition-all hover:border-warm-500" style="border-color:var(--border-color);color:var(--text-secondary)"><iconify-icon icon="lucide:arrow-left" width="16"></iconify-icon></button>
+          <button id="pb-next" class="w-10 h-10 border border-white/20 rounded-full flex items-center justify-center transition-all hover:border-warm-500" style="border-color:var(--border-color);color:var(--text-secondary)"><iconify-icon icon="lucide:arrow-right" width="16"></iconify-icon></button>
         </div>
       </div>
 
-      <!-- Demo & Roadmap -->
+      <!-- Interactive Demo & Roadmap (demo below) -->
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
-        <!-- Interactive Demo Placeholder -->
         <div class="cyber-card rounded-xl p-6 pf-reveal pf-delay-1" style="border-color:var(--border-color);background:var(--bg-card)">
           <h3 class="text-lg font-bold mb-4 flex items-center gap-2" style="color:var(--text-primary)"><span class="iconify text-warm-400 text-xl" data-icon="lucide:play"></span> Interactive Simulation</h3>
           <div class="aspect-video rounded-lg bg-black/50 border border-white/10 flex flex-col items-center justify-center p-6 text-center">
@@ -1001,7 +1040,6 @@
             <a href="https://github.com/Grimzeero78/power.git" target="_blank" rel="noopener noreferrer" class="mt-2 text-[10px] text-cyber-400 hover:text-cyber-300 transition-colors">View Source Code</a>
           </div>
         </div>
-        <!-- Roadmap -->
         <div class="cyber-card rounded-xl p-6 pf-reveal pf-delay-2" style="border-color:var(--border-color);background:var(--bg-card)">
           <h3 class="text-lg font-bold mb-4 flex items-center gap-2" style="color:var(--text-primary)"><span class="iconify text-cyber-400 text-xl" data-icon="lucide:map-pin"></span> Roadmap</h3>
           <div class="space-y-4 text-sm">
@@ -1156,7 +1194,7 @@
 
   <footer class="border-t border-white/10 py-8" style="border-color:var(--border-color);background:var(--bg-primary)">
     <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
-      <p class="text-[11px]" style="color:var(--text-secondary)">© 2024 Isaac Bridget. All rights reserved.</p>
+      <p class="text-[11px]" style="color:var(--text-secondary)">© 2026 Isaac Bridget. All rights reserved.</p>
       <p class="text-[11px]" style="color:var(--text-secondary)">Designed & coded with purpose.</p>
     </div>
   </footer>
@@ -1241,7 +1279,7 @@
             </div>
           </div>
           <div class="cv-reveal cv-delay-2 md:col-span-2 space-y-4">
-            <div class="cyber-card rounded-xl p-5"><div class="flex items-center gap-3 mb-2"><div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background:rgba(56,189,248,.15);"><span class="iconify text-cyber-400 text-xl" data-icon="lucide:shield-check"></span></div><h3 class="font-semibold text-white">Pentester Mindset</h3></div><p class="text-slate-400 text-sm">I think like an attacker to build better defenses. Bug bounty hunter in training (planning to start).</p></div>
+            <div class="cyber-card rounded-xl p-5"><div class="flex items-center gap-3 mb-2"><div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background:rgba(56,189,248,.15);"><span class="iconify text-cyber-400 text-xl" data-icon="lucide:brain"></span></div><h3 class="font-semibold text-white">Critical Thinker</h3></div><p class="text-slate-400 text-sm">I use critical thinking to solve real-world problems — breaking down complex challenges into simple, actionable solutions.</p></div>
             <div class="cyber-card rounded-xl p-5"><div class="flex items-center gap-3 mb-2"><div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background:rgba(56,189,248,.15);"><span class="iconify text-cyber-400 text-xl" data-icon="lucide:palette"></span></div><h3 class="font-semibold text-white">Stencil Artist</h3></div><p class="text-slate-400 text-sm">Creativity flows through code AND spray paint. Art teaches me to see patterns others miss.</p></div>
             <div class="cyber-card rounded-xl p-5"><div class="flex items-center gap-3 mb-2"><div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background:rgba(56,189,248,.15);"><span class="iconify text-cyber-400 text-xl" data-icon="lucide:trophy"></span></div><h3 class="font-semibold text-white">Football Discipline</h3></div><p class="text-slate-400 text-sm">The pitch taught me teamwork, grit, and showing up when it matters most.</p></div>
           </div>
@@ -1249,7 +1287,7 @@
       </div>
     </section>
 
-    <!-- CV EXPERIENCE (NEW) -->
+    <!-- CV EXPERIENCE (updated: attachment, year 2026) -->
     <section id="cv-experience" class="relative py-24 px-6" style="z-index:2;">
       <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full" style="background:radial-gradient(circle,rgba(56,189,248,.05) 0%,transparent 70%);filter:blur(100px);"></div>
       <div class="max-w-5xl mx-auto relative">
@@ -1258,10 +1296,10 @@
         <div class="cv-reveal cv-delay-2 cyber-card rounded-xl p-6 cv-neon-border-blue">
           <div class="flex flex-wrap items-start justify-between gap-3 mb-3">
             <div>
-              <h3 class="text-xl font-bold text-white">ICT Support Intern</h3>
+              <h3 class="text-xl font-bold text-white">ICT Support Attachment</h3>
               <p class="text-cyber-400 text-sm font-medium">General Hospital</p>
             </div>
-            <span class="cyber-tag" style="border-color:rgba(56,189,248,.3);background:rgba(56,189,248,.08);color:#7DD3FC;">2023 — 2024</span>
+            <span class="cyber-tag" style="border-color:rgba(56,189,248,.3);background:rgba(56,189,248,.08);color:#7DD3FC;">2026</span>
           </div>
           <div class="space-y-2 text-slate-300 text-sm leading-relaxed">
             <p>• Assisted the ICT department with hardware and software troubleshooting, ensuring minimal downtime for hospital operations.</p>
@@ -1366,7 +1404,7 @@
       </div>
     </section>
 
-    <!-- CV CERTIFICATIONS (NEW) -->
+    <!-- CV CERTIFICATIONS -->
     <section id="cv-certifications" class="relative py-24 px-6" style="z-index:2;">
       <div class="max-w-5xl mx-auto">
         <div class="cv-reveal flex items-center gap-3 mb-4"><div class="w-8 h-px bg-cyber-400"></div><span class="cyber-tag">// CERTIFICATIONS</span></div>
@@ -1423,8 +1461,8 @@
 
     <footer class="relative py-8 px-6 border-t" style="border-color:rgba(255,255,255,.05);z-index:2;">
       <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-        <p class="text-slate-600 text-xs font-mono">&lt;/&gt; Built with raw HTML, CSS &amp; JS — no frameworks, no bullshit.</p>
-        <p class="text-slate-700 text-xs">© 2024 ISAAC BRIDGET. All rights reserved.</p>
+        <p class="text-slate-600 text-xs font-mono">&lt;/&gt; Built with raw HTML, CSS &amp; JS — no frameworks, just code.</p>
+        <p class="text-slate-700 text-xs">© 2026 ISAAC BRIDGET. All rights reserved.</p>
       </div>
     </footer>
   </div>
@@ -1439,7 +1477,7 @@
         tech: ["Flutter", "Dart", "SQLite", "Local DB"],
         img: "https://picsum.photos/seed/stockipa-card/600/400.jpg",
         role: "Solo Developer",
-        year: "2024",
+        year: "2025",
         details: "Full offline mobile app with bill scanning, M-Pesa SMS auto-detection, daily/weekly/monthly/yearly tracking with charts, stock management with low-stock alerts, multi-language support, light/dark mode.",
         featured: true,
         sourceCodeUrl: "https://github.com/Grimzeero78/Stockipa.git"
@@ -1464,7 +1502,7 @@
         tech: ["Flutter", "Dart", "Firebase", "Grok API", "Screen Time APIs"],
         img: "https://picsum.photos/seed/deeprest/600/400.jpg",
         role: "Mobile Developer",
-        year: "2024",
+        year: "2026",
         details: "Users create accounts, set daily phone-use targets, receive notifications when limits are exceeded, earn rank based on consistency, join challenge groups, connect with accountability partners, and chat with Christian, psychology, and general AI companions powered by Grok APIs.",
         sourceCodeUrl: "https://github.com/Grimzeero78/mindguard.git"
       },
@@ -1488,7 +1526,7 @@
         tech: ["HTML", "CSS", "JavaScript", "Portfolio Design"],
         img: "https://picsum.photos/seed/stencil-art-web/600/400.jpg",
         role: "Web Developer & Artist",
-        year: "2023",
+        year: "2024",
         details: "My website helps me present my stencil art as a business by showing my work, attracting clients, and making it easy for people to connect with me for commissions or purchases.",
         sourceCodeUrl: "https://artweb.injuguna308.workers.dev"
       },
@@ -1500,7 +1538,7 @@
         tech: ["Python", "TensorFlow", "OpenCV", "Data Collection"],
         img: "https://picsum.photos/seed/currency-ai/600/400.jpg",
         role: "AI Developer",
-        year: "2022",
+        year: "2024",
         details: "To enhance Stockipa, I trained a currency detection model. This involved the hectic process of collecting a real-world dataset of all Kenyan money (from 5 bob to 1000 KES) to enable users to scan cash for sales or expenses.",
         sourceCodeUrl: "https://github.com/Grimzeero78/Currencytraining.git"
       },
@@ -1512,7 +1550,7 @@
         tech: ["Python", "Computer Vision", "NLP", "FastAPI", "React"],
         img: "https://picsum.photos/seed/merit-ai/600/400.jpg",
         role: "AI Architect",
-        year: "Upcoming",
+        year: "2026",
         details: "An upcoming Windows app/website where officials upload interview materials. The AI analyzes video for confidence and reads documents for key skills, providing a data-driven ranking to mitigate human bias in hiring.",
         sourceCodeUrl: "https://github.com/Grimzeero78/Currencytraining.git"
       }
@@ -1858,6 +1896,31 @@
       startAP();
     }
 
+    // Power Beaming Carousel
+    function initPBCarousel() {
+      const track = document.getElementById('pb-carousel-track');
+      const prevBtn = document.getElementById('pb-prev');
+      const nextBtn = document.getElementById('pb-next');
+      let pbPos = 0;
+      const cardWidth = 280 + 24; // card min-width + gap
+
+      function getMax() {
+        const containerWidth = track.parentElement.offsetWidth;
+        const totalWidth = track.scrollWidth;
+        return Math.max(0, totalWidth - containerWidth);
+      }
+
+      function slideTo(pos) {
+        const max = getMax();
+        pbPos = Math.max(0, Math.min(pos, max));
+        track.style.transform = `translateX(-${pbPos}px)`;
+      }
+
+      prevBtn.addEventListener('click', () => slideTo(pbPos - cardWidth));
+      nextBtn.addEventListener('click', () => slideTo(pbPos + cardWidth));
+      window.addEventListener('resize', () => slideTo(pbPos));
+    }
+
     function initCursor() {
       const dot = document.getElementById('cursor-dot'),
         ring = document.getElementById('cursor-ring');
@@ -2110,6 +2173,7 @@
       observePFReveals();
       animateCounters();
       initCarousel();
+      initPBCarousel();
       initScrollFX();
       setTimeout(initCursor, 500);
       const fo = new MutationObserver(() => setTimeout(initCursor, 100));

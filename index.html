@@ -798,11 +798,28 @@
     .pb-carousel-track:active { cursor: grabbing; }
     .pb-carousel-track.snap { transition: transform .5s cubic-bezier(.16, 1, .3, 1); }
     .pb-card {
-      min-width: 280px;
+      min-width: 300px;
       flex-shrink: 0;
     }
     @media(max-width:640px) {
-      .pb-card { min-width: 260px; }
+      .pb-card { min-width: 280px; }
+    }
+
+    /* fix footer overlap */
+    #sticky-cta {
+      z-index: 8000;
+    }
+    footer {
+      position: relative;
+      z-index: 1;
+    }
+    body {
+      padding-bottom: 80px;
+    }
+    @media(max-width:640px) {
+      body {
+        padding-bottom: 70px;
+      }
     }
   </style>
 </head>
@@ -943,13 +960,13 @@
     </div>
   </section>
 
-  <!-- ==================== POWER BEAMING PROJECT ==================== -->
+  <!-- ==================== POWER BEAMING PROJECT (Carousel) ==================== -->
   <section id="power-beaming" class="relative py-24 md:py-32 border-t border-white/10 overflow-hidden" style="border-color:var(--border-color);background:var(--bg-secondary)">
     <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-cyber-400/5 rounded-full blur-[120px]"></div>
     <div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-warm-500/5 rounded-full blur-[100px]"></div>
 
     <div class="max-w-7xl mx-auto px-6 relative z-10">
-      <div class="text-center mb-16 pf-reveal">
+      <div class="text-center mb-12 pf-reveal">
         <div class="inline-flex items-center gap-2 bg-cyber-500/10 border border-cyber-500/20 rounded-full px-4 py-1.5 mb-6">
           <span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyber-400 opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-cyber-500"></span></span>
           <span class="text-[10px] font-bold tracking-[.2em] uppercase text-cyber-400">Future Project</span>
@@ -960,32 +977,30 @@
         </p>
       </div>
 
-      <!-- Vision & Key Details -->
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-16">
-        <div class="lg:col-span-2 cyber-card rounded-xl p-6 md:p-8 pf-reveal pf-delay-1" style="border-color:var(--border-color);background:var(--bg-card)">
-          <h3 class="text-xl font-bold mb-3 flex items-center gap-2" style="color:var(--text-primary)"><span class="iconify text-warm-400 text-2xl" data-icon="lucide:eye"></span> The Vision</h3>
-          <p class="text-sm leading-relaxed" style="color:var(--text-secondary)">
-            Power lines are the last analog infrastructure. We beam data across the planet at the speed of light. We beam images from Mars. But to send power 5 kilometers to a remote village, we still string copper on wooden poles. That ends now.
-          </p>
-          <p class="text-sm leading-relaxed mt-3" style="color:var(--text-secondary)">
-            Long-range wireless power beaming converts electricity into a directed electromagnetic beam — microwave or laser — transmits it through free space, and converts it back to DC at the receiver. No wires, no fuel, no emissions at the point of use.
-          </p>
-        </div>
-        <div class="cyber-card rounded-xl p-6 pf-reveal pf-delay-2" style="border-color:var(--border-color);background:var(--bg-card)">
-          <h4 class="text-[10px] font-bold tracking-[.2em] uppercase text-neutral-500 mb-4">Near-Term Target</h4>
-          <div class="space-y-4">
-            <div><div class="text-3xl font-black text-cyber-400">1km</div><div class="text-[10px] text-neutral-500">Range Target</div></div>
-            <div><div class="text-3xl font-black text-warm-400">50%</div><div class="text-[10px] text-neutral-500">End-to-End Efficiency</div></div>
-            <div><div class="text-3xl font-black text-green-400">10kW</div><div class="text-[10px] text-neutral-500">Receiver Output</div></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Tech Breakdown (now as a carousel) -->
-      <div class="relative overflow-hidden mb-12">
+      <!-- Carousel -->
+      <div class="relative overflow-hidden mb-8">
         <div class="pb-carousel-track px-2" id="pb-carousel-track">
-          <!-- Microwave -->
-          <div class="pb-card cyber-card rounded-xl p-6 hover:border-cyber-500/30 transition-colors" style="border-color:var(--border-color);background:var(--bg-card);min-width:280px;">
+          <!-- Card 1: Vision -->
+          <div class="pb-card cyber-card rounded-xl p-6" style="border-color:var(--border-color);background:var(--bg-card);min-width:300px;">
+            <h3 class="text-xl font-bold mb-3 flex items-center gap-2" style="color:var(--text-primary)"><span class="iconify text-warm-400 text-2xl" data-icon="lucide:eye"></span> The Vision</h3>
+            <p class="text-sm leading-relaxed" style="color:var(--text-secondary)">
+              Power lines are the last analog infrastructure. We beam data across the planet at the speed of light. We beam images from Mars. But to send power 5 kilometers to a remote village, we still string copper on wooden poles. That ends now.
+            </p>
+            <p class="text-sm leading-relaxed mt-3" style="color:var(--text-secondary)">
+              Long-range wireless power beaming converts electricity into a directed electromagnetic beam — microwave or laser — transmits it through free space, and converts it back to DC at the receiver. No wires, no fuel, no emissions at the point of use.
+            </p>
+          </div>
+          <!-- Card 2: Stats -->
+          <div class="pb-card cyber-card rounded-xl p-6" style="border-color:var(--border-color);background:var(--bg-card);min-width:300px;">
+            <h4 class="text-[10px] font-bold tracking-[.2em] uppercase text-neutral-500 mb-4">Near-Term Target</h4>
+            <div class="space-y-4">
+              <div><div class="text-3xl font-black text-cyber-400">1km</div><div class="text-[10px] text-neutral-500">Range Target</div></div>
+              <div><div class="text-3xl font-black text-warm-400">50%</div><div class="text-[10px] text-neutral-500">End-to-End Efficiency</div></div>
+              <div><div class="text-3xl font-black text-green-400">10kW</div><div class="text-[10px] text-neutral-500">Receiver Output</div></div>
+            </div>
+          </div>
+          <!-- Card 3: Microwave -->
+          <div class="pb-card cyber-card rounded-xl p-6 hover:border-cyber-500/30 transition-colors" style="border-color:var(--border-color);background:var(--bg-card);min-width:300px;">
             <div class="w-12 h-12 rounded-xl bg-cyber-500/10 flex items-center justify-center mb-4"><span class="iconify text-cyber-400 text-2xl" data-icon="lucide:radio"></span></div>
             <h4 class="text-lg font-bold" style="color:var(--text-primary)">5.8 GHz Microwave</h4>
             <p class="text-xs text-cyber-400 font-mono mb-2">Primary Focus · 0.1–10 km</p>
@@ -995,8 +1010,8 @@
               <span class="text-[9px] font-semibold uppercase bg-warm-500/10 text-warm-400 px-2 py-1 rounded-sm">85–92% Beam Eff.</span>
             </div>
           </div>
-          <!-- Laser -->
-          <div class="pb-card cyber-card rounded-xl p-6 hover:border-cyber-500/30 transition-colors" style="border-color:var(--border-color);background:var(--bg-card);min-width:280px;">
+          <!-- Card 4: Laser -->
+          <div class="pb-card cyber-card rounded-xl p-6 hover:border-cyber-500/30 transition-colors" style="border-color:var(--border-color);background:var(--bg-card);min-width:300px;">
             <div class="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center mb-4"><span class="iconify text-amber-400 text-2xl" data-icon="lucide:lightbulb"></span></div>
             <h4 class="text-lg font-bold" style="color:var(--text-primary)">850nm–1550nm Laser</h4>
             <p class="text-xs text-cyber-400 font-mono mb-2">Space & Clear Sky · 1–100 km</p>
@@ -1006,8 +1021,8 @@
               <span class="text-[9px] font-semibold uppercase bg-warm-500/10 text-warm-400 px-2 py-1 rounded-sm">95–99% Beam Eff.</span>
             </div>
           </div>
-          <!-- mmWave -->
-          <div class="pb-card cyber-card rounded-xl p-6 hover:border-cyber-500/30 transition-colors" style="border-color:var(--border-color);background:var(--bg-card);min-width:280px;">
+          <!-- Card 5: mmWave -->
+          <div class="pb-card cyber-card rounded-xl p-6 hover:border-cyber-500/30 transition-colors" style="border-color:var(--border-color);background:var(--bg-card);min-width:300px;">
             <div class="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center mb-4"><span class="iconify text-purple-400 text-2xl" data-icon="lucide:signal"></span></div>
             <h4 class="text-lg font-bold" style="color:var(--text-primary)">24–100 GHz mmWave</h4>
             <p class="text-xs text-cyber-400 font-mono mb-2">Urban & Drones · 0.1–1 km</p>
@@ -1017,67 +1032,61 @@
               <span class="text-[9px] font-semibold uppercase bg-warm-500/10 text-warm-400 px-2 py-1 rounded-sm">60–70% Rectenna</span>
             </div>
           </div>
-          <!-- extra card for spacing -->
-          <div class="pb-card cyber-card rounded-xl p-6 opacity-0" style="min-width:20px;"></div>
-        </div>
-        <div class="flex justify-center mt-6 gap-3">
-          <button id="pb-prev" class="w-10 h-10 border border-white/20 rounded-full flex items-center justify-center transition-all hover:border-warm-500" style="border-color:var(--border-color);color:var(--text-secondary)"><iconify-icon icon="lucide:arrow-left" width="16"></iconify-icon></button>
-          <button id="pb-next" class="w-10 h-10 border border-white/20 rounded-full flex items-center justify-center transition-all hover:border-warm-500" style="border-color:var(--border-color);color:var(--text-secondary)"><iconify-icon icon="lucide:arrow-right" width="16"></iconify-icon></button>
+          <!-- Card 6: Roadmap -->
+          <div class="pb-card cyber-card rounded-xl p-6" style="border-color:var(--border-color);background:var(--bg-card);min-width:300px;">
+            <h3 class="text-lg font-bold mb-4 flex items-center gap-2" style="color:var(--text-primary)"><span class="iconify text-cyber-400 text-xl" data-icon="lucide:map-pin"></span> Roadmap</h3>
+            <div class="space-y-4 text-sm">
+              <div class="flex items-start gap-3 border-b border-white/5 pb-3"><div class="w-8 h-8 rounded-full bg-warm-500/10 flex items-center justify-center flex-shrink-0"><span class="text-[10px] font-bold text-warm-500">1</span></div><div><h4 class="font-bold" style="color:var(--text-primary)">Benchtop Proof-of-Concept</h4><p class="text-xs" style="color:var(--text-secondary)">100W SSPA, 64-element rectenna. 10m range. Target: 50% efficiency.</p><span class="text-[9px] text-warm-500 font-semibold">In Progress · Q1 2025</span></div></div>
+              <div class="flex items-start gap-3 border-b border-white/5 pb-3"><div class="w-8 h-8 rounded-full bg-cyber-500/10 flex items-center justify-center flex-shrink-0"><span class="text-[10px] font-bold text-cyber-400">2</span></div><div><h4 class="font-bold" style="color:var(--text-primary)">100m Outdoor Link</h4><p class="text-xs" style="color:var(--text-secondary)">1 kW SSPA, 1m dish. Full safety interlocks. Target: 45%.</p><span class="text-[9px] text-cyber-400 font-semibold">Planned · Q3 2025</span></div></div>
+              <div class="flex items-start gap-3"><div class="w-8 h-8 rounded-full bg-purple-500/10 flex items-center justify-center flex-shrink-0"><span class="text-[10px] font-bold text-purple-400">3</span></div><div><h4 class="font-bold" style="color:var(--text-primary)">1km Cross-Field Beam</h4><p class="text-xs" style="color:var(--text-secondary)">5 kW GaN SSPA, 3m dish. Phased-array steering. Target: 40%.</p><span class="text-[9px] text-purple-400 font-semibold">Planned · Q2 2026</span></div></div>
+            </div>
+          </div>
+          <!-- Card 7: Interactive Demo -->
+          <div class="pb-card cyber-card rounded-xl p-6" style="border-color:var(--border-color);background:var(--bg-card);min-width:300px;">
+            <h3 class="text-lg font-bold mb-4 flex items-center gap-2" style="color:var(--text-primary)"><span class="iconify text-warm-400 text-xl" data-icon="lucide:play"></span> Interactive Simulation</h3>
+            <div class="aspect-video rounded-lg bg-black/50 border border-white/10 flex flex-col items-center justify-center p-4 text-center">
+              <span class="iconify text-4xl text-neutral-700 mb-3" data-icon="lucide:radio-tower"></span>
+              <p class="text-sm font-medium" style="color:var(--text-primary)">Beam Propagation Demo</p>
+              <p class="text-xs" style="color:var(--text-secondary)">Fire the microwave beam and watch it propagate.</p>
+              <a href="https://grimzeero78.github.io/power/" target="_blank" rel="noopener noreferrer" class="mt-3 inline-flex items-center gap-2 bg-warm-500 text-white text-[10px] font-bold tracking-[.15em] uppercase px-4 py-2 rounded-sm hover:bg-warm-600 transition-colors">
+                <span class="iconify" data-icon="lucide:external-link"></span> View Live Demo
+              </a>
+              <a href="https://github.com/Grimzeero78/power.git" target="_blank" rel="noopener noreferrer" class="mt-1 text-[10px] text-cyber-400 hover:text-cyber-300 transition-colors">View Source Code</a>
+            </div>
+          </div>
+          <!-- Card 8: Why This Matters -->
+          <div class="pb-card cyber-card rounded-xl p-6" style="border-color:var(--border-color);background:var(--bg-card);min-width:300px;">
+            <h3 class="text-lg font-bold mb-3 flex items-center gap-2" style="color:var(--text-primary)"><span class="iconify text-warm-400 text-xl" data-icon="lucide:zap"></span> Why This Matters</h3>
+            <p class="text-sm leading-relaxed" style="color:var(--text-secondary)">
+              Space-based solar power is not science fiction. NASA, ESA, JAXA, and China's CASIC all have active programs. This is the ultimate application — baseload clean energy, 24/7, from orbit.
+            </p>
+            <div class="mt-4 flex flex-wrap gap-2">
+              <span class="text-[9px] font-semibold uppercase bg-cyber-500/10 text-cyber-400 px-2 py-1 rounded-sm">NASA SBIR 2024</span>
+              <span class="text-[9px] font-semibold uppercase bg-cyber-500/10 text-cyber-400 px-2 py-1 rounded-sm">ESA SOLARIS</span>
+              <span class="text-[9px] font-semibold uppercase bg-cyber-500/10 text-cyber-400 px-2 py-1 rounded-sm">JAXA SSPS</span>
+            </div>
+          </div>
+          <!-- Card 9: Honest Assessment -->
+          <div class="pb-card cyber-card rounded-xl p-6" style="border-color:var(--border-color);background:var(--bg-card);min-width:300px;">
+            <h3 class="text-lg font-bold mb-3 flex items-center gap-2" style="color:var(--text-primary)"><span class="iconify text-amber-400 text-xl" data-icon="lucide:alert-triangle"></span> Honest Assessment</h3>
+            <ul class="space-y-2 text-sm" style="color:var(--text-secondary)">
+              <li class="flex items-start gap-2"><span class="text-warm-400 mt-0.5">•</span> <span><strong class="text-white">Thermal Management:</strong> 5 kW of heat at 20 kW scale. Need liquid cooling.</span></li>
+              <li class="flex items-start gap-2"><span class="text-warm-400 mt-0.5">•</span> <span><strong class="text-white">Rectenna Cost:</strong> 500,000 elements at ~$937,000. Need printed electronics.</span></li>
+              <li class="flex items-start gap-2"><span class="text-warm-400 mt-0.5">•</span> <span><strong class="text-white">Public Perception:</strong> "Microwave beam" sounds terrifying. Need transparency.</span></li>
+            </ul>
+            <div class="mt-4 p-3 rounded-lg border border-amber-500/20 bg-amber-500/5">
+              <p class="text-[10px] text-amber-400 font-medium uppercase tracking-wider">Future Project</p>
+              <p class="text-xs" style="color:var(--text-secondary)">This is a long-term vision — maybe when I'm in my 50s. For now, it's a passion project, a learning journey, and a glimpse of what's possible.</p>
+            </div>
+          </div>
         </div>
       </div>
-
-      <!-- Interactive Demo & Roadmap (demo below) -->
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
-        <div class="cyber-card rounded-xl p-6 pf-reveal pf-delay-1" style="border-color:var(--border-color);background:var(--bg-card)">
-          <h3 class="text-lg font-bold mb-4 flex items-center gap-2" style="color:var(--text-primary)"><span class="iconify text-warm-400 text-xl" data-icon="lucide:play"></span> Interactive Simulation</h3>
-          <div class="aspect-video rounded-lg bg-black/50 border border-white/10 flex flex-col items-center justify-center p-6 text-center">
-            <span class="iconify text-6xl text-neutral-700 mb-4" data-icon="lucide:radio-tower"></span>
-            <p class="text-sm font-medium" style="color:var(--text-primary)">Beam Propagation Demo</p>
-            <p class="text-xs" style="color:var(--text-secondary)">Fire the microwave beam and watch it propagate.</p>
-            <a href="https://grimzeero78.github.io/power/" target="_blank" rel="noopener noreferrer" class="mt-4 inline-flex items-center gap-2 bg-warm-500 text-white text-[10px] font-bold tracking-[.15em] uppercase px-5 py-2.5 rounded-sm hover:bg-warm-600 transition-colors">
-              <span class="iconify" data-icon="lucide:external-link"></span> View Live Demo
-            </a>
-            <a href="https://github.com/Grimzeero78/power.git" target="_blank" rel="noopener noreferrer" class="mt-2 text-[10px] text-cyber-400 hover:text-cyber-300 transition-colors">View Source Code</a>
-          </div>
-        </div>
-        <div class="cyber-card rounded-xl p-6 pf-reveal pf-delay-2" style="border-color:var(--border-color);background:var(--bg-card)">
-          <h3 class="text-lg font-bold mb-4 flex items-center gap-2" style="color:var(--text-primary)"><span class="iconify text-cyber-400 text-xl" data-icon="lucide:map-pin"></span> Roadmap</h3>
-          <div class="space-y-4 text-sm">
-            <div class="flex items-start gap-3 border-b border-white/5 pb-3"><div class="w-8 h-8 rounded-full bg-warm-500/10 flex items-center justify-center flex-shrink-0"><span class="text-[10px] font-bold text-warm-500">1</span></div><div><h4 class="font-bold" style="color:var(--text-primary)">Benchtop Proof-of-Concept</h4><p class="text-xs" style="color:var(--text-secondary)">100W SSPA, 64-element rectenna. 10m range. Target: 50% efficiency.</p><span class="text-[9px] text-warm-500 font-semibold">In Progress · Q1 2025</span></div></div>
-            <div class="flex items-start gap-3 border-b border-white/5 pb-3"><div class="w-8 h-8 rounded-full bg-cyber-500/10 flex items-center justify-center flex-shrink-0"><span class="text-[10px] font-bold text-cyber-400">2</span></div><div><h4 class="font-bold" style="color:var(--text-primary)">100m Outdoor Link</h4><p class="text-xs" style="color:var(--text-secondary)">1 kW SSPA, 1m dish. Full safety interlocks. Target: 45%.</p><span class="text-[9px] text-cyber-400 font-semibold">Planned · Q3 2025</span></div></div>
-            <div class="flex items-start gap-3"><div class="w-8 h-8 rounded-full bg-purple-500/10 flex items-center justify-center flex-shrink-0"><span class="text-[10px] font-bold text-purple-400">3</span></div><div><h4 class="font-bold" style="color:var(--text-primary)">1km Cross-Field Beam</h4><p class="text-xs" style="color:var(--text-secondary)">5 kW GaN SSPA, 3m dish. Phased-array steering. Target: 40%.</p><span class="text-[9px] text-purple-400 font-semibold">Planned · Q2 2026</span></div></div>
-          </div>
-          <div class="mt-4 p-3 rounded-lg border border-cyber-500/20 bg-cyber-500/5">
-            <p class="text-xs" style="color:var(--text-secondary)"><span class="text-cyber-400 font-bold">Endgame:</span> Space-Based Solar Power — 36,000 km GEO beam-down. 1 MW solar array in orbit, 5.8 GHz beam to ground rectenna.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Why This Matters & Disclaimer -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="cyber-card rounded-xl p-6 pf-reveal pf-delay-1" style="border-color:var(--border-color);background:var(--bg-card)">
-          <h3 class="text-lg font-bold mb-3 flex items-center gap-2" style="color:var(--text-primary)"><span class="iconify text-warm-400 text-xl" data-icon="lucide:zap"></span> Why This Matters</h3>
-          <p class="text-sm leading-relaxed" style="color:var(--text-secondary)">
-            Space-based solar power is not science fiction. NASA, ESA, JAXA, and China's CASIC all have active programs. This is the ultimate application — baseload clean energy, 24/7, from orbit.
-          </p>
-          <div class="mt-4 flex flex-wrap gap-2">
-            <span class="text-[9px] font-semibold uppercase bg-cyber-500/10 text-cyber-400 px-2 py-1 rounded-sm">NASA SBIR 2024</span>
-            <span class="text-[9px] font-semibold uppercase bg-cyber-500/10 text-cyber-400 px-2 py-1 rounded-sm">ESA SOLARIS</span>
-            <span class="text-[9px] font-semibold uppercase bg-cyber-500/10 text-cyber-400 px-2 py-1 rounded-sm">JAXA SSPS</span>
-          </div>
-        </div>
-        <div class="cyber-card rounded-xl p-6 pf-reveal pf-delay-2" style="border-color:var(--border-color);background:var(--bg-card)">
-          <h3 class="text-lg font-bold mb-3 flex items-center gap-2" style="color:var(--text-primary)"><span class="iconify text-amber-400 text-xl" data-icon="lucide:alert-triangle"></span> Honest Assessment</h3>
-          <ul class="space-y-2 text-sm" style="color:var(--text-secondary)">
-            <li class="flex items-start gap-2"><span class="text-warm-400 mt-0.5">•</span> <span><strong class="text-white">Thermal Management:</strong> 5 kW of heat at 20 kW scale. Need liquid cooling.</span></li>
-            <li class="flex items-start gap-2"><span class="text-warm-400 mt-0.5">•</span> <span><strong class="text-white">Rectenna Cost:</strong> 500,000 elements at ~$937,000. Need printed electronics.</span></li>
-            <li class="flex items-start gap-2"><span class="text-warm-400 mt-0.5">•</span> <span><strong class="text-white">Public Perception:</strong> "Microwave beam" sounds terrifying. Need transparency.</span></li>
-          </ul>
-          <div class="mt-4 p-3 rounded-lg border border-amber-500/20 bg-amber-500/5">
-            <p class="text-[10px] text-amber-400 font-medium uppercase tracking-wider">Future Project</p>
-            <p class="text-xs" style="color:var(--text-secondary)">This is a long-term vision — maybe when I'm in my 50s. For now, it's a passion project, a learning journey, and a glimpse of what's possible.</p>
-          </div>
-        </div>
+      <!-- Carousel Controls -->
+      <div class="flex items-center justify-center gap-4 pf-reveal">
+        <button id="pb-prev" class="w-12 h-12 border border-white/20 rounded-sm flex items-center justify-center transition-all hover:border-warm-500" style="border-color:var(--border-color);color:var(--text-secondary)"><iconify-icon icon="lucide:arrow-left" width="18"></iconify-icon></button>
+        <button id="pb-next" class="w-12 h-12 border border-white/20 rounded-sm flex items-center justify-center transition-all hover:border-warm-500" style="border-color:var(--border-color);color:var(--text-secondary)"><iconify-icon icon="lucide:arrow-right" width="18"></iconify-icon></button>
+        <div class="flex-1 h-px bg-white/10" style="background:var(--border-color)"></div>
+        <div id="pb-dots" class="flex gap-2"></div>
       </div>
     </div>
   </section>
@@ -1901,11 +1910,25 @@
       const track = document.getElementById('pb-carousel-track');
       const prevBtn = document.getElementById('pb-prev');
       const nextBtn = document.getElementById('pb-next');
+      const dotsContainer = document.getElementById('pb-dots');
       let pbPos = 0;
-      const cardWidth = 280 + 24; // card min-width + gap
+      const cards = track.querySelectorAll('.pb-card');
+      const cardWidth = 300 + 24; // min-width + gap
+      const visibleCards = 2.5;
+
+      // Build dots
+      dotsContainer.innerHTML = '';
+      const totalSlides = Math.ceil(cards.length / visibleCards);
+      for (let i = 0; i < totalSlides; i++) {
+        const dot = document.createElement('button');
+        dot.className =
+          `w-2 h-2 rounded-full transition-all duration-300 cursor-pointer ${i===0?'bg-cyber-400 w-6':'bg-neutral-700 w-2'}`;
+        dot.addEventListener('click', () => slideTo(i * cardWidth));
+        dotsContainer.appendChild(dot);
+      }
 
       function getMax() {
-        const containerWidth = track.parentElement.offsetWidth;
+        const containerWidth = track.parentElement.offsetWidth - 16;
         const totalWidth = track.scrollWidth;
         return Math.max(0, totalWidth - containerWidth);
       }
@@ -1913,12 +1936,72 @@
       function slideTo(pos) {
         const max = getMax();
         pbPos = Math.max(0, Math.min(pos, max));
+        track.classList.add('snap');
         track.style.transform = `translateX(-${pbPos}px)`;
+        setTimeout(() => track.classList.remove('snap'), 500);
+        updateDots();
+      }
+
+      function updateDots() {
+        const activeIndex = Math.round(pbPos / cardWidth);
+        dotsContainer.querySelectorAll('button').forEach((d, i) => {
+          d.className =
+            `h-2 rounded-full transition-all duration-300 cursor-pointer ${i===activeIndex?'bg-cyber-400 w-6':'bg-neutral-700 w-2'}`;
+        });
       }
 
       prevBtn.addEventListener('click', () => slideTo(pbPos - cardWidth));
       nextBtn.addEventListener('click', () => slideTo(pbPos + cardWidth));
       window.addEventListener('resize', () => slideTo(pbPos));
+
+      // Drag support
+      let isDraggingPB = false,
+        startXPB = 0,
+        prevXPB = 0;
+      track.addEventListener('mousedown', e => {
+        isDraggingPB = true;
+        startXPB = e.clientX;
+        prevXPB = pbPos;
+        track.classList.remove('snap');
+        e.preventDefault();
+      });
+      window.addEventListener('mousemove', e => {
+        if (isDraggingPB) {
+          const delta = e.clientX - startXPB;
+          const newPos = Math.max(0, Math.min(prevXPB - delta, getMax()));
+          track.style.transform = `translateX(-${newPos}px)`;
+          pbPos = newPos;
+        }
+      });
+      window.addEventListener('mouseup', () => {
+        if (isDraggingPB) {
+          isDraggingPB = false;
+          updateDots();
+        }
+      });
+      track.addEventListener('touchstart', e => {
+        isDraggingPB = true;
+        startXPB = e.touches[0].clientX;
+        prevXPB = pbPos;
+        track.classList.remove('snap');
+      }, { passive: true });
+      track.addEventListener('touchmove', e => {
+        if (isDraggingPB) {
+          const delta = e.touches[0].clientX - startXPB;
+          const newPos = Math.max(0, Math.min(prevXPB - delta, getMax()));
+          track.style.transform = `translateX(-${newPos}px)`;
+          pbPos = newPos;
+        }
+      }, { passive: true });
+      track.addEventListener('touchend', () => {
+        if (isDraggingPB) {
+          isDraggingPB = false;
+          updateDots();
+        }
+      }, { passive: true });
+
+      // Initial slide
+      setTimeout(() => slideTo(0), 100);
     }
 
     function initCursor() {
@@ -2173,7 +2256,7 @@
       observePFReveals();
       animateCounters();
       initCarousel();
-      initPBCarousel();
+      setTimeout(initPBCarousel, 300);
       initScrollFX();
       setTimeout(initCursor, 500);
       const fo = new MutationObserver(() => setTimeout(initCursor, 100));

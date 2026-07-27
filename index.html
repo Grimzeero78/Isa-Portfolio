@@ -24,7 +24,6 @@
     }
   </script>
   <style>
-    /* ─── base & reset ─── */
     *,
     *::before,
     *::after {
@@ -363,7 +362,7 @@
       border-radius: 2px;
     }
 
-    /* ─── CV OVERLAY ─── */
+    /* CV OVERLAY */
     #cv-overlay {
       position: fixed;
       inset: 0;
@@ -779,11 +778,12 @@
     .pb-carousel-track:active { cursor: grabbing; }
     .pb-carousel-track.snap { transition: transform .5s cubic-bezier(.16, 1, .3, 1); }
     .pb-card {
-      min-width: 300px;
+      min-width: 380px;
       flex-shrink: 0;
+      max-width: 480px;
     }
     @media(max-width:640px) {
-      .pb-card { min-width: 280px; }
+      .pb-card { min-width: 300px; max-width: 340px; }
     }
 
     #sticky-cta {
@@ -855,7 +855,7 @@
         <span class="block">ISAAC</span>
         <span class="block hero-stroke-text" style="-webkit-text-stroke:2px var(--hero-stroke);color:transparent;">BRIDGET</span>
       </h1>
-      <div class="mt-6 pf-reveal pf-delay-2"><p class="text-neutral-500 text-sm md:text-base max-w-md mx-auto" style="color:var(--text-secondary)">Building apps that solve real problems — from finance tracking for small businesses to AI-powered image detection.</p></div>
+      <div class="mt-6 pf-reveal pf-delay-2"><p class="text-neutral-500 text-sm md:text-base max-w-md mx-auto" style="color:var(--text-secondary)">I build apps that solve real problems — from helping small businesses track their money to training AI that actually works.</p></div>
       <div class="mt-10 max-w-lg mx-auto pf-reveal pf-delay-3">
         <div class="bg-neutral-950/80 border border-white/10 rounded-lg p-4 text-left font-mono text-[13px] backdrop-blur-sm" style="background:var(--bg-card);border-color:var(--border-color)">
           <div class="flex items-center gap-2 mb-3">
@@ -896,12 +896,12 @@
         <div>
           <div class="pf-reveal"><div class="inline-flex items-center gap-2 bg-warm-500/10 border border-warm-500/20 rounded-sm px-3 py-1.5 mb-6"><iconify-icon icon="lucide:star" width="12" class="text-warm-500"></iconify-icon><span class="text-[10px] font-bold tracking-[.2em] uppercase text-warm-500">Featured Project</span></div></div>
           <h2 class="text-5xl md:text-7xl font-black tracking-tighter pf-reveal pf-delay-1" style="color:var(--text-primary)">STOCKIPA</h2>
-          <p class="mt-4 text-sm leading-relaxed pf-reveal pf-delay-2" style="color:var(--text-secondary)">No more overspending. No more business bankruptcy. A finance-tracking app built for real business people — from mtumba sellers to mama mbogas.</p>
+          <p class="mt-4 text-sm leading-relaxed pf-reveal pf-delay-2" style="color:var(--text-secondary)">I got tired of watching my mom (CJ) hustle hard as a mtumba seller and not know where her money went. So I built her an app that actually works.</p>
           <div class="mt-8 space-y-4 pf-reveal pf-delay-3">
-            <div class="flex items-start gap-3"><div class="w-6 h-6 rounded-sm bg-warm-500/10 border border-warm-500/20 flex items-center justify-center flex-shrink-0 mt-0.5"><iconify-icon icon="lucide:scan-line" width="12" class="text-warm-500"></iconify-icon></div><div><h4 class="text-sm font-bold" style="color:var(--text-primary)">Bill Scanning</h4><p class="text-xs" style="color:var(--text-secondary)">Scan physical money to add sales or expenses — sell a pen at 10 bob, scan it, done.</p></div></div>
-            <div class="flex items-start gap-3"><div class="w-6 h-6 rounded-sm bg-warm-500/10 border border-warm-500/20 flex items-center justify-center flex-shrink-0 mt-0.5"><iconify-icon icon="lucide:message-square" width="12" class="text-warm-500"></iconify-icon></div><div><h4 class="text-sm font-bold" style="color:var(--text-primary)">M-Pesa Auto-Tracking</h4><p class="text-xs" style="color:var(--text-secondary)">M-Pesa messages are automatically recorded — send money, it's logged as expense. Receive money, it's a sale.</p></div></div>
-            <div class="flex items-start gap-3"><div class="w-6 h-6 rounded-sm bg-warm-500/10 border border-warm-500/20 flex items-center justify-center flex-shrink-0 mt-0.5"><iconify-icon icon="lucide:bar-chart-3" width="12" class="text-warm-500"></iconify-icon></div><div><h4 class="text-sm font-bold" style="color:var(--text-primary)">Smart Tracking</h4><p class="text-xs" style="color:var(--text-secondary)">Daily, weekly, monthly, yearly views. Charts, calendar pickers, search — see exactly where your money goes.</p></div></div>
-            <div class="flex items-start gap-3"><div class="w-6 h-6 rounded-sm bg-warm-500/10 border border-warm-500/20 flex items-center justify-center flex-shrink-0 mt-0.5"><iconify-icon icon="lucide:package" width="12" class="text-warm-500"></iconify-icon></div><div><h4 class="text-sm font-bold" style="color:var(--text-primary)">Stock Management</h4><p class="text-xs" style="color:var(--text-secondary)">Add items with buying price, quantity, selling price. Low stock alerts. Profit tracking per item.</p></div></div>
+            <div class="flex items-start gap-3"><div class="w-6 h-6 rounded-sm bg-warm-500/10 border border-warm-500/20 flex items-center justify-center flex-shrink-0 mt-0.5"><iconify-icon icon="lucide:scan-line" width="12" class="text-warm-500"></iconify-icon></div><div><h4 class="text-sm font-bold" style="color:var(--text-primary)">Bill Scanning</h4><p class="text-xs" style="color:var(--text-secondary)">Sell a pen for 10 bob? Scan the cash. It records. Simple.</p></div></div>
+            <div class="flex items-start gap-3"><div class="w-6 h-6 rounded-sm bg-warm-500/10 border border-warm-500/20 flex items-center justify-center flex-shrink-0 mt-0.5"><iconify-icon icon="lucide:message-square" width="12" class="text-warm-500"></iconify-icon></div><div><h4 class="text-sm font-bold" style="color:var(--text-primary)">M-Pesa Auto-Tracking</h4><p class="text-xs" style="color:var(--text-secondary)">Send money? It logs as expense. Receive money? It logs as sale. No manual entry needed.</p></div></div>
+            <div class="flex items-start gap-3"><div class="w-6 h-6 rounded-sm bg-warm-500/10 border border-warm-500/20 flex items-center justify-center flex-shrink-0 mt-0.5"><iconify-icon icon="lucide:bar-chart-3" width="12" class="text-warm-500"></iconify-icon></div><div><h4 class="text-sm font-bold" style="color:var(--text-primary)">Smart Tracking</h4><p class="text-xs" style="color:var(--text-secondary)">See daily, weekly, monthly, yearly. Charts, search, calendar. Know exactly where your money goes.</p></div></div>
+            <div class="flex items-start gap-3"><div class="w-6 h-6 rounded-sm bg-warm-500/10 border border-warm-500/20 flex items-center justify-center flex-shrink-0 mt-0.5"><iconify-icon icon="lucide:package" width="12" class="text-warm-500"></iconify-icon></div><div><h4 class="text-sm font-bold" style="color:var(--text-primary)">Stock Management</h4><p class="text-xs" style="color:var(--text-secondary)">Add items, track buying price, selling price, quantity. Low stock alerts. Know your profit per item.</p></div></div>
           </div>
           <div class="mt-8 flex flex-wrap gap-3 pf-reveal pf-delay-4">
             <span class="text-[9px] font-semibold tracking-wider uppercase bg-green-500/10 text-green-400 border border-green-500/20 px-3 py-1.5 rounded-sm">Offline</span>
@@ -932,18 +932,17 @@
         </div>
       </div>
       <div class="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div class="border border-white/10 rounded-sm bg-neutral-950 p-5 pf-reveal pf-delay-1 hover:border-warm-500/30 transition-colors" style="border-color:var(--border-color);background:var(--bg-card)"><div class="w-8 h-8 rounded-sm bg-warm-500/10 flex items-center justify-center mb-3"><iconify-icon icon="lucide:home" width="14" class="text-warm-500"></iconify-icon></div><h4 class="text-sm font-bold mb-1" style="color:var(--text-primary)">Home Page</h4><p class="text-[11px]" style="color:var(--text-secondary)">Add sales/expenses manually or scan bills. M-Pesa auto-recorded. Daily totals show saved or overspent.</p></div>
-        <div class="border border-white/10 rounded-sm bg-neutral-950 p-5 pf-reveal pf-delay-2 hover:border-warm-500/30 transition-colors" style="border-color:var(--border-color);background:var(--bg-card)"><div class="w-8 h-8 rounded-sm bg-warm-500/10 flex items-center justify-center mb-3"><iconify-icon icon="lucide:trending-up" width="14" class="text-warm-500"></iconify-icon></div><h4 class="text-sm font-bold mb-1" style="color:var(--text-primary)">Tracking Page</h4><p class="text-[11px]" style="color:var(--text-secondary)">Daily, weekly, monthly, yearly views. Yearly chart. Calendar picker. Search. Daily performance.</p></div>
-        <div class="border border-white/10 rounded-sm bg-neutral-950 p-5 pf-reveal pf-delay-3 hover:border-warm-500/30 transition-colors" style="border-color:var(--border-color);background:var(--bg-card)"><div class="w-8 h-8 rounded-sm bg-warm-500/10 flex items-center justify-center mb-3"><iconify-icon icon="lucide:package" width="14" class="text-warm-500"></iconify-icon></div><h4 class="text-sm font-bold mb-1" style="color:var(--text-primary)">Stock Management</h4><p class="text-[11px]" style="color:var(--text-secondary)">Item name, buying price, quantity, selling price. Whole-item mode. Low stock alerts. Profit tracking.</p></div>
-        <div class="border border-white/10 rounded-sm bg-neutral-950 p-5 pf-reveal pf-delay-4 hover:border-warm-500/30 transition-colors" style="border-color:var(--border-color);background:var(--bg-card)"><div class="w-8 h-8 rounded-sm bg-warm-500/10 flex items-center justify-center mb-3"><iconify-icon icon="lucide:settings" width="14" class="text-warm-500"></iconify-icon></div><h4 class="text-sm font-bold mb-1" style="color:var(--text-primary)">Settings</h4><p class="text-[11px]" style="color:var(--text-secondary)">Language (English, Kiswahili, Chinese — currency auto-switches). Light/dark mode. Clear all data.</p></div>
+        <div class="border border-white/10 rounded-sm bg-neutral-950 p-5 pf-reveal pf-delay-1 hover:border-warm-500/30 transition-colors" style="border-color:var(--border-color);background:var(--bg-card)"><div class="w-8 h-8 rounded-sm bg-warm-500/10 flex items-center justify-center mb-3"><iconify-icon icon="lucide:home" width="14" class="text-warm-500"></iconify-icon></div><h4 class="text-sm font-bold mb-1" style="color:var(--text-primary)">Home Page</h4><p class="text-[11px]" style="color:var(--text-secondary)">Add sales/expenses manually or scan bills. M-Pesa auto-recorded. See if you saved or overspent today.</p></div>
+        <div class="border border-white/10 rounded-sm bg-neutral-950 p-5 pf-reveal pf-delay-2 hover:border-warm-500/30 transition-colors" style="border-color:var(--border-color);background:var(--bg-card)"><div class="w-8 h-8 rounded-sm bg-warm-500/10 flex items-center justify-center mb-3"><iconify-icon icon="lucide:trending-up" width="14" class="text-warm-500"></iconify-icon></div><h4 class="text-sm font-bold mb-1" style="color:var(--text-primary)">Tracking Page</h4><p class="text-[11px]" style="color:var(--text-secondary)">Daily, weekly, monthly, yearly views. Yearly chart. Calendar picker. Search. See your performance.</p></div>
+        <div class="border border-white/10 rounded-sm bg-neutral-950 p-5 pf-reveal pf-delay-3 hover:border-warm-500/30 transition-colors" style="border-color:var(--border-color);background:var(--bg-card)"><div class="w-8 h-8 rounded-sm bg-warm-500/10 flex items-center justify-center mb-3"><iconify-icon icon="lucide:package" width="14" class="text-warm-500"></iconify-icon></div><h4 class="text-sm font-bold mb-1" style="color:var(--text-primary)">Stock Management</h4><p class="text-[11px]" style="color:var(--text-secondary)">Item name, buying price, quantity, selling price. Low stock alerts. Know your profit.</p></div>
+        <div class="border border-white/10 rounded-sm bg-neutral-950 p-5 pf-reveal pf-delay-4 hover:border-warm-500/30 transition-colors" style="border-color:var(--border-color);background:var(--bg-card)"><div class="w-8 h-8 rounded-sm bg-warm-500/10 flex items-center justify-center mb-3"><iconify-icon icon="lucide:settings" width="14" class="text-warm-500"></iconify-icon></div><h4 class="text-sm font-bold mb-1" style="color:var(--text-primary)">Settings</h4><p class="text-[11px]" style="color:var(--text-secondary)">Switch language (English, Kiswahili, Chinese — currency auto-switches). Light/dark mode. Clear data.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- ==================== POWER BEAMING PROJECT (Carousel) ==================== -->
+  <!-- POWER BEAMING - AUTO-SCROLLING CAROUSEL with 4 merged sections -->
   <section id="power-beaming" class="relative py-24 md:py-32 border-t border-white/10 overflow-hidden" style="border-color:var(--border-color);background:var(--bg-secondary)">
     <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-cyber-400/5 rounded-full blur-[120px]"></div>
-    <div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-warm-500/5 rounded-full blur-[100px]"></div>
 
     <div class="max-w-7xl mx-auto px-6 relative z-10">
       <div class="text-center mb-12 pf-reveal">
@@ -953,121 +952,153 @@
         </div>
         <h2 class="text-4xl md:text-6xl font-black tracking-tighter" style="color:var(--text-primary)">Power Beaming<span class="text-warm-500">.</span></h2>
         <p class="mt-4 max-w-3xl mx-auto text-sm md:text-base" style="color:var(--text-secondary)">
-          Sending electricity through the air over 1 km, 10 km, or from orbit. Using phased-array microwaves, laser links, and rectenna receivers to cut the last wire.
+          I've been obsessed with this idea since I read about space-based solar power. Sending electricity through the air — from 1 km to orbit. Cutting the last wire.
         </p>
       </div>
 
-      <!-- Carousel -->
-      <div class="relative overflow-hidden mb-8">
+      <!-- AUTO-SCROLLING CAROUSEL - MERGED INTO 4 SECTIONS -->
+      <div class="relative overflow-hidden" id="pb-carousel-container">
         <div class="pb-carousel-track px-2" id="pb-carousel-track">
-          <!-- Card 1: Vision -->
-          <div class="pb-card cyber-card rounded-xl p-6" style="border-color:var(--border-color);background:var(--bg-card);min-width:300px;">
-            <h3 class="text-xl font-bold mb-3 flex items-center gap-2" style="color:var(--text-primary)"><span class="iconify text-warm-400 text-2xl" data-icon="lucide:eye"></span> The Vision</h3>
+          
+          <!-- SECTION 1: VISION + WHY IT MATTERS -->
+          <div class="pb-card cyber-card rounded-xl p-6" style="border-color:var(--border-color);background:var(--bg-card);min-width:380px;max-width:480px;">
+            <h3 class="text-xl font-bold mb-4 flex items-center gap-2" style="color:var(--text-primary)">
+              <span class="iconify text-warm-400 text-2xl" data-icon="lucide:eye"></span> The Vision
+            </h3>
             <p class="text-sm leading-relaxed" style="color:var(--text-secondary)">
-              Power lines are the last analog infrastructure. We beam data across the planet at the speed of light. We beam images from Mars. But to send power 5 kilometers to a remote village, we still string copper on wooden poles. That ends now.
+              Look, we beam data across the planet at light speed. We beam images from Mars. But to send power 5 kilometers to a remote village, we still string copper on wooden poles. That's just stupid. We can do better.
             </p>
-            <p class="text-sm leading-relaxed mt-3" style="color:var(--text-secondary)">
-              Long-range wireless power beaming converts electricity into a directed electromagnetic beam — microwave or laser — transmits it through free space, and converts it back to DC at the receiver. No wires, no fuel, no emissions at the point of use.
-            </p>
-          </div>
-          <!-- Card 2: Stats -->
-          <div class="pb-card cyber-card rounded-xl p-6" style="border-color:var(--border-color);background:var(--bg-card);min-width:300px;">
-            <h4 class="text-[10px] font-bold tracking-[.2em] uppercase text-neutral-500 mb-4">Near-Term Target</h4>
-            <div class="space-y-4">
-              <div><div class="text-3xl font-black text-cyber-400">1km</div><div class="text-[10px] text-neutral-500">Range Target</div></div>
-              <div><div class="text-3xl font-black text-warm-400">50%</div><div class="text-[10px] text-neutral-500">End-to-End Efficiency</div></div>
-              <div><div class="text-3xl font-black text-green-400">10kW</div><div class="text-[10px] text-neutral-500">Receiver Output</div></div>
+            <div class="mt-4 p-4 rounded-lg border border-cyber-500/20 bg-cyber-500/5">
+              <h4 class="text-sm font-bold text-cyber-400 mb-2">Why This Matters To Me</h4>
+              <p class="text-sm leading-relaxed" style="color:var(--text-secondary)">
+                Space-based solar power isn't some sci-fi fantasy. NASA, ESA, JAXA, and China's CASIC are all working on it. This is the ultimate clean energy — baseload power, 24/7, from orbit. I want to be part of making that real.
+              </p>
+              <div class="mt-3 flex flex-wrap gap-2">
+                <span class="text-[9px] font-semibold uppercase bg-cyber-500/10 text-cyber-400 px-2 py-1 rounded-sm">NASA SBIR</span>
+                <span class="text-[9px] font-semibold uppercase bg-cyber-500/10 text-cyber-400 px-2 py-1 rounded-sm">ESA SOLARIS</span>
+                <span class="text-[9px] font-semibold uppercase bg-cyber-500/10 text-cyber-400 px-2 py-1 rounded-sm">JAXA SSPS</span>
+              </div>
             </div>
           </div>
-          <!-- Card 3: Microwave -->
-          <div class="pb-card cyber-card rounded-xl p-6 hover:border-cyber-500/30 transition-colors" style="border-color:var(--border-color);background:var(--bg-card);min-width:300px;">
-            <div class="w-12 h-12 rounded-xl bg-cyber-500/10 flex items-center justify-center mb-4"><span class="iconify text-cyber-400 text-2xl" data-icon="lucide:radio"></span></div>
-            <h4 class="text-lg font-bold" style="color:var(--text-primary)">5.8 GHz Microwave</h4>
-            <p class="text-xs text-cyber-400 font-mono mb-2">Primary Focus · 0.1–10 km</p>
-            <p class="text-sm leading-relaxed" style="color:var(--text-secondary)">Punches through rain, fog, and dust. Rectenna converts at 85–90% efficiency. Perfect for disaster zones, remote islands, and offshore platforms.</p>
-            <div class="mt-4 flex flex-wrap gap-2">
-              <span class="text-[9px] font-semibold uppercase bg-green-500/10 text-green-400 px-2 py-1 rounded-sm">Weather Tolerant</span>
-              <span class="text-[9px] font-semibold uppercase bg-warm-500/10 text-warm-400 px-2 py-1 rounded-sm">85–92% Beam Eff.</span>
+
+          <!-- SECTION 2: TECHNOLOGY + ROADMAP -->
+          <div class="pb-card cyber-card rounded-xl p-6" style="border-color:var(--border-color);background:var(--bg-card);min-width:380px;max-width:480px;">
+            <h3 class="text-xl font-bold mb-4 flex items-center gap-2" style="color:var(--text-primary)">
+              <span class="iconify text-cyber-400 text-2xl" data-icon="lucide:radio"></span> Tech & Roadmap
+            </h3>
+            
+            <div class="space-y-3">
+              <div class="flex items-center gap-3 p-2 rounded-lg" style="background:rgba(56,189,248,.05);">
+                <span class="text-2xl">📡</span>
+                <div>
+                  <h4 class="text-sm font-bold text-cyber-400">5.8 GHz Microwave</h4>
+                  <p class="text-xs" style="color:var(--text-secondary)">Punches through rain, fog, dust. 85-92% beam efficiency. 0.1-10 km range.</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-3 p-2 rounded-lg" style="background:rgba(245,158,11,.05);">
+                <span class="text-2xl">🔦</span>
+                <div>
+                  <h4 class="text-sm font-bold text-amber-400">850nm-1550nm Laser</h4>
+                  <p class="text-xs" style="color:var(--text-secondary)">Tight beam. 95-99% efficiency. 1-100 km range. Clear sky only.</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-3 p-2 rounded-lg" style="background:rgba(168,85,247,.05);">
+                <span class="text-2xl">📶</span>
+                <div>
+                  <h4 class="text-sm font-bold text-purple-400">24-100 GHz mmWave</h4>
+                  <p class="text-xs" style="color:var(--text-secondary)">Silicon phased arrays. Compact, flat-panel. 60-70% rectenna efficiency.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-4 p-3 rounded-lg border border-warm-500/20 bg-warm-500/5">
+              <h4 class="text-xs font-bold text-warm-400 uppercase tracking-wider">My Roadmap</h4>
+              <div class="mt-2 space-y-2 text-xs">
+                <div class="flex items-center gap-2"><span class="w-5 h-5 rounded-full bg-warm-500/20 flex items-center justify-center text-[9px] font-bold text-warm-500">1</span><span>Benchtop Proof-of-Concept · 10m range · 50% efficiency</span><span class="text-[8px] text-warm-500 font-semibold ml-auto">Q1 2025</span></div>
+                <div class="flex items-center gap-2"><span class="w-5 h-5 rounded-full bg-cyber-500/20 flex items-center justify-center text-[9px] font-bold text-cyber-400">2</span><span>100m Outdoor Link · 1kW · 45% efficiency</span><span class="text-[8px] text-cyber-400 font-semibold ml-auto">Q3 2025</span></div>
+                <div class="flex items-center gap-2"><span class="w-5 h-5 rounded-full bg-purple-500/20 flex items-center justify-center text-[9px] font-bold text-purple-400">3</span><span>1km Cross-Field Beam · 5kW · 40% efficiency</span><span class="text-[8px] text-purple-400 font-semibold ml-auto">Q2 2026</span></div>
+              </div>
             </div>
           </div>
-          <!-- Card 4: Laser -->
-          <div class="pb-card cyber-card rounded-xl p-6 hover:border-cyber-500/30 transition-colors" style="border-color:var(--border-color);background:var(--bg-card);min-width:300px;">
-            <div class="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center mb-4"><span class="iconify text-amber-400 text-2xl" data-icon="lucide:lightbulb"></span></div>
-            <h4 class="text-lg font-bold" style="color:var(--text-primary)">850nm–1550nm Laser</h4>
-            <p class="text-xs text-cyber-400 font-mono mb-2">Space & Clear Sky · 1–100 km</p>
-            <p class="text-sm leading-relaxed" style="color:var(--text-secondary)">Tight collimated beam. Photovoltaic cells convert at 50–60%. Extremely low divergence means small receivers even at long range.</p>
-            <div class="mt-4 flex flex-wrap gap-2">
-              <span class="text-[9px] font-semibold uppercase bg-red-500/10 text-red-400 px-2 py-1 rounded-sm">Poor Weather</span>
-              <span class="text-[9px] font-semibold uppercase bg-warm-500/10 text-warm-400 px-2 py-1 rounded-sm">95–99% Beam Eff.</span>
+
+          <!-- SECTION 3: HONEST ASSESSMENT + STATS -->
+          <div class="pb-card cyber-card rounded-xl p-6" style="border-color:var(--border-color);background:var(--bg-card);min-width:380px;max-width:480px;">
+            <h3 class="text-xl font-bold mb-4 flex items-center gap-2" style="color:var(--text-primary)">
+              <span class="iconify text-amber-400 text-2xl" data-icon="lucide:alert-triangle"></span> Let's Be Real
+            </h3>
+            
+            <div class="space-y-3">
+              <div class="flex items-start gap-2 p-2 rounded-lg" style="background:rgba(251,191,36,.05);border-left:2px solid #fbbf24;">
+                <span class="text-amber-400 mt-0.5">•</span>
+                <div><strong class="text-white text-sm">Thermal Management:</strong><span class="text-sm" style="color:var(--text-secondary)"> 5kW of heat at 20kW scale. Need liquid cooling. Not cheap.</span></div>
+              </div>
+              <div class="flex items-start gap-2 p-2 rounded-lg" style="background:rgba(251,191,36,.05);border-left:2px solid #fbbf24;">
+                <span class="text-amber-400 mt-0.5">•</span>
+                <div><strong class="text-white text-sm">Rectenna Cost:</strong><span class="text-sm" style="color:var(--text-secondary)"> 500,000 elements at ~$937,000. Need printed electronics to bring that down.</span></div>
+              </div>
+              <div class="flex items-start gap-2 p-2 rounded-lg" style="background:rgba(251,191,36,.05);border-left:2px solid #fbbf24;">
+                <span class="text-amber-400 mt-0.5">•</span>
+                <div><strong class="text-white text-sm">Public Perception:</strong><span class="text-sm" style="color:var(--text-secondary)"> "Microwave beam" sounds terrifying to most people. Need to be transparent about safety.</span></div>
+              </div>
             </div>
-          </div>
-          <!-- Card 5: mmWave -->
-          <div class="pb-card cyber-card rounded-xl p-6 hover:border-cyber-500/30 transition-colors" style="border-color:var(--border-color);background:var(--bg-card);min-width:300px;">
-            <div class="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center mb-4"><span class="iconify text-purple-400 text-2xl" data-icon="lucide:signal"></span></div>
-            <h4 class="text-lg font-bold" style="color:var(--text-primary)">24–100 GHz mmWave</h4>
-            <p class="text-xs text-cyber-400 font-mono mb-2">Urban & Drones · 0.1–1 km</p>
-            <p class="text-sm leading-relaxed" style="color:var(--text-secondary)">Silicon-based phased arrays with electronic steering. High attenuation limits range but enables compact, flat-panel transmitters.</p>
-            <div class="mt-4 flex flex-wrap gap-2">
-              <span class="text-[9px] font-semibold uppercase bg-blue-500/10 text-blue-400 px-2 py-1 rounded-sm">Moderate Weather</span>
-              <span class="text-[9px] font-semibold uppercase bg-warm-500/10 text-warm-400 px-2 py-1 rounded-sm">60–70% Rectenna</span>
+
+            <div class="mt-4 grid grid-cols-3 gap-2">
+              <div class="text-center p-2 rounded-lg" style="background:rgba(56,189,248,.05);">
+                <div class="text-2xl font-black text-cyber-400">1km</div>
+                <div class="text-[8px] uppercase tracking-wider" style="color:var(--text-secondary)">Range Target</div>
+              </div>
+              <div class="text-center p-2 rounded-lg" style="background:rgba(245,158,11,.05);">
+                <div class="text-2xl font-black text-warm-400">50%</div>
+                <div class="text-[8px] uppercase tracking-wider" style="color:var(--text-secondary)">End-to-End Eff.</div>
+              </div>
+              <div class="text-center p-2 rounded-lg" style="background:rgba(74,222,128,.05);">
+                <div class="text-2xl font-black text-green-400">10kW</div>
+                <div class="text-[8px] uppercase tracking-wider" style="color:var(--text-secondary)">Receiver Output</div>
+              </div>
             </div>
-          </div>
-          <!-- Card 6: Roadmap -->
-          <div class="pb-card cyber-card rounded-xl p-6" style="border-color:var(--border-color);background:var(--bg-card);min-width:300px;">
-            <h3 class="text-lg font-bold mb-4 flex items-center gap-2" style="color:var(--text-primary)"><span class="iconify text-cyber-400 text-xl" data-icon="lucide:map-pin"></span> Roadmap</h3>
-            <div class="space-y-4 text-sm">
-              <div class="flex items-start gap-3 border-b border-white/5 pb-3"><div class="w-8 h-8 rounded-full bg-warm-500/10 flex items-center justify-center flex-shrink-0"><span class="text-[10px] font-bold text-warm-500">1</span></div><div><h4 class="font-bold" style="color:var(--text-primary)">Benchtop Proof-of-Concept</h4><p class="text-xs" style="color:var(--text-secondary)">100W SSPA, 64-element rectenna. 10m range. Target: 50% efficiency.</p><span class="text-[9px] text-warm-500 font-semibold">In Progress · Q1 2025</span></div></div>
-              <div class="flex items-start gap-3 border-b border-white/5 pb-3"><div class="w-8 h-8 rounded-full bg-cyber-500/10 flex items-center justify-center flex-shrink-0"><span class="text-[10px] font-bold text-cyber-400">2</span></div><div><h4 class="font-bold" style="color:var(--text-primary)">100m Outdoor Link</h4><p class="text-xs" style="color:var(--text-secondary)">1 kW SSPA, 1m dish. Full safety interlocks. Target: 45%.</p><span class="text-[9px] text-cyber-400 font-semibold">Planned · Q3 2025</span></div></div>
-              <div class="flex items-start gap-3"><div class="w-8 h-8 rounded-full bg-purple-500/10 flex items-center justify-center flex-shrink-0"><span class="text-[10px] font-bold text-purple-400">3</span></div><div><h4 class="font-bold" style="color:var(--text-primary)">1km Cross-Field Beam</h4><p class="text-xs" style="color:var(--text-secondary)">5 kW GaN SSPA, 3m dish. Phased-array steering. Target: 40%.</p><span class="text-[9px] text-purple-400 font-semibold">Planned · Q2 2026</span></div></div>
-            </div>
-          </div>
-          <!-- Card 7: Why This Matters -->
-          <div class="pb-card cyber-card rounded-xl p-6" style="border-color:var(--border-color);background:var(--bg-card);min-width:300px;">
-            <h3 class="text-lg font-bold mb-3 flex items-center gap-2" style="color:var(--text-primary)"><span class="iconify text-warm-400 text-xl" data-icon="lucide:zap"></span> Why This Matters</h3>
-            <p class="text-sm leading-relaxed" style="color:var(--text-secondary)">
-              Space-based solar power is not science fiction. NASA, ESA, JAXA, and China's CASIC all have active programs. This is the ultimate application — baseload clean energy, 24/7, from orbit.
-            </p>
-            <div class="mt-4 flex flex-wrap gap-2">
-              <span class="text-[9px] font-semibold uppercase bg-cyber-500/10 text-cyber-400 px-2 py-1 rounded-sm">NASA SBIR 2024</span>
-              <span class="text-[9px] font-semibold uppercase bg-cyber-500/10 text-cyber-400 px-2 py-1 rounded-sm">ESA SOLARIS</span>
-              <span class="text-[9px] font-semibold uppercase bg-cyber-500/10 text-cyber-400 px-2 py-1 rounded-sm">JAXA SSPS</span>
-            </div>
-          </div>
-          <!-- Card 8: Honest Assessment -->
-          <div class="pb-card cyber-card rounded-xl p-6" style="border-color:var(--border-color);background:var(--bg-card);min-width:300px;">
-            <h3 class="text-lg font-bold mb-3 flex items-center gap-2" style="color:var(--text-primary)"><span class="iconify text-amber-400 text-xl" data-icon="lucide:alert-triangle"></span> Honest Assessment</h3>
-            <ul class="space-y-2 text-sm" style="color:var(--text-secondary)">
-              <li class="flex items-start gap-2"><span class="text-warm-400 mt-0.5">•</span> <span><strong class="text-white">Thermal Management:</strong> 5 kW of heat at 20 kW scale. Need liquid cooling.</span></li>
-              <li class="flex items-start gap-2"><span class="text-warm-400 mt-0.5">•</span> <span><strong class="text-white">Rectenna Cost:</strong> 500,000 elements at ~$937,000. Need printed electronics.</span></li>
-              <li class="flex items-start gap-2"><span class="text-warm-400 mt-0.5">•</span> <span><strong class="text-white">Public Perception:</strong> "Microwave beam" sounds terrifying. Need transparency.</span></li>
-            </ul>
+
             <div class="mt-4 p-3 rounded-lg border border-amber-500/20 bg-amber-500/5">
-              <p class="text-[10px] text-amber-400 font-medium uppercase tracking-wider">Future Project</p>
-              <p class="text-xs" style="color:var(--text-secondary)">This is a long-term vision — maybe when I'm in my 50s. For now, it's a passion project, a learning journey, and a glimpse of what's possible.</p>
+              <p class="text-[10px] text-amber-400 font-medium uppercase tracking-wider">💭 My Honest Take</p>
+              <p class="text-xs italic" style="color:var(--text-secondary)">"This is a long-term vision — maybe when I'm in my 50s. For now, it's a passion project, a learning journey, and a glimpse of what's possible. I'm not delusional, I'm just curious."</p>
             </div>
           </div>
+
+          <!-- SECTION 4: INTERACTIVE DEMO -->
+          <div class="pb-card cyber-card rounded-xl p-6" style="border-color:var(--border-color);background:var(--bg-card);min-width:380px;max-width:480px;">
+            <h3 class="text-xl font-bold mb-4 flex items-center gap-2" style="color:var(--text-primary)">
+              <span class="iconify text-warm-400 text-2xl" data-icon="lucide:play"></span> Play With It
+            </h3>
+            <div class="rounded-lg bg-black/50 border border-white/10 flex flex-col items-center justify-center p-6 text-center" style="min-height:200px;">
+              <span class="iconify text-6xl text-neutral-700 mb-4" data-icon="lucide:radio-tower"></span>
+              <p class="text-sm font-medium" style="color:var(--text-primary)">Beam Propagation Demo</p>
+              <p class="text-xs mb-4" style="color:var(--text-secondary)">I built a simple simulation. Fire the microwave beam and watch it propagate.</p>
+              <div class="flex flex-wrap gap-3 justify-center">
+                <a href="https://grimzeero78.github.io/power/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-warm-500 text-white text-[10px] font-bold tracking-[.15em] uppercase px-5 py-2.5 rounded-sm hover:bg-warm-600 transition-colors">
+                  <span class="iconify" data-icon="lucide:external-link"></span> View Live Demo
+                </a>
+                <a href="https://github.com/Grimzeero78/power.git" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 border border-cyber-500/30 text-cyber-400 text-[10px] font-bold tracking-[.15em] uppercase px-5 py-2.5 rounded-sm hover:bg-cyber-500/10 transition-colors">
+                  <span class="iconify" data-icon="lucide:github"></span> Source Code
+                </a>
+              </div>
+            </div>
+            <div class="mt-4 text-center">
+              <span class="text-[8px] uppercase tracking-[.2em]" style="color:var(--text-secondary)">Built with ❤️ and way too much curiosity</span>
+            </div>
+          </div>
+
         </div>
-      </div>
-      <!-- Carousel Controls -->
-      <div class="flex items-center justify-center gap-4 pf-reveal">
-        <button id="pb-prev" class="w-12 h-12 border border-white/20 rounded-sm flex items-center justify-center transition-all hover:border-warm-500" style="border-color:var(--border-color);color:var(--text-secondary)"><iconify-icon icon="lucide:arrow-left" width="18"></iconify-icon></button>
-        <button id="pb-next" class="w-12 h-12 border border-white/20 rounded-sm flex items-center justify-center transition-all hover:border-warm-500" style="border-color:var(--border-color);color:var(--text-secondary)"><iconify-icon icon="lucide:arrow-right" width="18"></iconify-icon></button>
-        <div class="flex-1 h-px bg-white/10" style="background:var(--border-color)"></div>
-        <div id="pb-dots" class="flex gap-2"></div>
       </div>
 
-      <!-- Interactive Simulation - Below Carousel -->
-      <div class="mt-12 cyber-card rounded-xl p-6 pf-reveal pf-delay-1" style="border-color:var(--border-color);background:var(--bg-card)">
-        <h3 class="text-lg font-bold mb-4 flex items-center gap-2" style="color:var(--text-primary)"><span class="iconify text-warm-400 text-xl" data-icon="lucide:play"></span> Interactive Simulation</h3>
-        <div class="aspect-video rounded-lg bg-black/50 border border-white/10 flex flex-col items-center justify-center p-6 text-center">
-          <span class="iconify text-6xl text-neutral-700 mb-4" data-icon="lucide:radio-tower"></span>
-          <p class="text-sm font-medium" style="color:var(--text-primary)">Beam Propagation Demo</p>
-          <p class="text-xs" style="color:var(--text-secondary)">Fire the microwave beam and watch it propagate.</p>
-          <a href="https://grimzeero78.github.io/power/" target="_blank" rel="noopener noreferrer" class="mt-4 inline-flex items-center gap-2 bg-warm-500 text-white text-[10px] font-bold tracking-[.15em] uppercase px-5 py-2.5 rounded-sm hover:bg-warm-600 transition-colors">
-            <span class="iconify" data-icon="lucide:external-link"></span> View Live Demo
-          </a>
-          <a href="https://github.com/Grimzeero78/power.git" target="_blank" rel="noopener noreferrer" class="mt-2 text-[10px] text-cyber-400 hover:text-cyber-300 transition-colors">View Source Code</a>
-        </div>
+      <!-- Carousel Controls -->
+      <div class="flex items-center justify-center gap-4 mt-6 pf-reveal">
+        <button id="pb-prev" class="w-10 h-10 border border-white/20 rounded-sm flex items-center justify-center transition-all hover:border-warm-500" style="border-color:var(--border-color);color:var(--text-secondary)">
+          <iconify-icon icon="lucide:arrow-left" width="16"></iconify-icon>
+        </button>
+        <button id="pb-next" class="w-10 h-10 border border-white/20 rounded-sm flex items-center justify-center transition-all hover:border-warm-500" style="border-color:var(--border-color);color:var(--text-secondary)">
+          <iconify-icon icon="lucide:arrow-right" width="16"></iconify-icon>
+        </button>
+        <div class="flex-1 h-px bg-white/10" style="background:var(--border-color)"></div>
+        <div id="pb-dots" class="flex gap-2"></div>
       </div>
     </div>
   </section>
@@ -1156,7 +1187,7 @@
           </div>
           <div class="bg-neutral-950/80 border border-white/10 rounded-lg p-6 hover:border-warm-500/30 transition-colors md:col-span-2" style="background:var(--bg-card);border-color:var(--border-color)">
             <h4 class="font-bold" style="color:var(--text-primary)">💡 What I Want People to Understand</h4>
-            <p class="leading-relaxed" style="color:var(--text-secondary)">I did not take a shortcut. I took a smart route. Every AI tool required me to know what to ask, recognise when the answer was wrong, test and adapt, and make the final decision on every line. AI didn't replace my thinking — it amplified it.</p>
+            <p class="leading-relaxed" style="color:var(--text-secondary)">I didn't take a shortcut. I took a smart route. Every AI tool required me to know what to ask, recognize when the answer was wrong, test and adapt, and make the final decision on every line. AI didn't replace my thinking — it amplified it. And honestly? Sometimes it was just faster to write the damn code myself.</p>
           </div>
         </div>
       </div>
@@ -1168,13 +1199,13 @@
     <div class="max-w-3xl mx-auto px-6 text-center">
       <p class="text-[10px] font-semibold tracking-[.3em] uppercase text-warm-400 mb-4 pf-reveal">Available for Work</p>
       <h2 class="text-4xl md:text-6xl font-black tracking-tighter uppercase pf-reveal pf-delay-1" style="color:var(--text-primary)">Let's Build<br>Something <span class="text-warm-500">Real</span></h2>
-      <p class="mt-6 text-sm leading-relaxed max-w-md mx-auto pf-reveal pf-delay-2" style="color:var(--text-secondary)">I build apps that solve actual problems for real people. If you have an idea — or just need a solid developer — let's talk.</p>
+      <p class="mt-6 text-sm leading-relaxed max-w-md mx-auto pf-reveal pf-delay-2" style="color:var(--text-secondary)">I build apps that solve actual problems for real people. If you have an idea — or just need a solid developer — let's talk. I don't just code, I solve problems.</p>
       <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center pf-reveal pf-delay-3">
         <a href="https://mail.google.com/mail/?view=cm&fs=1&to=injuguna308@gmail.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 bg-warm-500 text-white text-[11px] font-bold tracking-[.15em] uppercase px-8 py-4 rounded-sm hover:bg-warm-600 transition-colors pulse-cta"><iconify-icon icon="lucide:mail" width="14"></iconify-icon>Get in Touch</a>
         <button onclick="openCV()" class="inline-flex items-center justify-center gap-2 border border-white/20 text-white text-[11px] font-bold tracking-[.15em] uppercase px-8 py-4 rounded-sm hover:bg-white/5 hover:border-white/40 transition-all" style="border-color:var(--border-color);color:var(--text-primary)"><iconify-icon icon="lucide:file-text" width="14"></iconify-icon>View CV</button>
       </div>
       <div class="mt-16 flex justify-center gap-6 pf-reveal pf-delay-4">
-        <a href="#" class="text-neutral-500 hover:text-warm-500 transition-colors" style="color:var(--text-secondary)"><iconify-icon icon="lucide:github" width="20"></iconify-icon></a>
+        <a href="https://github.com/Grimzeero78" target="_blank" rel="noopener noreferrer" class="text-neutral-500 hover:text-warm-500 transition-colors" style="color:var(--text-secondary)"><iconify-icon icon="lucide:github" width="20"></iconify-icon></a>
         <a href="#" class="text-neutral-500 hover:text-warm-500 transition-colors" style="color:var(--text-secondary)"><iconify-icon icon="lucide:linkedin" width="20"></iconify-icon></a>
         <a href="#" class="text-neutral-500 hover:text-warm-500 transition-colors" style="color:var(--text-secondary)"><iconify-icon icon="lucide:twitter" width="20"></iconify-icon></a>
         <a href="#" class="text-neutral-500 hover:text-warm-500 transition-colors" style="color:var(--text-secondary)"><iconify-icon icon="lucide:instagram" width="20"></iconify-icon></a>
@@ -1197,7 +1228,7 @@
     </div>
   </div>
 
-  <!-- ==================== CV OVERLAY ==================== -->
+  <!-- CV OVERLAY -->
   <div id="cv-overlay" class="cv-hex-bg">
     <div class="cv-noise"></div>
     <canvas id="cv-matrix-canvas"></canvas>
@@ -1315,7 +1346,6 @@
         <div class="cv-reveal flex items-center gap-3 mb-4"><div class="w-8 h-px bg-cyber-400"></div><span class="cyber-tag">// SKILL_MATRIX</span></div>
         <h2 class="cv-reveal cv-delay-1 text-3xl sm:text-4xl font-bold tracking-tight mb-12"><span class="bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent">Skills & Languages</span><span class="text-cyber-400">.</span></h2>
 
-        <!-- Technical Skills -->
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
           <div class="cv-reveal cv-delay-1 cyber-card rounded-xl p-6"><div class="flex items-center justify-between mb-4"><div class="flex items-center gap-3"><span class="iconify text-sky-400 text-2xl" data-icon="logos:flutter"></span><span class="font-semibold text-white">Flutter</span></div><span class="text-xs text-slate-500 font-mono">BEGINNER</span></div><div class="w-full h-1.5 rounded-full bg-white/5 overflow-hidden"><div class="cv-skill-fill h-full rounded-full cv-skill-fill-blue" data-width="30"></div></div><p class="text-slate-500 text-xs mt-3">Mobile app development with Dart &amp; Flutter</p></div>
           <div class="cv-reveal cv-delay-2 cyber-card rounded-xl p-6"><div class="flex items-center justify-between mb-4"><div class="flex items-center gap-3"><span class="iconify text-blue-400 text-2xl" data-icon="logos:c-plusplus"></span><span class="font-semibold text-white">C++</span></div><span class="text-xs text-emerald-400 font-mono">STRONG</span></div><div class="w-full h-1.5 rounded-full bg-white/5 overflow-hidden"><div class="cv-skill-fill h-full rounded-full" data-width="75" style="background:linear-gradient(90deg,#10b981,#34d399);"></div></div><p class="text-slate-500 text-xs mt-3">Primary language — algorithms, data structures, OOP</p></div>
@@ -1327,7 +1357,6 @@
           <div class="cv-reveal cv-delay-2 cyber-card rounded-xl p-6" style="border-color:rgba(56,189,248,.2);"><div class="flex items-center justify-between mb-4"><div class="flex items-center gap-3"><span class="iconify text-cyber-400 text-2xl" data-icon="lucide:users"></span><span class="font-semibold text-white">Soft Skills</span></div><span class="text-xs text-cyber-400 font-mono">⚡ MAX</span></div><div class="flex flex-wrap gap-2 mt-2"><span class="px-2 py-1 text-xs rounded-md text-cyber-300" style="background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.2);">Teamwork</span><span class="px-2 py-1 text-xs rounded-md text-cyber-300" style="background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.2);">Discipline</span><span class="px-2 py-1 text-xs rounded-md text-cyber-300" style="background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.2);">Creativity</span><span class="px-2 py-1 text-xs rounded-md text-cyber-300" style="background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.2);">Communication</span></div></div>
         </div>
 
-        <!-- Languages Section -->
         <div class="cv-reveal cv-delay-3 cyber-card rounded-xl p-6">
           <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2"><span class="iconify text-cyber-400 text-xl" data-icon="lucide:languages"></span> Languages</h3>
           <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
@@ -1888,37 +1917,44 @@
       startAP();
     }
 
-    // Power Beaming Carousel
+    // Power Beaming Carousel - Auto-scrolling with 4 merged sections
     function initPBCarousel() {
       const track = document.getElementById('pb-carousel-track');
+      const container = document.getElementById('pb-carousel-container');
       const prevBtn = document.getElementById('pb-prev');
       const nextBtn = document.getElementById('pb-next');
       const dotsContainer = document.getElementById('pb-dots');
       let pbPos = 0;
+      let currentPBSlide = 0;
       const cards = track.querySelectorAll('.pb-card');
-      const cardWidth = 300 + 24; // min-width + gap
-      const visibleCards = 2.5;
 
-      // Build dots
+      function getCardWidth() {
+        if (cards.length === 0) return 404;
+        return cards[0].offsetWidth + 24;
+      }
+
       dotsContainer.innerHTML = '';
-      const totalSlides = Math.ceil(cards.length / visibleCards);
+      const totalSlides = cards.length;
       for (let i = 0; i < totalSlides; i++) {
         const dot = document.createElement('button');
         dot.className =
           `w-2 h-2 rounded-full transition-all duration-300 cursor-pointer ${i===0?'bg-cyber-400 w-6':'bg-neutral-700 w-2'}`;
-        dot.addEventListener('click', () => slideTo(i * cardWidth));
+        dot.addEventListener('click', () => slideTo(i));
         dotsContainer.appendChild(dot);
       }
 
       function getMax() {
-        const containerWidth = track.parentElement.offsetWidth - 16;
+        const containerWidth = container.offsetWidth - 16;
         const totalWidth = track.scrollWidth;
         return Math.max(0, totalWidth - containerWidth);
       }
 
-      function slideTo(pos) {
+      function slideTo(index) {
+        const cardWidth = getCardWidth();
+        currentPBSlide = Math.max(0, Math.min(index, totalSlides - 1));
+        pbPos = currentPBSlide * cardWidth;
         const max = getMax();
-        pbPos = Math.max(0, Math.min(pos, max));
+        pbPos = Math.min(pbPos, max);
         track.classList.add('snap');
         track.style.transform = `translateX(-${pbPos}px)`;
         setTimeout(() => track.classList.remove('snap'), 500);
@@ -1926,28 +1962,35 @@
       }
 
       function updateDots() {
-        const activeIndex = Math.round(pbPos / cardWidth);
         dotsContainer.querySelectorAll('button').forEach((d, i) => {
           d.className =
-            `h-2 rounded-full transition-all duration-300 cursor-pointer ${i===activeIndex?'bg-cyber-400 w-6':'bg-neutral-700 w-2'}`;
+            `h-2 rounded-full transition-all duration-300 cursor-pointer ${i===currentPBSlide?'bg-cyber-400 w-6':'bg-neutral-700 w-2'}`;
         });
       }
 
-      prevBtn.addEventListener('click', () => slideTo(pbPos - cardWidth));
-      nextBtn.addEventListener('click', () => slideTo(pbPos + cardWidth));
-      window.addEventListener('resize', () => slideTo(pbPos));
+      prevBtn.addEventListener('click', () => {
+        slideTo(currentPBSlide - 1);
+        resetAutoPlay();
+      });
 
-      // Drag support
+      nextBtn.addEventListener('click', () => {
+        slideTo(currentPBSlide + 1);
+        resetAutoPlay();
+      });
+
       let isDraggingPB = false,
         startXPB = 0,
         prevXPB = 0;
+
       track.addEventListener('mousedown', e => {
         isDraggingPB = true;
         startXPB = e.clientX;
         prevXPB = pbPos;
         track.classList.remove('snap');
+        clearInterval(autoPlayPB);
         e.preventDefault();
       });
+
       window.addEventListener('mousemove', e => {
         if (isDraggingPB) {
           const delta = e.clientX - startXPB;
@@ -1956,18 +1999,25 @@
           pbPos = newPos;
         }
       });
+
       window.addEventListener('mouseup', () => {
         if (isDraggingPB) {
           isDraggingPB = false;
-          updateDots();
+          const cardWidth = getCardWidth();
+          const newIndex = Math.round(pbPos / cardWidth);
+          slideTo(newIndex);
+          resetAutoPlay();
         }
       });
+
       track.addEventListener('touchstart', e => {
         isDraggingPB = true;
         startXPB = e.touches[0].clientX;
         prevXPB = pbPos;
         track.classList.remove('snap');
+        clearInterval(autoPlayPB);
       }, { passive: true });
+
       track.addEventListener('touchmove', e => {
         if (isDraggingPB) {
           const delta = e.touches[0].clientX - startXPB;
@@ -1976,38 +2026,35 @@
           pbPos = newPos;
         }
       }, { passive: true });
+
       track.addEventListener('touchend', () => {
         if (isDraggingPB) {
           isDraggingPB = false;
-          updateDots();
+          const cardWidth = getCardWidth();
+          const newIndex = Math.round(pbPos / cardWidth);
+          slideTo(newIndex);
+          resetAutoPlay();
         }
       }, { passive: true });
 
-      // Auto-play
-      let autoPlayPB = setInterval(() => {
-        const max = getMax();
-        if (pbPos >= max) {
-          slideTo(0);
-        } else {
-          slideTo(pbPos + cardWidth);
-        }
-      }, 5000);
+      let autoPlayPB;
 
-      // Pause on hover
-      track.addEventListener('mouseenter', () => clearInterval(autoPlayPB));
-      track.addEventListener('mouseleave', () => {
+      function resetAutoPlay() {
+        clearInterval(autoPlayPB);
         autoPlayPB = setInterval(() => {
-          const max = getMax();
-          if (pbPos >= max) {
-            slideTo(0);
-          } else {
-            slideTo(pbPos + cardWidth);
-          }
+          slideTo((currentPBSlide + 1) % totalSlides);
         }, 5000);
+      }
+
+      track.addEventListener('mouseenter', () => clearInterval(autoPlayPB));
+      track.addEventListener('mouseleave', resetAutoPlay);
+
+      window.addEventListener('resize', () => {
+        slideTo(currentPBSlide);
       });
 
-      // Initial slide
-      setTimeout(() => slideTo(0), 100);
+      setTimeout(() => slideTo(0), 200);
+      resetAutoPlay();
     }
 
     function initCursor() {

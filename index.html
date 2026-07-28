@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Isaac Bridget · Portfolio & CV</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="icon" href="favicon.ico" />
   <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
@@ -12,7 +13,7 @@
     tailwind.config = {
       theme: {
         extend: {
-          fontFamily: { inter: ['Inter', 'sans-serif'] },
+          fontFamily: { inter: ['Inter', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] },
           colors: {
             warm: { 400: '#F59E0B', 500: '#D97706', 600: '#B45309', 700: '#92400E' },
             clay: { 400: '#F97316', 500: '#EA580C', 600: '#C2410C' },
@@ -362,7 +363,7 @@
       border-radius: 2px;
     }
 
-    /* CV OVERLAY */
+    /* ─── CV OVERLAY ─── */
     #cv-overlay {
       position: fixed;
       inset: 0;
@@ -801,6 +802,340 @@
         padding-bottom: 70px;
       }
     }
+
+    /* TERMINAL BLOG OVERLAY */
+    #blog-terminal-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 50050;
+      background: #050709;
+      color: #d8d4ce;
+      overflow: hidden;
+      transform: translateX(100%);
+      opacity: 0;
+      pointer-events: none;
+      transition: transform .7s cubic-bezier(.16, 1, .3, 1), opacity .5s ease;
+      font-family: 'JetBrains Mono', 'SF Mono', monospace;
+      font-size: 14px;
+      line-height: 1.55;
+    }
+    #blog-terminal-overlay.open {
+      transform: translateX(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+    #blog-terminal-overlay .crt-overlay {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 100;
+      opacity: 0.8;
+    }
+    #blog-terminal-overlay .scanlines {
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        to bottom,
+        rgba(0,0,0,0) 0px,
+        rgba(0,0,0,0) 2px,
+        rgba(0,0,0,0.32) 3px,
+        rgba(0,0,0,0.32) 4px
+      );
+      opacity: 0.55;
+      animation: scan 6s linear infinite;
+    }
+    @keyframes scan {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(4px); }
+    }
+    #blog-terminal-overlay .vignette {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 110% 100% at center, transparent 45%, rgba(0,0,0,0.55) 100%);
+    }
+    #blog-terminal-overlay .flicker {
+      position: absolute;
+      inset: 0;
+      background: rgba(255, 184, 108, 0.018);
+      animation: flicker 7s infinite;
+    }
+    @keyframes flicker {
+      0%, 94%, 100% { opacity: 1; }
+      95% { opacity: 0.82; }
+      96% { opacity: 1; }
+      97% { opacity: 0.93; }
+      98% { opacity: 1; }
+    }
+
+    #blog-close-btn {
+      position: fixed;
+      top: 20px;
+      right: 24px;
+      z-index: 50060;
+      padding: 10px 20px;
+      border-radius: 8px;
+      background: rgba(56, 189, 248, 0.15);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #38BDF8;
+      cursor: pointer;
+      transition: all .3s ease;
+      font-size: 13px;
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+      pointer-events: auto;
+      opacity: 1;
+      transform: none;
+      z-index: 50060;
+    }
+    #blog-close-btn:hover {
+      background: rgba(56, 189, 248, 0.25);
+      border-color: #38BDF8;
+      transform: scale(1.05);
+    }
+    #blog-close-btn .iconify {
+      font-size: 18px;
+    }
+    @media(max-width:768px) {
+      #blog-close-btn {
+        padding: 8px 14px;
+        font-size: 11px;
+        top: 16px;
+        right: 16px;
+      }
+      #blog-close-btn .iconify {
+        font-size: 14px;
+      }
+    }
+
+    #blog-terminal-overlay .status-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 5px 14px;
+      background: linear-gradient(to bottom, #0e1217, #0a0d11);
+      border-bottom: 1px solid #1d2530;
+      font-size: 11px;
+      color: #6b7585;
+      flex-shrink: 0;
+      user-select: none;
+      letter-spacing: 0.02em;
+    }
+    #blog-terminal-overlay .status-group { display: flex; gap: 16px; align-items: center; }
+    #blog-terminal-overlay .status-item { display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; }
+    #blog-terminal-overlay .status-item b { color: #ffb86c; font-weight: 500; }
+    #blog-terminal-overlay .status-item .dot {
+      display: inline-block;
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: #4ade80;
+      box-shadow: 0 0 7px #4ade80;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.85); }
+    }
+
+    #blog-terminal-overlay .terminal {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+      padding: 14px 18px;
+      position: relative;
+      overflow: hidden;
+      height: calc(100vh - 40px);
+    }
+    #blog-terminal-overlay .output {
+      flex: 1;
+      overflow-y: auto;
+      overflow-x: hidden;
+      padding-right: 8px;
+      padding-bottom: 6px;
+      scrollbar-width: thin;
+      scrollbar-color: #1d2530 transparent;
+    }
+    #blog-terminal-overlay .output::-webkit-scrollbar { width: 6px; }
+    #blog-terminal-overlay .output::-webkit-scrollbar-track { background: transparent; }
+    #blog-terminal-overlay .output::-webkit-scrollbar-thumb { background: #1d2530; border-radius: 3px; }
+    #blog-terminal-overlay .output::-webkit-scrollbar-thumb:hover { background: #6b7585; }
+    #blog-terminal-overlay .line {
+      margin-bottom: 2px;
+      word-break: break-word;
+      white-space: pre-wrap;
+      color: #d8d4ce;
+    }
+    #blog-terminal-overlay .error { color: #ef4444; text-shadow: 0 0 5px rgba(239, 68, 68, 0.4); }
+    #blog-terminal-overlay .success { color: #4ade80; }
+    #blog-terminal-overlay .info, #blog-terminal-overlay .cyan { color: #67e8f9; }
+    #blog-terminal-overlay .warn, #blog-terminal-overlay .yellow { color: #facc15; }
+    #blog-terminal-overlay .dim { color: #6b7585; }
+    #blog-terminal-overlay .amber { color: #ffb86c; }
+    #blog-terminal-overlay .magenta { color: #f472b6; }
+    #blog-terminal-overlay .phosphor { color: #a3e635; }
+    #blog-terminal-overlay .green { color: #4ade80; }
+
+    #blog-terminal-overlay .prompt-line {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding-top: 6px;
+      border-top: 1px solid #0e1217;
+      position: relative;
+      flex-shrink: 0;
+    }
+    #blog-terminal-overlay .prompt {
+      color: #4ade80;
+      text-shadow: 0 0 8px rgba(74, 222, 128, 0.45);
+      font-weight: 500;
+      flex-shrink: 0;
+      user-select: none;
+    }
+    #blog-terminal-overlay .prompt .path {
+      color: #67e8f9;
+      text-shadow: 0 0 6px rgba(103, 232, 249, 0.4);
+    }
+    #blog-terminal-overlay .prompt.compose { color: #f472b6; text-shadow: 0 0 8px rgba(244, 114, 182, 0.5); }
+    #blog-terminal-overlay .input-area { position: relative; flex: 1; min-width: 0; }
+    #blog-terminal-overlay .input-display { pointer-events: none; color: #d8d4ce; }
+    #blog-terminal-overlay .ghost-text { color: #6b7585; opacity: 0.55; }
+    #blog-terminal-overlay .block-cursor {
+      display: inline-block;
+      width: 8px;
+      height: 17px;
+      background: #ffb86c;
+      vertical-align: text-bottom;
+      box-shadow: 0 0 8px #ffb86c;
+      animation: blink 1.06s steps(2, end) infinite;
+      margin-left: 1px;
+      margin-right: 1px;
+    }
+    #blog-terminal-overlay #blogCmdInput {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: transparent;
+      caret-color: transparent;
+      font: inherit;
+      z-index: 2;
+      cursor: text;
+      padding: 0;
+    }
+    #blog-terminal-overlay .post { margin: 8px 0 14px; }
+    #blog-terminal-overlay .post h1, #blog-terminal-overlay .post h2, #blog-terminal-overlay .post h3 {
+      color: #ffb86c;
+      font-weight: 600;
+      text-shadow: 0 0 10px rgba(255, 184, 108, 0.4);
+      line-height: 1.3;
+      margin: 18px 0 8px;
+    }
+    #blog-terminal-overlay .post h1 {
+      font-size: 1.5em;
+      letter-spacing: -0.01em;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #1d2530;
+    }
+    #blog-terminal-overlay .post h2 { font-size: 1.2em; }
+    #blog-terminal-overlay .post h3 { font-size: 1.05em; color: #ffd09b; }
+    #blog-terminal-overlay .post p { margin: 8px 0; color: #d8d4ce; }
+    #blog-terminal-overlay .post em { color: #d8d4ce; font-style: italic; opacity: 0.85; }
+    #blog-terminal-overlay .post strong { color: #ffd09b; font-weight: 600; }
+    #blog-terminal-overlay .post code {
+      color: #a3e635;
+      background: rgba(163, 230, 53, 0.08);
+      padding: 1px 5px;
+      border-radius: 2px;
+      font-size: 0.95em;
+      border: 1px solid rgba(163, 230, 53, 0.18);
+    }
+    #blog-terminal-overlay .post pre {
+      margin: 10px 0;
+      background: #0e1217;
+      border: 1px solid #1d2530;
+      border-radius: 3px;
+      padding: 10px 12px;
+      overflow-x: auto;
+    }
+    #blog-terminal-overlay .post pre code {
+      display: block;
+      padding: 0;
+      background: transparent;
+      border: none;
+      color: #d8d4ce;
+      font-size: 0.95em;
+      line-height: 1.5;
+    }
+    #blog-terminal-overlay .post a {
+      color: #67e8f9;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      text-decoration-color: rgba(103, 232, 249, 0.4);
+      transition: color 0.15s, text-decoration-color 0.15s;
+    }
+    #blog-terminal-overlay .post a:hover { color: #f472b6; text-decoration-color: #f472b6; }
+    #blog-terminal-overlay .post blockquote {
+      border-left: 2px solid #ffb86c;
+      padding: 6px 0 6px 14px;
+      margin: 12px 0;
+      color: #6b7585;
+      font-style: italic;
+      background: rgba(255, 184, 108, 0.04);
+    }
+    #blog-terminal-overlay .post ul, #blog-terminal-overlay .post ol { padding-left: 22px; margin: 8px 0; }
+    #blog-terminal-overlay .post li { margin: 3px 0; }
+    #blog-terminal-overlay .post ul li::marker, #blog-terminal-overlay .post ol li::marker { color: #ffb86c; }
+    #blog-terminal-overlay .divider { color: #2a303c; margin: 8px 0; overflow: hidden; }
+    #blog-terminal-overlay .listing {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px 22px;
+      margin: 4px 0;
+      line-height: 1.7;
+    }
+    #blog-terminal-overlay .file { color: #d8d4ce; }
+    #blog-terminal-overlay .file.dir { color: #67e8f9; font-weight: 500; }
+    #blog-terminal-overlay .file.dir::after { content: '/'; opacity: 0.7; }
+    #blog-terminal-overlay .file.md { color: #ffb86c; }
+    #blog-terminal-overlay .file.hidden { color: #6b7585; }
+    #blog-terminal-overlay .boot-line { color: #6b7585; font-size: 0.95em; }
+    #blog-terminal-overlay .boot-line .ok { color: #4ade80; font-weight: 500; }
+    #blog-terminal-overlay .boot-line .warn { color: #facc15; font-weight: 500; }
+    #blog-terminal-overlay .man-page {
+      border: 1px solid #1d2530;
+      background: linear-gradient(to bottom, rgba(255,184,108,0.025), rgba(255,184,108,0.005));
+      padding: 10px 14px;
+      margin: 8px 0;
+      border-radius: 2px;
+      box-shadow: inset 0 0 30px rgba(255, 184, 108, 0.03);
+    }
+    #blog-terminal-overlay .man-page pre { font: inherit; white-space: pre-wrap; color: #d8d4ce; }
+    #blog-terminal-overlay .neofetch {
+      color: #d8d4ce;
+      line-height: 1.25;
+    }
+    #blog-terminal-overlay .file-header {
+      color: #6b7585;
+      margin: 6px 0 4px;
+      line-height: 1.5;
+    }
+    #blog-terminal-overlay .mail-summary {
+      border: 1px solid #1d2530;
+      padding: 10px 14px;
+      margin: 8px 0;
+      background: rgba(74,222,128,0.04);
+    }
+    #blog-terminal-overlay .mail-form {
+      border: 1px dashed #1d2530;
+      padding: 8px 12px;
+      margin: 6px 0;
+    }
   </style>
 </head>
 
@@ -870,6 +1205,7 @@
       <div class="mt-8 flex items-center justify-center gap-4 pf-reveal pf-delay-4">
         <a href="#stockipa" class="inline-flex items-center gap-2 bg-warm-500 text-white text-[11px] font-bold tracking-[.15em] uppercase px-7 py-3.5 rounded-sm hover:bg-warm-600 transition-colors"><iconify-icon icon="lucide:star" width="13"></iconify-icon>Featured: Stockipa</a>
         <button onclick="openCV()" class="inline-flex items-center gap-2 border border-white/20 text-white text-[11px] font-bold tracking-[.15em] uppercase px-7 py-3.5 rounded-sm hover:bg-white/5 transition-all" style="border-color:var(--border-color);color:var(--text-primary)"><iconify-icon icon="lucide:file-text" width="13"></iconify-icon>View CV</button>
+        <button onclick="openBlog()" class="inline-flex items-center gap-2 border border-cyber-400/30 text-cyber-400 text-[11px] font-bold tracking-[.15em] uppercase px-7 py-3.5 rounded-sm hover:bg-cyber-500/10 transition-all"><iconify-icon icon="lucide:terminal" width="13"></iconify-icon>My Blog</button>
       </div>
     </div>
     <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 pf-reveal pf-delay-5">
@@ -940,10 +1276,9 @@
     </div>
   </section>
 
-  <!-- POWER BEAMING - AUTO-SCROLLING CAROUSEL with 4 merged sections -->
+  <!-- POWER BEAMING -->
   <section id="power-beaming" class="relative py-24 md:py-32 border-t border-white/10 overflow-hidden" style="border-color:var(--border-color);background:var(--bg-secondary)">
     <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-cyber-400/5 rounded-full blur-[120px]"></div>
-
     <div class="max-w-7xl mx-auto px-6 relative z-10">
       <div class="text-center mb-12 pf-reveal">
         <div class="inline-flex items-center gap-2 bg-cyber-500/10 border border-cyber-500/20 rounded-full px-4 py-1.5 mb-6">
@@ -955,12 +1290,8 @@
           I've been obsessed with this idea since I read about space-based solar power. Sending electricity through the air — from 1 km to orbit. Cutting the last wire.
         </p>
       </div>
-
-      <!-- AUTO-SCROLLING CAROUSEL - MERGED INTO 4 SECTIONS -->
       <div class="relative overflow-hidden" id="pb-carousel-container">
         <div class="pb-carousel-track px-2" id="pb-carousel-track">
-          
-          <!-- SECTION 1: VISION + WHY IT MATTERS -->
           <div class="pb-card cyber-card rounded-xl p-6" style="border-color:var(--border-color);background:var(--bg-card);min-width:380px;max-width:480px;">
             <h3 class="text-xl font-bold mb-4 flex items-center gap-2" style="color:var(--text-primary)">
               <span class="iconify text-warm-400 text-2xl" data-icon="lucide:eye"></span> The Vision
@@ -971,125 +1302,77 @@
             <div class="mt-4 p-4 rounded-lg border border-cyber-500/20 bg-cyber-500/5">
               <h4 class="text-sm font-bold text-cyber-400 mb-2">Why This Matters To Me</h4>
               <p class="text-sm leading-relaxed" style="color:var(--text-secondary)">
-                Space-based solar power isn't some sci-fi fantasy. NASA, ESA, JAXA, and China's CASIC are all working on it. This is the ultimate clean energy — baseload power, 24/7, from orbit. I want to be part of making that real.
+                Space-based solar power isn't some sci-fi fantasy. NASA, ESA, JAXA, and China's CASIC are all working on it. This is the ultimate clean energy — baseload power, 24/7, from orbit.
               </p>
-              <div class="mt-3 flex flex-wrap gap-2">
-                <span class="text-[9px] font-semibold uppercase bg-cyber-500/10 text-cyber-400 px-2 py-1 rounded-sm">NASA SBIR</span>
-                <span class="text-[9px] font-semibold uppercase bg-cyber-500/10 text-cyber-400 px-2 py-1 rounded-sm">ESA SOLARIS</span>
-                <span class="text-[9px] font-semibold uppercase bg-cyber-500/10 text-cyber-400 px-2 py-1 rounded-sm">JAXA SSPS</span>
-              </div>
             </div>
           </div>
-
-          <!-- SECTION 2: TECHNOLOGY + ROADMAP -->
           <div class="pb-card cyber-card rounded-xl p-6" style="border-color:var(--border-color);background:var(--bg-card);min-width:380px;max-width:480px;">
             <h3 class="text-xl font-bold mb-4 flex items-center gap-2" style="color:var(--text-primary)">
               <span class="iconify text-cyber-400 text-2xl" data-icon="lucide:radio"></span> Tech & Roadmap
             </h3>
-            
             <div class="space-y-3">
               <div class="flex items-center gap-3 p-2 rounded-lg" style="background:rgba(56,189,248,.05);">
                 <span class="text-2xl">📡</span>
                 <div>
                   <h4 class="text-sm font-bold text-cyber-400">5.8 GHz Microwave</h4>
-                  <p class="text-xs" style="color:var(--text-secondary)">Punches through rain, fog, dust. 85-92% beam efficiency. 0.1-10 km range.</p>
+                  <p class="text-xs" style="color:var(--text-secondary)">Punches through rain, fog, dust. 0.1-10 km range.</p>
                 </div>
               </div>
               <div class="flex items-center gap-3 p-2 rounded-lg" style="background:rgba(245,158,11,.05);">
                 <span class="text-2xl">🔦</span>
                 <div>
                   <h4 class="text-sm font-bold text-amber-400">850nm-1550nm Laser</h4>
-                  <p class="text-xs" style="color:var(--text-secondary)">Tight beam. 95-99% efficiency. 1-100 km range. Clear sky only.</p>
-                </div>
-              </div>
-              <div class="flex items-center gap-3 p-2 rounded-lg" style="background:rgba(168,85,247,.05);">
-                <span class="text-2xl">📶</span>
-                <div>
-                  <h4 class="text-sm font-bold text-purple-400">24-100 GHz mmWave</h4>
-                  <p class="text-xs" style="color:var(--text-secondary)">Silicon phased arrays. Compact, flat-panel. 60-70% rectenna efficiency.</p>
+                  <p class="text-xs" style="color:var(--text-secondary)">Tight beam. 1-100 km range. Clear sky only.</p>
                 </div>
               </div>
             </div>
-
             <div class="mt-4 p-3 rounded-lg border border-warm-500/20 bg-warm-500/5">
               <h4 class="text-xs font-bold text-warm-400 uppercase tracking-wider">My Roadmap</h4>
               <div class="mt-2 space-y-2 text-xs">
-                <div class="flex items-center gap-2"><span class="w-5 h-5 rounded-full bg-warm-500/20 flex items-center justify-center text-[9px] font-bold text-warm-500">1</span><span>Benchtop Proof-of-Concept · 10m range · 50% efficiency</span><span class="text-[8px] text-warm-500 font-semibold ml-auto">Q1 2025</span></div>
-                <div class="flex items-center gap-2"><span class="w-5 h-5 rounded-full bg-cyber-500/20 flex items-center justify-center text-[9px] font-bold text-cyber-400">2</span><span>100m Outdoor Link · 1kW · 45% efficiency</span><span class="text-[8px] text-cyber-400 font-semibold ml-auto">Q3 2025</span></div>
-                <div class="flex items-center gap-2"><span class="w-5 h-5 rounded-full bg-purple-500/20 flex items-center justify-center text-[9px] font-bold text-purple-400">3</span><span>1km Cross-Field Beam · 5kW · 40% efficiency</span><span class="text-[8px] text-purple-400 font-semibold ml-auto">Q2 2026</span></div>
+                <div class="flex items-center gap-2"><span class="w-5 h-5 rounded-full bg-warm-500/20 flex items-center justify-center text-[9px] font-bold text-warm-500">1</span><span>Benchtop Proof-of-Concept · 10m</span><span class="text-[8px] text-warm-500 font-semibold ml-auto">Q1 2025</span></div>
+                <div class="flex items-center gap-2"><span class="w-5 h-5 rounded-full bg-cyber-500/20 flex items-center justify-center text-[9px] font-bold text-cyber-400">2</span><span>100m Outdoor Link · 1kW</span><span class="text-[8px] text-cyber-400 font-semibold ml-auto">Q3 2025</span></div>
+                <div class="flex items-center gap-2"><span class="w-5 h-5 rounded-full bg-purple-500/20 flex items-center justify-center text-[9px] font-bold text-purple-400">3</span><span>1km Cross-Field Beam · 5kW</span><span class="text-[8px] text-purple-400 font-semibold ml-auto">Q2 2026</span></div>
               </div>
             </div>
           </div>
-
-          <!-- SECTION 3: HONEST ASSESSMENT + STATS -->
           <div class="pb-card cyber-card rounded-xl p-6" style="border-color:var(--border-color);background:var(--bg-card);min-width:380px;max-width:480px;">
             <h3 class="text-xl font-bold mb-4 flex items-center gap-2" style="color:var(--text-primary)">
               <span class="iconify text-amber-400 text-2xl" data-icon="lucide:alert-triangle"></span> Let's Be Real
             </h3>
-            
             <div class="space-y-3">
               <div class="flex items-start gap-2 p-2 rounded-lg" style="background:rgba(251,191,36,.05);border-left:2px solid #fbbf24;">
                 <span class="text-amber-400 mt-0.5">•</span>
-                <div><strong class="text-white text-sm">Thermal Management:</strong><span class="text-sm" style="color:var(--text-secondary)"> 5kW of heat at 20kW scale. Need liquid cooling. Not cheap.</span></div>
+                <div><strong class="text-white text-sm">Thermal Management:</strong><span class="text-sm" style="color:var(--text-secondary)"> 5kW of heat at 20kW scale. Need liquid cooling.</span></div>
               </div>
               <div class="flex items-start gap-2 p-2 rounded-lg" style="background:rgba(251,191,36,.05);border-left:2px solid #fbbf24;">
                 <span class="text-amber-400 mt-0.5">•</span>
-                <div><strong class="text-white text-sm">Rectenna Cost:</strong><span class="text-sm" style="color:var(--text-secondary)"> 500,000 elements at ~$937,000. Need printed electronics to bring that down.</span></div>
-              </div>
-              <div class="flex items-start gap-2 p-2 rounded-lg" style="background:rgba(251,191,36,.05);border-left:2px solid #fbbf24;">
-                <span class="text-amber-400 mt-0.5">•</span>
-                <div><strong class="text-white text-sm">Public Perception:</strong><span class="text-sm" style="color:var(--text-secondary)"> "Microwave beam" sounds terrifying to most people. Need to be transparent about safety.</span></div>
+                <div><strong class="text-white text-sm">Rectenna Cost:</strong><span class="text-sm" style="color:var(--text-secondary)"> 500,000 elements at ~$937,000.</span></div>
               </div>
             </div>
-
-            <div class="mt-4 grid grid-cols-3 gap-2">
-              <div class="text-center p-2 rounded-lg" style="background:rgba(56,189,248,.05);">
-                <div class="text-2xl font-black text-cyber-400">1km</div>
-                <div class="text-[8px] uppercase tracking-wider" style="color:var(--text-secondary)">Range Target</div>
-              </div>
-              <div class="text-center p-2 rounded-lg" style="background:rgba(245,158,11,.05);">
-                <div class="text-2xl font-black text-warm-400">50%</div>
-                <div class="text-[8px] uppercase tracking-wider" style="color:var(--text-secondary)">End-to-End Eff.</div>
-              </div>
-              <div class="text-center p-2 rounded-lg" style="background:rgba(74,222,128,.05);">
-                <div class="text-2xl font-black text-green-400">10kW</div>
-                <div class="text-[8px] uppercase tracking-wider" style="color:var(--text-secondary)">Receiver Output</div>
-              </div>
-            </div>
-
             <div class="mt-4 p-3 rounded-lg border border-amber-500/20 bg-amber-500/5">
               <p class="text-[10px] text-amber-400 font-medium uppercase tracking-wider">💭 My Honest Take</p>
-              <p class="text-xs italic" style="color:var(--text-secondary)">"This is a long-term vision — maybe when I'm in my 50s. For now, it's a passion project, a learning journey, and a glimpse of what's possible. I'm not delusional, I'm just curious."</p>
+              <p class="text-xs italic" style="color:var(--text-secondary)">"This is a long-term vision — maybe when I'm in my 50s. For now, it's a passion project and a learning journey."</p>
             </div>
           </div>
-
-          <!-- SECTION 4: INTERACTIVE DEMO -->
           <div class="pb-card cyber-card rounded-xl p-6" style="border-color:var(--border-color);background:var(--bg-card);min-width:380px;max-width:480px;">
             <h3 class="text-xl font-bold mb-4 flex items-center gap-2" style="color:var(--text-primary)">
-              <span class="iconify text-warm-400 text-2xl" data-icon="lucide:play"></span> Play With It
+              <span class="iconify text-warm-400 text-2xl" data-icon="lucide:play"></span> Try It Yourself
             </h3>
-            <div class="rounded-lg bg-black/50 border border-white/10 flex flex-col items-center justify-center p-6 text-center" style="min-height:200px;">
+            <div class="rounded-lg bg-black/50 border border-white/10 flex flex-col items-center justify-center p-6 text-center" style="min-height:180px;">
               <span class="iconify text-6xl text-neutral-700 mb-4" data-icon="lucide:radio-tower"></span>
               <p class="text-sm font-medium" style="color:var(--text-primary)">Beam Propagation Demo</p>
-              <p class="text-xs mb-4" style="color:var(--text-secondary)">I built a simple simulation. Fire the microwave beam and watch it propagate.</p>
-              <div class="flex flex-wrap gap-3 justify-center">
+              <div class="flex flex-wrap gap-3 justify-center mt-4">
                 <a href="https://grimzeero78.github.io/power/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-warm-500 text-white text-[10px] font-bold tracking-[.15em] uppercase px-5 py-2.5 rounded-sm hover:bg-warm-600 transition-colors">
-                  <span class="iconify" data-icon="lucide:external-link"></span> View Live Demo
+                  <span class="iconify" data-icon="lucide:external-link"></span> View Demo
                 </a>
                 <a href="https://github.com/Grimzeero78/power.git" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 border border-cyber-500/30 text-cyber-400 text-[10px] font-bold tracking-[.15em] uppercase px-5 py-2.5 rounded-sm hover:bg-cyber-500/10 transition-colors">
-                  <span class="iconify" data-icon="lucide:github"></span> Source Code
+                  <span class="iconify" data-icon="lucide:github"></span> Source
                 </a>
               </div>
             </div>
-            <div class="mt-4 text-center">
-              <span class="text-[8px] uppercase tracking-[.2em]" style="color:var(--text-secondary)">Built with ❤️ and way too much curiosity</span>
-            </div>
           </div>
-
         </div>
       </div>
-
-      <!-- Carousel Controls -->
       <div class="flex items-center justify-center gap-4 mt-6 pf-reveal">
         <button id="pb-prev" class="w-10 h-10 border border-white/20 rounded-sm flex items-center justify-center transition-all hover:border-warm-500" style="border-color:var(--border-color);color:var(--text-secondary)">
           <iconify-icon icon="lucide:arrow-left" width="16"></iconify-icon>
@@ -1135,13 +1418,12 @@
     </div>
   </section>
 
-  <!-- TECH STACK + Acknowledgements -->
+  <!-- TECH STACK -->
   <section id="stack" class="relative py-24 md:py-32 border-t border-white/10" style="border-color:var(--border-color);background:var(--bg-primary)">
     <div class="max-w-7xl mx-auto px-6">
       <div class="text-center mb-16 pf-reveal"><p class="text-[10px] font-semibold tracking-[.3em] uppercase text-warm-400 mb-3">Arsenal</p><h2 class="text-4xl md:text-5xl font-black tracking-tighter uppercase" style="color:var(--text-primary)">Tech Stack</h2></div>
       <div id="tech-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"></div>
 
-      <!-- Acknowledgements & Tools -->
       <div class="mt-24 border-t border-white/10 pt-16 pf-reveal" style="border-color:var(--border-color)">
         <div class="text-center mb-12">
           <p class="text-[10px] font-semibold tracking-[.3em] uppercase text-clay-400 mb-3">Context</p>
@@ -1151,39 +1433,27 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
           <div class="bg-neutral-950/80 border border-white/10 rounded-lg p-6 hover:border-warm-500/30 transition-colors" style="background:var(--bg-card);border-color:var(--border-color)">
             <h4 class="text-warm-400 font-bold mb-2">🧠 My Cousin Jermain</h4>
-            <p class="leading-relaxed" style="color:var(--text-secondary)">The simplest debugger. Explaining problems to an 8-year-old forced me to break down complexity into plain language — prompt engineering started with him, not ChatGPT.</p>
+            <p class="leading-relaxed" style="color:var(--text-secondary)">The simplest debugger. Explaining problems to an 8-year-old forced me to break down complexity into plain language.</p>
           </div>
           <div class="bg-neutral-950/80 border border-white/10 rounded-lg p-6 hover:border-warm-500/30 transition-colors" style="background:var(--bg-card);border-color:var(--border-color)">
             <h4 class="text-warm-400 font-bold mb-2">📺 YouTube</h4>
-            <p class="leading-relaxed" style="color:var(--text-secondary)">My classroom. Visual, step-by-step environment setup — VS Code extensions, terminals, paths. Free, accessible, and foundational.</p>
+            <p class="leading-relaxed" style="color:var(--text-secondary)">My classroom. Visual, step-by-step environment setup — VS Code, terminals, paths. Free and foundational.</p>
           </div>
           <div class="bg-neutral-950/80 border border-white/10 rounded-lg p-6 hover:border-warm-500/30 transition-colors" style="background:var(--bg-card);border-color:var(--border-color)">
             <h4 class="text-warm-400 font-bold mb-2">🤖 ChatGPT</h4>
-            <p class="leading-relaxed" style="color:var(--text-secondary)">Prompt engineering partner. Iterative refinement, structuring messy ideas, and teaching me that output quality depends entirely on input quality.</p>
+            <p class="leading-relaxed" style="color:var(--text-secondary)">Prompt engineering partner. Iterative refinement, structuring messy ideas, and teaching me that output quality depends on input quality.</p>
           </div>
           <div class="bg-neutral-950/80 border border-white/10 rounded-lg p-6 hover:border-warm-500/30 transition-colors" style="background:var(--bg-card);border-color:var(--border-color)">
             <h4 class="text-warm-400 font-bold mb-2">🧬 Claude</h4>
-            <p class="leading-relaxed" style="color:var(--text-secondary)">Advanced debugger. Deep reasoning, long-context understanding, and honest explanations — the senior developer voice that catches what others miss.</p>
+            <p class="leading-relaxed" style="color:var(--text-secondary)">Advanced debugger. Deep reasoning, long-context understanding, and honest explanations — catches what others miss.</p>
           </div>
           <div class="bg-neutral-950/80 border border-white/10 rounded-lg p-6 hover:border-warm-500/30 transition-colors" style="background:var(--bg-card);border-color:var(--border-color)">
             <h4 class="text-warm-400 font-bold mb-2">⚡ Gemini</h4>
-            <p class="leading-relaxed" style="color:var(--text-secondary)">Feature expansion. Adding new features fast, cross-referencing APIs, and iterative debugging — the growth engine from prototype to product.</p>
+            <p class="leading-relaxed" style="color:var(--text-secondary)">Feature expansion. Adding new features fast, cross-referencing APIs, and iterative debugging.</p>
           </div>
           <div class="bg-neutral-950/80 border border-white/10 rounded-lg p-6 hover:border-warm-500/30 transition-colors" style="background:var(--bg-card);border-color:var(--border-color)">
             <h4 class="text-warm-400 font-bold mb-2">⌨️ GitHub Copilot</h4>
             <p class="leading-relaxed" style="color:var(--text-secondary)">Inline code generation. Boilerplate, configs, and repetitive code — so I could keep thinking while it typed.</p>
-          </div>
-          <div class="bg-neutral-950/80 border border-white/10 rounded-lg p-6 hover:border-warm-500/30 transition-colors" style="background:var(--bg-card);border-color:var(--border-color)">
-            <h4 class="text-warm-400 font-bold mb-2">🎨 Visily</h4>
-            <p class="leading-relaxed" style="color:var(--text-secondary)">Rapid UI prototyping. AI-powered layouts from text descriptions — low barrier, high speed, perfect for early-stage flow testing.</p>
-          </div>
-          <div class="bg-neutral-950/80 border border-white/10 rounded-lg p-6 hover:border-warm-500/30 transition-colors" style="background:var(--bg-card);border-color:var(--border-color)">
-            <h4 class="text-warm-400 font-bold mb-2">✨ Figma AI</h4>
-            <p class="leading-relaxed" style="color:var(--text-secondary)">Polished UI design. Refining layouts, consistent styles, and responsive components — bridging the gap between "it works" and "it looks professional."</p>
-          </div>
-          <div class="bg-neutral-950/80 border border-white/10 rounded-lg p-6 hover:border-warm-500/30 transition-colors md:col-span-2" style="background:var(--bg-card);border-color:var(--border-color)">
-            <h4 class="text-clay-400 font-bold mb-2">🖥️ PowerShell — My Own Hands-On Effort</h4>
-            <p class="leading-relaxed" style="color:var(--text-secondary)">No AI wrote my PowerShell scripts. I wrote them to manage files, run builds, automate tasks, and navigate my system when GUI tools fell short. This is the unsexy, unglamorous work that proves I wasn't just prompting — I was building.</p>
           </div>
           <div class="bg-neutral-950/80 border border-white/10 rounded-lg p-6 hover:border-warm-500/30 transition-colors md:col-span-2" style="background:var(--bg-card);border-color:var(--border-color)">
             <h4 class="font-bold" style="color:var(--text-primary)">💡 What I Want People to Understand</h4>
@@ -1199,7 +1469,7 @@
     <div class="max-w-3xl mx-auto px-6 text-center">
       <p class="text-[10px] font-semibold tracking-[.3em] uppercase text-warm-400 mb-4 pf-reveal">Available for Work</p>
       <h2 class="text-4xl md:text-6xl font-black tracking-tighter uppercase pf-reveal pf-delay-1" style="color:var(--text-primary)">Let's Build<br>Something <span class="text-warm-500">Real</span></h2>
-      <p class="mt-6 text-sm leading-relaxed max-w-md mx-auto pf-reveal pf-delay-2" style="color:var(--text-secondary)">I build apps that solve actual problems for real people. If you have an idea — or just need a solid developer — let's talk. I don't just code, I solve problems.</p>
+      <p class="mt-6 text-sm leading-relaxed max-w-md mx-auto pf-reveal pf-delay-2" style="color:var(--text-secondary)">I build apps that solve actual problems for real people. If you have an idea — or just need a solid developer — let's talk.</p>
       <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center pf-reveal pf-delay-3">
         <a href="https://mail.google.com/mail/?view=cm&fs=1&to=injuguna308@gmail.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 bg-warm-500 text-white text-[11px] font-bold tracking-[.15em] uppercase px-8 py-4 rounded-sm hover:bg-warm-600 transition-colors pulse-cta"><iconify-icon icon="lucide:mail" width="14"></iconify-icon>Get in Touch</a>
         <button onclick="openCV()" class="inline-flex items-center justify-center gap-2 border border-white/20 text-white text-[11px] font-bold tracking-[.15em] uppercase px-8 py-4 rounded-sm hover:bg-white/5 hover:border-white/40 transition-all" style="border-color:var(--border-color);color:var(--text-primary)"><iconify-icon icon="lucide:file-text" width="14"></iconify-icon>View CV</button>
@@ -1228,7 +1498,7 @@
     </div>
   </div>
 
-  <!-- CV OVERLAY -->
+  <!-- CV OVERLAY (Original) -->
   <div id="cv-overlay" class="cv-hex-bg">
     <div class="cv-noise"></div>
     <canvas id="cv-matrix-canvas"></canvas>
@@ -1249,7 +1519,6 @@
       <div class="cv-side-dot" data-section="cv-contact" title="Contact"></div>
     </nav>
 
-    <!-- CV HERO -->
     <section id="cv-hero" class="relative min-h-screen flex items-center justify-center px-6" style="z-index:2;">
       <div class="cv-hero-accent absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full"></div>
       <div class="cv-hero-accent-2 absolute top-1/3 left-1/4 w-[300px] h-[300px] rounded-full"></div>
@@ -1270,10 +1539,8 @@
       </div>
     </section>
 
-    <!-- CV MARQUEE -->
-    <div class="relative py-4 border-y overflow-hidden" style="border-color:rgba(255,255,255,.05);z-index:2;"><div class="cv-marquee-track"><span class="flex items-center gap-8 px-4 text-xs uppercase tracking-[.2em] text-slate-600 font-medium whitespace-nowrap"><span>◆ FLUTTER</span><span>◆ C++</span><span>◆ PYTHON</span><span>◆ TENSORFLOW</span><span>◆ MYSQL</span><span>◆ PENETRATION TESTING (PLANNING)</span><span>◆ MOBILE DEV</span><span>◆ PROBLEM SOLVING</span><span>◆ STENCIL ART</span><span>◆ FOOTBALL</span><span>◆ TEAMWORK</span><span>◆ FLUTTER</span><span>◆ C++</span><span>◆ PYTHON</span><span>◆ TENSORFLOW</span><span>◆ MYSQL</span><span>◆ PENETRATION TESTING (PLANNING)</span><span>◆ MOBILE DEV</span><span>◆ PROBLEM SOLVING</span><span>◆ STENCIL ART</span><span>◆ FOOTBALL</span><span>◆ TEAMWORK</span></span></div></div>
+    <div class="relative py-4 border-y overflow-hidden" style="border-color:rgba(255,255,255,.05);z-index:2;"><div class="cv-marquee-track"><span class="flex items-center gap-8 px-4 text-xs uppercase tracking-[.2em] text-slate-600 font-medium whitespace-nowrap"><span>◆ FLUTTER</span><span>◆ C++</span><span>◆ PYTHON</span><span>◆ TENSORFLOW</span><span>◆ MYSQL</span><span>◆ PENETRATION TESTING (PLANNING)</span><span>◆ MOBILE DEV</span><span>◆ PROBLEM SOLVING</span><span>◆ STENCIL ART</span><span>◆ FOOTBALL</span><span>◆ TEAMWORK</span></span></div></div>
 
-    <!-- CV ABOUT -->
     <section id="cv-about" class="relative py-24 px-6" style="z-index:2;">
       <div class="max-w-5xl mx-auto">
         <div class="cv-reveal flex items-center gap-3 mb-12"><div class="w-8 h-px bg-cyber-400"></div><span class="cyber-tag">// ABOUT_ME</span></div>
@@ -1308,7 +1575,6 @@
       </div>
     </section>
 
-    <!-- CV EXPERIENCE -->
     <section id="cv-experience" class="relative py-24 px-6" style="z-index:2;">
       <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full" style="background:radial-gradient(circle,rgba(56,189,248,.05) 0%,transparent 70%);filter:blur(100px);"></div>
       <div class="max-w-5xl mx-auto relative">
@@ -1339,13 +1605,11 @@
       </div>
     </section>
 
-    <!-- CV SKILLS -->
     <section id="cv-skills" class="relative py-24 px-6" style="z-index:2;">
       <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full" style="background:radial-gradient(circle,rgba(56,189,248,.06) 0%,transparent 70%);filter:blur(100px);"></div>
       <div class="max-w-5xl mx-auto relative">
         <div class="cv-reveal flex items-center gap-3 mb-4"><div class="w-8 h-px bg-cyber-400"></div><span class="cyber-tag">// SKILL_MATRIX</span></div>
         <h2 class="cv-reveal cv-delay-1 text-3xl sm:text-4xl font-bold tracking-tight mb-12"><span class="bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent">Skills & Languages</span><span class="text-cyber-400">.</span></h2>
-
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
           <div class="cv-reveal cv-delay-1 cyber-card rounded-xl p-6"><div class="flex items-center justify-between mb-4"><div class="flex items-center gap-3"><span class="iconify text-sky-400 text-2xl" data-icon="logos:flutter"></span><span class="font-semibold text-white">Flutter</span></div><span class="text-xs text-slate-500 font-mono">BEGINNER</span></div><div class="w-full h-1.5 rounded-full bg-white/5 overflow-hidden"><div class="cv-skill-fill h-full rounded-full cv-skill-fill-blue" data-width="30"></div></div><p class="text-slate-500 text-xs mt-3">Mobile app development with Dart &amp; Flutter</p></div>
           <div class="cv-reveal cv-delay-2 cyber-card rounded-xl p-6"><div class="flex items-center justify-between mb-4"><div class="flex items-center gap-3"><span class="iconify text-blue-400 text-2xl" data-icon="logos:c-plusplus"></span><span class="font-semibold text-white">C++</span></div><span class="text-xs text-emerald-400 font-mono">STRONG</span></div><div class="w-full h-1.5 rounded-full bg-white/5 overflow-hidden"><div class="cv-skill-fill h-full rounded-full" data-width="75" style="background:linear-gradient(90deg,#10b981,#34d399);"></div></div><p class="text-slate-500 text-xs mt-3">Primary language — algorithms, data structures, OOP</p></div>
@@ -1356,7 +1620,6 @@
           <div class="cv-reveal cv-delay-1 cyber-card rounded-xl p-6"><div class="flex items-center justify-between mb-4"><div class="flex items-center gap-3"><span class="iconify text-amber-400 text-2xl" data-icon="lucide:brain"></span><span class="font-semibold text-white">Problem Solving</span></div><span class="text-xs text-emerald-400 font-mono">STRONG</span></div><div class="w-full h-1.5 rounded-full bg-white/5 overflow-hidden"><div class="cv-skill-fill h-full rounded-full" data-width="80" style="background:linear-gradient(90deg,#f59e0b,#eab308);"></div></div><p class="text-slate-500 text-xs mt-3">Analytical thinking, debugging, breaking down complex problems</p></div>
           <div class="cv-reveal cv-delay-2 cyber-card rounded-xl p-6" style="border-color:rgba(56,189,248,.2);"><div class="flex items-center justify-between mb-4"><div class="flex items-center gap-3"><span class="iconify text-cyber-400 text-2xl" data-icon="lucide:users"></span><span class="font-semibold text-white">Soft Skills</span></div><span class="text-xs text-cyber-400 font-mono">⚡ MAX</span></div><div class="flex flex-wrap gap-2 mt-2"><span class="px-2 py-1 text-xs rounded-md text-cyber-300" style="background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.2);">Teamwork</span><span class="px-2 py-1 text-xs rounded-md text-cyber-300" style="background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.2);">Discipline</span><span class="px-2 py-1 text-xs rounded-md text-cyber-300" style="background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.2);">Creativity</span><span class="px-2 py-1 text-xs rounded-md text-cyber-300" style="background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.2);">Communication</span></div></div>
         </div>
-
         <div class="cv-reveal cv-delay-3 cyber-card rounded-xl p-6">
           <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2"><span class="iconify text-cyber-400 text-xl" data-icon="lucide:languages"></span> Languages</h3>
           <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
@@ -1369,7 +1632,6 @@
       </div>
     </section>
 
-    <!-- CV PROJECTS -->
     <section id="cv-projects" class="relative py-24 px-6" style="z-index:2;">
       <div class="absolute top-0 right-0 w-[400px] h-[400px] rounded-full" style="background:radial-gradient(circle,rgba(56,189,248,.06) 0%,transparent 70%);filter:blur(100px);"></div>
       <div class="max-w-5xl mx-auto relative">
@@ -1409,7 +1671,6 @@
       </div>
     </section>
 
-    <!-- CV EDUCATION -->
     <section id="cv-education" class="relative py-24 px-6" style="z-index:2;">
       <div class="max-w-5xl mx-auto">
         <div class="cv-reveal flex items-center gap-3 mb-4"><div class="w-8 h-px bg-cyber-400"></div><span class="cyber-tag">// EDUCATION</span></div>
@@ -1423,7 +1684,6 @@
       </div>
     </section>
 
-    <!-- CV CERTIFICATIONS -->
     <section id="cv-certifications" class="relative py-24 px-6" style="z-index:2;">
       <div class="max-w-5xl mx-auto">
         <div class="cv-reveal flex items-center gap-3 mb-4"><div class="w-8 h-px bg-cyber-400"></div><span class="cyber-tag">// CERTIFICATIONS</span></div>
@@ -1448,7 +1708,6 @@
       </div>
     </section>
 
-    <!-- CV CONTACT -->
     <section id="cv-contact" class="relative py-24 px-6" style="z-index:2;">
       <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] rounded-full" style="background:radial-gradient(circle,rgba(56,189,248,.1) 0%,transparent 70%);filter:blur(100px);"></div>
       <div class="max-w-3xl mx-auto relative text-center">
@@ -1486,8 +1745,47 @@
     </footer>
   </div>
 
+  <!-- BLOG TERMINAL OVERLAY -->
+  <div id="blog-terminal-overlay">
+    <div class="crt-overlay" aria-hidden="true">
+      <div class="scanlines"></div>
+      <div class="vignette"></div>
+      <div class="flicker"></div>
+    </div>
+    <button id="blog-close-btn" onclick="closeBlog()">
+      <iconify-icon icon="lucide:arrow-left" width="16"></iconify-icon>
+      Go Back
+    </button>
+
+    <div class="status-bar" role="banner">
+      <div class="status-group">
+        <span class="status-item"><span class="dot" aria-hidden="true"></span>isaac@blog</span>
+        <span class="status-item">pwd: <b id="blogStatusPath">~</b></span>
+      </div>
+      <div class="status-group">
+        <span class="status-item">theme: <b id="blogStatusTheme">amber</b></span>
+        <span class="status-item">crt: <b id="blogStatusCrt">on</b></span>
+        <span class="status-item" id="blogStatusTime">--:--:--</span>
+      </div>
+    </div>
+
+    <div class="terminal" role="main">
+      <div class="output" id="blogOutput" aria-live="polite" aria-label="terminal output" tabindex="-1"></div>
+
+      <div class="prompt-line" id="blogPromptLine">
+        <span class="prompt" id="blogPromptText" aria-hidden="true">isaac@blog<span class="path">:~</span>$</span>
+        <div class="input-area">
+          <div class="input-display" aria-hidden="true">
+            <span id="blogTypedText"></span><span class="block-cursor" id="blogBlockCursor"></span><span class="ghost-text" id="blogGhostText"></span>
+          </div>
+          <input type="text" id="blogCmdInput" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="terminal command input" autofocus />
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script>
-    const GMAIL_COMPOSE = 'https://mail.google.com/mail/?view=cm&fs=1&to=injuguna308@gmail.com';
+    // =================== MAIN PORTFOLIO DATA ===================
     const projects = [{
         id: 1,
         title: "Stockipa",
@@ -1517,12 +1815,12 @@
         id: 3,
         title: "DeepRest",
         category: "mobile",
-        desc: "Mental-health support app that helps users reduce screen time, build healthier habits, and stay accountable through challenges and AI companions.",
-        tech: ["Flutter", "Dart", "Firebase", "Grok API", "Screen Time APIs"],
+        desc: "Mental-health support app that helps users reduce screen time, build healthier habits, and stay accountable.",
+        tech: ["Flutter", "Dart", "Firebase", "Grok API"],
         img: "https://picsum.photos/seed/deeprest/600/400.jpg",
         role: "Mobile Developer",
         year: "2026",
-        details: "Users create accounts, set daily phone-use targets, receive notifications when limits are exceeded, earn rank based on consistency, join challenge groups, connect with accountability partners, and chat with Christian, psychology, and general AI companions powered by Grok APIs.",
+        details: "Users create accounts, set daily phone-use targets, receive notifications, earn rank, join challenge groups, and chat with AI companions.",
         sourceCodeUrl: "https://github.com/Grimzeero78/mindguard.git"
       },
       {
@@ -1534,7 +1832,7 @@
         img: "https://picsum.photos/seed/mirrorcam-card/600/400.jpg",
         role: "Mobile Developer",
         year: "2023",
-        details: "Gives users a real-time, mirror-like view with live adjustments for lighting, skin tone, clarity, shadows, and low-light effects, bridging the gap between how we see ourselves in a mirror versus in a photo.",
+        details: "Gives users a real-time, mirror-like view with live adjustments for lighting, skin tone, clarity, shadows, and low-light effects.",
         sourceCodeUrl: "https://github.com/Grimzeero78/mirrorcam.git"
       },
       {
@@ -1546,7 +1844,7 @@
         img: "https://picsum.photos/seed/stencil-art-web/600/400.jpg",
         role: "Web Developer & Artist",
         year: "2024",
-        details: "My website helps me present my stencil art as a business by showing my work, attracting clients, and making it easy for people to connect with me for commissions or purchases.",
+        details: "My website helps me present my stencil art as a business by showing my work, attracting clients, and making it easy for people to connect with me.",
         sourceCodeUrl: "https://artweb.injuguna308.workers.dev"
       },
       {
@@ -1558,7 +1856,7 @@
         img: "https://picsum.photos/seed/currency-ai/600/400.jpg",
         role: "AI Developer",
         year: "2024",
-        details: "To enhance Stockipa, I trained a currency detection model. This involved the hectic process of collecting a real-world dataset of all Kenyan money (from 5 bob to 1000 KES) to enable users to scan cash for sales or expenses.",
+        details: "To enhance Stockipa, I trained a currency detection model. This involved collecting a real-world dataset of all Kenyan money (from 5 bob to 1000 KES).",
         sourceCodeUrl: "https://github.com/Grimzeero78/Currencytraining.git"
       },
       {
@@ -1570,7 +1868,7 @@
         img: "https://picsum.photos/seed/merit-ai/600/400.jpg",
         role: "AI Architect",
         year: "2026",
-        details: "An upcoming Windows app/website where officials upload interview materials. The AI analyzes video for confidence and reads documents for key skills, providing a data-driven ranking to mitigate human bias in hiring.",
+        details: "An upcoming Windows app/website where officials upload interview materials. The AI analyzes video for confidence and reads documents for key skills.",
         sourceCodeUrl: "https://github.com/Grimzeero78/Currencytraining.git"
       }
     ];
@@ -1586,7 +1884,7 @@
       {
         project: projects[2],
         challenge: "With over 1 billion people affected by mental health issues, many struggle with digital addiction. The challenge was to create a tool that fosters accountability and provides genuine support.",
-        solution: "Developed DeepRest, a mobile app that tracks screen time, allows users to set goals, and join accountability groups. It features AI companions (Christian, psychology, general) via Grok API for personalized support.",
+        solution: "Developed DeepRest, a mobile app that tracks screen time, allows users to set goals, and join accountability groups. It features AI companions via Grok API.",
         metric: "3 AI",
         metricLabel: "Support Companions",
         img: "https://picsum.photos/seed/case-deeprest/800/500.jpg"
@@ -1594,15 +1892,15 @@
       {
         project: projects[3],
         challenge: "People often feel they look better in a mirror than in a photo because cameras capture a static, un-reversed image with different lighting and processing.",
-        solution: "Mirrorcam bridges this gap by providing a real-time, mirror-like view with live adjustments for lighting, skin tone, clarity, and shadows, giving users control over their appearance before capturing the photo.",
+        solution: "Mirrorcam bridges this gap by providing a real-time, mirror-like view with live adjustments for lighting, skin tone, clarity, and shadows.",
         metric: "5+ Effects",
         metricLabel: "Live Adjustments",
         img: "https://picsum.photos/seed/case-mirrorcam/800/500.jpg"
       },
       {
         project: projects[6],
-        challenge: "The hiring process is often plagued by unconscious human bias, leading to unfair evaluations and potentially overlooking the best candidates. This subjectivity makes it difficult to ensure a truly merit-based selection.",
-        solution: "Merit AI is a system designed to remove this bias. Officials upload interview videos and documents, and the AI analyzes them for objective metrics like confidence, clarity, and key qualifications, providing a data-driven ranking to support fair decision-making.",
+        challenge: "The hiring process is often plagued by unconscious human bias, leading to unfair evaluations and potentially overlooking the best candidates.",
+        solution: "Merit AI analyzes interview videos and documents, providing objective metrics and a data-driven ranking to support fair decision-making.",
         metric: "Zero",
         metricLabel: "Human Bias",
         img: "https://picsum.photos/seed/case-merit-ai/800/500.jpg"
@@ -1616,7 +1914,708 @@
       { name: "Tools", icon: "lucide:wrench", items: ["Git", "VS Code", "Android Studio", "PDF Gen", "Share Plugin", "Figma"] }
     ];
 
-    // Theme toggle
+    // =================== BLOG TERMINAL CONTENT ===================
+    const BLOG_ABOUT = `# My Story
+
+*I'm Isaac Bridget. Born and raised in Kenya. Student. Developer. Artist. Problem solver.*
+
+## Where I Come From
+
+I grew up watching my mom, CJ, hustle every day as a mtumba seller. She'd wake up at 4am, go to the market, buy clothes, sell them, come back tired but happy. She was making money — sometimes 300K in a good month — but she never knew where it all went. That bugged me.
+
+So I built Stockipa. Not because I wanted to be a developer. Because my mom needed to understand her money.
+
+## The Journey
+
+I'm studying Applied Computer Science at Chuka University (2023-2027). But honestly? Most of what I know I learned from YouTube, ChatGPT, Claude, and just... building things. Breaking things. Fixing them. Breaking them again.
+
+I started with C++. Then Python. Then Flutter. Now I'm training AI models, building mobile apps, and planning to learn penetration testing because I want to understand how systems break.
+
+## What I Believe
+
+- **Real problems first.** I don't build apps for fun. I build them because someone needs them.
+- **Offline matters.** Not everyone has 5G. Not everyone can afford data. My apps work without the internet.
+- **Simple > complex.** If my mom can't use it, it's useless.
+- **AI is a tool, not a replacement.** I use ChatGPT, Claude, Gemini — but I make the final call on every line.
+
+## Outside Code
+
+When I'm not building things, I'm:
+
+- 🎨 Making stencil art. Spray paint + cardboard = expression.
+- ⚽ Playing football. The pitch taught me teamwork and grit.
+- 📖 Reading about things I don't understand yet.
+- 🔨 Breaking things to figure out how they work.
+
+## The Bottom Line
+
+I'm not the smartest person in the room. But I'm the one who stays until the problem is solved. I ask questions. I make mistakes. I learn. I build.
+
+> If you have a problem that needs solving, or an idea that needs building — let's talk.
+
+Type \`contact\` to reach me, or \`projects\` to see what I've built.`;
+
+    const BLOG_POSTS = `# My Posts
+
+*Things I've written — mostly for myself, but you can read them too.*
+
+## Why I Started Building Apps
+*2024.03.15*
+
+I didn't wake up one day and decide to be a developer. I woke up one day and realized my mom didn't know where her money was going. That's it. That's the whole origin story.
+
+Stockipa wasn't a "project." It was a solution to a problem I saw every day. My mom would sell clothes, make 300K in a month, and by the end of the month, she'd have nothing left. No records. No idea where it went.
+
+So I built an app. It read M-Pesa messages. It let her scan cash. It showed her charts. And suddenly, she knew.
+
+That's when I realized what I wanted to do for the rest of my life.
+
+## The AI That Couldn't Find a Jeep
+*2024.07.22*
+
+I trained an AI to detect objects in images. The first thing I tested it on was a picture of a jeep. It detected it at 8% confidence.
+
+Eight percent.
+
+That's basically random guessing. I felt like a failure. But then I read about how AI models work. How they need thousands of images to learn. How 8% was actually impressive for a first try.
+
+So I fed it more data. I tweaked the model. I tried again.
+
+Now it's at 60% confidence. Still not great. But better. And that's the thing about AI — you don't get it right the first time. You just keep trying until it works.
+
+## Why I Use ChatGPT (and Why I'm Not Ashamed)
+*2024.09.10*
+
+People ask me if I'm a "real" developer since I use AI tools. I tell them: I didn't take a shortcut. I took a smart route.
+
+Every AI tool requires me to know what to ask, recognize when the answer is wrong, test and adapt, and make the final decision on every line. AI didn't replace my thinking — it amplified it.
+
+And honestly? Sometimes it was just faster to write the damn code myself.
+
+## Stencil Art and Code
+*2024.11.05*
+
+People think coding and art are different. They're not.
+
+When I'm making stencil art, I'm looking at contrasts, patterns, negative space. When I'm coding, I'm looking at the same things. Bugs are like paint drips — you work around them or you fix them. Both take patience.
+
+Art teaches me to see patterns others miss. Code teaches me to build things that matter. I need both.
+
+## What I Learned From Breaking Things
+*2025.01.20*
+
+I learn by breaking things. Not on purpose (mostly). But every time something breaks, I understand it better.
+
+My PowerShell scripts? I wrote them myself. No AI. Just me, a terminal, and a lot of frustration. That's how I learned.
+
+AI tools are great. But you need to understand what's happening under the hood. You need to know enough to know when the AI is wrong.
+
+> Type \`cat about\` to read more about me.`;
+
+    const BLOG_README = `# README.md
+
+Welcome to my personal blog — in terminal form.
+
+This is where I write about things that matter to me. My journey. My mistakes. My lessons. My mom.
+
+Everything here is real. Everything here is honest. Everything here is me.
+
+Type \`help\` to see what you can do.
+Type \`ls\` to look around.
+Type \`cat about\` to learn about me.
+Type \`cat posts\` to read what I've written.
+
+> This isn't a portfolio. This is a conversation.`;
+
+    // =================== BLOG TERMINAL STATE ===================
+    const blogState = {
+      cwd: '~',
+      history: [],
+      historyIndex: -1,
+      theme: 'amber',
+      bootTime: Date.now(),
+    };
+    let blogComposeState = null;
+
+    // =================== BLOG DOM ===================
+    const b$ = (id) => document.getElementById(id);
+    const blogOutput = b$('blogOutput');
+    const blogCmdInput = b$('blogCmdInput');
+    const blogTypedText = b$('blogTypedText');
+    const blogGhostText = b$('blogGhostText');
+    const blogPromptText = b$('blogPromptText');
+    const blogStatusPath = b$('blogStatusPath');
+    const blogStatusTime = b$('blogStatusTime');
+
+    // =================== BLOG UTIL ===================
+    function bEscapeHtml(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+
+    function bSleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+    function bScrollBottom() { blogOutput.scrollTop = blogOutput.scrollHeight; }
+
+    function bPrint(html, cls = '') {
+      const div = document.createElement('div');
+      div.className = 'line' + (cls ? ' ' + cls : '');
+      div.innerHTML = html;
+      blogOutput.appendChild(div);
+      bScrollBottom();
+      return div;
+    }
+
+    function bPrintRaw(html) { return bPrint(html); }
+
+    function bPrintBlank() { bPrint('&nbsp;'); }
+
+    // =================== BLOG MARKDOWN ===================
+    function bInlineMd(text) {
+      return text
+        .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+        .replace(/\*([^*\n]+)\*/g, '<em>$1</em>')
+        .replace(/`([^`]+)`/g, '<code>$1</code>')
+        .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>');
+    }
+
+    function bRenderMarkdown(md) {
+      const lines = bEscapeHtml(md).split('\n');
+      const out = [];
+      let inUl = false,
+        inOl = false,
+        inCode = false;
+      let paraBuf = [];
+      const flushPara = () => { if (paraBuf.length) { out.push('<p>' + paraBuf.join(' ') + '</p>');
+          paraBuf = []; } };
+      const closeLists = () => { if (inUl) { out.push('</ul>');
+          inUl = false; } if (inOl) { out.push('</ol>');
+          inOl = false; } };
+
+      for (const line of lines) {
+        if (line.match(/^```/)) {
+          if (inCode) { out.push('</code></pre>');
+            inCode = false; } else { flushPara();
+            closeLists();
+            out.push('<pre><code>');
+            inCode = true; }
+          continue;
+        }
+        if (inCode) { out.push(line); continue; }
+        if (line.trim() === '') { flushPara();
+          closeLists(); continue; }
+        let m;
+        if (m = line.match(/^### (.+)$/)) { flushPara();
+          closeLists();
+          out.push('<h3>' + bInlineMd(m[1]) + '</h3>'); } else if (m = line.match(/^## (.+)$/)) { flushPara();
+          closeLists();
+          out.push('<h2>' + bInlineMd(m[1]) + '</h2>'); } else if (m = line.match(/^# (.+)$/)) { flushPara();
+          closeLists();
+          out.push('<h1>' + bInlineMd(m[1]) + '</h1>'); } else if (m = line.match(/^&gt; (.+)$/)) { flushPara();
+          closeLists();
+          out.push('<blockquote>' + bInlineMd(m[1]) + '</blockquote>'); } else if (m = line.match(/^(\d+)\. (.+)$/)) {
+          flushPara();
+          if (inUl) { out.push('</ul>');
+            inUl = false; }
+          if (!inOl) { out.push('<ol>');
+            inOl = true; }
+          out.push('<li>' + bInlineMd(m[2]) + '</li>');
+        } else if (m = line.match(/^[-*] (.+)$/)) {
+          flushPara();
+          if (inOl) { out.push('</ol>');
+            inOl = false; }
+          if (!inUl) { out.push('<ul>');
+            inUl = true; }
+          out.push('<li>' + bInlineMd(m[1]) + '</li>');
+        } else if (line.match(/^---+$/)) {
+          flushPara();
+          closeLists();
+          out.push('<div class="divider">' + '─'.repeat(72) + '</div>');
+        } else {
+          paraBuf.push(bInlineMd(line));
+        }
+      }
+      flushPara();
+      closeLists();
+      if (inCode) out.push('</code></pre>');
+      return out.join('');
+    }
+
+    // =================== BLOG FS ===================
+    function bResolvePath(input) {
+      if (!input || input === '~') return '~';
+      if (input === '.') return blogState.cwd;
+      if (input === '..') {
+        if (blogState.cwd === '~') return '~';
+        const parts = blogState.cwd.split('/');
+        parts.pop();
+        return parts.length === 1 ? '~' : parts.join('/');
+      }
+      if (input.startsWith('~/')) return input;
+      if (blogState.cwd === '~') return '~/' + input;
+      return blogState.cwd + '/' + input;
+    }
+
+    function bIsDir(path) {
+      if (path === '~' || path === '~/about' || path === '~/posts') return true;
+      return false;
+    }
+
+    function bListDir(path) {
+      if (path === '~') return [
+        { name: 'about', type: 'dir' },
+        { name: 'posts', type: 'dir' },
+        { name: 'README.md', type: 'file', cls: 'md' },
+      ];
+      if (path === '~/about') return [
+        { name: 'about.md', type: 'file', cls: 'md' },
+      ];
+      if (path === '~/posts') return [
+        { name: 'posts.md', type: 'file', cls: 'md' },
+      ];
+      return null;
+    }
+
+    function bResolveFile(input) {
+      const path = bResolvePath(input);
+      const parts = path.split('/');
+      const last = parts[parts.length - 1];
+
+      if (path === '~/README.md' || input === 'README.md') return { content: BLOG_README, name: 'README.md' };
+      if (path === '~/about/about.md' || path === '~/about' || input === 'about.md' || input === 'about') return { content: BLOG_ABOUT,
+        name: 'about.md' };
+      if (path === '~/posts/posts.md' || path === '~/posts' || input === 'posts.md' || input === 'posts') return { content: BLOG_POSTS,
+        name: 'posts.md' };
+      return null;
+    }
+
+    // =================== BLOG COMMANDS ===================
+    const BLOG_COMMANDS = {};
+
+    BLOG_COMMANDS.help = () => {
+      bPrint(`<span class="amber">Available Commands:</span>
+  <span class="cyan">help</span>       show this message
+  <span class="cyan">ls</span>         list files and directories
+  <span class="cyan">cat</span> <span class="dim">&lt;file&gt;</span>    read a file
+  <span class="cyan">cd</span> <span class="dim">&lt;dir&gt;</span>     change directory
+  <span class="cyan">pwd</span>        show current directory
+  <span class="cyan">whoami</span>     about me
+  <span class="cyan">projects</span>   view my projects
+  <span class="cyan">contact</span>    get in touch
+  <span class="cyan">clear</span>      clear screen
+  <span class="cyan">neofetch</span>   system info
+  <span class="cyan">date</span>       current date and time
+
+<span class="dim">Try 'cat about' to learn about me, or 'cat posts' to read what I've written.</span>`);
+    };
+
+    BLOG_COMMANDS.ls = (args) => {
+      let target = blogState.cwd;
+      if (args[0]) target = bResolvePath(args[0]);
+      const items = bListDir(target);
+      if (!items) { bPrint('ls: cannot access \'' + (args[0] || '') + '\': No such file or directory', 'error'); return; }
+      if (items.length === 0) { bPrintBlank(); return; }
+      const html = items.map(item => {
+        const cls = 'file ' + (item.cls || (item.type === 'dir' ? 'dir' : ''));
+        return '<span class="' + cls + '">' + bEscapeHtml(item.name) + '</span>';
+      }).join('');
+      bPrintRaw('<div class="listing">' + html + '</div>');
+    };
+
+    BLOG_COMMANDS.cat = (args) => {
+      if (!args[0]) { bPrint('cat: missing file operand', 'error'); return; }
+      const file = bResolveFile(args[0]);
+      if (!file) { bPrint('cat: ' + args[0] + ': No such file or directory', 'error'); return; }
+      bPrintRaw('<div class="post">' + bRenderMarkdown(file.content) + '</div>');
+    };
+
+    BLOG_COMMANDS.cd = (args) => {
+      const target = args[0] || '~';
+      const resolved = bResolvePath(target);
+      if (!bIsDir(resolved)) { bPrint('cd: ' + target + ': Not a directory', 'error'); return; }
+      blogState.cwd = resolved;
+      bUpdatePrompt();
+    };
+
+    BLOG_COMMANDS.pwd = () => bPrint(blogState.cwd.replace('~', '/home/isaac'));
+
+    BLOG_COMMANDS.whoami = () => {
+      bPrintRaw('<div class="post">' + bRenderMarkdown(BLOG_ABOUT) + '</div>');
+    };
+
+    BLOG_COMMANDS.projects = () => {
+      bPrint('<span class="cyan">My Projects:</span>');
+      projects.forEach(p => {
+        bPrint('  <span class="amber">' + p.title + '</span> <span class="dim">— ' + p.desc + '</span>');
+      });
+      bPrint('<span class="dim">Type \'cat projects\' for details, or visit my GitHub.</span>');
+    };
+
+    BLOG_COMMANDS.contact = () => {
+      bPrint('<span class="amber">Get in touch:</span>');
+      bPrint('  <span class="cyan">Email:</span> injuguna308@gmail.com');
+      bPrint('  <span class="cyan">GitHub:</span> github.com/Grimzeero78');
+      bPrint('  <span class="cyan">WhatsApp:</span> 014337433');
+    };
+
+    BLOG_COMMANDS.clear = () => { blogOutput.innerHTML = ''; };
+    BLOG_COMMANDS.cls = BLOG_COMMANDS.clear;
+
+    BLOG_COMMANDS.date = () => bPrint(new Date().toString());
+
+    BLOG_COMMANDS.neofetch = () => {
+      const uptime = bFormatUptime(Date.now() - blogState.bootTime);
+      const logo = `   ___
+  /   \\
+ |  ◆  |      <span class="green">isaac</span>@<span class="green">blog</span>
+ |     |      <span class="dim">─────────────</span>
+ |  ▮  |      <span class="amber">OS</span>:      blog.sh 1.0
+  \\___/       <span class="amber">shell</span>:   /bin/rsh
+   |||        <span class="amber">uptime</span>:  ` + uptime + `
+              <span class="amber">student</span>: Chuka University
+              <span class="amber">focus</span>:  Mobile Dev & AI
+              <span class="amber">hustle</span>: ∞
+              <span class="amber">mom</span>:    proud (I hope)`;
+      bPrintRaw('<pre class="neofetch">' + logo + '</pre>');
+    };
+
+    BLOG_COMMANDS.mail = (args) => {
+      if (!args[0]) { bPrint('usage: mail <address>', 'error'); return; }
+      bStartMailCompose(args[0]);
+    };
+
+    // Easter eggs
+    BLOG_COMMANDS.sudo = () => bPrint('<span class="error">you are already root of your own life.</span>');
+    BLOG_COMMANDS.exit = () => bPrint('<span class="dim">there is no escape. this is your blog now.</span>');
+    BLOG_COMMANDS.vim = () => bPrint('<span class="dim">you are in a terminal. vim would be redundant.</span>');
+    BLOG_COMMANDS.about = BLOG_COMMANDS.whoami;
+    BLOG_COMMANDS.posts = () => {
+      bPrintRaw('<div class="post">' + bRenderMarkdown(BLOG_POSTS) + '</div>');
+    };
+
+    // =================== BLOG MAIL ===================
+    function bStartMailCompose(to) {
+      blogComposeState = { to, subject: '', lines: [], mode: 'subject' };
+      bPrintRaw('<div class="mail-form"><span class="dim">┌── compose ──────────────────────────────</span>\n<span class="dim">│</span> <span class="dim">to:</span> <span class="cyan">' + bEscapeHtml(to) + '</span>\n<span class="dim">│</span> <span class="dim">subject:</span> <span class="dim">(type below, then Enter)</span>\n<span class="dim">└─────────────────────────────────────────</span></div>');
+      bUpdatePrompt();
+    }
+
+    function bHandleComposeLine(val) {
+      if (!blogComposeState) return;
+      if (blogComposeState.mode === 'subject') {
+        blogComposeState.subject = val;
+        bPrint('<span class="dim">subject:</span> <span class="amber">' + bEscapeHtml(val) + '</span>');
+        bPrint('<span class="dim">type your message. end with a single "." on its own line.</span>', 'dim');
+        blogComposeState.mode = 'body';
+      } else {
+        if (val === '.') bFinishMailCompose();
+        else { blogComposeState.lines.push(val);
+          bPrint('<span class="dim">›</span> ' + bEscapeHtml(val)); }
+      }
+    }
+
+    function bFinishMailCompose() {
+      if (!blogComposeState) return;
+      const cs = blogComposeState;
+      bPrintBlank();
+      const body = cs.lines.join('\n');
+      bPrintRaw('<div class="mail-summary"><span class="dim">─── message ready ───</span>\n\n  <span class="dim">To:</span> <span class="cyan">' + bEscapeHtml(cs.to) + '</span>\n  <span class="dim">Subject:</span> <span class="amber">' + bEscapeHtml(cs.subject || '(no subject)') + '</span>\n\n' + (body ? cs.lines.map(l =>
+        '  ' + bEscapeHtml(l)).join('\n') : '  <span class="dim">(empty body)</span>') + '\n\n<span class="success">[message sent! or it would be, if this were a real mail server.]</span>\n<span class="dim">[opening your mail client as backup...]</span></div>');
+      blogComposeState = null;
+      bUpdatePrompt();
+      const mailto = 'mailto:' + cs.to + '?subject=' + encodeURIComponent(cs.subject) + '&body=' + encodeURIComponent(body);
+      setTimeout(() => { try { window.open(mailto, '_blank'); } catch (e) {} }, 800);
+    }
+
+    // =================== BLOG PROMPT ===================
+    function bUpdatePrompt() {
+      if (blogComposeState) {
+        blogPromptText.innerHTML = '<span class="compose">mail</span>(<span style="color:var(--cyan)">' + blogComposeState.mode +
+          '</span>)<span class="path">▸</span>';
+        blogStatusPath.textContent = '~ (composing)';
+      } else {
+        const p = blogState.cwd === '~' ? ':~' : ':' + blogState.cwd;
+        blogPromptText.innerHTML = '<span style="color:#4ade80">isaac@blog</span><span class="path">' + p + '</span>$';
+        blogStatusPath.textContent = blogState.cwd;
+      }
+    }
+
+    // =================== BLOG INPUT ===================
+    function bUpdateGhost() {
+      const val = blogCmdInput.value;
+      const words = val.split(' ');
+      const word = words[words.length - 1];
+      const isFirst = words.length === 1;
+      const cmd = words[0];
+
+      if (!word) { blogGhostText.textContent = ''; return; }
+
+      let candidates = [];
+      if (isFirst) candidates = Object.keys(BLOG_COMMANDS);
+      else if (cmd === 'cat' || cmd === 'ls') {
+        const items = bListDir(blogState.cwd);
+        if (items) candidates = items.map(i => i.name);
+        if (blogState.cwd === '~') candidates.push('README.md', 'about', 'posts');
+      } else if (cmd === 'cd') {
+        const items = bListDir(blogState.cwd);
+        if (items) candidates = items.filter(i => i.type === 'dir').map(i => i.name);
+        candidates.push('..', '~', 'about', 'posts');
+      } else if (cmd === 'mail') candidates = ['injuguna308@gmail.com'];
+
+      const matches = candidates.filter(c => c.toLowerCase().startsWith(word.toLowerCase()));
+      if (matches.length === 0) blogGhostText.textContent = '';
+      else if (matches.length === 1) blogGhostText.textContent = matches[0].slice(word.length);
+      else {
+        let prefix = matches[0];
+        for (const m of matches)
+          while (!m.toLowerCase().startsWith(prefix.toLowerCase())) prefix = prefix.slice(0, -1);
+        blogGhostText.textContent = prefix.length > word.length ? prefix.slice(word.length) : '';
+      }
+    }
+
+    function bAcceptCompletion() {
+      if (blogGhostText.textContent) {
+        blogCmdInput.value += blogGhostText.textContent;
+        blogTypedText.textContent = blogCmdInput.value;
+        blogGhostText.textContent = '';
+        bUpdateGhost();
+        return;
+      }
+      const val = blogCmdInput.value;
+      const words = val.split(' ');
+      const word = words[words.length - 1];
+      const isFirst = words.length === 1;
+      const cmd = words[0];
+      if (word) {
+        let candidates = [];
+        if (isFirst) candidates = Object.keys(BLOG_COMMANDS);
+        else if (cmd === 'cat' || cmd === 'ls') {
+          const items = bListDir(blogState.cwd);
+          if (items) candidates = items.map(i => i.name);
+        } else if (cmd === 'cd') {
+          const items = bListDir(blogState.cwd);
+          if (items) candidates = items.filter(i => i.type === 'dir').map(i => i.name);
+          candidates.push('..', '~');
+        }
+        const matches = candidates.filter(c => c.toLowerCase().startsWith(word.toLowerCase()));
+        if (matches.length > 1) {
+          bPrint('<span class="dim">' + matches.map(bEscapeHtml).join('    ') + '</span>');
+        }
+      }
+    }
+
+    function bNavigateHistory(dir) {
+      if (blogState.history.length === 0) return;
+      if (dir === -1) {
+        if (blogState.historyIndex === -1) blogState.historyIndex = blogState.history.length - 1;
+        else if (blogState.historyIndex > 0) blogState.historyIndex--;
+        else return;
+      } else {
+        if (blogState.historyIndex === -1) return;
+        if (blogState.historyIndex < blogState.history.length - 1) blogState.historyIndex++;
+        else { blogState.historyIndex = -1;
+          blogCmdInput.value = '';
+          blogTypedText.textContent = '';
+          blogGhostText.textContent = '';
+          return; }
+      }
+      blogCmdInput.value = blogState.history[blogState.historyIndex];
+      blogTypedText.textContent = blogCmdInput.value;
+      blogGhostText.textContent = '';
+      bUpdateGhost();
+    }
+
+    function bSubmitCommand(raw) {
+      const val = raw.trim();
+      const pathStr = blogState.cwd === '~' ? ':~' : ':' + blogState.cwd;
+      bPrint('<span style="color:#4ade80">isaac@blog</span><span class="path">' + pathStr + '</span>$ ' + bEscapeHtml(val),
+      'cmd-echo');
+      if (!val) return;
+      if (blogState.history[blogState.history.length - 1] !== val) blogState.history.push(val);
+      if (blogState.history.length > 100) blogState.history.shift();
+      blogState.historyIndex = -1;
+      try { localStorage.setItem('blogTerminalHistory', JSON.stringify(blogState.history)); } catch (e) {}
+
+      const parts = val.split(/\s+/);
+      const cmd = parts[0];
+      const args = parts.slice(1);
+      if (BLOG_COMMANDS[cmd]) {
+        try { BLOG_COMMANDS[cmd](args); } catch (e) { bPrint('<span class="error">internal error: ' + bEscapeHtml(e
+            .message) + '</span>');
+          console.error(e); }
+      } else {
+        bPrint('<span class="error">' + cmd + ': command not found</span>');
+        const known = Object.keys(BLOG_COMMANDS);
+        const close = known.filter(c => c.startsWith(cmd.slice(0, Math.max(1, cmd.length - 2)))).slice(0, 3);
+        if (close.length) bPrint('<span class="dim">did you mean: ' + close.map(s => '`' + s + '`').join(' / ') +
+          '?</span>', 'dim');
+      }
+    }
+
+    // =================== BLOG TERMINAL INIT ===================
+    function bFormatUptime(ms) {
+      const s = Math.floor(ms / 1000);
+      const h = Math.floor(s / 3600);
+      const m = Math.floor((s % 3600) / 60);
+      const sec = s % 60;
+      if (h > 0) return h + 'h ' + m + 'm';
+      if (m > 0) return m + 'm ' + sec + 's';
+      return sec + 's';
+    }
+
+    function bUpdateClock() {
+      const d = new Date();
+      const pad = (n) => String(n).padStart(2, '0');
+      blogStatusTime.textContent = pad(d.getHours()) + ':' + pad(d.getMinutes()) + ':' + pad(d.getSeconds());
+    }
+
+    // =================== BLOG EVENT LISTENERS ===================
+    function bSetupInput() {
+      blogCmdInput.addEventListener('keydown', (e) => {
+        if (blogComposeState) {
+          if (e.key === 'Enter') {
+            e.preventDefault();
+            const val = blogCmdInput.value;
+            bHandleComposeLine(val);
+            blogCmdInput.value = '';
+            blogTypedText.textContent = '';
+            blogGhostText.textContent = '';
+          } else if (e.key === 'c' && e.ctrlKey) {
+            e.preventDefault();
+            bPrint('<span class="error">^C</span> <span class="dim">[compose cancelled]</span>');
+            blogComposeState = null;
+            blogCmdInput.value = '';
+            blogTypedText.textContent = '';
+            bUpdatePrompt();
+          }
+          return;
+        }
+
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          const val = blogCmdInput.value;
+          bSubmitCommand(val);
+          blogCmdInput.value = '';
+          blogTypedText.textContent = '';
+          blogGhostText.textContent = '';
+        } else if (e.key === 'Tab') {
+          e.preventDefault();
+          bAcceptCompletion();
+        } else if (e.key === 'ArrowUp') {
+          e.preventDefault();
+          bNavigateHistory(-1);
+        } else if (e.key === 'ArrowDown') {
+          e.preventDefault();
+          bNavigateHistory(1);
+        } else if (e.key === 'ArrowRight' && blogGhostText.textContent) {
+          e.preventDefault();
+          blogCmdInput.value += blogGhostText.textContent;
+          blogTypedText.textContent = blogCmdInput.value;
+          blogGhostText.textContent = '';
+          bUpdateGhost();
+        } else if (e.key === 'l' && e.ctrlKey) {
+          e.preventDefault();
+          blogOutput.innerHTML = '';
+        } else if (e.key === 'c' && e.ctrlKey) {
+          e.preventDefault();
+          const val = blogCmdInput.value;
+          const pathStr = blogState.cwd === '~' ? ':~' : ':' + blogState.cwd;
+          bPrint('<span style="color:#4ade80">isaac@blog</span><span class="path">' + pathStr + '</span>$ ' + bEscapeHtml(
+            val) + '<span class="error">^C</span>', 'cmd-echo');
+          blogCmdInput.value = '';
+          blogTypedText.textContent = '';
+          blogGhostText.textContent = '';
+        }
+      });
+
+      blogCmdInput.addEventListener('input', () => {
+        blogTypedText.textContent = blogCmdInput.value;
+        bUpdateGhost();
+      });
+
+      blogCmdInput.addEventListener('paste', () => {
+        setTimeout(() => { blogTypedText.textContent = blogCmdInput.value;
+          bUpdateGhost(); }, 0);
+      });
+
+      document.querySelector('#blog-terminal-overlay .terminal').addEventListener('click', (e) => {
+        if (window.getSelection().toString()) return;
+        blogCmdInput.focus();
+      });
+    }
+
+    // =================== BLOG BOOT ===================
+    async function bBoot() {
+      try {
+        const stored = JSON.parse(localStorage.getItem('blogTerminalHistory') || '[]');
+        if (Array.isArray(stored)) blogState.history = stored.slice(-100);
+      } catch (e) {}
+
+      bUpdatePrompt();
+      bSetupInput();
+
+      const bootLines = [
+        { t: '[ <span class="ok">OK</span> ] blog shell v1.0 starting...', d: 60 },
+        { t: '[ <span class="ok">OK</span> ] loading <span class="cyan">about</span>', d: 80 },
+        { t: '[ <span class="ok">OK</span> ] loading <span class="cyan">posts</span>', d: 70 },
+        { t: '[ <span class="ok">OK</span> ] reading history <span class="dim">(' + blogState.history.length +
+          ' commands)</span>', d: 50 },
+        { t: '', d: 80 },
+      ];
+
+      for (const line of bootLines) {
+        bPrint(line.t, 'boot-line');
+        await bSleep(line.d);
+      }
+
+      const motd = `<span class="dim">┌──────────────────────────────────────────────────────────────────────────┐</span>
+<span class="dim">│</span>                                                                          <span class="dim">│</span>
+<span class="dim">│</span>   <span class="amber" style="font-weight:600">isaac's blog</span>  <span class="dim">—</span>  thoughts, stories, and things I've built    <span class="dim">│</span>
+<span class="dim">│</span>                                                                          <span class="dim">│</span>
+<span class="dim">│</span>   type <span class="success">help</span> to see commands.    type <span class="success">ls</span> to look around.        <span class="dim">│</span>
+<span class="dim">│</span>   type <span class="success">cat about</span> to learn about me.    type <span class="success">cat posts</span> to read.   <span class="dim">│</span>
+<span class="dim">│</span>                                                                          <span class="dim">│</span>
+<span class="dim">└──────────────────────────────────────────────────────────────────────────┘</span>`;
+      bPrintRaw(motd);
+      bPrintBlank();
+
+      blogCmdInput.focus();
+      setInterval(bUpdateClock, 1000);
+      bUpdateClock();
+    }
+
+    // =================== OPEN/CLOSE BLOG ===================
+    function openBlog() {
+      const flash = document.getElementById('transition-flash');
+      const overlay = document.getElementById('blog-terminal-overlay');
+      flash.classList.add('flash');
+      setTimeout(() => { flash.classList.remove('flash'); }, 200);
+      document.body.style.overflow = 'hidden';
+      document.getElementById('grain').style.opacity = '0';
+      overlay.classList.add('open');
+      setTimeout(() => {
+        bBoot();
+        blogCmdInput.focus();
+      }, 300);
+    }
+
+    function closeBlog() {
+      const flash = document.getElementById('transition-flash');
+      const overlay = document.getElementById('blog-terminal-overlay');
+      flash.classList.add('flash');
+      setTimeout(() => { flash.classList.remove('flash'); }, 200);
+      overlay.classList.remove('open');
+      overlay.scrollTop = 0;
+      document.body.style.overflow = '';
+      document.getElementById('grain').style.opacity = '0.035';
+      blogOutput.innerHTML = '';
+      blogState.cwd = '~';
+      blogComposeState = null;
+      bUpdatePrompt();
+    }
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && document.getElementById('blog-terminal-overlay').classList.contains('open')) closeBlog();
+    });
+
+    // =================== MAIN PORTFOLIO FUNCTIONS ===================
     let isDark = true;
 
     function toggleTheme() {
@@ -1762,11 +2761,11 @@
     function typeCode() {
       const lines = [
         '// My recent work:',
-        'build("Stockipa");      // Finance tracker',
-        'build("DeepRest");      // Mental health app',
-        'build("Mirrorcam");     // AI camera',
+        'build("Stockipa");      // Finance tracker for my mom',
+        'build("DeepRest");      // Mental health & screen time',
+        'build("Mirrorcam");     // Camera that makes you feel confident',
         'build("Merit AI");      // Hiring bias remover',
-        'build("Art Portfolio"); // Web storefront'
+        'build("Art Portfolio"); // Stencil art storefront'
       ];
       const el = document.getElementById('typing-text');
       let li = 0,
@@ -1917,7 +2916,6 @@
       startAP();
     }
 
-    // Power Beaming Carousel - Auto-scrolling with 4 merged sections
     function initPBCarousel() {
       const track = document.getElementById('pb-carousel-track');
       const container = document.getElementById('pb-carousel-container');
@@ -2103,9 +3101,7 @@
     document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => document.getElementById('mobile-menu')
       .classList.add('hidden')));
 
-    let cvMatrixInterval = null,
-      cvMatrixRunning = false;
-
+    // =================== CV OVERLAY FUNCTIONS ===================
     function openCV() {
       const flash = document.getElementById('transition-flash'),
         overlay = document.getElementById('cv-overlay');
@@ -2130,9 +3126,9 @@
       document.body.style.overflow = '';
       document.getElementById('grain').style.opacity = '0.035';
     }
-    document.addEventListener('keydown', e => {
-      if (e.key === 'Escape' && document.getElementById('cv-overlay').classList.contains('open')) closeCV();
-    });
+
+    let cvMatrixInterval = null,
+      cvMatrixRunning = false;
 
     function startCVMatrix() {
       cvMatrixRunning = true;
@@ -2301,6 +3297,11 @@
       }
     }, 3000);
 
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && document.getElementById('cv-overlay').classList.contains('open')) closeCV();
+    });
+
+    // =================== DOM READY ===================
     document.addEventListener('DOMContentLoaded', () => {
       renderProjects();
       renderCaseStudies();

@@ -56,9 +56,9 @@
       --bg-card: #0a0a0c;
       --text-primary: #ffffff;
       --text-secondary: #a3a3a3;
-      --border-color: rgba(255,255,255,0.1);
-      --bg-nav: rgba(0,0,0,0.85);
-      --hero-stroke: rgba(255,255,255,0.2);
+      --border-color: rgba(255, 255, 255, 0.1);
+      --bg-nav: rgba(0, 0, 0, 0.85);
+      --hero-stroke: rgba(255, 255, 255, 0.2);
     }
 
     .light-theme {
@@ -67,9 +67,9 @@
       --bg-card: #ffffff;
       --text-primary: #1a1a1a;
       --text-secondary: #4a4a4a;
-      --border-color: rgba(0,0,0,0.1);
-      --bg-nav: rgba(255,255,255,0.9);
-      --hero-stroke: rgba(0,0,0,0.2);
+      --border-color: rgba(0, 0, 0, 0.1);
+      --bg-nav: rgba(255, 255, 255, 0.9);
+      --hero-stroke: rgba(0, 0, 0, 0.2);
     }
 
     body {
@@ -112,7 +112,7 @@
       gap: 6px;
       padding: 8px 16px;
       border-radius: 8px;
-      background: rgba(255,255,255,0.05);
+      background: rgba(255, 255, 255, 0.05);
       border: 1px solid var(--border-color);
       color: var(--text-primary);
       cursor: pointer;
@@ -123,7 +123,7 @@
     }
     .theme-toggle-btn:hover {
       border-color: #D97706;
-      background: rgba(217,119,6,0.1);
+      background: rgba(217, 119, 6, 0.1);
       transform: scale(1.05);
     }
     .theme-toggle-btn .iconify {
@@ -134,11 +134,11 @@
       font-size: 11px;
     }
     .light-theme .hero-stroke-text {
-      -webkit-text-stroke: 2px rgba(0,0,0,0.3) !important;
+      -webkit-text-stroke: 2px rgba(0, 0, 0, 0.3) !important;
       color: transparent !important;
     }
     .light-theme #hero h1 .block:last-child {
-      -webkit-text-stroke: 2px rgba(0,0,0,0.25) !important;
+      -webkit-text-stroke: 2px rgba(0, 0, 0, 0.25) !important;
     }
     .light-theme #nav a:not(.bg-warm-500):not(.theme-toggle-btn) {
       color: #1a1a1a !important;
@@ -153,10 +153,10 @@
       color: #4a4a4a !important;
     }
     .light-theme .flip-card-back .border-white\/5 {
-      border-color: rgba(0,0,0,0.05) !important;
+      border-color: rgba(0, 0, 0, 0.05) !important;
     }
     .light-theme .flip-card-back .bg-white\/5 {
-      background: rgba(0,0,0,0.03) !important;
+      background: rgba(0, 0, 0, 0.03) !important;
     }
     .light-theme .grain {
       opacity: 0.015 !important;
@@ -258,11 +258,21 @@
       opacity: 1;
       transform: translateY(0);
     }
-    .pf-delay-1 { transition-delay: .1s; }
-    .pf-delay-2 { transition-delay: .2s; }
-    .pf-delay-3 { transition-delay: .3s; }
-    .pf-delay-4 { transition-delay: .4s; }
-    .pf-delay-5 { transition-delay: .5s; }
+    .pf-delay-1 {
+      transition-delay: .1s;
+    }
+    .pf-delay-2 {
+      transition-delay: .2s;
+    }
+    .pf-delay-3 {
+      transition-delay: .3s;
+    }
+    .pf-delay-4 {
+      transition-delay: .4s;
+    }
+    .pf-delay-5 {
+      transition-delay: .5s;
+    }
 
     #sticky-cta {
       transform: translateY(100%);
@@ -273,10 +283,17 @@
     }
 
     @keyframes pulse-soft {
-      0%, 100% { box-shadow: 0 0 0 0 rgba(217, 119, 6, .4); }
-      50% { box-shadow: 0 0 0 12px rgba(217, 119, 6, 0); }
+      0%,
+      100% {
+        box-shadow: 0 0 0 0 rgba(217, 119, 6, .4);
+      }
+      50% {
+        box-shadow: 0 0 0 12px rgba(217, 119, 6, 0);
+      }
     }
-    .pulse-cta { animation: pulse-soft 2.5s ease-in-out infinite; }
+    .pulse-cta {
+      animation: pulse-soft 2.5s ease-in-out infinite;
+    }
 
     .carousel-track {
       display: flex;
@@ -285,18 +302,30 @@
       user-select: none;
       will-change: transform;
     }
-    .carousel-track:active { cursor: grabbing; }
-    .carousel-track.snap { transition: transform .5s cubic-bezier(.16, 1, .3, 1); }
+    .carousel-track:active {
+      cursor: grabbing;
+    }
+    .carousel-track.snap {
+      transition: transform .5s cubic-bezier(.16, 1, .3, 1);
+    }
 
     @keyframes blink {
-      0%, 50% { opacity: 1; }
-      51%, 100% { opacity: 0; }
+      0%,
+      50% {
+        opacity: 1;
+      }
+      51%,
+      100% {
+        opacity: 0;
+      }
     }
-    .typing-cursor { animation: blink 1s step-end infinite; }
+    .typing-cursor {
+      animation: blink 1s step-end infinite;
+    }
 
     .grid-pattern {
-      background-image: linear-gradient(rgba(255,255,255,.02) 1px, transparent 1px),
-                        linear-gradient(90deg, rgba(255,255,255,.02) 1px, transparent 1px);
+      background-image: linear-gradient(rgba(255, 255, 255, .02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, .02) 1px, transparent 1px);
       background-size: 40px 40px;
     }
 
@@ -319,17 +348,30 @@
       overflow: hidden;
     }
 
-    .counter { font-variant-numeric: tabular-nums; }
+    .counter {
+      font-variant-numeric: tabular-nums;
+    }
 
     @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-8px);
+      }
     }
-    .float-anim { animation: float 6s ease-in-out infinite; }
+    .float-anim {
+      animation: float 6s ease-in-out infinite;
+    }
 
     @keyframes scan-line {
-      0% { top: -2px; }
-      100% { top: 100%; }
+      0% {
+        top: -2px;
+      }
+      100% {
+        top: 100%;
+      }
     }
     .scan-line-fx::after {
       content: '';
@@ -363,7 +405,7 @@
       border-radius: 2px;
     }
 
-    /* ─── CV OVERLAY ─── */
+    /* CV OVERLAY */
     #cv-overlay {
       position: fixed;
       inset: 0;
@@ -452,40 +494,84 @@
       opacity: .8;
     }
     @keyframes cv-glitch1 {
-      0% { transform: translate(0); }
-      20% { transform: translate(-3px, 3px); }
-      40% { transform: translate(-3px, -3px); }
-      60% { transform: translate(3px, 3px); }
-      80% { transform: translate(3px, -3px); }
-      100% { transform: translate(0); }
+      0% {
+        transform: translate(0);
+      }
+      20% {
+        transform: translate(-3px, 3px);
+      }
+      40% {
+        transform: translate(-3px, -3px);
+      }
+      60% {
+        transform: translate(3px, 3px);
+      }
+      80% {
+        transform: translate(3px, -3px);
+      }
+      100% {
+        transform: translate(0);
+      }
     }
     @keyframes cv-glitch2 {
-      0% { transform: translate(0); }
-      20% { transform: translate(3px, -3px); }
-      40% { transform: translate(3px, 3px); }
-      60% { transform: translate(-3px, -3px); }
-      80% { transform: translate(-3px, 3px); }
-      100% { transform: translate(0); }
+      0% {
+        transform: translate(0);
+      }
+      20% {
+        transform: translate(3px, -3px);
+      }
+      40% {
+        transform: translate(3px, 3px);
+      }
+      60% {
+        transform: translate(-3px, -3px);
+      }
+      80% {
+        transform: translate(-3px, 3px);
+      }
+      100% {
+        transform: translate(0);
+      }
     }
     @keyframes cv-glitch-skew {
-      0% { transform: skew(0); }
-      2% { transform: skew(.5deg); }
-      4% { transform: skew(0); }
-      48% { transform: skew(0); }
-      50% { transform: skew(-.5deg); }
-      52% { transform: skew(0); }
-      100% { transform: skew(0); }
+      0% {
+        transform: skew(0);
+      }
+      2% {
+        transform: skew(.5deg);
+      }
+      4% {
+        transform: skew(0);
+      }
+      48% {
+        transform: skew(0);
+      }
+      50% {
+        transform: skew(-.5deg);
+      }
+      52% {
+        transform: skew(0);
+      }
+      100% {
+        transform: skew(0);
+      }
     }
     @media(max-width:768px) {
       .cv-glitch::before,
-      .cv-glitch::after { display: none; }
+      .cv-glitch::after {
+        display: none;
+      }
     }
 
     .cv-neon-text {
       text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #38BDF8, 0 0 82px #0EA5E9, 0 0 92px #0284C7;
     }
-    .cv-neon-blue { text-shadow: 0 0 7px #38BDF8, 0 0 10px #0EA5E9, 0 0 21px #0EA5E9, 0 0 42px #0EA5E9; }
-    .cv-neon-border { box-shadow: 0 0 5px rgba(56,189,248,.3), 0 0 10px rgba(56,189,248,.2), inset 0 0 5px rgba(56,189,248,.1); }
+    .cv-neon-blue {
+      text-shadow: 0 0 7px #38BDF8, 0 0 10px #0EA5E9, 0 0 21px #0EA5E9, 0 0 42px #0EA5E9;
+    }
+    .cv-neon-border {
+      box-shadow: 0 0 5px rgba(56, 189, 248, .3), 0 0 10px rgba(56, 189, 248, .2), inset 0 0 5px rgba(56, 189, 248, .1);
+    }
     .cv-scanline::after {
       content: '';
       position: absolute;
@@ -493,7 +579,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: repeating-linear-gradient(0deg, rgba(0,0,0,.03) 0px, rgba(0,0,0,.03) 1px, transparent 1px, transparent 2px);
+      background: repeating-linear-gradient(0deg, rgba(0, 0, 0, .03) 0px, rgba(0, 0, 0, .03) 1px, transparent 1px, transparent 2px);
       pointer-events: none;
       z-index: 9999;
     }
@@ -512,18 +598,28 @@
       animation: cv-float-up linear infinite;
     }
     @keyframes cv-float-up {
-      0% { transform: translateY(100vh) scale(0); opacity: 0; }
-      10% { opacity: 1; }
-      90% { opacity: 1; }
-      100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+      0% {
+        transform: translateY(100vh) scale(0);
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      90% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-10vh) scale(1);
+        opacity: 0;
+      }
     }
     .cv-skill-fill {
       transition: width 2s cubic-bezier(.25, .46, .45, .94);
       width: 0%;
     }
     .cyber-card {
-      background: rgba(255,255,255,.03);
-      border: 1px solid rgba(255,255,255,.08);
+      background: rgba(255, 255, 255, .03);
+      border: 1px solid rgba(255, 255, 255, .08);
       backdrop-filter: blur(10px);
       transition: all .4s cubic-bezier(.25, .46, .45, .94);
       position: relative;
@@ -539,10 +635,12 @@
       background: linear-gradient(90deg, transparent, #38BDF8, #0EA5E9, #38BDF8, transparent);
       transition: left .6s ease;
     }
-    .cyber-card:hover::before { left: 100%; }
+    .cyber-card:hover::before {
+      left: 100%;
+    }
     .cyber-card:hover {
-      border-color: rgba(56,189,248,.4);
-      box-shadow: 0 0 30px -5px rgba(56,189,248,.15);
+      border-color: rgba(56, 189, 248, .4);
+      box-shadow: 0 0 30px -5px rgba(56, 189, 248, .15);
       transform: translateY(-4px);
     }
     .corner-deco {
@@ -554,7 +652,7 @@
       position: absolute;
       width: 20px;
       height: 20px;
-      border-color: rgba(56,189,248,.5);
+      border-color: rgba(56, 189, 248, .5);
       border-style: solid;
     }
     .corner-deco::before {
@@ -573,23 +671,33 @@
       width: max-content;
     }
     @keyframes cv-marquee {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
     }
     .cv-pulse-ring {
       animation: cv-pulse-ring 2s ease-out infinite;
     }
     @keyframes cv-pulse-ring {
-      0% { transform: scale(1); opacity: .6; }
-      100% { transform: scale(2.5); opacity: 0; }
+      0% {
+        transform: scale(1);
+        opacity: .6;
+      }
+      100% {
+        transform: scale(2.5);
+        opacity: 0;
+      }
     }
     .cv-hex-bg {
-      background-image: linear-gradient(30deg, rgba(56,189,248,.03) 12%, transparent 12.5%, transparent 87%, rgba(56,189,248,.03) 87.5%),
-                        linear-gradient(150deg, rgba(56,189,248,.03) 12%, transparent 12.5%, transparent 87%, rgba(56,189,248,.03) 87.5%),
-                        linear-gradient(30deg, rgba(56,189,248,.03) 12%, transparent 12.5%, transparent 87%, rgba(56,189,248,.03) 87.5%),
-                        linear-gradient(150deg, rgba(56,189,248,.03) 12%, transparent 12.5%, transparent 87%, rgba(56,189,248,.03) 87.5%),
-                        linear-gradient(60deg, rgba(14,165,233,.04) 25%, transparent 25.5%, transparent 75%, rgba(14,165,233,.04) 75%),
-                        linear-gradient(60deg, rgba(14,165,233,.04) 25%, transparent 25.5%, transparent 75%, rgba(14,165,233,.04) 75%);
+      background-image: linear-gradient(30deg, rgba(56, 189, 248, .03) 12%, transparent 12.5%, transparent 87%, rgba(56, 189, 248, .03) 87.5%),
+        linear-gradient(150deg, rgba(56, 189, 248, .03) 12%, transparent 12.5%, transparent 87%, rgba(56, 189, 248, .03) 87.5%),
+        linear-gradient(30deg, rgba(56, 189, 248, .03) 12%, transparent 12.5%, transparent 87%, rgba(56, 189, 248, .03) 87.5%),
+        linear-gradient(150deg, rgba(56, 189, 248, .03) 12%, transparent 12.5%, transparent 87%, rgba(56, 189, 248, .03) 87.5%),
+        linear-gradient(60deg, rgba(14, 165, 233, .04) 25%, transparent 25.5%, transparent 75%, rgba(14, 165, 233, .04) 75%),
+        linear-gradient(60deg, rgba(14, 165, 233, .04) 25%, transparent 25.5%, transparent 75%, rgba(14, 165, 233, .04) 75%);
       background-size: 80px 140px;
       background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px;
     }
@@ -604,14 +712,24 @@
       transform: translateY(0) scale(1);
       filter: blur(0);
     }
-    .cv-delay-1 { transition-delay: 100ms; }
-    .cv-delay-2 { transition-delay: 200ms; }
-    .cv-delay-3 { transition-delay: 300ms; }
-    .cv-delay-4 { transition-delay: 400ms; }
-    .cv-delay-5 { transition-delay: 500ms; }
+    .cv-delay-1 {
+      transition-delay: 100ms;
+    }
+    .cv-delay-2 {
+      transition-delay: 200ms;
+    }
+    .cv-delay-3 {
+      transition-delay: 300ms;
+    }
+    .cv-delay-4 {
+      transition-delay: 400ms;
+    }
+    .cv-delay-5 {
+      transition-delay: 500ms;
+    }
     .terminal-header {
-      background: rgba(255,255,255,.05);
-      border-bottom: 1px solid rgba(255,255,255,.08);
+      background: rgba(255, 255, 255, .05);
+      border-bottom: 1px solid rgba(255, 255, 255, .08);
     }
     .terminal-dot {
       width: 10px;
@@ -619,8 +737,8 @@
       border-radius: 50%;
     }
     .cyber-tag {
-      border: 1px solid rgba(56,189,248,.3);
-      background: rgba(56,189,248,.08);
+      border: 1px solid rgba(56, 189, 248, .3);
+      background: rgba(56, 189, 248, .08);
       color: #7DD3FC;
       font-size: 10px;
       letter-spacing: .1em;
@@ -642,18 +760,26 @@
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      background: rgba(255,255,255,.2);
+      background: rgba(255, 255, 255, .2);
       transition: all .3s ease;
       cursor: pointer;
     }
     .cv-side-dot.active {
       background: #38BDF8;
-      box-shadow: 0 0 10px rgba(56,189,248,.5);
+      box-shadow: 0 0 10px rgba(56, 189, 248, .5);
       transform: scale(1.4);
     }
-    .cv-side-dot:hover { background: rgba(56,189,248,.6); }
-    @media(max-width:768px) { .cv-side-nav { display: none; } }
-    .cv-count-up { font-variant-numeric: tabular-nums; }
+    .cv-side-dot:hover {
+      background: rgba(56, 189, 248, .6);
+    }
+    @media(max-width:768px) {
+      .cv-side-nav {
+        display: none;
+      }
+    }
+    .cv-count-up {
+      font-variant-numeric: tabular-nums;
+    }
     .cv-noise {
       position: absolute;
       top: 0;
@@ -674,7 +800,9 @@
       pointer-events: none;
       transition: opacity .15s ease;
     }
-    #transition-flash.flash { opacity: 1; }
+    #transition-flash.flash {
+      opacity: 1;
+    }
     #cv-matrix-canvas {
       position: absolute;
       top: 0;
@@ -695,29 +823,35 @@
       transform: scale(1.05);
     }
     .cv-btn-outline {
-      border: 1px solid rgba(255,255,255,.15);
+      border: 1px solid rgba(255, 255, 255, .15);
       color: #e2e8f0;
       transition: all .3s ease;
     }
     .cv-btn-outline:hover {
       border-color: #38BDF8;
       color: #38BDF8;
-      background: rgba(56,189,248,.05);
+      background: rgba(56, 189, 248, .05);
     }
-    .cv-project-card { border-color: rgba(56,189,248,.15); }
-    .cv-project-card:hover { border-color: rgba(56,189,248,.4); }
+    .cv-project-card {
+      border-color: rgba(56, 189, 248, .15);
+    }
+    .cv-project-card:hover {
+      border-color: rgba(56, 189, 248, .4);
+    }
     .cv-project-card .cv-tag {
-      background: rgba(56,189,248,.1);
+      background: rgba(56, 189, 248, .1);
       color: #7DD3FC;
-      border-color: rgba(56,189,248,.2);
+      border-color: rgba(56, 189, 248, .2);
     }
-    .cv-skill-fill-blue { background: linear-gradient(90deg, #0EA5E9, #38BDF8); }
+    .cv-skill-fill-blue {
+      background: linear-gradient(90deg, #0EA5E9, #38BDF8);
+    }
     .cv-hero-accent {
-      background: radial-gradient(circle, rgba(56,189,248,.12) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(56, 189, 248, .12) 0%, transparent 70%);
       filter: blur(80px);
     }
     .cv-hero-accent-2 {
-      background: radial-gradient(circle, rgba(14,165,233,.08) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(14, 165, 233, .08) 0%, transparent 70%);
       filter: blur(60px);
     }
     .cv-neon-blue-glow {
@@ -728,8 +862,8 @@
       display: inline-block;
       padding: 2px 10px;
       border-radius: 20px;
-      background: rgba(56,189,248,.1);
-      border: 1px solid rgba(56,189,248,.2);
+      background: rgba(56, 189, 248, .1);
+      border: 1px solid rgba(56, 189, 248, .2);
       color: #7DD3FC;
       font-size: 11px;
       font-weight: 500;
@@ -740,18 +874,42 @@
       margin-left: 4px;
     }
 
-    .light-theme .bg-neutral-950 { background: #ffffff !important; }
-    .light-theme .bg-black { background: #f5f5f5 !important; }
-    .light-theme .border-white\/10 { border-color: rgba(0,0,0,0.08) !important; }
-    .light-theme .border-white\/20 { border-color: rgba(0,0,0,0.12) !important; }
-    .light-theme .bg-neutral-950\/80 { background: rgba(255,255,255,0.9) !important; }
-    .light-theme .cyber-card { background: rgba(0,0,0,.02); border-color: rgba(0,0,0,.06); }
-    .light-theme .terminal-header { background: rgba(0,0,0,.04); border-color: rgba(0,0,0,.06); }
+    .light-theme .bg-neutral-950 {
+      background: #ffffff !important;
+    }
+    .light-theme .bg-black {
+      background: #f5f5f5 !important;
+    }
+    .light-theme .border-white\/10 {
+      border-color: rgba(0, 0, 0, 0.08) !important;
+    }
+    .light-theme .border-white\/20 {
+      border-color: rgba(0, 0, 0, 0.12) !important;
+    }
+    .light-theme .bg-neutral-950\/80 {
+      background: rgba(255, 255, 255, 0.9) !important;
+    }
+    .light-theme .cyber-card {
+      background: rgba(0, 0, 0, .02);
+      border-color: rgba(0, 0, 0, .06);
+    }
+    .light-theme .terminal-header {
+      background: rgba(0, 0, 0, .04);
+      border-color: rgba(0, 0, 0, .06);
+    }
     .light-theme .flip-card-front,
-    .light-theme .flip-card-back { background: #ffffff !important; }
-    .light-theme .flip-card-front .bg-neutral-950 { background: #ffffff !important; }
-    .light-theme .flip-card-back .bg-neutral-950 { background: #ffffff !important; }
-    .light-theme .flip-card-back .text-slate-300 { color: #4a4a4a !important; }
+    .light-theme .flip-card-back {
+      background: #ffffff !important;
+    }
+    .light-theme .flip-card-front .bg-neutral-950 {
+      background: #ffffff !important;
+    }
+    .light-theme .flip-card-back .bg-neutral-950 {
+      background: #ffffff !important;
+    }
+    .light-theme .flip-card-back .text-slate-300 {
+      color: #4a4a4a !important;
+    }
 
     @media(max-width:768px) {
       #nav .flex.items-center.gap-3 {
@@ -765,8 +923,12 @@
       }
     }
     @media(min-width:769px) {
-      .theme-toggle-btn-mobile { display: none !important; }
-      #mobile-menu-btn { display: none !important; }
+      .theme-toggle-btn-mobile {
+        display: none !important;
+      }
+      #mobile-menu-btn {
+        display: none !important;
+      }
     }
 
     .pb-carousel-track {
@@ -776,15 +938,22 @@
       user-select: none;
       will-change: transform;
     }
-    .pb-carousel-track:active { cursor: grabbing; }
-    .pb-carousel-track.snap { transition: transform .5s cubic-bezier(.16, 1, .3, 1); }
+    .pb-carousel-track:active {
+      cursor: grabbing;
+    }
+    .pb-carousel-track.snap {
+      transition: transform .5s cubic-bezier(.16, 1, .3, 1);
+    }
     .pb-card {
       min-width: 380px;
       flex-shrink: 0;
       max-width: 480px;
     }
     @media(max-width:640px) {
-      .pb-card { min-width: 300px; max-width: 340px; }
+      .pb-card {
+        min-width: 300px;
+        max-width: 340px;
+      }
     }
 
     #sticky-cta {
@@ -803,7 +972,7 @@
       }
     }
 
-    /* TERMINAL BLOG OVERLAY */
+    /* BLOG TERMINAL OVERLAY */
     #blog-terminal-overlay {
       position: fixed;
       inset: 0;
@@ -834,24 +1003,26 @@
     #blog-terminal-overlay .scanlines {
       position: absolute;
       inset: 0;
-      background: repeating-linear-gradient(
-        to bottom,
-        rgba(0,0,0,0) 0px,
-        rgba(0,0,0,0) 2px,
-        rgba(0,0,0,0.32) 3px,
-        rgba(0,0,0,0.32) 4px
-      );
+      background: repeating-linear-gradient(to bottom,
+          rgba(0, 0, 0, 0) 0px,
+          rgba(0, 0, 0, 0) 2px,
+          rgba(0, 0, 0, 0.32) 3px,
+          rgba(0, 0, 0, 0.32) 4px);
       opacity: 0.55;
       animation: scan 6s linear infinite;
     }
     @keyframes scan {
-      0% { transform: translateY(0); }
-      100% { transform: translateY(4px); }
+      0% {
+        transform: translateY(0);
+      }
+      100% {
+        transform: translateY(4px);
+      }
     }
     #blog-terminal-overlay .vignette {
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse 110% 100% at center, transparent 45%, rgba(0,0,0,0.55) 100%);
+      background: radial-gradient(ellipse 110% 100% at center, transparent 45%, rgba(0, 0, 0, 0.55) 100%);
     }
     #blog-terminal-overlay .flicker {
       position: absolute;
@@ -860,11 +1031,23 @@
       animation: flicker 7s infinite;
     }
     @keyframes flicker {
-      0%, 94%, 100% { opacity: 1; }
-      95% { opacity: 0.82; }
-      96% { opacity: 1; }
-      97% { opacity: 0.93; }
-      98% { opacity: 1; }
+      0%,
+      94%,
+      100% {
+        opacity: 1;
+      }
+      95% {
+        opacity: 0.82;
+      }
+      96% {
+        opacity: 1;
+      }
+      97% {
+        opacity: 0.93;
+      }
+      98% {
+        opacity: 1;
+      }
     }
 
     #blog-close-btn {
@@ -923,20 +1106,40 @@
       user-select: none;
       letter-spacing: 0.02em;
     }
-    #blog-terminal-overlay .status-group { display: flex; gap: 16px; align-items: center; }
-    #blog-terminal-overlay .status-item { display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; }
-    #blog-terminal-overlay .status-item b { color: #ffb86c; font-weight: 500; }
+    #blog-terminal-overlay .status-group {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+    #blog-terminal-overlay .status-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      white-space: nowrap;
+    }
+    #blog-terminal-overlay .status-item b {
+      color: #ffb86c;
+      font-weight: 500;
+    }
     #blog-terminal-overlay .status-item .dot {
       display: inline-block;
-      width: 7px; height: 7px;
+      width: 7px;
+      height: 7px;
       border-radius: 50%;
       background: #4ade80;
       box-shadow: 0 0 7px #4ade80;
       animation: pulse 2s ease-in-out infinite;
     }
     @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.5; transform: scale(0.85); }
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+      50% {
+        opacity: 0.5;
+        transform: scale(0.85);
+      }
     }
 
     #blog-terminal-overlay .terminal {
@@ -958,25 +1161,55 @@
       scrollbar-width: thin;
       scrollbar-color: #1d2530 transparent;
     }
-    #blog-terminal-overlay .output::-webkit-scrollbar { width: 6px; }
-    #blog-terminal-overlay .output::-webkit-scrollbar-track { background: transparent; }
-    #blog-terminal-overlay .output::-webkit-scrollbar-thumb { background: #1d2530; border-radius: 3px; }
-    #blog-terminal-overlay .output::-webkit-scrollbar-thumb:hover { background: #6b7585; }
+    #blog-terminal-overlay .output::-webkit-scrollbar {
+      width: 6px;
+    }
+    #blog-terminal-overlay .output::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    #blog-terminal-overlay .output::-webkit-scrollbar-thumb {
+      background: #1d2530;
+      border-radius: 3px;
+    }
+    #blog-terminal-overlay .output::-webkit-scrollbar-thumb:hover {
+      background: #6b7585;
+    }
     #blog-terminal-overlay .line {
       margin-bottom: 2px;
       word-break: break-word;
       white-space: pre-wrap;
       color: #d8d4ce;
     }
-    #blog-terminal-overlay .error { color: #ef4444; text-shadow: 0 0 5px rgba(239, 68, 68, 0.4); }
-    #blog-terminal-overlay .success { color: #4ade80; }
-    #blog-terminal-overlay .info, #blog-terminal-overlay .cyan { color: #67e8f9; }
-    #blog-terminal-overlay .warn, #blog-terminal-overlay .yellow { color: #facc15; }
-    #blog-terminal-overlay .dim { color: #6b7585; }
-    #blog-terminal-overlay .amber { color: #ffb86c; }
-    #blog-terminal-overlay .magenta { color: #f472b6; }
-    #blog-terminal-overlay .phosphor { color: #a3e635; }
-    #blog-terminal-overlay .green { color: #4ade80; }
+    #blog-terminal-overlay .error {
+      color: #ef4444;
+      text-shadow: 0 0 5px rgba(239, 68, 68, 0.4);
+    }
+    #blog-terminal-overlay .success {
+      color: #4ade80;
+    }
+    #blog-terminal-overlay .info,
+    #blog-terminal-overlay .cyan {
+      color: #67e8f9;
+    }
+    #blog-terminal-overlay .warn,
+    #blog-terminal-overlay .yellow {
+      color: #facc15;
+    }
+    #blog-terminal-overlay .dim {
+      color: #6b7585;
+    }
+    #blog-terminal-overlay .amber {
+      color: #ffb86c;
+    }
+    #blog-terminal-overlay .magenta {
+      color: #f472b6;
+    }
+    #blog-terminal-overlay .phosphor {
+      color: #a3e635;
+    }
+    #blog-terminal-overlay .green {
+      color: #4ade80;
+    }
 
     #blog-terminal-overlay .prompt-line {
       display: flex;
@@ -998,10 +1231,23 @@
       color: #67e8f9;
       text-shadow: 0 0 6px rgba(103, 232, 249, 0.4);
     }
-    #blog-terminal-overlay .prompt.compose { color: #f472b6; text-shadow: 0 0 8px rgba(244, 114, 182, 0.5); }
-    #blog-terminal-overlay .input-area { position: relative; flex: 1; min-width: 0; }
-    #blog-terminal-overlay .input-display { pointer-events: none; color: #d8d4ce; }
-    #blog-terminal-overlay .ghost-text { color: #6b7585; opacity: 0.55; }
+    #blog-terminal-overlay .prompt.compose {
+      color: #f472b6;
+      text-shadow: 0 0 8px rgba(244, 114, 182, 0.5);
+    }
+    #blog-terminal-overlay .input-area {
+      position: relative;
+      flex: 1;
+      min-width: 0;
+    }
+    #blog-terminal-overlay .input-display {
+      pointer-events: none;
+      color: #d8d4ce;
+    }
+    #blog-terminal-overlay .ghost-text {
+      color: #6b7585;
+      opacity: 0.55;
+    }
     #blog-terminal-overlay .block-cursor {
       display: inline-block;
       width: 8px;
@@ -1028,8 +1274,12 @@
       cursor: text;
       padding: 0;
     }
-    #blog-terminal-overlay .post { margin: 8px 0 14px; }
-    #blog-terminal-overlay .post h1, #blog-terminal-overlay .post h2, #blog-terminal-overlay .post h3 {
+    #blog-terminal-overlay .post {
+      margin: 8px 0 14px;
+    }
+    #blog-terminal-overlay .post h1,
+    #blog-terminal-overlay .post h2,
+    #blog-terminal-overlay .post h3 {
       color: #ffb86c;
       font-weight: 600;
       text-shadow: 0 0 10px rgba(255, 184, 108, 0.4);
@@ -1042,11 +1292,26 @@
       padding-bottom: 6px;
       border-bottom: 1px solid #1d2530;
     }
-    #blog-terminal-overlay .post h2 { font-size: 1.2em; }
-    #blog-terminal-overlay .post h3 { font-size: 1.05em; color: #ffd09b; }
-    #blog-terminal-overlay .post p { margin: 8px 0; color: #d8d4ce; }
-    #blog-terminal-overlay .post em { color: #d8d4ce; font-style: italic; opacity: 0.85; }
-    #blog-terminal-overlay .post strong { color: #ffd09b; font-weight: 600; }
+    #blog-terminal-overlay .post h2 {
+      font-size: 1.2em;
+    }
+    #blog-terminal-overlay .post h3 {
+      font-size: 1.05em;
+      color: #ffd09b;
+    }
+    #blog-terminal-overlay .post p {
+      margin: 8px 0;
+      color: #d8d4ce;
+    }
+    #blog-terminal-overlay .post em {
+      color: #d8d4ce;
+      font-style: italic;
+      opacity: 0.85;
+    }
+    #blog-terminal-overlay .post strong {
+      color: #ffd09b;
+      font-weight: 600;
+    }
     #blog-terminal-overlay .post code {
       color: #a3e635;
       background: rgba(163, 230, 53, 0.08);
@@ -1079,7 +1344,10 @@
       text-decoration-color: rgba(103, 232, 249, 0.4);
       transition: color 0.15s, text-decoration-color 0.15s;
     }
-    #blog-terminal-overlay .post a:hover { color: #f472b6; text-decoration-color: #f472b6; }
+    #blog-terminal-overlay .post a:hover {
+      color: #f472b6;
+      text-decoration-color: #f472b6;
+    }
     #blog-terminal-overlay .post blockquote {
       border-left: 2px solid #ffb86c;
       padding: 6px 0 6px 14px;
@@ -1088,10 +1356,23 @@
       font-style: italic;
       background: rgba(255, 184, 108, 0.04);
     }
-    #blog-terminal-overlay .post ul, #blog-terminal-overlay .post ol { padding-left: 22px; margin: 8px 0; }
-    #blog-terminal-overlay .post li { margin: 3px 0; }
-    #blog-terminal-overlay .post ul li::marker, #blog-terminal-overlay .post ol li::marker { color: #ffb86c; }
-    #blog-terminal-overlay .divider { color: #2a303c; margin: 8px 0; overflow: hidden; }
+    #blog-terminal-overlay .post ul,
+    #blog-terminal-overlay .post ol {
+      padding-left: 22px;
+      margin: 8px 0;
+    }
+    #blog-terminal-overlay .post li {
+      margin: 3px 0;
+    }
+    #blog-terminal-overlay .post ul li::marker,
+    #blog-terminal-overlay .post ol li::marker {
+      color: #ffb86c;
+    }
+    #blog-terminal-overlay .divider {
+      color: #2a303c;
+      margin: 8px 0;
+      overflow: hidden;
+    }
     #blog-terminal-overlay .listing {
       display: flex;
       flex-wrap: wrap;
@@ -1099,23 +1380,48 @@
       margin: 4px 0;
       line-height: 1.7;
     }
-    #blog-terminal-overlay .file { color: #d8d4ce; }
-    #blog-terminal-overlay .file.dir { color: #67e8f9; font-weight: 500; }
-    #blog-terminal-overlay .file.dir::after { content: '/'; opacity: 0.7; }
-    #blog-terminal-overlay .file.md { color: #ffb86c; }
-    #blog-terminal-overlay .file.hidden { color: #6b7585; }
-    #blog-terminal-overlay .boot-line { color: #6b7585; font-size: 0.95em; }
-    #blog-terminal-overlay .boot-line .ok { color: #4ade80; font-weight: 500; }
-    #blog-terminal-overlay .boot-line .warn { color: #facc15; font-weight: 500; }
+    #blog-terminal-overlay .file {
+      color: #d8d4ce;
+    }
+    #blog-terminal-overlay .file.dir {
+      color: #67e8f9;
+      font-weight: 500;
+    }
+    #blog-terminal-overlay .file.dir::after {
+      content: '/';
+      opacity: 0.7;
+    }
+    #blog-terminal-overlay .file.md {
+      color: #ffb86c;
+    }
+    #blog-terminal-overlay .file.hidden {
+      color: #6b7585;
+    }
+    #blog-terminal-overlay .boot-line {
+      color: #6b7585;
+      font-size: 0.95em;
+    }
+    #blog-terminal-overlay .boot-line .ok {
+      color: #4ade80;
+      font-weight: 500;
+    }
+    #blog-terminal-overlay .boot-line .warn {
+      color: #facc15;
+      font-weight: 500;
+    }
     #blog-terminal-overlay .man-page {
       border: 1px solid #1d2530;
-      background: linear-gradient(to bottom, rgba(255,184,108,0.025), rgba(255,184,108,0.005));
+      background: linear-gradient(to bottom, rgba(255, 184, 108, 0.025), rgba(255, 184, 108, 0.005));
       padding: 10px 14px;
       margin: 8px 0;
       border-radius: 2px;
       box-shadow: inset 0 0 30px rgba(255, 184, 108, 0.03);
     }
-    #blog-terminal-overlay .man-page pre { font: inherit; white-space: pre-wrap; color: #d8d4ce; }
+    #blog-terminal-overlay .man-page pre {
+      font: inherit;
+      white-space: pre-wrap;
+      color: #d8d4ce;
+    }
     #blog-terminal-overlay .neofetch {
       color: #d8d4ce;
       line-height: 1.25;
@@ -1129,7 +1435,7 @@
       border: 1px solid #1d2530;
       padding: 10px 14px;
       margin: 8px 0;
-      background: rgba(74,222,128,0.04);
+      background: rgba(74, 222, 128, 0.04);
     }
     #blog-terminal-overlay .mail-form {
       border: 1px dashed #1d2530;
@@ -1146,7 +1452,6 @@
   <div class="cursor-ring" id="cursor-ring"></div>
   <div class="grain" id="grain"></div>
 
-  <!-- NAV -->
   <nav id="nav" class="fixed top-0 left-0 w-full z-[9000] transition-all duration-500 border-b border-transparent">
     <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
       <a href="#hero" class="text-white font-bold text-lg tracking-tight" style="color:var(--text-primary)">IB<span class="text-warm-500">.</span></a>
@@ -1179,7 +1484,6 @@
     </div>
   </nav>
 
-  <!-- HERO -->
   <section id="hero" class="relative min-h-screen flex flex-col justify-center items-center overflow-hidden">
     <div class="absolute inset-0 grid-pattern"></div>
     <div class="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-warm-500/10 rounded-full blur-[150px]"></div>
@@ -1190,7 +1494,7 @@
         <span class="block">ISAAC</span>
         <span class="block hero-stroke-text" style="-webkit-text-stroke:2px var(--hero-stroke);color:transparent;">BRIDGET</span>
       </h1>
-      <div class="mt-6 pf-reveal pf-delay-2"><p class="text-neutral-500 text-sm md:text-base max-w-md mx-auto" style="color:var(--text-secondary)">I build apps that solve real problems — from helping small businesses track their money to training AI that actually works.</p></div>
+      <div class="mt-6 pf-reveal pf-delay-2"><p class="text-neutral-500 text-sm md:text-base max-w-md mx-auto" style="color:var(--text-secondary)">I build apps that solve real problems, from helping small businesses track their money to training useful AI models.</p></div>
       <div class="mt-10 max-w-lg mx-auto pf-reveal pf-delay-3">
         <div class="bg-neutral-950/80 border border-white/10 rounded-lg p-4 text-left font-mono text-[13px] backdrop-blur-sm" style="background:var(--bg-card);border-color:var(--border-color)">
           <div class="flex items-center gap-2 mb-3">
@@ -1214,7 +1518,6 @@
     </div>
   </section>
 
-  <!-- STATS -->
   <section class="relative border-y border-white/10 bg-neutral-950" style="border-color:var(--border-color);background:var(--bg-secondary)">
     <div class="max-w-7xl mx-auto px-6 py-8 grid grid-cols-2 md:grid-cols-4 gap-6">
       <div class="text-center pf-reveal"><div class="text-3xl md:text-4xl font-black counter" data-target="7" style="color:var(--text-primary)">0</div><div class="text-[10px] tracking-[.2em] uppercase text-neutral-500 mt-1" style="color:var(--text-secondary)">Projects Built</div></div>
@@ -1224,7 +1527,6 @@
     </div>
   </section>
 
-  <!-- STOCKIPA -->
   <section id="stockipa" class="relative py-24 md:py-32 overflow-hidden" style="background:var(--bg-primary)">
     <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-warm-500/5 rounded-full blur-[150px]"></div>
     <div class="max-w-7xl mx-auto px-6">
@@ -1249,7 +1551,7 @@
         </div>
         <div class="relative pf-reveal pf-delay-2">
           <div class="relative rounded-sm border border-white/10 overflow-hidden featured-glow scan-line-fx" style="border-color:var(--border-color)">
-            <img src="https://picsum.photos/seed/stockipa-main-screen/700/900.jpg" alt="Stockipa App" class="w-full h-[500px] md:h-[600px] object-cover" style="filter:contrast(1.1) brightness(.8)" loading="lazy" />
+            <img src="https://picsum.photos/seed/stockipa-main/700/900.jpg" alt="Stockipa App" class="w-full h-[500px] md:h-[600px] object-cover" style="filter:contrast(1.1) brightness(.8)" loading="lazy" />
             <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
             <div class="absolute bottom-6 left-6 right-6">
               <div class="flex items-center gap-3 mb-3"><div class="w-10 h-10 rounded-lg bg-warm-500 flex items-center justify-center"><iconify-icon icon="lucide:wallet" width="20" class="text-white"></iconify-icon></div><div><div class="text-sm font-bold text-white">Stockipa</div><div class="text-[10px] text-neutral-400">Finance Manager</div></div></div>
@@ -1276,7 +1578,6 @@
     </div>
   </section>
 
-  <!-- POWER BEAMING -->
   <section id="power-beaming" class="relative py-24 md:py-32 border-t border-white/10 overflow-hidden" style="border-color:var(--border-color);background:var(--bg-secondary)">
     <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-cyber-400/5 rounded-full blur-[120px]"></div>
     <div class="max-w-7xl mx-auto px-6 relative z-10">
@@ -1287,7 +1588,7 @@
         </div>
         <h2 class="text-4xl md:text-6xl font-black tracking-tighter" style="color:var(--text-primary)">Power Beaming<span class="text-warm-500">.</span></h2>
         <p class="mt-4 max-w-3xl mx-auto text-sm md:text-base" style="color:var(--text-secondary)">
-          I've been obsessed with this idea since I read about space-based solar power. Sending electricity through the air — from 1 km to orbit. Cutting the last wire.
+          I have been obsessed with this idea since I read about space-based solar power. Sending electricity through the air, from 1 km to orbit. Cutting the last wire.
         </p>
       </div>
       <div class="relative overflow-hidden" id="pb-carousel-container">
@@ -1297,12 +1598,12 @@
               <span class="iconify text-warm-400 text-2xl" data-icon="lucide:eye"></span> The Vision
             </h3>
             <p class="text-sm leading-relaxed" style="color:var(--text-secondary)">
-              Look, we beam data across the planet at light speed. We beam images from Mars. But to send power 5 kilometers to a remote village, we still string copper on wooden poles. That's just stupid. We can do better.
+              We beam data across the planet at light speed. We beam images from Mars. But to send power 5 kilometers to a remote village, we still string copper on wooden poles. We can do better.
             </p>
             <div class="mt-4 p-4 rounded-lg border border-cyber-500/20 bg-cyber-500/5">
               <h4 class="text-sm font-bold text-cyber-400 mb-2">Why This Matters To Me</h4>
               <p class="text-sm leading-relaxed" style="color:var(--text-secondary)">
-                Space-based solar power isn't some sci-fi fantasy. NASA, ESA, JAXA, and China's CASIC are all working on it. This is the ultimate clean energy — baseload power, 24/7, from orbit.
+                Space-based solar power is not sci-fi. NASA, ESA, JAXA, and China's CASIC are all working on it. This is the ultimate clean energy, baseload power, 24/7, from orbit.
               </p>
             </div>
           </div>
@@ -1346,12 +1647,12 @@
               </div>
               <div class="flex items-start gap-2 p-2 rounded-lg" style="background:rgba(251,191,36,.05);border-left:2px solid #fbbf24;">
                 <span class="text-amber-400 mt-0.5">•</span>
-                <div><strong class="text-white text-sm">Rectenna Cost:</strong><span class="text-sm" style="color:var(--text-secondary)"> 500,000 elements at ~$937,000.</span></div>
+                <div><strong class="text-white text-sm">Rectenna Cost:</strong><span class="text-sm" style="color:var(--text-secondary)"> 500,000 elements at roughly $937,000.</span></div>
               </div>
             </div>
             <div class="mt-4 p-3 rounded-lg border border-amber-500/20 bg-amber-500/5">
               <p class="text-[10px] text-amber-400 font-medium uppercase tracking-wider">💭 My Honest Take</p>
-              <p class="text-xs italic" style="color:var(--text-secondary)">"This is a long-term vision — maybe when I'm in my 50s. For now, it's a passion project and a learning journey."</p>
+              <p class="text-xs italic" style="color:var(--text-secondary)">"This is a long-term vision — maybe when I am in my 50s. For now, it is a passion project and a learning journey."</p>
             </div>
           </div>
           <div class="pb-card cyber-card rounded-xl p-6" style="border-color:var(--border-color);background:var(--bg-card);min-width:380px;max-width:480px;">
@@ -1386,7 +1687,6 @@
     </div>
   </section>
 
-  <!-- PROJECTS -->
   <section id="projects" class="relative py-24 md:py-32 border-t border-white/10" style="border-color:var(--border-color);background:var(--bg-primary)">
     <div class="max-w-7xl mx-auto px-6">
       <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
@@ -1402,7 +1702,6 @@
     </div>
   </section>
 
-  <!-- CASE STUDIES -->
   <section id="cases" class="relative py-24 md:py-32 border-t border-white/10" style="border-color:var(--border-color);background:var(--bg-secondary)">
     <div class="max-w-7xl mx-auto px-6 mb-12">
       <div class="pf-reveal"><p class="text-[10px] font-semibold tracking-[.3em] uppercase text-warm-400 mb-3">Deep Dives</p><h2 class="text-4xl md:text-5xl font-black tracking-tighter uppercase" style="color:var(--text-primary)">Case Studies</h2></div>
@@ -1418,7 +1717,6 @@
     </div>
   </section>
 
-  <!-- TECH STACK -->
   <section id="stack" class="relative py-24 md:py-32 border-t border-white/10" style="border-color:var(--border-color);background:var(--bg-primary)">
     <div class="max-w-7xl mx-auto px-6">
       <div class="text-center mb-16 pf-reveal"><p class="text-[10px] font-semibold tracking-[.3em] uppercase text-warm-400 mb-3">Arsenal</p><h2 class="text-4xl md:text-5xl font-black tracking-tighter uppercase" style="color:var(--text-primary)">Tech Stack</h2></div>
@@ -1427,8 +1725,8 @@
       <div class="mt-24 border-t border-white/10 pt-16 pf-reveal" style="border-color:var(--border-color)">
         <div class="text-center mb-12">
           <p class="text-[10px] font-semibold tracking-[.3em] uppercase text-clay-400 mb-3">Context</p>
-          <h3 class="text-3xl md:text-4xl font-black tracking-tight" style="color:var(--text-primary)">Acknowledgements &amp; Tools</h3>
-          <p class="max-w-2xl mx-auto mt-4 text-sm" style="color:var(--text-secondary)">The people and tools that amplified my thinking — and the hands-on work that made it real.</p>
+          <h3 class="text-3xl md:text-4xl font-black tracking-tight" style="color:var(--text-primary)">Acknowledgements & Tools</h3>
+          <p class="max-w-2xl mx-auto mt-4 text-sm" style="color:var(--text-secondary)">The people and tools that amplified my thinking, and the hands-on work that made it real.</p>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
           <div class="bg-neutral-950/80 border border-white/10 rounded-lg p-6 hover:border-warm-500/30 transition-colors" style="background:var(--bg-card);border-color:var(--border-color)">
@@ -1437,7 +1735,7 @@
           </div>
           <div class="bg-neutral-950/80 border border-white/10 rounded-lg p-6 hover:border-warm-500/30 transition-colors" style="background:var(--bg-card);border-color:var(--border-color)">
             <h4 class="text-warm-400 font-bold mb-2">📺 YouTube</h4>
-            <p class="leading-relaxed" style="color:var(--text-secondary)">My classroom. Visual, step-by-step environment setup — VS Code, terminals, paths. Free and foundational.</p>
+            <p class="leading-relaxed" style="color:var(--text-secondary)">My classroom. Visual, step-by-step environment setup, VS Code, terminals, paths. Free and foundational.</p>
           </div>
           <div class="bg-neutral-950/80 border border-white/10 rounded-lg p-6 hover:border-warm-500/30 transition-colors" style="background:var(--bg-card);border-color:var(--border-color)">
             <h4 class="text-warm-400 font-bold mb-2">🤖 ChatGPT</h4>
@@ -1445,7 +1743,7 @@
           </div>
           <div class="bg-neutral-950/80 border border-white/10 rounded-lg p-6 hover:border-warm-500/30 transition-colors" style="background:var(--bg-card);border-color:var(--border-color)">
             <h4 class="text-warm-400 font-bold mb-2">🧬 Claude</h4>
-            <p class="leading-relaxed" style="color:var(--text-secondary)">Advanced debugger. Deep reasoning, long-context understanding, and honest explanations — catches what others miss.</p>
+            <p class="leading-relaxed" style="color:var(--text-secondary)">Advanced debugger. Deep reasoning, long-context understanding, and honest explanations. Catches what others miss.</p>
           </div>
           <div class="bg-neutral-950/80 border border-white/10 rounded-lg p-6 hover:border-warm-500/30 transition-colors" style="background:var(--bg-card);border-color:var(--border-color)">
             <h4 class="text-warm-400 font-bold mb-2">⚡ Gemini</h4>
@@ -1453,23 +1751,22 @@
           </div>
           <div class="bg-neutral-950/80 border border-white/10 rounded-lg p-6 hover:border-warm-500/30 transition-colors" style="background:var(--bg-card);border-color:var(--border-color)">
             <h4 class="text-warm-400 font-bold mb-2">⌨️ GitHub Copilot</h4>
-            <p class="leading-relaxed" style="color:var(--text-secondary)">Inline code generation. Boilerplate, configs, and repetitive code — so I could keep thinking while it typed.</p>
+            <p class="leading-relaxed" style="color:var(--text-secondary)">Inline code generation. Boilerplate, configs, and repetitive code, so I could keep thinking while it typed.</p>
           </div>
           <div class="bg-neutral-950/80 border border-white/10 rounded-lg p-6 hover:border-warm-500/30 transition-colors md:col-span-2" style="background:var(--bg-card);border-color:var(--border-color)">
             <h4 class="font-bold" style="color:var(--text-primary)">💡 What I Want People to Understand</h4>
-            <p class="leading-relaxed" style="color:var(--text-secondary)">I didn't take a shortcut. I took a smart route. Every AI tool required me to know what to ask, recognize when the answer was wrong, test and adapt, and make the final decision on every line. AI didn't replace my thinking — it amplified it. And honestly? Sometimes it was just faster to write the damn code myself.</p>
+            <p class="leading-relaxed" style="color:var(--text-secondary)">I did not take a shortcut. I took a smart route. Every AI tool required me to know what to ask, recognize when the answer was wrong, test and adapt, and make the final decision on every line. AI did not replace my thinking, it amplified it. And honestly? Sometimes it was just faster to write the code myself.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CONTACT -->
   <section id="contact" class="relative py-24 md:py-32 border-t border-white/10" style="border-color:var(--border-color);background:var(--bg-secondary)">
     <div class="max-w-3xl mx-auto px-6 text-center">
       <p class="text-[10px] font-semibold tracking-[.3em] uppercase text-warm-400 mb-4 pf-reveal">Available for Work</p>
       <h2 class="text-4xl md:text-6xl font-black tracking-tighter uppercase pf-reveal pf-delay-1" style="color:var(--text-primary)">Let's Build<br>Something <span class="text-warm-500">Real</span></h2>
-      <p class="mt-6 text-sm leading-relaxed max-w-md mx-auto pf-reveal pf-delay-2" style="color:var(--text-secondary)">I build apps that solve actual problems for real people. If you have an idea — or just need a solid developer — let's talk.</p>
+      <p class="mt-6 text-sm leading-relaxed max-w-md mx-auto pf-reveal pf-delay-2" style="color:var(--text-secondary)">I build apps that solve actual problems for real people. If you have an idea, or just need a solid developer, let's talk.</p>
       <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center pf-reveal pf-delay-3">
         <a href="https://mail.google.com/mail/?view=cm&fs=1&to=injuguna308@gmail.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 bg-warm-500 text-white text-[11px] font-bold tracking-[.15em] uppercase px-8 py-4 rounded-sm hover:bg-warm-600 transition-colors pulse-cta"><iconify-icon icon="lucide:mail" width="14"></iconify-icon>Get in Touch</a>
         <button onclick="openCV()" class="inline-flex items-center justify-center gap-2 border border-white/20 text-white text-[11px] font-bold tracking-[.15em] uppercase px-8 py-4 rounded-sm hover:bg-white/5 hover:border-white/40 transition-all" style="border-color:var(--border-color);color:var(--text-primary)"><iconify-icon icon="lucide:file-text" width="14"></iconify-icon>View CV</button>
@@ -1486,11 +1783,10 @@
   <footer class="border-t border-white/10 py-8" style="border-color:var(--border-color);background:var(--bg-primary)">
     <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
       <p class="text-[11px]" style="color:var(--text-secondary)">© 2026 Isaac Bridget. All rights reserved.</p>
-      <p class="text-[11px]" style="color:var(--text-secondary)">Designed & coded with purpose.</p>
+      <p class="text-[11px]" style="color:var(--text-secondary)">Designed and coded with purpose.</p>
     </div>
   </footer>
 
-  <!-- STICKY CTA -->
   <div id="sticky-cta" class="fixed bottom-0 left-0 w-full z-[8000] bg-black/90 backdrop-blur-md border-t border-white/10 py-4 px-6" style="background:var(--bg-nav);border-color:var(--border-color)">
     <div class="max-w-7xl mx-auto flex items-center justify-between">
       <p class="text-sm hidden sm:block" style="color:var(--text-secondary)">Have a project in mind?</p>
@@ -1498,7 +1794,6 @@
     </div>
   </div>
 
-  <!-- CV OVERLAY (Original) -->
   <div id="cv-overlay" class="cv-hex-bg">
     <div class="cv-noise"></div>
     <canvas id="cv-matrix-canvas"></canvas>
@@ -1559,7 +1854,7 @@
                 <p class="pl-4"><span class="text-purple-400">hobbies</span>: [<span class="text-amber-300">"Football"</span>, <span class="text-amber-300">"Stencil Art"</span>],</p>
                 <p class="pl-4"><span class="text-purple-400">mindset</span>: <span class="text-amber-300">"Break things → Understand things → Build things"</span>,</p>
                 <p>};</p>
-                <p class="mt-4 text-slate-500">// I don't just write code.</p>
+                <p class="mt-4 text-slate-500">// I do not just write code.</p>
                 <p class="text-slate-500">// I break systems for fun (legally 🤫),</p>
                 <p class="text-slate-500">// create art with spray cans,</p>
                 <p class="text-slate-500">// train AI models, and build apps that matter.</p>
@@ -1567,7 +1862,7 @@
             </div>
           </div>
           <div class="cv-reveal cv-delay-2 md:col-span-2 space-y-4">
-            <div class="cyber-card rounded-xl p-5"><div class="flex items-center gap-3 mb-2"><div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background:rgba(56,189,248,.15);"><span class="iconify text-cyber-400 text-xl" data-icon="lucide:brain"></span></div><h3 class="font-semibold text-white">Critical Thinker</h3></div><p class="text-slate-400 text-sm">I use critical thinking to solve real-world problems — breaking down complex challenges into simple, actionable solutions.</p></div>
+            <div class="cyber-card rounded-xl p-5"><div class="flex items-center gap-3 mb-2"><div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background:rgba(56,189,248,.15);"><span class="iconify text-cyber-400 text-xl" data-icon="lucide:brain"></span></div><h3 class="font-semibold text-white">Critical Thinker</h3></div><p class="text-slate-400 text-sm">I use critical thinking to solve real-world problems, breaking down complex challenges into simple, actionable solutions.</p></div>
             <div class="cyber-card rounded-xl p-5"><div class="flex items-center gap-3 mb-2"><div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background:rgba(56,189,248,.15);"><span class="iconify text-cyber-400 text-xl" data-icon="lucide:palette"></span></div><h3 class="font-semibold text-white">Stencil Artist</h3></div><p class="text-slate-400 text-sm">Creativity flows through code AND spray paint. Art teaches me to see patterns others miss.</p></div>
             <div class="cyber-card rounded-xl p-5"><div class="flex items-center gap-3 mb-2"><div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background:rgba(56,189,248,.15);"><span class="iconify text-cyber-400 text-xl" data-icon="lucide:trophy"></span></div><h3 class="font-semibold text-white">Football Discipline</h3></div><p class="text-slate-400 text-sm">The pitch taught me teamwork, grit, and showing up when it matters most.</p></div>
           </div>
@@ -1612,7 +1907,7 @@
         <h2 class="cv-reveal cv-delay-1 text-3xl sm:text-4xl font-bold tracking-tight mb-12"><span class="bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent">Skills & Languages</span><span class="text-cyber-400">.</span></h2>
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
           <div class="cv-reveal cv-delay-1 cyber-card rounded-xl p-6"><div class="flex items-center justify-between mb-4"><div class="flex items-center gap-3"><span class="iconify text-sky-400 text-2xl" data-icon="logos:flutter"></span><span class="font-semibold text-white">Flutter</span></div><span class="text-xs text-slate-500 font-mono">BEGINNER</span></div><div class="w-full h-1.5 rounded-full bg-white/5 overflow-hidden"><div class="cv-skill-fill h-full rounded-full cv-skill-fill-blue" data-width="30"></div></div><p class="text-slate-500 text-xs mt-3">Mobile app development with Dart &amp; Flutter</p></div>
-          <div class="cv-reveal cv-delay-2 cyber-card rounded-xl p-6"><div class="flex items-center justify-between mb-4"><div class="flex items-center gap-3"><span class="iconify text-blue-400 text-2xl" data-icon="logos:c-plusplus"></span><span class="font-semibold text-white">C++</span></div><span class="text-xs text-emerald-400 font-mono">STRONG</span></div><div class="w-full h-1.5 rounded-full bg-white/5 overflow-hidden"><div class="cv-skill-fill h-full rounded-full" data-width="75" style="background:linear-gradient(90deg,#10b981,#34d399);"></div></div><p class="text-slate-500 text-xs mt-3">Primary language — algorithms, data structures, OOP</p></div>
+          <div class="cv-reveal cv-delay-2 cyber-card rounded-xl p-6"><div class="flex items-center justify-between mb-4"><div class="flex items-center gap-3"><span class="iconify text-blue-400 text-2xl" data-icon="logos:c-plusplus"></span><span class="font-semibold text-white">C++</span></div><span class="text-xs text-emerald-400 font-mono">STRONG</span></div><div class="w-full h-1.5 rounded-full bg-white/5 overflow-hidden"><div class="cv-skill-fill h-full rounded-full" data-width="75" style="background:linear-gradient(90deg,#10b981,#34d399);"></div></div><p class="text-slate-500 text-xs mt-3">Primary language for algorithms, data structures, OOP</p></div>
           <div class="cv-reveal cv-delay-3 cyber-card rounded-xl p-6"><div class="flex items-center justify-between mb-4"><div class="flex items-center gap-3"><span class="iconify text-yellow-400 text-2xl" data-icon="logos:python"></span><span class="font-semibold text-white">Python</span></div><span class="text-xs text-amber-400 font-mono">INTERMEDIATE</span></div><div class="w-full h-1.5 rounded-full bg-white/5 overflow-hidden"><div class="cv-skill-fill h-full rounded-full" data-width="55" style="background:linear-gradient(90deg,#f59e0b,#eab308);"></div></div><p class="text-slate-500 text-xs mt-3">AI/ML, TensorFlow, scripting, data processing</p></div>
           <div class="cv-reveal cv-delay-1 cyber-card rounded-xl p-6"><div class="flex items-center justify-between mb-4"><div class="flex items-center gap-3"><span class="iconify text-blue-300 text-2xl" data-icon="logos:mysql"></span><span class="font-semibold text-white">MySQL</span></div><span class="text-xs text-slate-500 font-mono">BASIC</span></div><div class="w-full h-1.5 rounded-full bg-white/5 overflow-hidden"><div class="cv-skill-fill h-full rounded-full cv-skill-fill-blue" data-width="35"></div></div><p class="text-slate-500 text-xs mt-3">Database design, queries, data management</p></div>
           <div class="cv-reveal cv-delay-2 cyber-card rounded-xl p-6"><div class="flex items-center justify-between mb-4"><div class="flex items-center gap-3"><span class="iconify text-orange-400 text-2xl" data-icon="logos:tensorflow"></span><span class="font-semibold text-white">TensorFlow</span></div><span class="text-xs text-slate-500 font-mono">BEGINNER</span></div><div class="w-full h-1.5 rounded-full bg-white/5 overflow-hidden"><div class="cv-skill-fill h-full rounded-full" data-width="20" style="background:linear-gradient(90deg,#f97316,#ef4444);"></div></div><p class="text-slate-500 text-xs mt-3">Image detection, model training, inference</p></div>
@@ -1696,7 +1991,7 @@
             <div>
               <h3 class="text-lg font-bold text-white">Christian Discipleship Certificate</h3>
               <p class="text-cyber-400 text-sm font-medium">Issued: 2024</p>
-              <p class="text-slate-400 text-sm mt-2 leading-relaxed">Completed a comprehensive discipleship program focused on Christian foundations, leadership, and service. This training shaped my character, discipline, and commitment to integrity — values I carry into every project I build.</p>
+              <p class="text-slate-400 text-sm mt-2 leading-relaxed">Completed a comprehensive discipleship program focused on Christian foundations, leadership, and service. This training shaped my character, discipline, and commitment to integrity, values I carry into every project I build.</p>
               <div class="mt-3 flex flex-wrap gap-2">
                 <span class="cv-tag px-2 py-1 text-[10px] rounded-md bg-white/5 text-slate-400 border border-white/10">Character Development</span>
                 <span class="cv-tag px-2 py-1 text-[10px] rounded-md bg-white/5 text-slate-400 border border-white/10">Leadership</span>
@@ -1745,7 +2040,6 @@
     </footer>
   </div>
 
-  <!-- BLOG TERMINAL OVERLAY -->
   <div id="blog-terminal-overlay">
     <div class="crt-overlay" aria-hidden="true">
       <div class="scanlines"></div>
@@ -1785,7 +2079,6 @@
   </div>
 
   <script>
-    // =================== MAIN PORTFOLIO DATA ===================
     const projects = [{
         id: 1,
         title: "Stockipa",
@@ -1808,7 +2101,7 @@
         img: "https://picsum.photos/seed/tensorflow-detect/600/400.jpg",
         role: "AI Developer",
         year: "2024",
-        details: "Desktop app where users select an image and TensorFlow analyzes and names what's in it. Detected a jeep at 8% confidence using a basic model.",
+        details: "Desktop app where users select an image and TensorFlow analyzes and names what is in it. Detected a jeep at 8% confidence using a basic model.",
         sourceCodeUrl: "https://github.com/Grimzeero78/Currencytraining.git"
       },
       {
@@ -1914,61 +2207,60 @@
       { name: "Tools", icon: "lucide:wrench", items: ["Git", "VS Code", "Android Studio", "PDF Gen", "Share Plugin", "Figma"] }
     ];
 
-    // =================== BLOG TERMINAL CONTENT ===================
     const BLOG_ABOUT = `# My Story
 
 *I'm Isaac Bridget. Born and raised in Kenya. Student. Developer. Artist. Problem solver.*
 
 ## Where I Come From
 
-I grew up watching my mom, CJ, hustle every day as a mtumba seller. She'd wake up at 4am, go to the market, buy clothes, sell them, come back tired but happy. She was making money — sometimes 300K in a good month — but she never knew where it all went. That bugged me.
+I grew up watching my mom, CJ, hustle every day as a mtumba seller. She would wake up at 4am, go to the market, buy clothes, sell them, come back tired but happy. She was making money, sometimes 300K in a good month, but she never knew where it all went. That bugged me.
 
 So I built Stockipa. Not because I wanted to be a developer. Because my mom needed to understand her money.
 
 ## The Journey
 
-I'm studying Applied Computer Science at Chuka University (2023-2027). But honestly? Most of what I know I learned from YouTube, ChatGPT, Claude, and just... building things. Breaking things. Fixing them. Breaking them again.
+I am studying Applied Computer Science at Chuka University (2023-2027). But honestly? Most of what I know I learned from YouTube, ChatGPT, Claude, and just building things. Breaking things. Fixing them. Breaking them again.
 
-I started with C++. Then Python. Then Flutter. Now I'm training AI models, building mobile apps, and planning to learn penetration testing because I want to understand how systems break.
+I started with C++. Then Python. Then Flutter. Now I am training AI models, building mobile apps, and planning to learn penetration testing because I want to understand how systems break.
 
 ## What I Believe
 
-- **Real problems first.** I don't build apps for fun. I build them because someone needs them.
+- **Real problems first.** I do not build apps for fun. I build them because someone needs them.
 - **Offline matters.** Not everyone has 5G. Not everyone can afford data. My apps work without the internet.
-- **Simple > complex.** If my mom can't use it, it's useless.
-- **AI is a tool, not a replacement.** I use ChatGPT, Claude, Gemini — but I make the final call on every line.
+- **Simple > complex.** If my mom can't use it, it is useless.
+- **AI is a tool, not a replacement.** I use ChatGPT, Claude, Gemini, but I make the final call on every line.
 
 ## Outside Code
 
-When I'm not building things, I'm:
+When I am not building things, I am:
 
 - 🎨 Making stencil art. Spray paint + cardboard = expression.
 - ⚽ Playing football. The pitch taught me teamwork and grit.
-- 📖 Reading about things I don't understand yet.
+- 📖 Reading about things I do not understand yet.
 - 🔨 Breaking things to figure out how they work.
 
 ## The Bottom Line
 
-I'm not the smartest person in the room. But I'm the one who stays until the problem is solved. I ask questions. I make mistakes. I learn. I build.
+I am not the smartest person in the room. But I am the one who stays until the problem is solved. I ask questions. I make mistakes. I learn. I build.
 
 > If you have a problem that needs solving, or an idea that needs building — let's talk.
 
-Type \`contact\` to reach me, or \`projects\` to see what I've built.`;
+Type \`contact\` to reach me, or \`projects\` to see what I have built.`;
 
     const BLOG_POSTS = `# My Posts
 
-*Things I've written — mostly for myself, but you can read them too.*
+*Things I have written — mostly for myself, but you can read them too.*
 
 ## Why I Started Building Apps
 *2024.03.15*
 
-I didn't wake up one day and decide to be a developer. I woke up one day and realized my mom didn't know where her money was going. That's it. That's the whole origin story.
+I did not wake up one day and decide to be a developer. I woke up one day and realized my mom did not know where her money was going. That is it. That is the whole origin story.
 
-Stockipa wasn't a "project." It was a solution to a problem I saw every day. My mom would sell clothes, make 300K in a month, and by the end of the month, she'd have nothing left. No records. No idea where it went.
+Stockipa was not a "project." It was a solution to a problem I saw every day. My mom would sell clothes, make 300K in a month, and by the end of the month, she would have nothing left. No records. No idea where it went.
 
 So I built an app. It read M-Pesa messages. It let her scan cash. It showed her charts. And suddenly, she knew.
 
-That's when I realized what I wanted to do for the rest of my life.
+That is when I realized what I wanted to do for the rest of my life.
 
 ## The AI That Couldn't Find a Jeep
 *2024.07.22*
@@ -1977,27 +2269,27 @@ I trained an AI to detect objects in images. The first thing I tested it on was 
 
 Eight percent.
 
-That's basically random guessing. I felt like a failure. But then I read about how AI models work. How they need thousands of images to learn. How 8% was actually impressive for a first try.
+That is basically random guessing. I felt like a failure. But then I read about how AI models work. How they need thousands of images to learn. How 8% was actually impressive for a first try.
 
 So I fed it more data. I tweaked the model. I tried again.
 
-Now it's at 60% confidence. Still not great. But better. And that's the thing about AI — you don't get it right the first time. You just keep trying until it works.
+Now it is at 60% confidence. Still not great. But better. And that is the thing about AI, you do not get it right the first time. You just keep trying until it works.
 
 ## Why I Use ChatGPT (and Why I'm Not Ashamed)
 *2024.09.10*
 
-People ask me if I'm a "real" developer since I use AI tools. I tell them: I didn't take a shortcut. I took a smart route.
+People ask me if I am a "real" developer since I use AI tools. I tell them: I did not take a shortcut. I took a smart route.
 
-Every AI tool requires me to know what to ask, recognize when the answer is wrong, test and adapt, and make the final decision on every line. AI didn't replace my thinking — it amplified it.
+Every AI tool requires me to know what to ask, recognize when the answer is wrong, test and adapt, and make the final decision on every line. AI did not replace my thinking, it amplified it.
 
 And honestly? Sometimes it was just faster to write the damn code myself.
 
 ## Stencil Art and Code
 *2024.11.05*
 
-People think coding and art are different. They're not.
+People think coding and art are different. They are not.
 
-When I'm making stencil art, I'm looking at contrasts, patterns, negative space. When I'm coding, I'm looking at the same things. Bugs are like paint drips — you work around them or you fix them. Both take patience.
+When I am making stencil art, I am looking at contrasts, patterns, negative space. When I am coding, I am looking at the same things. Bugs are like paint drips, you work around them or you fix them. Both take patience.
 
 Art teaches me to see patterns others miss. Code teaches me to build things that matter. I need both.
 
@@ -2006,9 +2298,9 @@ Art teaches me to see patterns others miss. Code teaches me to build things that
 
 I learn by breaking things. Not on purpose (mostly). But every time something breaks, I understand it better.
 
-My PowerShell scripts? I wrote them myself. No AI. Just me, a terminal, and a lot of frustration. That's how I learned.
+My PowerShell scripts? I wrote them myself. No AI. Just me, a terminal, and a lot of frustration. That is how I learned.
 
-AI tools are great. But you need to understand what's happening under the hood. You need to know enough to know when the AI is wrong.
+AI tools are great. But you need to understand what is happening under the hood. You need to know enough to know when the AI is wrong.
 
 > Type \`cat about\` to read more about me.`;
 
@@ -2023,11 +2315,10 @@ Everything here is real. Everything here is honest. Everything here is me.
 Type \`help\` to see what you can do.
 Type \`ls\` to look around.
 Type \`cat about\` to learn about me.
-Type \`cat posts\` to read what I've written.
+Type \`cat posts\` to read what I have written.
 
-> This isn't a portfolio. This is a conversation.`;
+> This is not a portfolio. This is a conversation.`;
 
-    // =================== BLOG TERMINAL STATE ===================
     const blogState = {
       cwd: '~',
       history: [],
@@ -2037,7 +2328,6 @@ Type \`cat posts\` to read what I've written.
     };
     let blogComposeState = null;
 
-    // =================== BLOG DOM ===================
     const b$ = (id) => document.getElementById(id);
     const blogOutput = b$('blogOutput');
     const blogCmdInput = b$('blogCmdInput');
@@ -2047,7 +2337,6 @@ Type \`cat posts\` to read what I've written.
     const blogStatusPath = b$('blogStatusPath');
     const blogStatusTime = b$('blogStatusTime');
 
-    // =================== BLOG UTIL ===================
     function bEscapeHtml(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
 
     function bSleep(ms) { return new Promise(r => setTimeout(r, ms)); }
@@ -2067,7 +2356,6 @@ Type \`cat posts\` to read what I've written.
 
     function bPrintBlank() { bPrint('&nbsp;'); }
 
-    // =================== BLOG MARKDOWN ===================
     function bInlineMd(text) {
       return text
         .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
@@ -2138,7 +2426,6 @@ Type \`cat posts\` to read what I've written.
       return out.join('');
     }
 
-    // =================== BLOG FS ===================
     function bResolvePath(input) {
       if (!input || input === '~') return '~';
       if (input === '.') return blogState.cwd;
@@ -2186,7 +2473,6 @@ Type \`cat posts\` to read what I've written.
       return null;
     }
 
-    // =================== BLOG COMMANDS ===================
     const BLOG_COMMANDS = {};
 
     BLOG_COMMANDS.help = () => {
@@ -2203,7 +2489,7 @@ Type \`cat posts\` to read what I've written.
   <span class="cyan">neofetch</span>   system info
   <span class="cyan">date</span>       current date and time
 
-<span class="dim">Try 'cat about' to learn about me, or 'cat posts' to read what I've written.</span>`);
+<span class="dim">Try 'cat about' to learn about me, or 'cat posts' to read what I have written.</span>`);
     };
 
     BLOG_COMMANDS.ls = (args) => {
@@ -2281,7 +2567,6 @@ Type \`cat posts\` to read what I've written.
       bStartMailCompose(args[0]);
     };
 
-    // Easter eggs
     BLOG_COMMANDS.sudo = () => bPrint('<span class="error">you are already root of your own life.</span>');
     BLOG_COMMANDS.exit = () => bPrint('<span class="dim">there is no escape. this is your blog now.</span>');
     BLOG_COMMANDS.vim = () => bPrint('<span class="dim">you are in a terminal. vim would be redundant.</span>');
@@ -2290,7 +2575,6 @@ Type \`cat posts\` to read what I've written.
       bPrintRaw('<div class="post">' + bRenderMarkdown(BLOG_POSTS) + '</div>');
     };
 
-    // =================== BLOG MAIL ===================
     function bStartMailCompose(to) {
       blogComposeState = { to, subject: '', lines: [], mode: 'subject' };
       bPrintRaw('<div class="mail-form"><span class="dim">┌── compose ──────────────────────────────</span>\n<span class="dim">│</span> <span class="dim">to:</span> <span class="cyan">' + bEscapeHtml(to) + '</span>\n<span class="dim">│</span> <span class="dim">subject:</span> <span class="dim">(type below, then Enter)</span>\n<span class="dim">└─────────────────────────────────────────</span></div>');
@@ -2324,7 +2608,6 @@ Type \`cat posts\` to read what I've written.
       setTimeout(() => { try { window.open(mailto, '_blank'); } catch (e) {} }, 800);
     }
 
-    // =================== BLOG PROMPT ===================
     function bUpdatePrompt() {
       if (blogComposeState) {
         blogPromptText.innerHTML = '<span class="compose">mail</span>(<span style="color:var(--cyan)">' + blogComposeState.mode +
@@ -2337,7 +2620,6 @@ Type \`cat posts\` to read what I've written.
       }
     }
 
-    // =================== BLOG INPUT ===================
     function bUpdateGhost() {
       const val = blogCmdInput.value;
       const words = val.split(' ');
@@ -2449,7 +2731,6 @@ Type \`cat posts\` to read what I've written.
       }
     }
 
-    // =================== BLOG TERMINAL INIT ===================
     function bFormatUptime(ms) {
       const s = Math.floor(ms / 1000);
       const h = Math.floor(s / 3600);
@@ -2466,7 +2747,6 @@ Type \`cat posts\` to read what I've written.
       blogStatusTime.textContent = pad(d.getHours()) + ':' + pad(d.getMinutes()) + ':' + pad(d.getSeconds());
     }
 
-    // =================== BLOG EVENT LISTENERS ===================
     function bSetupInput() {
       blogCmdInput.addEventListener('keydown', (e) => {
         if (blogComposeState) {
@@ -2541,7 +2821,6 @@ Type \`cat posts\` to read what I've written.
       });
     }
 
-    // =================== BLOG BOOT ===================
     async function bBoot() {
       try {
         const stored = JSON.parse(localStorage.getItem('blogTerminalHistory') || '[]');
@@ -2567,7 +2846,7 @@ Type \`cat posts\` to read what I've written.
 
       const motd = `<span class="dim">┌──────────────────────────────────────────────────────────────────────────┐</span>
 <span class="dim">│</span>                                                                          <span class="dim">│</span>
-<span class="dim">│</span>   <span class="amber" style="font-weight:600">isaac's blog</span>  <span class="dim">—</span>  thoughts, stories, and things I've built    <span class="dim">│</span>
+<span class="dim">│</span>   <span class="amber" style="font-weight:600">isaac's blog</span>  <span class="dim">—</span>  thoughts, stories, and things I have built    <span class="dim">│</span>
 <span class="dim">│</span>                                                                          <span class="dim">│</span>
 <span class="dim">│</span>   type <span class="success">help</span> to see commands.    type <span class="success">ls</span> to look around.        <span class="dim">│</span>
 <span class="dim">│</span>   type <span class="success">cat about</span> to learn about me.    type <span class="success">cat posts</span> to read.   <span class="dim">│</span>
@@ -2581,7 +2860,6 @@ Type \`cat posts\` to read what I've written.
       bUpdateClock();
     }
 
-    // =================== OPEN/CLOSE BLOG ===================
     function openBlog() {
       const flash = document.getElementById('transition-flash');
       const overlay = document.getElementById('blog-terminal-overlay');
@@ -2615,7 +2893,6 @@ Type \`cat posts\` to read what I've written.
       if (e.key === 'Escape' && document.getElementById('blog-terminal-overlay').classList.contains('open')) closeBlog();
     });
 
-    // =================== MAIN PORTFOLIO FUNCTIONS ===================
     let isDark = true;
 
     function toggleTheme() {
@@ -3101,7 +3378,6 @@ Type \`cat posts\` to read what I've written.
     document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => document.getElementById('mobile-menu')
       .classList.add('hidden')));
 
-    // =================== CV OVERLAY FUNCTIONS ===================
     function openCV() {
       const flash = document.getElementById('transition-flash'),
         overlay = document.getElementById('cv-overlay');
@@ -3301,7 +3577,6 @@ Type \`cat posts\` to read what I've written.
       if (e.key === 'Escape' && document.getElementById('cv-overlay').classList.contains('open')) closeCV();
     });
 
-    // =================== DOM READY ===================
     document.addEventListener('DOMContentLoaded', () => {
       renderProjects();
       renderCaseStudies();

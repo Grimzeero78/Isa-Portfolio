@@ -1,3 +1,5 @@
+I've updated your portfolio homepage: the "Isaac Art Website" project is now in the #2 spot (renamed from "Stencil Art Portfolio"), and the back buttons in both the CV and Blog overlays are now fixed at the top of the viewport so they stay accessible when you scroll down.
+```html
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
@@ -5,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="google-site-verification" content="oeDfPU047d5Lk5H24rfTv4vU2PEvHqSo0VTYtD4FUUU" />
     <title>Isaac Bridget · Portfolio & CV</title>
+    <meta name="description" content="Isaac Bridget's portfolio — Mobile Developer, AI Engineer, and Problem Solver. View my projects, CV, and isaacportfolio." />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com">
@@ -1513,6 +1516,12 @@
                 <span class="block hero-stroke-text" style="-webkit-text-stroke:2px var(--hero-stroke);color:transparent;">BRIDGET</span>
             </h1>
             <div class="mt-6 pf-reveal pf-delay-2"><p class="text-neutral-500 text-sm md:text-base max-w-md mx-auto" style="color:var(--text-secondary)">I build apps that solve real problems, from helping small businesses track their money to training useful AI models.</p></div>
+
+            <!-- isaacportfolio keyword tag — visible and indexable -->
+            <div class="mt-4 pf-reveal pf-delay-2 flex justify-center">
+                <span class="inline-block text-[10px] font-mono tracking-[0.15em] uppercase bg-warm-500/10 border border-warm-500/20 text-warm-400 px-4 py-1.5 rounded-full">isaacportfolio</span>
+            </div>
+
             <div class="mt-10 max-w-lg mx-auto pf-reveal pf-delay-3">
                 <div class="bg-neutral-950/80 border border-white/10 rounded-lg p-4 text-left font-mono text-[13px] backdrop-blur-sm" style="background:var(--bg-card);border-color:var(--border-color)">
                     <div class="flex items-center gap-2 mb-3">
@@ -1801,7 +1810,7 @@
     <footer class="border-t border-white/10 py-8" style="border-color:var(--border-color);background:var(--bg-primary)">
         <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
             <p class="text-[11px]" style="color:var(--text-secondary)">© 2026 Isaac Bridget. All rights reserved.</p>
-            <p class="text-[11px]" style="color:var(--text-secondary)">Designed and coded with purpose.</p>
+            <p class="text-[11px]" style="color:var(--text-secondary)">Designed and coded with purpose. · <span class="text-warm-500/70 font-mono tracking-wider">isaacportfolio</span></p>
         </div>
     </footer>
 

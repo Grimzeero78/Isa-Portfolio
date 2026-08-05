@@ -4,8 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="google-site-verification" content="oeDfPU047d5Lk5H24rfTv4vU2PEvHqSo0VTYtD4FUUU" />
-    <title>Isaac Bridget · Portfolio & CV</title>
-    <meta name="description" content="Isaac Bridget's portfolio — Mobile Developer, AI Engineer, and Problem Solver. View my projects, CV, and isaacportfolio." />
+    <title>Isaac Bridget · Developer Portfolio & CV</title>
+    <!-- Improved meta description for portfolio -->
+    <meta name="description" content="Isaac Bridget's developer portfolio Mobile Developer, AI Engineer, and Problem Solver. View projects including Stockipa (finance tracker), DeepRest (mental health), Mirrorcam, and AI models. This is my professional portfolio." />
+    <!-- Structured data for portfolio (Person + Portfolio) -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Isaac Bridget",
+            "jobTitle": "Mobile Developer & AI Engineer",
+            "url": "https://portfolio.isaacbridget.workers.dev",
+            "description": "Mobile Developer and AI Engineer building real-world solutions. Portfolio of projects including Stockipa, DeepRest, and AI models.",
+            "sameAs": [
+                "https://github.com/Grimzeero78"
+            ]
+        }
+    </script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com">
@@ -29,6 +44,7 @@
         }
     </script>
     <style>
+        /* (all existing styles unchanged) */
         *,
         *::before,
         *::after {
@@ -1518,6 +1534,10 @@
             <!-- isaacportfolio keyword tag — visible and indexable -->
             <div class="mt-4 pf-reveal pf-delay-2 flex justify-center">
                 <span class="inline-block text-[10px] font-mono tracking-[0.15em] uppercase bg-warm-500/10 border border-warm-500/20 text-warm-400 px-4 py-1.5 rounded-full">isaacportfolio</span>
+            </div>
+            <!-- Additional visible "Portfolio" label -->
+            <div class="mt-2 pf-reveal pf-delay-2">
+                <span class="text-[10px] font-mono tracking-[0.2em] uppercase text-neutral-500 border border-white/10 px-3 py-1 rounded-full">Developer Portfolio</span>
             </div>
 
             <div class="mt-10 max-w-lg mx-auto pf-reveal pf-delay-3">

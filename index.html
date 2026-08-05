@@ -5,9 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="google-site-verification" content="oeDfPU047d5Lk5H24rfTv4vU2PEvHqSo0VTYtD4FUUU" />
     <title>Isaac Bridget · Developer Portfolio & CV</title>
-    <!-- Improved meta description for portfolio -->
-    <meta name="description" content="Isaac Bridget's developer portfolio Mobile Developer, AI Engineer, and Problem Solver. View projects including Stockipa (finance tracker), DeepRest (mental health), Mirrorcam, and AI models. This is my professional portfolio." />
-    <!-- Structured data for portfolio (Person + Portfolio) -->
+    <meta name="description" content="Isaac Bridget's developer portfolio — Mobile Developer, AI Engineer, and Problem Solver. View projects including Stockipa (finance tracker), DeepRest (mental health), Mirrorcam, AI models, and City Stars FC website." />
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -949,6 +947,10 @@
             #mobile-menu-btn {
                 display: flex !important;
             }
+            /* increase hero padding on mobile to avoid overlap */
+            #hero .relative.z-10 {
+                padding-top: 6rem !important;
+            }
         }
         @media(min-width:769px) {
             .theme-toggle-btn-mobile {
@@ -1477,6 +1479,11 @@
             padding: 8px 12px;
             margin: 6px 0;
         }
+
+        /* mobile menu button style */
+        #mobile-menu-btn {
+            color: var(--text-primary);
+        }
     </style>
 </head>
 
@@ -1505,7 +1512,7 @@
                 <button onclick="toggleTheme()" class="theme-toggle-btn theme-toggle-btn-mobile" aria-label="Toggle theme">
                     <iconify-icon icon="lucide:moon" width="14" id="theme-icon-mobile"></iconify-icon>
                 </button>
-                <button id="mobile-menu-btn" class="text-white" style="color:var(--text-primary)"><iconify-icon icon="lucide:menu" width="24"></iconify-icon></button>
+                <button id="mobile-menu-btn" class="text-white" style="color:var(--text-primary)"><iconify-icon icon="lucide:menu" width="28"></iconify-icon></button>
             </div>
         </div>
         <div id="mobile-menu" class="md:hidden hidden bg-black/95 backdrop-blur-md border-t border-white/10" style="background:var(--bg-nav)">
@@ -1523,7 +1530,7 @@
         <div class="absolute inset-0 grid-pattern"></div>
         <div class="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-warm-500/10 rounded-full blur-[150px]"></div>
         <div class="absolute bottom-1/3 right-1/5 w-[400px] h-[400px] bg-clay-500/5 rounded-full blur-[120px]"></div>
-        <div class="relative z-10 text-center px-4">
+        <div class="relative z-10 text-center px-4 pt-32 md:pt-40">
             <p class="text-[10px] font-semibold tracking-[.3em] uppercase text-warm-400 mb-6 pf-reveal" style="color:var(--text-secondary)">Mobile Developer · AI Engineer · Problem Solver</p>
             <h1 class="text-[clamp(3rem,12vw,10rem)] font-black leading-[.85] tracking-tighter pf-reveal pf-delay-1" style="color:var(--text-primary)">
                 <span class="block">ISAAC</span>
@@ -1565,7 +1572,7 @@
 
     <section class="relative border-y border-white/10 bg-neutral-950" style="border-color:var(--border-color);background:var(--bg-secondary)">
         <div class="max-w-7xl mx-auto px-6 py-8 grid grid-cols-2 md:grid-cols-4 gap-6">
-            <div class="text-center pf-reveal"><div class="text-3xl md:text-4xl font-black counter" data-target="7" style="color:var(--text-primary)">0</div><div class="text-[10px] tracking-[.2em] uppercase text-neutral-500 mt-1" style="color:var(--text-secondary)">Projects Built</div></div>
+            <div class="text-center pf-reveal"><div class="text-3xl md:text-4xl font-black counter" data-target="8" style="color:var(--text-primary)">0</div><div class="text-[10px] tracking-[.2em] uppercase text-neutral-500 mt-1" style="color:var(--text-secondary)">Projects Built</div></div>
             <div class="text-center pf-reveal pf-delay-1"><div class="text-3xl md:text-4xl font-black counter" data-target="4" style="color:var(--text-primary)">0</div><div class="text-[10px] tracking-[.2em] uppercase text-neutral-500 mt-1" style="color:var(--text-secondary)">Languages</div></div>
             <div class="text-center pf-reveal pf-delay-2"><div class="text-3xl md:text-4xl font-black counter" data-target="5" style="color:var(--text-primary)">0</div><div class="text-[10px] tracking-[.2em] uppercase text-neutral-500 mt-1" style="color:var(--text-secondary)">AI Models Trained</div></div>
             <div class="text-center pf-reveal pf-delay-3"><div class="text-3xl md:text-4xl font-black" style="color:var(--text-primary)">100<span class="text-warm-500">%</span></div><div class="text-[10px] tracking-[.2em] uppercase text-neutral-500 mt-1" style="color:var(--text-secondary)">Offline Capable</div></div>
@@ -1866,7 +1873,7 @@
                 <div class="cv-reveal cv-delay-2 flex flex-wrap justify-center gap-8 mt-10">
                     <div class="text-center"><div class="text-3xl font-bold text-white cv-count-up" data-target="2027">0</div><div class="text-xs text-slate-500 uppercase tracking-wider mt-1">Graduation</div></div>
                     <div class="w-px h-12 bg-white/10"></div>
-                    <div class="text-center"><div class="text-3xl font-bold text-white cv-count-up" data-target="7">0</div><div class="text-xs text-slate-500 uppercase tracking-wider mt-1">Projects</div></div>
+                    <div class="text-center"><div class="text-3xl font-bold text-white cv-count-up" data-target="8">0</div><div class="text-xs text-slate-500 uppercase tracking-wider mt-1">Projects</div></div>
                     <div class="w-px h-12 bg-white/10"></div>
                     <div class="text-center"><div class="text-3xl font-bold text-white cv-count-up" data-target="8">0</div><div class="text-xs text-slate-500 uppercase tracking-wider mt-1">Skills</div></div>
                     <div class="w-px h-12 bg-white/10"></div>
@@ -1996,7 +2003,18 @@
                         <div class="mt-4 flex flex-wrap gap-2"><span class="cv-tag px-2 py-1 text-[10px] rounded-md bg-white/5 text-slate-400 border border-white/10">Python</span><span class="cv-tag px-2 py-1 text-[10px] rounded-md bg-white/5 text-slate-400 border border-white/10">TensorFlow</span><span class="cv-tag px-2 py-1 text-[10px] rounded-md bg-white/5 text-slate-400 border border-white/10">OpenCV</span></div>
                     </div>
                 </div>
-                <div class="cv-reveal cv-delay-4 cyber-card rounded-2xl cv-project-card p-6 sm:p-8">
+                <!-- NEW: City Stars FC Project -->
+                <div class="cv-reveal cv-delay-4 cyber-card rounded-2xl overflow-hidden cv-project-card mb-6">
+                    <div class="p-6 sm:p-8">
+                        <div class="flex items-start justify-between flex-wrap gap-4"><div><h3 class="text-xl font-bold text-white mb-2 flex items-center gap-3"><span class="iconify text-cyber-400 text-2xl" data-icon="lucide:football"></span>City Stars FC</h3><p class="text-cyber-400 font-mono text-sm mb-4">⚽ Chuka University Football Website</p></div><a href="https://github.com/Grimzeero78/CityStars.git" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 hover:scale-105" style="background:rgba(56,189,248,.15);border:1px solid rgba(56,189,248,.3);color:#7DD3FC;"><span class="iconify" data-icon="lucide:github"></span>Source Code</a></div>
+                        <p class="text-slate-400 leading-relaxed max-w-2xl">A full website for City Stars FC — the football family at Chuka University. Includes match fixtures, results, squad profiles, staff, league table, and a club blog. Built with HTML, CSS, and JavaScript.</p>
+                        <div class="mt-4 flex flex-wrap gap-2"><span class="cv-tag px-2 py-1 text-[10px] rounded-md bg-white/5 text-slate-400 border border-white/10">HTML</span><span class="cv-tag px-2 py-1 text-[10px] rounded-md bg-white/5 text-slate-400 border border-white/10">CSS</span><span class="cv-tag px-2 py-1 text-[10px] rounded-md bg-white/5 text-slate-400 border border-white/10">JavaScript</span></div>
+                        <div class="mt-4">
+                            <a href="https://grimzeero78.github.io/CityStars/" target="_blank" rel="noopener noreferrer" class="inline-block text-[10px] font-bold tracking-wider uppercase bg-warm-500 text-white py-2.5 px-6 rounded-sm hover:bg-warm-600 transition-colors">Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="cv-reveal cv-delay-5 cyber-card rounded-2xl cv-project-card p-6 sm:p-8">
                     <div class="flex items-start justify-between flex-wrap gap-4"><div><h3 class="text-xl font-bold text-white mb-2 flex items-center gap-3"><span class="iconify text-slate-400 text-2xl" data-icon="lucide:folder-git-2"></span>More on GitHub</h3><p class="text-slate-400 text-sm">C++ algorithms, Flutter basics, pentesting notes.</p></div><a href="https://github.com/Grimzeero78/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 hover:scale-105" style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:#94a3b8;"><span class="iconify" data-icon="lucide:external-link"></span>Visit GitHub</a></div>
                     <div class="mt-6 space-y-2">
                         <div class="flex items-center justify-between p-3 rounded-lg hover:bg-white/[.02] transition-colors"><div class="flex items-center gap-3"><span class="iconify text-slate-600" data-icon="lucide:book-open"></span><span class="text-sm text-slate-300 font-mono">cpp-algorithms</span></div><span class="text-xs text-slate-600">C++</span></div>
@@ -2130,8 +2148,8 @@
 
     <script>
         // ---- PROJECTS ----
-        // Reordered: Stockipa (1), Isaac Art Website (2, renamed, moved from pos5), AI Image Detector (3),
-        // DeepRest (4), Mirrorcam (5), Stockipa Currency AI (6), Merit AI (7)
+        // Reordered: Stockipa (1), Isaac Art Website (2), AI Image Detector (3),
+        // DeepRest (4), Mirrorcam (5), Stockipa Currency AI (6), Merit AI (7), City Stars FC (8)
         const projects = [{
             id: 1,
             title: "Stockipa",
@@ -2210,6 +2228,19 @@
             year: "2026",
             details: "An upcoming Windows app/website where officials upload interview materials. The AI analyzes video for confidence and reads documents for key skills.",
             sourceCodeUrl: "https://github.com/Grimzeero78/Currencytraining.git"
+        }, {
+            id: 8,
+            title: "City Stars FC",
+            category: "web",
+            desc: "Website for Chuka University's football team — fixtures, results, squad, staff, league table, and club blog.",
+            tech: ["HTML", "CSS", "JavaScript", "Tailwind"],
+            img: "https://picsum.photos/seed/citystars/600/400.jpg",
+            role: "Web Developer",
+            year: "2026",
+            details: "A full website for City Stars FC, featuring match fixtures, results, player profiles, staff, league standings, and a club blog. Built with HTML, CSS, and JavaScript.",
+            featured: false,
+            sourceCodeUrl: "https://github.com/Grimzeero78/CityStars.git",
+            viewUrl: "https://grimzeero78.github.io/CityStars/"
         }];
 
         // ---- CASE STUDIES ----
@@ -2969,7 +3000,8 @@ Type \`cat posts\` to read what I have written.
                     fb = p.featured ?
                     '<span class="absolute top-3 left-14 text-[8px] font-bold tracking-widest uppercase text-white bg-warm-500 px-2 py-0.5 rounded-sm">★ Featured</span>' :
                     '';
-                const sourceCodeUrl = p.sourceCodeUrl || '#';
+                const viewUrl = p.viewUrl || p.sourceCodeUrl || '#';
+                const sourceUrl = p.sourceCodeUrl || '#';
                 c.innerHTML = `
             <div class="flip-card-inner">
               <div class="flip-card-front rounded-sm border ${p.featured?'border-warm-500/30':'border-white/10'} overflow-hidden bg-neutral-950 flex flex-col" style="border-color:var(--border-color);background:var(--bg-card)">
@@ -3003,8 +3035,8 @@ Type \`cat posts\` to read what I have written.
                   <div class="flex flex-wrap gap-1.5">${p.tech.map(t => `<span class="text-[9px] font-semibold tracking-wider uppercase bg-white/5 text-neutral-300 border border-white/5 px-2 py-1 rounded-sm" style="color:var(--text-secondary)">${t}</span>`).join('')}</div>
                 </div>
                 <div class="flex gap-3 mt-5">
-                  <a href="${sourceCodeUrl}" target="_blank" rel="noopener noreferrer" class="flex-1 text-center text-[10px] font-bold tracking-wider uppercase bg-warm-500 text-white py-2.5 rounded-sm hover:bg-warm-600 transition-colors cursor-pointer">View Project</a>
-                  <a href="${p.sourceCodeUrl || '#'}" target="_blank" rel="noopener noreferrer" class="flex-1 text-center text-[10px] font-bold tracking-wider uppercase border border-white/15 text-white py-2.5 rounded-sm hover:bg-white/5 transition-colors cursor-pointer" style="border-color:var(--border-color);color:var(--text-primary)">Source Code</a>
+                  <a href="${viewUrl}" target="_blank" rel="noopener noreferrer" class="flex-1 text-center text-[10px] font-bold tracking-wider uppercase bg-warm-500 text-white py-2.5 rounded-sm hover:bg-warm-600 transition-colors cursor-pointer">Live Demo</a>
+                  <a href="${sourceUrl}" target="_blank" rel="noopener noreferrer" class="flex-1 text-center text-[10px] font-bold tracking-wider uppercase border border-white/15 text-white py-2.5 rounded-sm hover:bg-white/5 transition-colors cursor-pointer" style="border-color:var(--border-color);color:var(--text-primary)">Source Code</a>
                 </div>
               </div>
             </div>`;
@@ -3091,7 +3123,7 @@ Type \`cat posts\` to read what I have written.
                 'build("DeepRest");      // Mental health & screen time',
                 'build("Mirrorcam");     // Camera that makes you feel confident',
                 'build("Merit AI");      // Hiring bias remover',
-                'build("Art Portfolio"); // Stencil art storefront'
+                'build("City Stars");    // Football team website'
             ];
             const el = document.getElementById('typing-text');
             let li = 0,

@@ -956,8 +956,16 @@
             .theme-toggle-btn-mobile {
                 display: none !important;
             }
-            #mobile-menu-btn {
+            /* hide desktop nav links behind hamburger on all screens */
+            #nav .hidden.md\:flex {
                 display: none !important;
+            }
+            /* show hamburger on desktop too */
+            #mobile-menu-btn {
+                display: flex !important;
+            }
+            #nav .flex.items-center.gap-3.md\:hidden {
+                display: flex !important;
             }
         }
 
@@ -1483,6 +1491,74 @@
         /* mobile menu button style */
         #mobile-menu-btn {
             color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            background: rgba(255, 255, 255, 0.03);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        #mobile-menu-btn:hover {
+            border-color: #D97706;
+            background: rgba(217, 119, 6, 0.08);
+        }
+        #mobile-menu-btn .iconify {
+            font-size: 24px;
+        }
+
+        /* Hero section - improved spacing */
+        #hero .hero-content-wrap {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: calc(100vh - 80px);
+            padding: 2rem 0 3rem;
+        }
+        @media(max-width:640px) {
+            #hero .hero-content-wrap {
+                min-height: calc(100vh - 70px);
+                padding: 1.5rem 0 2.5rem;
+            }
+            #hero .hero-btn-group {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.5rem !important;
+            }
+            #hero .hero-btn-group .btn-hero {
+                font-size: 9px !important;
+                padding: 0.5rem 0.75rem !important;
+            }
+            #hero h1 .block {
+                font-size: clamp(2.2rem, 15vw, 4rem) !important;
+            }
+            #hero .hero-subtitle {
+                font-size: 0.75rem !important;
+            }
+            #hero .hero-typing {
+                font-size: 11px !important;
+            }
+            #hero .scroll-indicator {
+                bottom: 6px !important;
+            }
+            #hero .scroll-indicator span {
+                font-size: 8px !important;
+            }
+            #hero .scroll-indicator .line {
+                height: 20px !important;
+            }
+        }
+        @media(min-width:641px) and (max-width:1024px) {
+            #hero .hero-btn-group .btn-hero {
+                font-size: 10px !important;
+                padding: 0.6rem 1rem !important;
+            }
+            #hero h1 .block {
+                font-size: clamp(3.5rem, 10vw, 6rem) !important;
+            }
         }
     </style>
 </head>
@@ -1494,9 +1570,12 @@
     <div class="cursor-ring" id="cursor-ring"></div>
     <div class="grain" id="grain"></div>
 
+    <!-- NAVIGATION -->
     <nav id="nav" class="fixed top-0 left-0 w-full z-[9000] transition-all duration-500 border-b border-transparent">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="#hero" class="text-white font-bold text-lg tracking-tight" style="color:var(--text-primary)">IB<span class="text-warm-500">.</span></a>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
+            <a href="#hero" class="text-white font-bold text-lg tracking-tight flex-shrink-0" style="color:var(--text-primary)">IB<span class="text-warm-500">.</span></a>
+
+            <!-- Desktop nav links (hidden behind hamburger on all screens) -->
             <div class="hidden md:flex items-center gap-6">
                 <a href="#projects" class="text-[11px] font-semibold tracking-[.2em] uppercase text-neutral-400 hover:text-white transition-colors" style="color:var(--text-secondary)">Projects</a>
                 <a href="#stockipa" class="text-[11px] font-semibold tracking-[.2em] uppercase text-neutral-400 hover:text-white transition-colors" style="color:var(--text-secondary)">Stockipa</a>
@@ -1508,100 +1587,125 @@
                 </button>
                 <a href="https://mail.google.com/mail/?view=cm&fs=1&to=injuguna308@gmail.com" target="_blank" rel="noopener noreferrer" class="text-[11px] font-semibold tracking-[.2em] uppercase bg-warm-500 text-white px-5 py-2.5 rounded-sm hover:bg-warm-600 transition-colors">Hire Me</a>
             </div>
-            <div class="flex items-center gap-3 md:hidden">
+
+            <!-- Right side: theme toggle + hamburger + Hire Me (mobile) -->
+            <div class="flex items-center gap-2 sm:gap-3">
                 <button onclick="toggleTheme()" class="theme-toggle-btn theme-toggle-btn-mobile" aria-label="Toggle theme">
                     <iconify-icon icon="lucide:moon" width="14" id="theme-icon-mobile"></iconify-icon>
                 </button>
-                <button id="mobile-menu-btn" class="text-white" style="color:var(--text-primary)"><iconify-icon icon="lucide:menu" width="28"></iconify-icon></button>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=injuguna308@gmail.com" target="_blank" rel="noopener noreferrer" class="text-[10px] sm:text-[11px] font-semibold tracking-[.15em] uppercase bg-warm-500 text-white px-3 sm:px-4 py-2 rounded-sm hover:bg-warm-600 transition-colors hidden sm:inline-flex">Hire Me</a>
+                <button id="mobile-menu-btn" aria-label="Toggle navigation menu">
+                    <iconify-icon icon="lucide:menu" width="24"></iconify-icon>
+                </button>
             </div>
         </div>
-        <div id="mobile-menu" class="md:hidden hidden bg-black/95 backdrop-blur-md border-t border-white/10" style="background:var(--bg-nav)">
-            <div class="px-6 py-6 flex flex-col gap-4">
+
+        <!-- Mobile / Hamburger Menu Dropdown -->
+        <div id="mobile-menu" class="hidden bg-black/95 backdrop-blur-md border-t border-white/10" style="background:var(--bg-nav)">
+            <div class="px-4 sm:px-6 py-4 sm:py-6 flex flex-col gap-3 sm:gap-4">
                 <a href="#projects" class="text-sm font-semibold tracking-wider uppercase text-neutral-300 hover:text-warm-500 transition-colors mobile-link">Projects</a>
                 <a href="#stockipa" class="text-sm font-semibold tracking-wider uppercase text-neutral-300 hover:text-warm-500 transition-colors mobile-link">Stockipa</a>
                 <a href="#cases" class="text-sm font-semibold tracking-wider uppercase text-neutral-300 hover:text-warm-500 transition-colors mobile-link">Case Studies</a>
                 <a href="#stack" class="text-sm font-semibold tracking-wider uppercase text-neutral-300 hover:text-warm-500 transition-colors mobile-link">Stack</a>
-                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=injuguna308@gmail.com" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold tracking-wider uppercase bg-warm-500 text-white px-5 py-3 rounded-sm text-center mt-2">Hire Me</a>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=injuguna308@gmail.com" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold tracking-wider uppercase bg-warm-500 text-white px-5 py-3 rounded-sm text-center mt-1">Hire Me</a>
             </div>
         </div>
     </nav>
 
+    <!-- HERO SECTION — improved spacing for full-screen visibility -->
     <section id="hero" class="relative min-h-screen flex flex-col justify-center items-center overflow-hidden">
         <div class="absolute inset-0 grid-pattern"></div>
         <div class="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-warm-500/10 rounded-full blur-[150px]"></div>
         <div class="absolute bottom-1/3 right-1/5 w-[400px] h-[400px] bg-clay-500/5 rounded-full blur-[120px]"></div>
-        <div class="relative z-10 text-center px-4 pt-32 md:pt-40">
-            <p class="text-[10px] font-semibold tracking-[.3em] uppercase text-warm-400 mb-6 pf-reveal" style="color:var(--text-secondary)">Mobile Developer · AI Engineer · Problem Solver</p>
-            <h1 class="text-[clamp(3rem,12vw,10rem)] font-black leading-[.85] tracking-tighter pf-reveal pf-delay-1" style="color:var(--text-primary)">
+
+        <div class="relative z-10 text-center px-4 w-full max-w-5xl mx-auto hero-content-wrap">
+            <p class="text-[9px] sm:text-[10px] font-semibold tracking-[.3em] uppercase text-warm-400 mb-4 sm:mb-6 pf-reveal" style="color:var(--text-secondary)">Mobile Developer · AI Engineer · Problem Solver</p>
+
+            <h1 class="text-[clamp(2.8rem,12vw,10rem)] font-black leading-[.85] tracking-tighter pf-reveal pf-delay-1" style="color:var(--text-primary)">
                 <span class="block">ISAAC</span>
                 <span class="block hero-stroke-text" style="-webkit-text-stroke:2px var(--hero-stroke);color:transparent;">BRIDGET</span>
             </h1>
-            <div class="mt-6 pf-reveal pf-delay-2"><p class="text-neutral-500 text-sm md:text-base max-w-md mx-auto" style="color:var(--text-secondary)">I build apps that solve real problems, from helping small businesses track their money to training useful AI models.</p></div>
 
-            <div class="mt-10 max-w-lg mx-auto pf-reveal pf-delay-3">
-                <div class="bg-neutral-950/80 border border-white/10 rounded-lg p-4 text-left font-mono text-[13px] backdrop-blur-sm" style="background:var(--bg-card);border-color:var(--border-color)">
-                    <div class="flex items-center gap-2 mb-3">
-                        <div class="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
-                        <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div>
-                        <div class="w-2.5 h-2.5 rounded-full bg-green-500/80"></div>
-                        <span class="ml-2 text-neutral-600 text-[10px]" style="color:var(--text-secondary)">isaac_bridget.js</span>
+            <div class="mt-4 sm:mt-6 pf-reveal pf-delay-2">
+                <p class="text-neutral-500 text-xs sm:text-sm md:text-base max-w-md mx-auto hero-subtitle" style="color:var(--text-secondary)">I build apps that solve real problems, from helping small businesses track their money to training useful AI models.</p>
+            </div>
+
+            <div class="mt-5 sm:mt-8 max-w-lg mx-auto pf-reveal pf-delay-3">
+                <div class="bg-neutral-950/80 border border-white/10 rounded-lg p-3 sm:p-4 text-left font-mono text-[11px] sm:text-[13px] backdrop-blur-sm hero-typing" style="background:var(--bg-card);border-color:var(--border-color)">
+                    <div class="flex items-center gap-2 mb-2 sm:mb-3">
+                        <div class="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-red-500/80"></div>
+                        <div class="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-yellow-500/80"></div>
+                        <div class="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-green-500/80"></div>
+                        <span class="ml-1 sm:ml-2 text-neutral-600 text-[8px] sm:text-[10px]" style="color:var(--text-secondary)">isaac_bridget.js</span>
                     </div>
-                    <div class="typing-area text-neutral-400 leading-relaxed" style="color:var(--text-secondary)"><span id="typing-text"></span><span class="typing-cursor text-warm-500">│</span></div>
+                    <div class="typing-area text-neutral-400 leading-relaxed hero-typing" style="color:var(--text-secondary)"><span id="typing-text"></span><span class="typing-cursor text-warm-500">│</span></div>
                 </div>
             </div>
-            <div class="mt-8 flex items-center justify-center gap-4 pf-reveal pf-delay-4">
-                <a href="#stockipa" class="inline-flex items-center gap-2 bg-warm-500 text-white text-[11px] font-bold tracking-[.15em] uppercase px-7 py-3.5 rounded-sm hover:bg-warm-600 transition-colors"><iconify-icon icon="lucide:star" width="13"></iconify-icon>Featured: Stockipa</a>
-                <button onclick="openCV()" class="inline-flex items-center gap-2 border border-white/20 text-white text-[11px] font-bold tracking-[.15em] uppercase px-7 py-3.5 rounded-sm hover:bg-white/5 transition-all" style="border-color:var(--border-color);color:var(--text-primary)"><iconify-icon icon="lucide:file-text" width="13"></iconify-icon>View CV</button>
-                <button onclick="openBlog()" class="inline-flex items-center gap-2 border border-cyber-400/30 text-cyber-400 text-[11px] font-bold tracking-[.15em] uppercase px-7 py-3.5 rounded-sm hover:bg-cyber-500/10 transition-all"><iconify-icon icon="lucide:terminal" width="13"></iconify-icon>My Blog</button>
+
+            <!-- 3 BUTTONS — always visible on full screen -->
+            <div class="mt-5 sm:mt-7 flex flex-wrap items-center justify-center gap-2 sm:gap-3 pf-reveal pf-delay-4 hero-btn-group">
+                <a href="#stockipa" class="btn-hero inline-flex items-center gap-1 sm:gap-2 bg-warm-500 text-white text-[9px] sm:text-[11px] font-bold tracking-[.12em] uppercase px-3 sm:px-5 py-2 sm:py-3 rounded-sm hover:bg-warm-600 transition-colors">
+                    <iconify-icon icon="lucide:star" width="11" class="sm:w-3"></iconify-icon>Featured: Stockipa
+                </a>
+                <button onclick="openCV()" class="btn-hero inline-flex items-center gap-1 sm:gap-2 border border-white/20 text-white text-[9px] sm:text-[11px] font-bold tracking-[.12em] uppercase px-3 sm:px-5 py-2 sm:py-3 rounded-sm hover:bg-white/5 transition-all" style="border-color:var(--border-color);color:var(--text-primary)">
+                    <iconify-icon icon="lucide:file-text" width="11" class="sm:w-3"></iconify-icon>View CV
+                </button>
+                <button onclick="openBlog()" class="btn-hero inline-flex items-center gap-1 sm:gap-2 border border-cyber-400/30 text-cyber-400 text-[9px] sm:text-[11px] font-bold tracking-[.12em] uppercase px-3 sm:px-5 py-2 sm:py-3 rounded-sm hover:bg-cyber-500/10 transition-all">
+                    <iconify-icon icon="lucide:terminal" width="11" class="sm:w-3"></iconify-icon>My Blog
+                </button>
             </div>
         </div>
-        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 pf-reveal pf-delay-5">
-            <span class="text-[10px] tracking-[.2em] uppercase text-neutral-600" style="color:var(--text-secondary)">Scroll</span>
-            <div class="w-px h-10 bg-gradient-to-b from-warm-500/60 to-transparent"></div>
+
+        <!-- SCROLL INDICATOR — pushed to bottom with no overlap -->
+        <div class="absolute bottom-3 sm:bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 sm:gap-2 pf-reveal pf-delay-5 scroll-indicator">
+            <span class="text-[8px] sm:text-[10px] tracking-[.2em] uppercase text-neutral-600" style="color:var(--text-secondary)">Scroll</span>
+            <div class="w-px h-6 sm:h-10 bg-gradient-to-b from-warm-500/60 to-transparent line"></div>
         </div>
     </section>
 
+    <!-- Stats Section -->
     <section class="relative border-y border-white/10 bg-neutral-950" style="border-color:var(--border-color);background:var(--bg-secondary)">
-        <div class="max-w-7xl mx-auto px-6 py-8 grid grid-cols-2 md:grid-cols-4 gap-6">
-            <div class="text-center pf-reveal"><div class="text-3xl md:text-4xl font-black counter" data-target="8" style="color:var(--text-primary)">0</div><div class="text-[10px] tracking-[.2em] uppercase text-neutral-500 mt-1" style="color:var(--text-secondary)">Projects Built</div></div>
-            <div class="text-center pf-reveal pf-delay-1"><div class="text-3xl md:text-4xl font-black counter" data-target="4" style="color:var(--text-primary)">0</div><div class="text-[10px] tracking-[.2em] uppercase text-neutral-500 mt-1" style="color:var(--text-secondary)">Languages</div></div>
-            <div class="text-center pf-reveal pf-delay-2"><div class="text-3xl md:text-4xl font-black counter" data-target="5" style="color:var(--text-primary)">0</div><div class="text-[10px] tracking-[.2em] uppercase text-neutral-500 mt-1" style="color:var(--text-secondary)">AI Models Trained</div></div>
-            <div class="text-center pf-reveal pf-delay-3"><div class="text-3xl md:text-4xl font-black" style="color:var(--text-primary)">100<span class="text-warm-500">%</span></div><div class="text-[10px] tracking-[.2em] uppercase text-neutral-500 mt-1" style="color:var(--text-secondary)">Offline Capable</div></div>
+        <div class="max-w-7xl mx-auto px-6 py-6 sm:py-8 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+            <div class="text-center pf-reveal"><div class="text-2xl sm:text-3xl md:text-4xl font-black counter" data-target="8" style="color:var(--text-primary)">0</div><div class="text-[8px] sm:text-[10px] tracking-[.2em] uppercase text-neutral-500 mt-1" style="color:var(--text-secondary)">Projects Built</div></div>
+            <div class="text-center pf-reveal pf-delay-1"><div class="text-2xl sm:text-3xl md:text-4xl font-black counter" data-target="4" style="color:var(--text-primary)">0</div><div class="text-[8px] sm:text-[10px] tracking-[.2em] uppercase text-neutral-500 mt-1" style="color:var(--text-secondary)">Languages</div></div>
+            <div class="text-center pf-reveal pf-delay-2"><div class="text-2xl sm:text-3xl md:text-4xl font-black counter" data-target="5" style="color:var(--text-primary)">0</div><div class="text-[8px] sm:text-[10px] tracking-[.2em] uppercase text-neutral-500 mt-1" style="color:var(--text-secondary)">AI Models Trained</div></div>
+            <div class="text-center pf-reveal pf-delay-3"><div class="text-2xl sm:text-3xl md:text-4xl font-black" style="color:var(--text-primary)">100<span class="text-warm-500">%</span></div><div class="text-[8px] sm:text-[10px] tracking-[.2em] uppercase text-neutral-500 mt-1" style="color:var(--text-secondary)">Offline Capable</div></div>
         </div>
     </section>
 
-    <section id="stockipa" class="relative py-24 md:py-32 overflow-hidden" style="background:var(--bg-primary)">
+    <!-- STOCKIPA Section -->
+    <section id="stockipa" class="relative py-16 sm:py-24 md:py-32 overflow-hidden" style="background:var(--bg-primary)">
         <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-warm-500/5 rounded-full blur-[150px]"></div>
         <div class="max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20 items-center">
                 <div>
-                    <div class="pf-reveal"><div class="inline-flex items-center gap-2 bg-warm-500/10 border border-warm-500/20 rounded-sm px-3 py-1.5 mb-6"><iconify-icon icon="lucide:star" width="12" class="text-warm-500"></iconify-icon><span class="text-[10px] font-bold tracking-[.2em] uppercase text-warm-500">Featured Project</span></div></div>
-                    <h2 class="text-5xl md:text-7xl font-black tracking-tighter pf-reveal pf-delay-1" style="color:var(--text-primary)">STOCKIPA</h2>
-                    <p class="mt-4 text-sm leading-relaxed pf-reveal pf-delay-2" style="color:var(--text-secondary)">I got tired of watching my mom (CJ) hustle hard as a mtumba seller and not know where her money went. So I built her an app that actually works.</p>
-                    <div class="mt-8 space-y-4 pf-reveal pf-delay-3">
-                        <div class="flex items-start gap-3"><div class="w-6 h-6 rounded-sm bg-warm-500/10 border border-warm-500/20 flex items-center justify-center flex-shrink-0 mt-0.5"><iconify-icon icon="lucide:scan-line" width="12" class="text-warm-500"></iconify-icon></div><div><h4 class="text-sm font-bold" style="color:var(--text-primary)">Bill Scanning</h4><p class="text-xs" style="color:var(--text-secondary)">Sell a pen for 10 bob? Scan the cash. It records. Simple.</p></div></div>
-                        <div class="flex items-start gap-3"><div class="w-6 h-6 rounded-sm bg-warm-500/10 border border-warm-500/20 flex items-center justify-center flex-shrink-0 mt-0.5"><iconify-icon icon="lucide:message-square" width="12" class="text-warm-500"></iconify-icon></div><div><h4 class="text-sm font-bold" style="color:var(--text-primary)">M-Pesa Auto-Tracking</h4><p class="text-xs" style="color:var(--text-secondary)">Send money? It logs as expense. Receive money? It logs as sale. No manual entry needed.</p></div></div>
-                        <div class="flex items-start gap-3"><div class="w-6 h-6 rounded-sm bg-warm-500/10 border border-warm-500/20 flex items-center justify-center flex-shrink-0 mt-0.5"><iconify-icon icon="lucide:bar-chart-3" width="12" class="text-warm-500"></iconify-icon></div><div><h4 class="text-sm font-bold" style="color:var(--text-primary)">Smart Tracking</h4><p class="text-xs" style="color:var(--text-secondary)">See daily, weekly, monthly, yearly. Charts, search, calendar. Know exactly where your money goes.</p></div></div>
-                        <div class="flex items-start gap-3"><div class="w-6 h-6 rounded-sm bg-warm-500/10 border border-warm-500/20 flex items-center justify-center flex-shrink-0 mt-0.5"><iconify-icon icon="lucide:package" width="12" class="text-warm-500"></iconify-icon></div><div><h4 class="text-sm font-bold" style="color:var(--text-primary)">Stock Management</h4><p class="text-xs" style="color:var(--text-secondary)">Add items, track buying price, selling price, quantity. Low stock alerts. Know your profit per item.</p></div></div>
+                    <div class="pf-reveal"><div class="inline-flex items-center gap-2 bg-warm-500/10 border border-warm-500/20 rounded-sm px-3 py-1.5 mb-4 sm:mb-6"><iconify-icon icon="lucide:star" width="12" class="text-warm-500"></iconify-icon><span class="text-[9px] sm:text-[10px] font-bold tracking-[.2em] uppercase text-warm-500">Featured Project</span></div></div>
+                    <h2 class="text-4xl sm:text-5xl md:text-7xl font-black tracking-tighter pf-reveal pf-delay-1" style="color:var(--text-primary)">STOCKIPA</h2>
+                    <p class="mt-3 sm:mt-4 text-sm leading-relaxed pf-reveal pf-delay-2" style="color:var(--text-secondary)">I got tired of watching my mom (CJ) hustle hard as a mtumba seller and not know where her money went. So I built her an app that actually works.</p>
+                    <div class="mt-6 sm:mt-8 space-y-3 sm:space-y-4 pf-reveal pf-delay-3">
+                        <div class="flex items-start gap-3"><div class="w-5 h-5 sm:w-6 sm:h-6 rounded-sm bg-warm-500/10 border border-warm-500/20 flex items-center justify-center flex-shrink-0 mt-0.5"><iconify-icon icon="lucide:scan-line" width="11" class="sm:w-3 text-warm-500"></iconify-icon></div><div><h4 class="text-xs sm:text-sm font-bold" style="color:var(--text-primary)">Bill Scanning</h4><p class="text-[10px] sm:text-xs" style="color:var(--text-secondary)">Sell a pen for 10 bob? Scan the cash. It records. Simple.</p></div></div>
+                        <div class="flex items-start gap-3"><div class="w-5 h-5 sm:w-6 sm:h-6 rounded-sm bg-warm-500/10 border border-warm-500/20 flex items-center justify-center flex-shrink-0 mt-0.5"><iconify-icon icon="lucide:message-square" width="11" class="sm:w-3 text-warm-500"></iconify-icon></div><div><h4 class="text-xs sm:text-sm font-bold" style="color:var(--text-primary)">M-Pesa Auto-Tracking</h4><p class="text-[10px] sm:text-xs" style="color:var(--text-secondary)">Send money? It logs as expense. Receive money? It logs as sale. No manual entry needed.</p></div></div>
+                        <div class="flex items-start gap-3"><div class="w-5 h-5 sm:w-6 sm:h-6 rounded-sm bg-warm-500/10 border border-warm-500/20 flex items-center justify-center flex-shrink-0 mt-0.5"><iconify-icon icon="lucide:bar-chart-3" width="11" class="sm:w-3 text-warm-500"></iconify-icon></div><div><h4 class="text-xs sm:text-sm font-bold" style="color:var(--text-primary)">Smart Tracking</h4><p class="text-[10px] sm:text-xs" style="color:var(--text-secondary)">See daily, weekly, monthly, yearly. Charts, search, calendar. Know exactly where your money goes.</p></div></div>
+                        <div class="flex items-start gap-3"><div class="w-5 h-5 sm:w-6 sm:h-6 rounded-sm bg-warm-500/10 border border-warm-500/20 flex items-center justify-center flex-shrink-0 mt-0.5"><iconify-icon icon="lucide:package" width="11" class="sm:w-3 text-warm-500"></iconify-icon></div><div><h4 class="text-xs sm:text-sm font-bold" style="color:var(--text-primary)">Stock Management</h4><p class="text-[10px] sm:text-xs" style="color:var(--text-secondary)">Add items, track buying price, selling price, quantity. Low stock alerts. Know your profit per item.</p></div></div>
                     </div>
-                    <div class="mt-8 flex flex-wrap gap-3 pf-reveal pf-delay-4">
-                        <span class="text-[9px] font-semibold tracking-wider uppercase bg-green-500/10 text-green-400 border border-green-500/20 px-3 py-1.5 rounded-sm">Offline</span>
-                        <span class="text-[9px] font-semibold tracking-wider uppercase bg-blue-500/10 text-blue-400 border border-blue-500/20 px-3 py-1.5 rounded-sm">Free</span>
-                        <span class="text-[9px] font-semibold tracking-wider uppercase bg-purple-500/10 text-purple-400 border border-purple-500/20 px-3 py-1.5 rounded-sm">Secure</span>
-                        <span class="text-[9px] font-semibold tracking-wider uppercase bg-warm-500/10 text-warm-400 border border-warm-500/20 px-3 py-1.5 rounded-sm">Fast</span>
-                        <span class="text-[9px] font-semibold tracking-wider uppercase bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 px-3 py-1.5 rounded-sm">Multi-Language</span>
+                    <div class="mt-6 sm:mt-8 flex flex-wrap gap-2 sm:gap-3 pf-reveal pf-delay-4">
+                        <span class="text-[8px] sm:text-[9px] font-semibold tracking-wider uppercase bg-green-500/10 text-green-400 border border-green-500/20 px-2 sm:px-3 py-1 rounded-sm">Offline</span>
+                        <span class="text-[8px] sm:text-[9px] font-semibold tracking-wider uppercase bg-blue-500/10 text-blue-400 border border-blue-500/20 px-2 sm:px-3 py-1 rounded-sm">Free</span>
+                        <span class="text-[8px] sm:text-[9px] font-semibold tracking-wider uppercase bg-purple-500/10 text-purple-400 border border-purple-500/20 px-2 sm:px-3 py-1 rounded-sm">Secure</span>
+                        <span class="text-[8px] sm:text-[9px] font-semibold tracking-wider uppercase bg-warm-500/10 text-warm-400 border border-warm-500/20 px-2 sm:px-3 py-1 rounded-sm">Fast</span>
+                        <span class="text-[8px] sm:text-[9px] font-semibold tracking-wider uppercase bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 px-2 sm:px-3 py-1 rounded-sm">Multi-Language</span>
                     </div>
                 </div>
                 <div class="relative pf-reveal pf-delay-2">
                     <div class="relative rounded-sm border border-white/10 overflow-hidden featured-glow scan-line-fx" style="border-color:var(--border-color)">
-                        <img src="https://picsum.photos/seed/stockipa-main/700/900.jpg" alt="Stockipa App" class="w-full h-[500px] md:h-[600px] object-cover" style="filter:contrast(1.1) brightness(.8)" loading="lazy" />
+                        <img src="https://picsum.photos/seed/stockipa-main/700/900.jpg" alt="Stockipa App" class="w-full h-[400px] sm:h-[500px] md:h-[600px] object-cover" style="filter:contrast(1.1) brightness(.8)" loading="lazy" />
                         <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
-                        <div class="absolute bottom-6 left-6 right-6">
-                            <div class="flex items-center gap-3 mb-3"><div class="w-10 h-10 rounded-lg bg-warm-500 flex items-center justify-center"><iconify-icon icon="lucide:wallet" width="20" class="text-white"></iconify-icon></div><div><div class="text-sm font-bold text-white">Stockipa</div><div class="text-[10px] text-neutral-400">Finance Manager</div></div></div>
-                            <div class="grid grid-cols-3 gap-2">
-                                <div class="bg-white/5 backdrop-blur-sm rounded-lg p-3 border border-white/5"><div class="text-[9px] text-neutral-500 uppercase tracking-wider">Money In</div><div class="text-lg font-black text-green-400 mt-1">300K</div></div>
-                                <div class="bg-white/5 backdrop-blur-sm rounded-lg p-3 border border-white/5"><div class="text-[9px] text-neutral-500 uppercase tracking-wider">Expenses</div><div class="text-lg font-black text-red-400 mt-1">280K</div></div>
-                                <div class="bg-white/5 backdrop-blur-sm rounded-lg p-3 border border-white/5"><div class="text-[9px] text-neutral-500 uppercase tracking-wider">Saved</div><div class="text-lg font-black text-warm-400 mt-1">20K</div></div>
+                        <div class="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6">
+                            <div class="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3"><div class="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-warm-500 flex items-center justify-center"><iconify-icon icon="lucide:wallet" width="16" class="sm:w-5 text-white"></iconify-icon></div><div><div class="text-xs sm:text-sm font-bold text-white">Stockipa</div><div class="text-[8px] sm:text-[10px] text-neutral-400">Finance Manager</div></div></div>
+                            <div class="grid grid-cols-3 gap-1 sm:gap-2">
+                                <div class="bg-white/5 backdrop-blur-sm rounded-lg p-2 sm:p-3 border border-white/5"><div class="text-[7px] sm:text-[9px] text-neutral-500 uppercase tracking-wider">Money In</div><div class="text-base sm:text-lg font-black text-green-400 mt-0.5 sm:mt-1">300K</div></div>
+                                <div class="bg-white/5 backdrop-blur-sm rounded-lg p-2 sm:p-3 border border-white/5"><div class="text-[7px] sm:text-[9px] text-neutral-500 uppercase tracking-wider">Expenses</div><div class="text-base sm:text-lg font-black text-red-400 mt-0.5 sm:mt-1">280K</div></div>
+                                <div class="bg-white/5 backdrop-blur-sm rounded-lg p-2 sm:p-3 border border-white/5"><div class="text-[7px] sm:text-[9px] text-neutral-500 uppercase tracking-wider">Saved</div><div class="text-base sm:text-lg font-black text-warm-400 mt-0.5 sm:mt-1">20K</div></div>
                             </div>
                         </div>
                     </div>
@@ -1612,104 +1716,105 @@
                     </div>
                 </div>
             </div>
-            <div class="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                <div class="border border-white/10 rounded-sm bg-neutral-950 p-5 pf-reveal pf-delay-1 hover:border-warm-500/30 transition-colors" style="border-color:var(--border-color);background:var(--bg-card)"><div class="w-8 h-8 rounded-sm bg-warm-500/10 flex items-center justify-center mb-3"><iconify-icon icon="lucide:home" width="14" class="text-warm-500"></iconify-icon></div><h4 class="text-sm font-bold mb-1" style="color:var(--text-primary)">Home Page</h4><p class="text-[11px]" style="color:var(--text-secondary)">Add sales/expenses manually or scan bills. M-Pesa auto-recorded. See if you saved or overspent today.</p></div>
-                <div class="border border-white/10 rounded-sm bg-neutral-950 p-5 pf-reveal pf-delay-2 hover:border-warm-500/30 transition-colors" style="border-color:var(--border-color);background:var(--bg-card)"><div class="w-8 h-8 rounded-sm bg-warm-500/10 flex items-center justify-center mb-3"><iconify-icon icon="lucide:trending-up" width="14" class="text-warm-500"></iconify-icon></div><h4 class="text-sm font-bold mb-1" style="color:var(--text-primary)">Tracking Page</h4><p class="text-[11px]" style="color:var(--text-secondary)">Daily, weekly, monthly, yearly views. Yearly chart. Calendar picker. Search. See your performance.</p></div>
-                <div class="border border-white/10 rounded-sm bg-neutral-950 p-5 pf-reveal pf-delay-3 hover:border-warm-500/30 transition-colors" style="border-color:var(--border-color);background:var(--bg-card)"><div class="w-8 h-8 rounded-sm bg-warm-500/10 flex items-center justify-center mb-3"><iconify-icon icon="lucide:package" width="14" class="text-warm-500"></iconify-icon></div><h4 class="text-sm font-bold mb-1" style="color:var(--text-primary)">Stock Management</h4><p class="text-[11px]" style="color:var(--text-secondary)">Item name, buying price, quantity, selling price. Low stock alerts. Know your profit.</p></div>
-                <div class="border border-white/10 rounded-sm bg-neutral-950 p-5 pf-reveal pf-delay-4 hover:border-warm-500/30 transition-colors" style="border-color:var(--border-color);background:var(--bg-card)"><div class="w-8 h-8 rounded-sm bg-warm-500/10 flex items-center justify-center mb-3"><iconify-icon icon="lucide:settings" width="14" class="text-warm-500"></iconify-icon></div><h4 class="text-sm font-bold mb-1" style="color:var(--text-primary)">Settings</h4><p class="text-[11px]" style="color:var(--text-secondary)">Switch language (English, Kiswahili, Chinese — currency auto-switches). Light/dark mode. Clear data.</p></div>
+            <div class="mt-12 sm:mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+                <div class="border border-white/10 rounded-sm bg-neutral-950 p-4 sm:p-5 pf-reveal pf-delay-1 hover:border-warm-500/30 transition-colors" style="border-color:var(--border-color);background:var(--bg-card)"><div class="w-7 h-7 sm:w-8 sm:h-8 rounded-sm bg-warm-500/10 flex items-center justify-center mb-2 sm:mb-3"><iconify-icon icon="lucide:home" width="12" class="sm:w-3.5 text-warm-500"></iconify-icon></div><h4 class="text-xs sm:text-sm font-bold mb-1" style="color:var(--text-primary)">Home Page</h4><p class="text-[10px] sm:text-[11px]" style="color:var(--text-secondary)">Add sales/expenses manually or scan bills. M-Pesa auto-recorded. See if you saved or overspent today.</p></div>
+                <div class="border border-white/10 rounded-sm bg-neutral-950 p-4 sm:p-5 pf-reveal pf-delay-2 hover:border-warm-500/30 transition-colors" style="border-color:var(--border-color);background:var(--bg-card)"><div class="w-7 h-7 sm:w-8 sm:h-8 rounded-sm bg-warm-500/10 flex items-center justify-center mb-2 sm:mb-3"><iconify-icon icon="lucide:trending-up" width="12" class="sm:w-3.5 text-warm-500"></iconify-icon></div><h4 class="text-xs sm:text-sm font-bold mb-1" style="color:var(--text-primary)">Tracking Page</h4><p class="text-[10px] sm:text-[11px]" style="color:var(--text-secondary)">Daily, weekly, monthly, yearly views. Yearly chart. Calendar picker. Search. See your performance.</p></div>
+                <div class="border border-white/10 rounded-sm bg-neutral-950 p-4 sm:p-5 pf-reveal pf-delay-3 hover:border-warm-500/30 transition-colors" style="border-color:var(--border-color);background:var(--bg-card)"><div class="w-7 h-7 sm:w-8 sm:h-8 rounded-sm bg-warm-500/10 flex items-center justify-center mb-2 sm:mb-3"><iconify-icon icon="lucide:package" width="12" class="sm:w-3.5 text-warm-500"></iconify-icon></div><h4 class="text-xs sm:text-sm font-bold mb-1" style="color:var(--text-primary)">Stock Management</h4><p class="text-[10px] sm:text-[11px]" style="color:var(--text-secondary)">Item name, buying price, quantity, selling price. Low stock alerts. Know your profit.</p></div>
+                <div class="border border-white/10 rounded-sm bg-neutral-950 p-4 sm:p-5 pf-reveal pf-delay-4 hover:border-warm-500/30 transition-colors" style="border-color:var(--border-color);background:var(--bg-card)"><div class="w-7 h-7 sm:w-8 sm:h-8 rounded-sm bg-warm-500/10 flex items-center justify-center mb-2 sm:mb-3"><iconify-icon icon="lucide:settings" width="12" class="sm:w-3.5 text-warm-500"></iconify-icon></div><h4 class="text-xs sm:text-sm font-bold mb-1" style="color:var(--text-primary)">Settings</h4><p class="text-[10px] sm:text-[11px]" style="color:var(--text-secondary)">Switch language (English, Kiswahili, Chinese — currency auto-switches). Light/dark mode. Clear data.</p></div>
             </div>
         </div>
     </section>
 
-    <section id="power-beaming" class="relative py-24 md:py-32 border-t border-white/10 overflow-hidden" style="border-color:var(--border-color);background:var(--bg-secondary)">
+    <!-- POWER BEAMING Section -->
+    <section id="power-beaming" class="relative py-16 sm:py-24 md:py-32 border-t border-white/10 overflow-hidden" style="border-color:var(--border-color);background:var(--bg-secondary)">
         <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-cyber-400/5 rounded-full blur-[120px]"></div>
         <div class="max-w-7xl mx-auto px-6 relative z-10">
-            <div class="text-center mb-12 pf-reveal">
-                <div class="inline-flex items-center gap-2 bg-cyber-500/10 border border-cyber-500/20 rounded-full px-4 py-1.5 mb-6">
+            <div class="text-center mb-8 sm:mb-12 pf-reveal">
+                <div class="inline-flex items-center gap-2 bg-cyber-500/10 border border-cyber-500/20 rounded-full px-3 sm:px-4 py-1.5 mb-4 sm:mb-6">
                     <span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyber-400 opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-cyber-500"></span></span>
-                    <span class="text-[10px] font-bold tracking-[.2em] uppercase text-cyber-400">Future Project</span>
+                    <span class="text-[9px] sm:text-[10px] font-bold tracking-[.2em] uppercase text-cyber-400">Future Project</span>
                 </div>
-                <h2 class="text-4xl md:text-6xl font-black tracking-tighter" style="color:var(--text-primary)">Power Beaming<span class="text-warm-500">.</span></h2>
-                <p class="mt-4 max-w-3xl mx-auto text-sm md:text-base" style="color:var(--text-secondary)">
+                <h2 class="text-3xl sm:text-4xl md:text-6xl font-black tracking-tighter" style="color:var(--text-primary)">Power Beaming<span class="text-warm-500">.</span></h2>
+                <p class="mt-3 sm:mt-4 max-w-3xl mx-auto text-sm md:text-base" style="color:var(--text-secondary)">
                     I have been obsessed with this idea since I read about space-based solar power. Sending electricity through the air, from 1 km to orbit. Cutting the last wire.
                 </p>
             </div>
             <div class="relative overflow-hidden" id="pb-carousel-container">
                 <div class="pb-carousel-track px-2" id="pb-carousel-track">
-                    <div class="pb-card cyber-card rounded-xl p-6" style="border-color:var(--border-color);background:var(--bg-card);min-width:380px;max-width:480px;">
-                        <h3 class="text-xl font-bold mb-4 flex items-center gap-2" style="color:var(--text-primary)">
-                            <span class="iconify text-warm-400 text-2xl" data-icon="lucide:eye"></span> The Vision
+                    <div class="pb-card cyber-card rounded-xl p-5 sm:p-6" style="border-color:var(--border-color);background:var(--bg-card);min-width:320px;max-width:460px;">
+                        <h3 class="text-lg sm:text-xl font-bold mb-3 sm:mb-4 flex items-center gap-2" style="color:var(--text-primary)">
+                            <span class="iconify text-warm-400 text-xl sm:text-2xl" data-icon="lucide:eye"></span> The Vision
                         </h3>
                         <p class="text-sm leading-relaxed" style="color:var(--text-secondary)">
                             We beam data across the planet at light speed. We beam images from Mars. But to send power 5 kilometers to a remote village, we still string copper on wooden poles. We can do better.
                         </p>
-                        <div class="mt-4 p-4 rounded-lg border border-cyber-500/20 bg-cyber-500/5">
-                            <h4 class="text-sm font-bold text-cyber-400 mb-2">Why This Matters To Me</h4>
+                        <div class="mt-3 sm:mt-4 p-3 sm:p-4 rounded-lg border border-cyber-500/20 bg-cyber-500/5">
+                            <h4 class="text-xs sm:text-sm font-bold text-cyber-400 mb-1 sm:mb-2">Why This Matters To Me</h4>
                             <p class="text-sm leading-relaxed" style="color:var(--text-secondary)">
                                 Space-based solar power is not sci-fi. NASA, ESA, JAXA, and China's CASIC are all working on it. This is the ultimate clean energy, baseload power, 24/7, from orbit.
                             </p>
                         </div>
                     </div>
-                    <div class="pb-card cyber-card rounded-xl p-6" style="border-color:var(--border-color);background:var(--bg-card);min-width:380px;max-width:480px;">
-                        <h3 class="text-xl font-bold mb-4 flex items-center gap-2" style="color:var(--text-primary)">
-                            <span class="iconify text-cyber-400 text-2xl" data-icon="lucide:radio"></span> Tech & Roadmap
+                    <div class="pb-card cyber-card rounded-xl p-5 sm:p-6" style="border-color:var(--border-color);background:var(--bg-card);min-width:320px;max-width:460px;">
+                        <h3 class="text-lg sm:text-xl font-bold mb-3 sm:mb-4 flex items-center gap-2" style="color:var(--text-primary)">
+                            <span class="iconify text-cyber-400 text-xl sm:text-2xl" data-icon="lucide:radio"></span> Tech & Roadmap
                         </h3>
-                        <div class="space-y-3">
-                            <div class="flex items-center gap-3 p-2 rounded-lg" style="background:rgba(56,189,248,.05);">
-                                <span class="text-2xl">📡</span>
+                        <div class="space-y-2 sm:space-y-3">
+                            <div class="flex items-center gap-2 sm:gap-3 p-2 rounded-lg" style="background:rgba(56,189,248,.05);">
+                                <span class="text-xl sm:text-2xl">📡</span>
                                 <div>
-                                    <h4 class="text-sm font-bold text-cyber-400">5.8 GHz Microwave</h4>
-                                    <p class="text-xs" style="color:var(--text-secondary)">Punches through rain, fog, dust. 0.1-10 km range.</p>
+                                    <h4 class="text-xs sm:text-sm font-bold text-cyber-400">5.8 GHz Microwave</h4>
+                                    <p class="text-[10px] sm:text-xs" style="color:var(--text-secondary)">Punches through rain, fog, dust. 0.1-10 km range.</p>
                                 </div>
                             </div>
-                            <div class="flex items-center gap-3 p-2 rounded-lg" style="background:rgba(245,158,11,.05);">
-                                <span class="text-2xl">🔦</span>
+                            <div class="flex items-center gap-2 sm:gap-3 p-2 rounded-lg" style="background:rgba(245,158,11,.05);">
+                                <span class="text-xl sm:text-2xl">🔦</span>
                                 <div>
-                                    <h4 class="text-sm font-bold text-amber-400">850nm-1550nm Laser</h4>
-                                    <p class="text-xs" style="color:var(--text-secondary)">Tight beam. 1-100 km range. Clear sky only.</p>
+                                    <h4 class="text-xs sm:text-sm font-bold text-amber-400">850nm-1550nm Laser</h4>
+                                    <p class="text-[10px] sm:text-xs" style="color:var(--text-secondary)">Tight beam. 1-100 km range. Clear sky only.</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="mt-4 p-3 rounded-lg border border-warm-500/20 bg-warm-500/5">
-                            <h4 class="text-xs font-bold text-warm-400 uppercase tracking-wider">My Roadmap</h4>
-                            <div class="mt-2 space-y-2 text-xs">
-                                <div class="flex items-center gap-2"><span class="w-5 h-5 rounded-full bg-warm-500/20 flex items-center justify-center text-[9px] font-bold text-warm-500">1</span><span>Benchtop Proof-of-Concept · 10m</span><span class="text-[8px] text-warm-500 font-semibold ml-auto">Q1 2025</span></div>
-                                <div class="flex items-center gap-2"><span class="w-5 h-5 rounded-full bg-cyber-500/20 flex items-center justify-center text-[9px] font-bold text-cyber-400">2</span><span>100m Outdoor Link · 1kW</span><span class="text-[8px] text-cyber-400 font-semibold ml-auto">Q3 2025</span></div>
-                                <div class="flex items-center gap-2"><span class="w-5 h-5 rounded-full bg-purple-500/20 flex items-center justify-center text-[9px] font-bold text-purple-400">3</span><span>1km Cross-Field Beam · 5kW</span><span class="text-[8px] text-purple-400 font-semibold ml-auto">Q2 2026</span></div>
+                        <div class="mt-3 sm:mt-4 p-3 rounded-lg border border-warm-500/20 bg-warm-500/5">
+                            <h4 class="text-[9px] sm:text-xs font-bold text-warm-400 uppercase tracking-wider">My Roadmap</h4>
+                            <div class="mt-1 sm:mt-2 space-y-1 sm:space-y-2 text-[10px] sm:text-xs">
+                                <div class="flex items-center gap-2"><span class="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-warm-500/20 flex items-center justify-center text-[7px] sm:text-[9px] font-bold text-warm-500">1</span><span>Benchtop Proof-of-Concept · 10m</span><span class="text-[7px] sm:text-[8px] text-warm-500 font-semibold ml-auto">Q1 2025</span></div>
+                                <div class="flex items-center gap-2"><span class="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-cyber-500/20 flex items-center justify-center text-[7px] sm:text-[9px] font-bold text-cyber-400">2</span><span>100m Outdoor Link · 1kW</span><span class="text-[7px] sm:text-[8px] text-cyber-400 font-semibold ml-auto">Q3 2025</span></div>
+                                <div class="flex items-center gap-2"><span class="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-purple-500/20 flex items-center justify-center text-[7px] sm:text-[9px] font-bold text-purple-400">3</span><span>1km Cross-Field Beam · 5kW</span><span class="text-[7px] sm:text-[8px] text-purple-400 font-semibold ml-auto">Q2 2026</span></div>
                             </div>
                         </div>
                     </div>
-                    <div class="pb-card cyber-card rounded-xl p-6" style="border-color:var(--border-color);background:var(--bg-card);min-width:380px;max-width:480px;">
-                        <h3 class="text-xl font-bold mb-4 flex items-center gap-2" style="color:var(--text-primary)">
-                            <span class="iconify text-amber-400 text-2xl" data-icon="lucide:alert-triangle"></span> Let's Be Real
+                    <div class="pb-card cyber-card rounded-xl p-5 sm:p-6" style="border-color:var(--border-color);background:var(--bg-card);min-width:320px;max-width:460px;">
+                        <h3 class="text-lg sm:text-xl font-bold mb-3 sm:mb-4 flex items-center gap-2" style="color:var(--text-primary)">
+                            <span class="iconify text-amber-400 text-xl sm:text-2xl" data-icon="lucide:alert-triangle"></span> Let's Be Real
                         </h3>
-                        <div class="space-y-3">
+                        <div class="space-y-2 sm:space-y-3">
                             <div class="flex items-start gap-2 p-2 rounded-lg" style="background:rgba(251,191,36,.05);border-left:2px solid #fbbf24;">
                                 <span class="text-amber-400 mt-0.5">•</span>
-                                <div><strong class="text-white text-sm">Thermal Management:</strong><span class="text-sm" style="color:var(--text-secondary)"> 5kW of heat at 20kW scale. Need liquid cooling.</span></div>
+                                <div><strong class="text-white text-xs sm:text-sm">Thermal Management:</strong><span class="text-xs sm:text-sm" style="color:var(--text-secondary)"> 5kW of heat at 20kW scale. Need liquid cooling.</span></div>
                             </div>
                             <div class="flex items-start gap-2 p-2 rounded-lg" style="background:rgba(251,191,36,.05);border-left:2px solid #fbbf24;">
                                 <span class="text-amber-400 mt-0.5">•</span>
-                                <div><strong class="text-white text-sm">Rectenna Cost:</strong><span class="text-sm" style="color:var(--text-secondary)"> 500,000 elements at roughly $937,000.</span></div>
+                                <div><strong class="text-white text-xs sm:text-sm">Rectenna Cost:</strong><span class="text-xs sm:text-sm" style="color:var(--text-secondary)"> 500,000 elements at roughly $937,000.</span></div>
                             </div>
                         </div>
-                        <div class="mt-4 p-3 rounded-lg border border-amber-500/20 bg-amber-500/5">
-                            <p class="text-[10px] text-amber-400 font-medium uppercase tracking-wider">💭 My Honest Take</p>
-                            <p class="text-xs italic" style="color:var(--text-secondary)">"This is a long-term vision — maybe when I am in my 50s. For now, it is a passion project and a learning journey."</p>
+                        <div class="mt-3 sm:mt-4 p-3 rounded-lg border border-amber-500/20 bg-amber-500/5">
+                            <p class="text-[9px] sm:text-[10px] text-amber-400 font-medium uppercase tracking-wider">💭 My Honest Take</p>
+                            <p class="text-[10px] sm:text-xs italic" style="color:var(--text-secondary)">"This is a long-term vision — maybe when I am in my 50s. For now, it is a passion project and a learning journey."</p>
                         </div>
                     </div>
-                    <div class="pb-card cyber-card rounded-xl p-6" style="border-color:var(--border-color);background:var(--bg-card);min-width:380px;max-width:480px;">
-                        <h3 class="text-xl font-bold mb-4 flex items-center gap-2" style="color:var(--text-primary)">
-                            <span class="iconify text-warm-400 text-2xl" data-icon="lucide:play"></span> Try It Yourself
+                    <div class="pb-card cyber-card rounded-xl p-5 sm:p-6" style="border-color:var(--border-color);background:var(--bg-card);min-width:320px;max-width:460px;">
+                        <h3 class="text-lg sm:text-xl font-bold mb-3 sm:mb-4 flex items-center gap-2" style="color:var(--text-primary)">
+                            <span class="iconify text-warm-400 text-xl sm:text-2xl" data-icon="lucide:play"></span> Try It Yourself
                         </h3>
-                        <div class="rounded-lg bg-black/50 border border-white/10 flex flex-col items-center justify-center p-6 text-center" style="min-height:180px;">
-                            <span class="iconify text-6xl text-neutral-700 mb-4" data-icon="lucide:radio-tower"></span>
-                            <p class="text-sm font-medium" style="color:var(--text-primary)">Beam Propagation Demo</p>
-                            <div class="flex flex-wrap gap-3 justify-center mt-4">
-                                <a href="https://grimzeero78.github.io/power/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-warm-500 text-white text-[10px] font-bold tracking-[.15em] uppercase px-5 py-2.5 rounded-sm hover:bg-warm-600 transition-colors">
+                        <div class="rounded-lg bg-black/50 border border-white/10 flex flex-col items-center justify-center p-4 sm:p-6 text-center" style="min-height:140px sm:min-height:180px;">
+                            <span class="iconify text-4xl sm:text-6xl text-neutral-700 mb-3 sm:mb-4" data-icon="lucide:radio-tower"></span>
+                            <p class="text-xs sm:text-sm font-medium" style="color:var(--text-primary)">Beam Propagation Demo</p>
+                            <div class="flex flex-wrap gap-2 sm:gap-3 justify-center mt-3 sm:mt-4">
+                                <a href="https://grimzeero78.github.io/power/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 sm:gap-2 bg-warm-500 text-white text-[9px] sm:text-[10px] font-bold tracking-[.15em] uppercase px-3 sm:px-5 py-2 sm:py-2.5 rounded-sm hover:bg-warm-600 transition-colors">
                                     <span class="iconify" data-icon="lucide:external-link"></span> View Demo
                                 </a>
-                                <a href="https://github.com/Grimzeero78/power.git" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 border border-cyber-500/30 text-cyber-400 text-[10px] font-bold tracking-[.15em] uppercase px-5 py-2.5 rounded-sm hover:bg-cyber-500/10 transition-colors">
+                                <a href="https://github.com/Grimzeero78/power.git" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 sm:gap-2 border border-cyber-500/30 text-cyber-400 text-[9px] sm:text-[10px] font-bold tracking-[.15em] uppercase px-3 sm:px-5 py-2 sm:py-2.5 rounded-sm hover:bg-cyber-500/10 transition-colors">
                                     <span class="iconify" data-icon="lucide:github"></span> Source
                                 </a>
                             </div>
@@ -1717,86 +1822,89 @@
                     </div>
                 </div>
             </div>
-            <div class="flex items-center justify-center gap-4 mt-6 pf-reveal">
-                <button id="pb-prev" class="w-10 h-10 border border-white/20 rounded-sm flex items-center justify-center transition-all hover:border-warm-500" style="border-color:var(--border-color);color:var(--text-secondary)">
-                    <iconify-icon icon="lucide:arrow-left" width="16"></iconify-icon>
+            <div class="flex items-center justify-center gap-3 sm:gap-4 mt-4 sm:mt-6 pf-reveal">
+                <button id="pb-prev" class="w-8 h-8 sm:w-10 sm:h-10 border border-white/20 rounded-sm flex items-center justify-center transition-all hover:border-warm-500" style="border-color:var(--border-color);color:var(--text-secondary)">
+                    <iconify-icon icon="lucide:arrow-left" width="14" class="sm:w-4"></iconify-icon>
                 </button>
-                <button id="pb-next" class="w-10 h-10 border border-white/20 rounded-sm flex items-center justify-center transition-all hover:border-warm-500" style="border-color:var(--border-color);color:var(--text-secondary)">
-                    <iconify-icon icon="lucide:arrow-right" width="16"></iconify-icon>
+                <button id="pb-next" class="w-8 h-8 sm:w-10 sm:h-10 border border-white/20 rounded-sm flex items-center justify-center transition-all hover:border-warm-500" style="border-color:var(--border-color);color:var(--text-secondary)">
+                    <iconify-icon icon="lucide:arrow-right" width="14" class="sm:w-4"></iconify-icon>
                 </button>
                 <div class="flex-1 h-px bg-white/10" style="background:var(--border-color)"></div>
-                <div id="pb-dots" class="flex gap-2"></div>
+                <div id="pb-dots" class="flex gap-1 sm:gap-2"></div>
             </div>
         </div>
     </section>
 
-    <section id="projects" class="relative py-24 md:py-32 border-t border-white/10" style="border-color:var(--border-color);background:var(--bg-primary)">
+    <!-- PROJECTS Section -->
+    <section id="projects" class="relative py-16 sm:py-24 md:py-32 border-t border-white/10" style="border-color:var(--border-color);background:var(--bg-primary)">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16">
-                <div class="pf-reveal"><p class="text-[10px] font-semibold tracking-[.3em] uppercase text-warm-400 mb-3">All Work</p><h2 class="text-4xl md:text-5xl font-black tracking-tighter uppercase" style="color:var(--text-primary)">Projects</h2></div>
-                <div class="flex gap-2 pf-reveal pf-delay-1 flex-wrap" id="filter-buttons">
-                    <button class="filter-btn active text-[10px] font-semibold tracking-[.15em] uppercase border border-white/20 px-4 py-2 rounded-sm transition-all" data-filter="all" style="border-color:var(--border-color)">All</button>
-                    <button class="filter-btn text-[10px] font-semibold tracking-[.15em] uppercase border border-white/20 text-neutral-400 px-4 py-2 rounded-sm hover:text-white hover:border-white/40 transition-all" data-filter="mobile" style="border-color:var(--border-color);color:var(--text-secondary)">Mobile</button>
-                    <button class="filter-btn text-[10px] font-semibold tracking-[.15em] uppercase border border-white/20 text-neutral-400 px-4 py-2 rounded-sm hover:text-white hover:border-white/40 transition-all" data-filter="ai" style="border-color:var(--border-color);color:var(--text-secondary)">AI / ML</button>
-                    <button class="filter-btn text-[10px] font-semibold tracking-[.15em] uppercase border border-white/20 text-neutral-400 px-4 py-2 rounded-sm hover:text-white hover:border-white/40 transition-all" data-filter="web" style="border-color:var(--border-color);color:var(--text-secondary)">Web</button>
+            <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 sm:gap-6 mb-10 sm:mb-16">
+                <div class="pf-reveal"><p class="text-[9px] sm:text-[10px] font-semibold tracking-[.3em] uppercase text-warm-400 mb-2 sm:mb-3">All Work</p><h2 class="text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter uppercase" style="color:var(--text-primary)">Projects</h2></div>
+                <div class="flex gap-1 sm:gap-2 pf-reveal pf-delay-1 flex-wrap" id="filter-buttons">
+                    <button class="filter-btn active text-[9px] sm:text-[10px] font-semibold tracking-[.15em] uppercase border border-white/20 px-3 sm:px-4 py-1.5 sm:py-2 rounded-sm transition-all" data-filter="all" style="border-color:var(--border-color)">All</button>
+                    <button class="filter-btn text-[9px] sm:text-[10px] font-semibold tracking-[.15em] uppercase border border-white/20 text-neutral-400 px-3 sm:px-4 py-1.5 sm:py-2 rounded-sm hover:text-white hover:border-white/40 transition-all" data-filter="mobile" style="border-color:var(--border-color);color:var(--text-secondary)">Mobile</button>
+                    <button class="filter-btn text-[9px] sm:text-[10px] font-semibold tracking-[.15em] uppercase border border-white/20 text-neutral-400 px-3 sm:px-4 py-1.5 sm:py-2 rounded-sm hover:text-white hover:border-white/40 transition-all" data-filter="ai" style="border-color:var(--border-color);color:var(--text-secondary)">AI / ML</button>
+                    <button class="filter-btn text-[9px] sm:text-[10px] font-semibold tracking-[.15em] uppercase border border-white/20 text-neutral-400 px-3 sm:px-4 py-1.5 sm:py-2 rounded-sm hover:text-white hover:border-white/40 transition-all" data-filter="web" style="border-color:var(--border-color);color:var(--text-secondary)">Web</button>
                 </div>
             </div>
-            <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+            <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"></div>
         </div>
     </section>
 
-    <section id="cases" class="relative py-24 md:py-32 border-t border-white/10" style="border-color:var(--border-color);background:var(--bg-secondary)">
-        <div class="max-w-7xl mx-auto px-6 mb-12">
-            <div class="pf-reveal"><p class="text-[10px] font-semibold tracking-[.3em] uppercase text-warm-400 mb-3">Deep Dives</p><h2 class="text-4xl md:text-5xl font-black tracking-tighter uppercase" style="color:var(--text-primary)">Case Studies</h2></div>
+    <!-- CASE STUDIES Section -->
+    <section id="cases" class="relative py-16 sm:py-24 md:py-32 border-t border-white/10" style="border-color:var(--border-color);background:var(--bg-secondary)">
+        <div class="max-w-7xl mx-auto px-6 mb-8 sm:mb-12">
+            <div class="pf-reveal"><p class="text-[9px] sm:text-[10px] font-semibold tracking-[.3em] uppercase text-warm-400 mb-2 sm:mb-3">Deep Dives</p><h2 class="text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter uppercase" style="color:var(--text-primary)">Case Studies</h2></div>
         </div>
         <div class="relative overflow-hidden" id="carousel-container">
-            <div class="carousel-track px-6 md:px-[max(1.5rem,calc((100vw-80rem)/2+1.5rem))]" id="carousel-track"></div>
+            <div class="carousel-track px-4 sm:px-6 md:px-[max(1.5rem,calc((100vw-80rem)/2+1.5rem))]" id="carousel-track"></div>
         </div>
-        <div class="max-w-7xl mx-auto px-6 mt-8 flex items-center gap-4 pf-reveal">
-            <button id="carousel-prev" class="w-12 h-12 border border-white/20 rounded-sm flex items-center justify-center transition-all" style="border-color:var(--border-color);color:var(--text-secondary)"><iconify-icon icon="lucide:arrow-left" width="18"></iconify-icon></button>
-            <button id="carousel-next" class="w-12 h-12 border border-white/20 rounded-sm flex items-center justify-center transition-all" style="border-color:var(--border-color);color:var(--text-secondary)"><iconify-icon icon="lucide:arrow-right" width="18"></iconify-icon></button>
+        <div class="max-w-7xl mx-auto px-6 mt-6 sm:mt-8 flex items-center gap-3 sm:gap-4 pf-reveal">
+            <button id="carousel-prev" class="w-9 h-9 sm:w-12 sm:h-12 border border-white/20 rounded-sm flex items-center justify-center transition-all" style="border-color:var(--border-color);color:var(--text-secondary)"><iconify-icon icon="lucide:arrow-left" width="14" class="sm:w-4"></iconify-icon></button>
+            <button id="carousel-next" class="w-9 h-9 sm:w-12 sm:h-12 border border-white/20 rounded-sm flex items-center justify-center transition-all" style="border-color:var(--border-color);color:var(--text-secondary)"><iconify-icon icon="lucide:arrow-right" width="14" class="sm:w-4"></iconify-icon></button>
             <div class="flex-1 h-px bg-white/10" style="background:var(--border-color)"></div>
-            <div id="carousel-dots" class="flex gap-2"></div>
+            <div id="carousel-dots" class="flex gap-1 sm:gap-2"></div>
         </div>
     </section>
 
-    <section id="stack" class="relative py-24 md:py-32 border-t border-white/10" style="border-color:var(--border-color);background:var(--bg-primary)">
+    <!-- STACK Section -->
+    <section id="stack" class="relative py-16 sm:py-24 md:py-32 border-t border-white/10" style="border-color:var(--border-color);background:var(--bg-primary)">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-16 pf-reveal"><p class="text-[10px] font-semibold tracking-[.3em] uppercase text-warm-400 mb-3">Arsenal</p><h2 class="text-4xl md:text-5xl font-black tracking-tighter uppercase" style="color:var(--text-primary)">Tech Stack</h2></div>
-            <div id="tech-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+            <div class="text-center mb-10 sm:mb-16 pf-reveal"><p class="text-[9px] sm:text-[10px] font-semibold tracking-[.3em] uppercase text-warm-400 mb-2 sm:mb-3">Arsenal</p><h2 class="text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter uppercase" style="color:var(--text-primary)">Tech Stack</h2></div>
+            <div id="tech-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6"></div>
 
-            <div class="mt-24 border-t border-white/10 pt-16 pf-reveal" style="border-color:var(--border-color)">
-                <div class="text-center mb-12">
-                    <p class="text-[10px] font-semibold tracking-[.3em] uppercase text-clay-400 mb-3">Context</p>
-                    <h3 class="text-3xl md:text-4xl font-black tracking-tight" style="color:var(--text-primary)">Acknowledgements & Tools</h3>
-                    <p class="max-w-2xl mx-auto mt-4 text-sm" style="color:var(--text-secondary)">The people and tools that amplified my thinking, and the hands-on work that made it real.</p>
+            <div class="mt-16 sm:mt-24 border-t border-white/10 pt-10 sm:pt-16 pf-reveal" style="border-color:var(--border-color)">
+                <div class="text-center mb-8 sm:mb-12">
+                    <p class="text-[9px] sm:text-[10px] font-semibold tracking-[.3em] uppercase text-clay-400 mb-2 sm:mb-3">Context</p>
+                    <h3 class="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight" style="color:var(--text-primary)">Acknowledgements & Tools</h3>
+                    <p class="max-w-2xl mx-auto mt-3 sm:mt-4 text-sm" style="color:var(--text-secondary)">The people and tools that amplified my thinking, and the hands-on work that made it real.</p>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
-                    <div class="bg-neutral-950/80 border border-white/10 rounded-lg p-6 hover:border-warm-500/30 transition-colors" style="background:var(--bg-card);border-color:var(--border-color)">
-                        <h4 class="text-warm-400 font-bold mb-2">🧠 My Cousin Jermain</h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 text-sm">
+                    <div class="bg-neutral-950/80 border border-white/10 rounded-lg p-4 sm:p-6 hover:border-warm-500/30 transition-colors" style="background:var(--bg-card);border-color:var(--border-color)">
+                        <h4 class="text-warm-400 font-bold mb-1 sm:mb-2">🧠 My Cousin Jermain</h4>
                         <p class="leading-relaxed" style="color:var(--text-secondary)">The simplest debugger. Explaining problems to an 8-year-old forced me to break down complexity into plain language.</p>
                     </div>
-                    <div class="bg-neutral-950/80 border border-white/10 rounded-lg p-6 hover:border-warm-500/30 transition-colors" style="background:var(--bg-card);border-color:var(--border-color)">
-                        <h4 class="text-warm-400 font-bold mb-2">📺 YouTube</h4>
+                    <div class="bg-neutral-950/80 border border-white/10 rounded-lg p-4 sm:p-6 hover:border-warm-500/30 transition-colors" style="background:var(--bg-card);border-color:var(--border-color)">
+                        <h4 class="text-warm-400 font-bold mb-1 sm:mb-2">📺 YouTube</h4>
                         <p class="leading-relaxed" style="color:var(--text-secondary)">My classroom. Visual, step-by-step environment setup, VS Code, terminals, paths. Free and foundational.</p>
                     </div>
-                    <div class="bg-neutral-950/80 border border-white/10 rounded-lg p-6 hover:border-warm-500/30 transition-colors" style="background:var(--bg-card);border-color:var(--border-color)">
-                        <h4 class="text-warm-400 font-bold mb-2">🤖 ChatGPT</h4>
+                    <div class="bg-neutral-950/80 border border-white/10 rounded-lg p-4 sm:p-6 hover:border-warm-500/30 transition-colors" style="background:var(--bg-card);border-color:var(--border-color)">
+                        <h4 class="text-warm-400 font-bold mb-1 sm:mb-2">🤖 ChatGPT</h4>
                         <p class="leading-relaxed" style="color:var(--text-secondary)">Prompt engineering partner. Iterative refinement, structuring messy ideas, and teaching me that output quality depends on input quality.</p>
                     </div>
-                    <div class="bg-neutral-950/80 border border-white/10 rounded-lg p-6 hover:border-warm-500/30 transition-colors" style="background:var(--bg-card);border-color:var(--border-color)">
-                        <h4 class="text-warm-400 font-bold mb-2">🧬 Claude</h4>
+                    <div class="bg-neutral-950/80 border border-white/10 rounded-lg p-4 sm:p-6 hover:border-warm-500/30 transition-colors" style="background:var(--bg-card);border-color:var(--border-color)">
+                        <h4 class="text-warm-400 font-bold mb-1 sm:mb-2">🧬 Claude</h4>
                         <p class="leading-relaxed" style="color:var(--text-secondary)">Advanced debugger. Deep reasoning, long-context understanding, and honest explanations. Catches what others miss.</p>
                     </div>
-                    <div class="bg-neutral-950/80 border border-white/10 rounded-lg p-6 hover:border-warm-500/30 transition-colors" style="background:var(--bg-card);border-color:var(--border-color)">
-                        <h4 class="text-warm-400 font-bold mb-2">⚡ Gemini</h4>
+                    <div class="bg-neutral-950/80 border border-white/10 rounded-lg p-4 sm:p-6 hover:border-warm-500/30 transition-colors" style="background:var(--bg-card);border-color:var(--border-color)">
+                        <h4 class="text-warm-400 font-bold mb-1 sm:mb-2">⚡ Gemini</h4>
                         <p class="leading-relaxed" style="color:var(--text-secondary)">Feature expansion. Adding new features fast, cross-referencing APIs, and iterative debugging.</p>
                     </div>
-                    <div class="bg-neutral-950/80 border border-white/10 rounded-lg p-6 hover:border-warm-500/30 transition-colors" style="background:var(--bg-card);border-color:var(--border-color)">
-                        <h4 class="text-warm-400 font-bold mb-2">⌨️ GitHub Copilot</h4>
+                    <div class="bg-neutral-950/80 border border-white/10 rounded-lg p-4 sm:p-6 hover:border-warm-500/30 transition-colors" style="background:var(--bg-card);border-color:var(--border-color)">
+                        <h4 class="text-warm-400 font-bold mb-1 sm:mb-2">⌨️ GitHub Copilot</h4>
                         <p class="leading-relaxed" style="color:var(--text-secondary)">Inline code generation. Boilerplate, configs, and repetitive code, so I could keep thinking while it typed.</p>
                     </div>
-                    <div class="bg-neutral-950/80 border border-white/10 rounded-lg p-6 hover:border-warm-500/30 transition-colors md:col-span-2" style="background:var(--bg-card);border-color:var(--border-color)">
+                    <div class="bg-neutral-950/80 border border-white/10 rounded-lg p-4 sm:p-6 hover:border-warm-500/30 transition-colors md:col-span-2" style="background:var(--bg-card);border-color:var(--border-color)">
                         <h4 class="font-bold" style="color:var(--text-primary)">💡 What I Want People to Understand</h4>
                         <p class="leading-relaxed" style="color:var(--text-secondary)">I did not take a shortcut. I took a smart route. Every AI tool required me to know what to ask, recognize when the answer was wrong, test and adapt, and make the final decision on every line. AI did not replace my thinking, it amplified it. And honestly? Sometimes it was just faster to write the code myself.</p>
                     </div>
@@ -1805,39 +1913,41 @@
         </div>
     </section>
 
-    <section id="contact" class="relative py-24 md:py-32 border-t border-white/10" style="border-color:var(--border-color);background:var(--bg-secondary)">
+    <!-- CONTACT Section -->
+    <section id="contact" class="relative py-16 sm:py-24 md:py-32 border-t border-white/10" style="border-color:var(--border-color);background:var(--bg-secondary)">
         <div class="max-w-3xl mx-auto px-6 text-center">
-            <p class="text-[10px] font-semibold tracking-[.3em] uppercase text-warm-400 mb-4 pf-reveal">Available for Work</p>
-            <h2 class="text-4xl md:text-6xl font-black tracking-tighter uppercase pf-reveal pf-delay-1" style="color:var(--text-primary)">Let's Build<br>Something <span class="text-warm-500">Real</span></h2>
-            <p class="mt-6 text-sm leading-relaxed max-w-md mx-auto pf-reveal pf-delay-2" style="color:var(--text-secondary)">I build apps that solve actual problems for real people. If you have an idea, or just need a solid developer, let's talk.</p>
-            <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center pf-reveal pf-delay-3">
-                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=injuguna308@gmail.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 bg-warm-500 text-white text-[11px] font-bold tracking-[.15em] uppercase px-8 py-4 rounded-sm hover:bg-warm-600 transition-colors pulse-cta"><iconify-icon icon="lucide:mail" width="14"></iconify-icon>Get in Touch</a>
-                <button onclick="openCV()" class="inline-flex items-center justify-center gap-2 border border-white/20 text-white text-[11px] font-bold tracking-[.15em] uppercase px-8 py-4 rounded-sm hover:bg-white/5 hover:border-white/40 transition-all" style="border-color:var(--border-color);color:var(--text-primary)"><iconify-icon icon="lucide:file-text" width="14"></iconify-icon>View CV</button>
+            <p class="text-[9px] sm:text-[10px] font-semibold tracking-[.3em] uppercase text-warm-400 mb-3 sm:mb-4 pf-reveal">Available for Work</p>
+            <h2 class="text-3xl sm:text-4xl md:text-6xl font-black tracking-tighter uppercase pf-reveal pf-delay-1" style="color:var(--text-primary)">Let's Build<br>Something <span class="text-warm-500">Real</span></h2>
+            <p class="mt-4 sm:mt-6 text-sm leading-relaxed max-w-md mx-auto pf-reveal pf-delay-2" style="color:var(--text-secondary)">I build apps that solve actual problems for real people. If you have an idea, or just need a solid developer, let's talk.</p>
+            <div class="mt-6 sm:mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center pf-reveal pf-delay-3">
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=injuguna308@gmail.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 bg-warm-500 text-white text-[10px] sm:text-[11px] font-bold tracking-[.15em] uppercase px-5 sm:px-8 py-3 sm:py-4 rounded-sm hover:bg-warm-600 transition-colors pulse-cta"><iconify-icon icon="lucide:mail" width="12" class="sm:w-3.5"></iconify-icon>Get in Touch</button>
+                <button onclick="openCV()" class="inline-flex items-center justify-center gap-2 border border-white/20 text-white text-[10px] sm:text-[11px] font-bold tracking-[.15em] uppercase px-5 sm:px-8 py-3 sm:py-4 rounded-sm hover:bg-white/5 hover:border-white/40 transition-all" style="border-color:var(--border-color);color:var(--text-primary)"><iconify-icon icon="lucide:file-text" width="12" class="sm:w-3.5"></iconify-icon>View CV</button>
             </div>
-            <div class="mt-16 flex justify-center gap-6 pf-reveal pf-delay-4">
-                <a href="https://github.com/Grimzeero78" target="_blank" rel="noopener noreferrer" class="text-neutral-500 hover:text-warm-500 transition-colors" style="color:var(--text-secondary)"><iconify-icon icon="lucide:github" width="20"></iconify-icon></a>
-                <a href="#" class="text-neutral-500 hover:text-warm-500 transition-colors" style="color:var(--text-secondary)"><iconify-icon icon="lucide:linkedin" width="20"></iconify-icon></a>
-                <a href="#" class="text-neutral-500 hover:text-warm-500 transition-colors" style="color:var(--text-secondary)"><iconify-icon icon="lucide:twitter" width="20"></iconify-icon></a>
-                <a href="#" class="text-neutral-500 hover:text-warm-500 transition-colors" style="color:var(--text-secondary)"><iconify-icon icon="lucide:instagram" width="20"></iconify-icon></a>
+            <div class="mt-10 sm:mt-16 flex justify-center gap-4 sm:gap-6 pf-reveal pf-delay-4">
+                <a href="https://github.com/Grimzeero78" target="_blank" rel="noopener noreferrer" class="text-neutral-500 hover:text-warm-500 transition-colors" style="color:var(--text-secondary)"><iconify-icon icon="lucide:github" width="18" class="sm:w-5"></iconify-icon></a>
+                <a href="#" class="text-neutral-500 hover:text-warm-500 transition-colors" style="color:var(--text-secondary)"><iconify-icon icon="lucide:linkedin" width="18" class="sm:w-5"></iconify-icon></a>
+                <a href="#" class="text-neutral-500 hover:text-warm-500 transition-colors" style="color:var(--text-secondary)"><iconify-icon icon="lucide:twitter" width="18" class="sm:w-5"></iconify-icon></a>
+                <a href="#" class="text-neutral-500 hover:text-warm-500 transition-colors" style="color:var(--text-secondary)"><iconify-icon icon="lucide:instagram" width="18" class="sm:w-5"></iconify-icon></a>
             </div>
         </div>
     </section>
 
-    <footer class="border-t border-white/10 py-8" style="border-color:var(--border-color);background:var(--bg-primary)">
-        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
-            <p class="text-[11px]" style="color:var(--text-secondary)">© 2026 Isaac Bridget. All rights reserved.</p>
-            <p class="text-[11px]" style="color:var(--text-secondary)">Designed and coded with purpose. · <span class="text-warm-500/70 font-mono tracking-wider">isaacportfolio</span></p>
+    <footer class="border-t border-white/10 py-6 sm:py-8" style="border-color:var(--border-color);background:var(--bg-primary)">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-3 sm:gap-4">
+            <p class="text-[10px] sm:text-[11px]" style="color:var(--text-secondary)">© 2026 Isaac Bridget. All rights reserved.</p>
+            <p class="text-[10px] sm:text-[11px]" style="color:var(--text-secondary)">Designed and coded with purpose. · <span class="text-warm-500/70 font-mono tracking-wider">isaacportfolio</span></p>
         </div>
     </footer>
 
-    <div id="sticky-cta" class="fixed bottom-0 left-0 w-full z-[8000] bg-black/90 backdrop-blur-md border-t border-white/10 py-4 px-6" style="background:var(--bg-nav);border-color:var(--border-color)">
+    <!-- STICKY CTA -->
+    <div id="sticky-cta" class="fixed bottom-0 left-0 w-full z-[8000] bg-black/90 backdrop-blur-md border-t border-white/10 py-3 sm:py-4 px-4 sm:px-6" style="background:var(--bg-nav);border-color:var(--border-color)">
         <div class="max-w-7xl mx-auto flex items-center justify-between">
-            <p class="text-sm hidden sm:block" style="color:var(--text-secondary)">Have a project in mind?</p>
-            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=injuguna308@gmail.com" target="_blank" rel="noopener noreferrer" class="ml-auto inline-flex items-center gap-2 bg-warm-500 text-white text-[11px] font-bold tracking-[.15em] uppercase px-6 py-3 rounded-sm hover:bg-warm-600 transition-colors pulse-cta">Hire Me <iconify-icon icon="lucide:arrow-up-right" width="14"></iconify-icon></a>
+            <p class="text-xs sm:text-sm hidden sm:block" style="color:var(--text-secondary)">Have a project in mind?</p>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=injuguna308@gmail.com" target="_blank" rel="noopener noreferrer" class="ml-auto inline-flex items-center gap-2 bg-warm-500 text-white text-[10px] sm:text-[11px] font-bold tracking-[.15em] uppercase px-4 sm:px-6 py-2 sm:py-3 rounded-sm hover:bg-warm-600 transition-colors pulse-cta">Hire Me <iconify-icon icon="lucide:arrow-up-right" width="12" class="sm:w-3.5"></iconify-icon></a>
         </div>
     </div>
 
-    <!-- CV OVERLAY -->
+    <!-- CV OVERLAY (unchanged) -->
     <div id="cv-overlay" class="cv-hex-bg">
         <div class="cv-noise"></div>
         <canvas id="cv-matrix-canvas"></canvas>
@@ -1994,7 +2104,6 @@
                         <div class="mt-4 flex flex-wrap gap-2"><span class="cv-tag px-2 py-1 text-[10px] rounded-md bg-white/5 text-slate-400 border border-white/10">Python</span><span class="cv-tag px-2 py-1 text-[10px] rounded-md bg-white/5 text-slate-400 border border-white/10">TensorFlow</span><span class="cv-tag px-2 py-1 text-[10px] rounded-md bg-white/5 text-slate-400 border border-white/10">OpenCV</span></div>
                     </div>
                 </div>
-                <!-- NEW: City Stars FC Project -->
                 <div class="cv-reveal cv-delay-4 cyber-card rounded-2xl overflow-hidden cv-project-card mb-6">
                     <div class="p-6 sm:p-8">
                         <div class="flex items-start justify-between flex-wrap gap-4"><div><h3 class="text-xl font-bold text-white mb-2 flex items-center gap-3"><span class="iconify text-cyber-400 text-2xl" data-icon="lucide:football"></span>City Stars FC</h3><p class="text-cyber-400 font-mono text-sm mb-4">⚽ Chuka University Football Website</p></div><a href="https://github.com/Grimzeero78/CityStars.git" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 hover:scale-105" style="background:rgba(56,189,248,.15);border:1px solid rgba(56,189,248,.3);color:#7DD3FC;"><span class="iconify" data-icon="lucide:github"></span>Source Code</a></div>
@@ -2139,8 +2248,6 @@
 
     <script>
         // ---- PROJECTS ----
-        // Reordered: Stockipa (1), Isaac Art Website (2), AI Image Detector (3),
-        // DeepRest (4), Mirrorcam (5), Stockipa Currency AI (6), Merit AI (7), City Stars FC (8)
         const projects = [{
             id: 1,
             title: "Stockipa",
@@ -2235,7 +2342,6 @@
         }];
 
         // ---- CASE STUDIES ----
-        // Update references to match reordered projects array
         const caseStudies = [
             { project: projects[0], challenge: "Most small business people in Kenya operate hand-to-mouth with zero financial visibility. My mom (CJ), a mtumba seller, would earn 300K in a month and spend it all without realizing where it went.",
                 solution: "Built Stockipa as a fully offline mobile app. Users tap to add sales/expenses or scan bills. M-Pesa SMS auto-captured. Home page shows money in vs out instantly.",
@@ -3445,8 +3551,12 @@ Type \`cat posts\` to read what I have written.
             }, { passive: true });
         }
 
-        document.getElementById('mobile-menu-btn').addEventListener('click', () => document.getElementById('mobile-menu')
-            .classList.toggle('hidden'));
+        // Hamburger menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
         document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => document.getElementById(
         'mobile-menu').classList.add('hidden')));
 

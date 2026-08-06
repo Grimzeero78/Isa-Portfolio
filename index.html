@@ -937,35 +937,76 @@
             color: #4a4a4a !important;
         }
 
-        @media(max-width:768px) {
-            #nav .flex.items-center.gap-3 {
-                display: flex !important;
+        /* Mobile menu button */
+        #mobile-menu-btn {
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            background: rgba(255, 255, 255, 0.03);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        #mobile-menu-btn:hover {
+            border-color: #D97706;
+            background: rgba(217, 119, 6, 0.08);
+        }
+        #mobile-menu-btn .iconify {
+            font-size: 24px;
+        }
+
+        /* ===== FIX 3: Increased bottom padding for scroll indicator ===== */
+        #hero .hero-content-wrap {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: calc(100vh - 80px);
+            padding: 2rem 0 5rem;   /* bottom: 3rem → 5rem */
+        }
+        @media(max-width:640px) {
+            #hero .hero-content-wrap {
+                min-height: calc(100vh - 70px);
+                padding: 1.5rem 0 4.5rem; /* bottom: 2.5rem → 4.5rem */
             }
-            #nav .theme-toggle-btn-mobile {
-                display: flex !important;
+            #hero .hero-btn-group {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.5rem !important;
             }
-            #mobile-menu-btn {
-                display: flex !important;
+            #hero .hero-btn-group .btn-hero {
+                font-size: 9px !important;
+                padding: 0.5rem 0.75rem !important;
             }
-            /* increase hero padding on mobile to avoid overlap */
-            #hero .relative.z-10 {
-                padding-top: 6rem !important;
+            #hero h1 .block {
+                font-size: clamp(2.2rem, 15vw, 4rem) !important;
+            }
+            #hero .hero-subtitle {
+                font-size: 0.75rem !important;
+            }
+            #hero .hero-typing {
+                font-size: 11px !important;
+            }
+            #hero .scroll-indicator {
+                bottom: 6px !important;
+            }
+            #hero .scroll-indicator span {
+                font-size: 8px !important;
+            }
+            #hero .scroll-indicator .line {
+                height: 20px !important;
             }
         }
-        @media(min-width:769px) {
-            .theme-toggle-btn-mobile {
-                display: none !important;
+        @media(min-width:641px) and (max-width:1024px) {
+            #hero .hero-btn-group .btn-hero {
+                font-size: 10px !important;
+                padding: 0.6rem 1rem !important;
             }
-            /* hide desktop nav links behind hamburger on all screens */
-            #nav .hidden.md\:flex {
-                display: none !important;
-            }
-            /* show hamburger on desktop too */
-            #mobile-menu-btn {
-                display: flex !important;
-            }
-            #nav .flex.items-center.gap-3.md\:hidden {
-                display: flex !important;
+            #hero h1 .block {
+                font-size: clamp(3.5rem, 10vw, 6rem) !important;
             }
         }
 
@@ -1488,78 +1529,12 @@
             margin: 6px 0;
         }
 
-        /* mobile menu button style */
-        #mobile-menu-btn {
-            color: var(--text-primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 6px;
-            border: 1px solid var(--border-color);
-            background: rgba(255, 255, 255, 0.03);
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-        #mobile-menu-btn:hover {
-            border-color: #D97706;
-            background: rgba(217, 119, 6, 0.08);
-        }
-        #mobile-menu-btn .iconify {
-            font-size: 24px;
-        }
+        /* ===== FIX 2: REMOVED the problematic @media(min-width:769px) block ===== */
+        /* The old code that forced hamburger on all screens has been deleted. */
+        /* Now the standard responsive classes work as expected. */
 
-        /* Hero section - improved spacing */
-        #hero .hero-content-wrap {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            min-height: calc(100vh - 80px);
-            padding: 2rem 0 3rem;
-        }
-        @media(max-width:640px) {
-            #hero .hero-content-wrap {
-                min-height: calc(100vh - 70px);
-                padding: 1.5rem 0 2.5rem;
-            }
-            #hero .hero-btn-group {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 0.5rem !important;
-            }
-            #hero .hero-btn-group .btn-hero {
-                font-size: 9px !important;
-                padding: 0.5rem 0.75rem !important;
-            }
-            #hero h1 .block {
-                font-size: clamp(2.2rem, 15vw, 4rem) !important;
-            }
-            #hero .hero-subtitle {
-                font-size: 0.75rem !important;
-            }
-            #hero .hero-typing {
-                font-size: 11px !important;
-            }
-            #hero .scroll-indicator {
-                bottom: 6px !important;
-            }
-            #hero .scroll-indicator span {
-                font-size: 8px !important;
-            }
-            #hero .scroll-indicator .line {
-                height: 20px !important;
-            }
-        }
-        @media(min-width:641px) and (max-width:1024px) {
-            #hero .hero-btn-group .btn-hero {
-                font-size: 10px !important;
-                padding: 0.6rem 1rem !important;
-            }
-            #hero h1 .block {
-                font-size: clamp(3.5rem, 10vw, 6rem) !important;
-            }
-        }
+        /* Mobile menu button style (already defined above) */
+        /* Ensure the hamburger is hidden on desktop by default via Tailwind classes */
     </style>
 </head>
 
@@ -1570,12 +1545,13 @@
     <div class="cursor-ring" id="cursor-ring"></div>
     <div class="grain" id="grain"></div>
 
-    <!-- NAVIGATION -->
+    <!-- ===== NAVIGATION ===== -->
+    <!-- FIX 1: Desktop nav visible on md+, hamburger hidden on md+ -->
     <nav id="nav" class="fixed top-0 left-0 w-full z-[9000] transition-all duration-500 border-b border-transparent">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
             <a href="#hero" class="text-white font-bold text-lg tracking-tight flex-shrink-0" style="color:var(--text-primary)">IB<span class="text-warm-500">.</span></a>
 
-            <!-- Desktop nav links (hidden behind hamburger on all screens) -->
+            <!-- Desktop nav links - visible on md and up -->
             <div class="hidden md:flex items-center gap-6">
                 <a href="#projects" class="text-[11px] font-semibold tracking-[.2em] uppercase text-neutral-400 hover:text-white transition-colors" style="color:var(--text-secondary)">Projects</a>
                 <a href="#stockipa" class="text-[11px] font-semibold tracking-[.2em] uppercase text-neutral-400 hover:text-white transition-colors" style="color:var(--text-secondary)">Stockipa</a>
@@ -1588,20 +1564,20 @@
                 <a href="https://mail.google.com/mail/?view=cm&fs=1&to=injuguna308@gmail.com" target="_blank" rel="noopener noreferrer" class="text-[11px] font-semibold tracking-[.2em] uppercase bg-warm-500 text-white px-5 py-2.5 rounded-sm hover:bg-warm-600 transition-colors">Hire Me</a>
             </div>
 
-            <!-- Right side: theme toggle + hamburger + Hire Me (mobile) -->
-            <div class="flex items-center gap-2 sm:gap-3">
+            <!-- Mobile controls: theme toggle + Hire Me (visible on mobile) + hamburger -->
+            <div class="flex items-center gap-2 sm:gap-3 md:hidden">
                 <button onclick="toggleTheme()" class="theme-toggle-btn theme-toggle-btn-mobile" aria-label="Toggle theme">
                     <iconify-icon icon="lucide:moon" width="14" id="theme-icon-mobile"></iconify-icon>
                 </button>
-                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=injuguna308@gmail.com" target="_blank" rel="noopener noreferrer" class="text-[10px] sm:text-[11px] font-semibold tracking-[.15em] uppercase bg-warm-500 text-white px-3 sm:px-4 py-2 rounded-sm hover:bg-warm-600 transition-colors hidden sm:inline-flex">Hire Me</a>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=injuguna308@gmail.com" target="_blank" rel="noopener noreferrer" class="text-[10px] sm:text-[11px] font-semibold tracking-[.15em] uppercase bg-warm-500 text-white px-3 sm:px-4 py-2 rounded-sm hover:bg-warm-600 transition-colors">Hire Me</a>
                 <button id="mobile-menu-btn" aria-label="Toggle navigation menu">
                     <iconify-icon icon="lucide:menu" width="24"></iconify-icon>
                 </button>
             </div>
         </div>
 
-        <!-- Mobile / Hamburger Menu Dropdown -->
-        <div id="mobile-menu" class="hidden bg-black/95 backdrop-blur-md border-t border-white/10" style="background:var(--bg-nav)">
+        <!-- Mobile menu dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-black/95 backdrop-blur-md border-t border-white/10" style="background:var(--bg-nav)">
             <div class="px-4 sm:px-6 py-4 sm:py-6 flex flex-col gap-3 sm:gap-4">
                 <a href="#projects" class="text-sm font-semibold tracking-wider uppercase text-neutral-300 hover:text-warm-500 transition-colors mobile-link">Projects</a>
                 <a href="#stockipa" class="text-sm font-semibold tracking-wider uppercase text-neutral-300 hover:text-warm-500 transition-colors mobile-link">Stockipa</a>
@@ -1612,12 +1588,13 @@
         </div>
     </nav>
 
-    <!-- HERO SECTION — improved spacing for full-screen visibility -->
+    <!-- HERO SECTION -->
     <section id="hero" class="relative min-h-screen flex flex-col justify-center items-center overflow-hidden">
         <div class="absolute inset-0 grid-pattern"></div>
         <div class="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-warm-500/10 rounded-full blur-[150px]"></div>
         <div class="absolute bottom-1/3 right-1/5 w-[400px] h-[400px] bg-clay-500/5 rounded-full blur-[120px]"></div>
 
+        <!-- FIX 3: Increased bottom padding via .hero-content-wrap (already in CSS) -->
         <div class="relative z-10 text-center px-4 w-full max-w-5xl mx-auto hero-content-wrap">
             <p class="text-[9px] sm:text-[10px] font-semibold tracking-[.3em] uppercase text-warm-400 mb-4 sm:mb-6 pf-reveal" style="color:var(--text-secondary)">Mobile Developer · AI Engineer · Problem Solver</p>
 
@@ -1642,7 +1619,7 @@
                 </div>
             </div>
 
-            <!-- 3 BUTTONS — always visible on full screen -->
+            <!-- 3 action buttons -->
             <div class="mt-5 sm:mt-7 flex flex-wrap items-center justify-center gap-2 sm:gap-3 pf-reveal pf-delay-4 hero-btn-group">
                 <a href="#stockipa" class="btn-hero inline-flex items-center gap-1 sm:gap-2 bg-warm-500 text-white text-[9px] sm:text-[11px] font-bold tracking-[.12em] uppercase px-3 sm:px-5 py-2 sm:py-3 rounded-sm hover:bg-warm-600 transition-colors">
                     <iconify-icon icon="lucide:star" width="11" class="sm:w-3"></iconify-icon>Featured: Stockipa
@@ -1656,7 +1633,7 @@
             </div>
         </div>
 
-        <!-- SCROLL INDICATOR — pushed to bottom with no overlap -->
+        <!-- Scroll indicator – now safely separated due to increased padding -->
         <div class="absolute bottom-3 sm:bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 sm:gap-2 pf-reveal pf-delay-5 scroll-indicator">
             <span class="text-[8px] sm:text-[10px] tracking-[.2em] uppercase text-neutral-600" style="color:var(--text-secondary)">Scroll</span>
             <div class="w-px h-6 sm:h-10 bg-gradient-to-b from-warm-500/60 to-transparent line"></div>
@@ -2199,13 +2176,13 @@
         </footer>
     </div>
 
-    <!-- CV close button — fixed outside overlay -->
+    <!-- CV close button -->
     <button id="cv-close-btn" onclick="closeCV()">
         <iconify-icon icon="lucide:arrow-left" width="16"></iconify-icon>
         Go Back
     </button>
 
-    <!-- BLOG TERMINAL OVERLAY -->
+    <!-- BLOG TERMINAL OVERLAY (unchanged) -->
     <div id="blog-terminal-overlay">
         <div class="crt-overlay" aria-hidden="true">
             <div class="scanlines"></div>
@@ -2240,7 +2217,7 @@
         </div>
     </div>
 
-    <!-- Blog close button — fixed outside overlay -->
+    <!-- Blog close button -->
     <button id="blog-close-btn" onclick="closeBlog()">
         <iconify-icon icon="lucide:arrow-left" width="16"></iconify-icon>
         Go Back

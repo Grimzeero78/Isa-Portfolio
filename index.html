@@ -965,12 +965,14 @@
             flex-direction: column;
             justify-content: center;
             min-height: calc(100vh - 80px);
-            padding: 2rem 0 5rem; /* bottom padding increased from 3rem to 5rem */
+            padding: 2rem 0 5rem;
+            /* bottom padding increased from 3rem to 5rem */
         }
         @media(max-width:640px) {
             #hero .hero-content-wrap {
                 min-height: calc(100vh - 70px);
-                padding: 1.5rem 0 4.5rem; /* bottom padding increased from 2.5rem to 4.5rem */
+                padding: 1.5rem 0 4.5rem;
+                /* bottom padding increased from 2.5rem to 4.5rem */
             }
             #hero .hero-btn-group {
                 flex-wrap: wrap;
@@ -2226,6 +2228,7 @@
 
     <script>
         // ---- PROJECTS ----
+        // Reordered: City Stars FC (#3), AI Image Detector (#last)
         const projects = [{
             id: 1,
             title: "Stockipa",
@@ -2250,16 +2253,19 @@
             details: "My website helps me present my stencil art as a business by showing my work, attracting clients, and making it easy for people to connect with me.",
             sourceCodeUrl: "https://artweb.isaacbridget.workers.dev"
         }, {
-            id: 2,
-            title: "AI Image Detector",
-            category: "ai",
-            desc: "Python software using TensorFlow models to analyze and identify objects in user-selected images.",
-            tech: ["Python", "TensorFlow", "OpenCV", "NumPy"],
-            img: "https://picsum.photos/seed/tensorflow-detect/600/400.jpg",
-            role: "AI Developer",
-            year: "2024",
-            details: "Desktop app where users select an image and TensorFlow analyzes and names what is in it. Detected a jeep at 8% confidence using a basic model.",
-            sourceCodeUrl: "https://github.com/Grimzeero78/Currencytraining.git"
+            // City Stars FC — moved to #3 (index 2)
+            id: 8,
+            title: "City Stars FC",
+            category: "web",
+            desc: "Website for Chuka University's football team — fixtures, results, squad, staff, league table, and club blog.",
+            tech: ["HTML", "CSS", "JavaScript", "Tailwind"],
+            img: "https://picsum.photos/seed/citystars/600/400.jpg",
+            role: "Web Developer",
+            year: "2026",
+            details: "A full website for City Stars FC, featuring match fixtures, results, player profiles, staff, league standings, and a club blog. Built with HTML, CSS, and JavaScript.",
+            featured: false,
+            sourceCodeUrl: "https://github.com/Grimzeero78/CityStars.git",
+            viewUrl: "https://grimzeero78.github.io/CityStars/"
         }, {
             id: 3,
             title: "DeepRest",
@@ -2305,18 +2311,17 @@
             details: "An upcoming Windows app/website where officials upload interview materials. The AI analyzes video for confidence and reads documents for key skills.",
             sourceCodeUrl: "https://github.com/Grimzeero78/Currencytraining.git"
         }, {
-            id: 8,
-            title: "City Stars FC",
-            category: "web",
-            desc: "Website for Chuka University's football team — fixtures, results, squad, staff, league table, and club blog.",
-            tech: ["HTML", "CSS", "JavaScript", "Tailwind"],
-            img: "https://picsum.photos/seed/citystars/600/400.jpg",
-            role: "Web Developer",
-            year: "2026",
-            details: "A full website for City Stars FC, featuring match fixtures, results, player profiles, staff, league standings, and a club blog. Built with HTML, CSS, and JavaScript.",
-            featured: false,
-            sourceCodeUrl: "https://github.com/Grimzeero78/CityStars.git",
-            viewUrl: "https://grimzeero78.github.io/CityStars/"
+            // AI Image Detector — moved to last (index 7)
+            id: 2,
+            title: "AI Image Detector",
+            category: "ai",
+            desc: "Python software using TensorFlow models to analyze and identify objects in user-selected images.",
+            tech: ["Python", "TensorFlow", "OpenCV", "NumPy"],
+            img: "https://picsum.photos/seed/tensorflow-detect/600/400.jpg",
+            role: "AI Developer",
+            year: "2024",
+            details: "Desktop app where users select an image and TensorFlow analyzes and names what is in it. Detected a jeep at 8% confidence using a basic model.",
+            sourceCodeUrl: "https://github.com/Grimzeero78/Currencytraining.git"
         }];
 
         // ---- CASE STUDIES ----
@@ -3110,7 +3115,7 @@ Type \`cat posts\` to read what I have written.
                   <div class="flex flex-wrap gap-1.5">${p.tech.map(t => `<span class="text-[9px] font-semibold tracking-wider uppercase bg-white/5 text-neutral-300 border border-white/5 px-2 py-1 rounded-sm" style="color:var(--text-secondary)">${t}</span>`).join('')}</div>
                 </div>
                 <div class="flex gap-3 mt-5">
-                  <a href="${viewUrl}" target="_blank" rel="noopener noreferrer" class="flex-1 text-center text-[10px] font-bold tracking-wider uppercase bg-warm-500 text-white py-2.5 rounded-sm hover:bg-warm-600 transition-colors cursor-pointer">Live Demo</a>
+                  <a href="${viewUrl}" target="_blank" rel="noopener noreferrer" class="flex-1 text-center text-[10px] font-bold tracking-wider uppercase bg-warm-500 text-white py-2.5 rounded-sm hover:bg-warm-600 transition-colors cursor-pointer">View Project</a>
                   <a href="${sourceUrl}" target="_blank" rel="noopener noreferrer" class="flex-1 text-center text-[10px] font-bold tracking-wider uppercase border border-white/15 text-white py-2.5 rounded-sm hover:bg-white/5 transition-colors cursor-pointer" style="border-color:var(--border-color);color:var(--text-primary)">Source Code</a>
                 </div>
               </div>

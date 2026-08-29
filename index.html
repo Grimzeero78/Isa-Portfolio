@@ -125,9 +125,10 @@
         .theme-toggle-btn {
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            padding: 8px 16px;
-            border-radius: 8px;
+            justify-content: center;
+            gap: 4px;
+            padding: 6px 12px;
+            border-radius: 6px;
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid var(--border-color);
             color: var(--text-primary);
@@ -136,19 +137,51 @@
             font-size: 13px;
             font-weight: 600;
             font-family: 'Inter', sans-serif;
+            min-width: 38px;
+            min-height: 38px;
         }
         .theme-toggle-btn:hover {
             border-color: #D97706;
             background: rgba(217, 119, 6, 0.1);
-            transform: scale(1.05);
+            transform: scale(1.04);
         }
         .theme-toggle-btn .iconify {
             font-size: 16px;
         }
         .theme-toggle-btn-mobile {
-            padding: 6px 12px;
-            font-size: 11px;
+            padding: 4px 10px;
+            font-size: 12px;
+            min-width: 34px;
+            min-height: 34px;
         }
+
+        #mobile-menu-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            background: rgba(255, 255, 255, 0.04);
+            color: var(--text-primary);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 22px;
+            line-height: 1;
+            font-weight: 300;
+        }
+        #mobile-menu-btn:hover {
+            border-color: #D97706;
+            background: rgba(217, 119, 6, 0.08);
+        }
+        #mobile-menu-btn .hamburger-text {
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: 0;
+            user-select: none;
+        }
+
         .light-theme .hero-stroke-text {
             -webkit-text-stroke: 2px rgba(0, 0, 0, 0.3) !important;
             color: transparent !important;
@@ -719,8 +752,8 @@
                 linear-gradient(150deg, rgba(56, 189, 248, .03) 12%, transparent 12.5%, transparent 87%, rgba(56, 189, 248, .03) 87.5%),
                 linear-gradient(30deg, rgba(56, 189, 248, .03) 12%, transparent 12.5%, transparent 87%, rgba(56, 189, 248, .03) 87.5%),
                 linear-gradient(150deg, rgba(56, 189, 248, .03) 12%, transparent 12.5%, transparent 87%, rgba(56, 189, 248, .03) 87.5%),
-                linear-gradient(60deg, rgba(14, 165, 233, .04) 25%, transparent 25.5%, transparent 75%, rgba(14, 165, 233, .04) 75%),
-                linear-gradient(60deg, rgba(14, 165, 233, .04) 25%, transparent 25.5%, transparent 75%, rgba(14, 165, 233, .04) 75%);
+                linear-gradient(60deg, rgba(14, 165, 233, .04) 25%, transparent 25.5%, transparent 75%, rgba(14, 165, 233, .04) 75),
+                linear-gradient(60deg, rgba(14, 165, 233, .04) 25%, transparent 25.5%, transparent 75%, rgba(14, 165, 233, .04) 75);
             background-size: 80px 140px;
             background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px;
         }
@@ -932,27 +965,6 @@
         }
         .light-theme .flip-card-back .text-slate-300 {
             color: #4a4a4a !important;
-        }
-
-        #mobile-menu-btn {
-            color: var(--text-primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 6px;
-            border: 1px solid var(--border-color);
-            background: rgba(255, 255, 255, 0.03);
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-        #mobile-menu-btn:hover {
-            border-color: #D97706;
-            background: rgba(217, 119, 6, 0.08);
-        }
-        #mobile-menu-btn .iconify {
-            font-size: 24px;
         }
 
         /* ——— HERO FIXES ——— */
@@ -1709,239 +1721,6 @@
             margin: 6px 0;
         }
 
-        /* ——— MOBILE TWEAKS ——— */
-        @media(max-width:480px) {
-            .flip-card {
-                height: 420px;
-            }
-            .flip-card-front .relative.h-48 {
-                height: 160px;
-            }
-            .flip-card-front .p-5 {
-                padding: 14px;
-            }
-            .flip-card-back .p-6 {
-                padding: 16px;
-            }
-            #projects-grid {
-                gap: 14px;
-            }
-            .pb-card {
-                min-width: 260px;
-                max-width: 320px;
-            }
-            .pb-card .p-5 {
-                padding: 14px;
-            }
-            .carousel-track .flex-shrink-0 {
-                width: 92vw !important;
-            }
-            #stockipa .grid .relative {
-                margin-top: 0;
-            }
-            #stockipa .grid .relative .featured-glow {
-                border-radius: 10px;
-            }
-            #stockipa .grid .relative .featured-glow img {
-                height: 320px !important;
-            }
-            #stockipa .mt-12 {
-                margin-top: 1.5rem;
-            }
-            #stockipa .grid .grid-cols-1.sm\:grid-cols-2.lg\:grid-cols-4 {
-                gap: 10px;
-            }
-            #stockipa .grid .grid-cols-1.sm\:grid-cols-2.lg\:grid-cols-4 .border {
-                padding: 12px;
-            }
-            #stockipa .grid .grid-cols-1.sm\:grid-cols-2.lg\:grid-cols-4 .border h4 {
-                font-size: 11px;
-            }
-            #stockipa .grid .grid-cols-1.sm\:grid-cols-2.lg\:grid-cols-4 .border p {
-                font-size: 9px;
-            }
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 12px;
-                padding: 12px 16px;
-            }
-            .stats-grid .text-2xl {
-                font-size: 1.3rem;
-            }
-            .stats-grid .text-\[8px\] {
-                font-size: 7px;
-            }
-            .cv-side-nav {
-                display: none;
-            }
-            #cv-hero h1 {
-                font-size: 2.2rem !important;
-            }
-            #cv-hero .cv-reveal .text-3xl {
-                font-size: 1.2rem !important;
-            }
-            #cv-hero .cv-reveal .gap-8 {
-                gap: 12px;
-            }
-            #cv-hero .cv-reveal .w-px {
-                height: 30px;
-            }
-            #cv-about .grid.md\:grid-cols-5 {
-                grid-template-columns: 1fr;
-            }
-            #cv-about .grid.md\:grid-cols-5 .md\:col-span-3 {
-                grid-column: 1;
-            }
-            #cv-about .grid.md\:grid-cols-5 .md\:col-span-2 {
-                grid-column: 1;
-            }
-            .cyber-card .p-6 {
-                padding: 14px;
-            }
-            .cv-project-card .relative.h-48 {
-                height: 140px;
-            }
-            .cv-project-card .p-6 {
-                padding: 14px;
-            }
-            .cv-project-card .p-6 .text-2xl {
-                font-size: 1.2rem;
-            }
-            #cv-skills .grid.sm\:grid-cols-2.lg\:grid-cols-3 {
-                grid-template-columns: 1fr 1fr;
-                gap: 10px;
-            }
-            #cv-skills .cyber-card .p-6 {
-                padding: 12px;
-            }
-            #cv-skills .cyber-card .p-6 .text-2xl {
-                font-size: 1.2rem;
-            }
-            #cv-skills .cyber-card .p-6 .font-semibold {
-                font-size: 0.8rem;
-            }
-            #cv-skills .cyber-card .p-6 .text-xs {
-                font-size: 9px;
-            }
-            #cv-skills .cv-lang-tag {
-                font-size: 9px;
-                padding: 1px 6px;
-            }
-            #cv-education .relative .cyber-card .p-6 {
-                padding: 14px;
-            }
-            #cv-education .relative .cyber-card .p-6 .text-lg {
-                font-size: 1rem;
-            }
-            #cv-certifications .cyber-card .p-6 {
-                padding: 14px;
-            }
-            #cv-certifications .cyber-card .p-6 .text-lg {
-                font-size: 1rem;
-            }
-            #cv-certifications .cyber-card .p-6 .text-sm {
-                font-size: 12px;
-            }
-            #cv-contact .grid.sm\:grid-cols-3 {
-                grid-template-columns: 1fr 1fr;
-                gap: 10px;
-            }
-            #cv-contact .grid.sm\:grid-cols-3 .cyber-card .p-5 {
-                padding: 12px;
-            }
-            #cv-contact .cv-reveal .text-4xl {
-                font-size: 2rem;
-            }
-            #cv-contact .cv-reveal .text-lg {
-                font-size: 1rem;
-            }
-            #cv-contact .cv-reveal .px-8 {
-                padding-left: 20px;
-                padding-right: 20px;
-            }
-            #cv-contact .cv-reveal .py-4 {
-                padding-top: 12px;
-                padding-bottom: 12px;
-            }
-            #cv-contact .cv-reveal .text-base {
-                font-size: 13px;
-            }
-            #cv-overlay .cv-marquee-track span {
-                font-size: 9px;
-                gap: 6px;
-            }
-            #cv-overlay .cv-marquee-track span .gap-8 {
-                gap: 12px;
-            }
-            #cv-overlay .cv-marquee-track span .px-4 {
-                padding-left: 10px;
-                padding-right: 10px;
-            }
-            #cv-overlay .cv-side-nav {
-                display: none;
-            }
-            .yearly-chart-overlay {
-                width: 80px !important;
-                top: 8px !important;
-                right: 8px !important;
-            }
-            .yearly-chart-overlay .label-bar span {
-                font-size: 6px !important;
-            }
-            /* Mobile menu button fix */
-            #mobile-menu-btn {
-                width: 36px;
-                height: 36px;
-            }
-            #mobile-menu-btn .iconify {
-                font-size: 20px;
-            }
-            .theme-toggle-btn-mobile {
-                padding: 4px 10px;
-                font-size: 10px;
-            }
-        }
-
-        @media(max-width:380px) {
-            #hero h1 .block {
-                font-size: clamp(1.8rem, 12vw, 2.8rem) !important;
-            }
-            #hero .hero-btn-group .btn-hero {
-                font-size: 7px !important;
-                padding: 0.3rem 0.5rem !important;
-            }
-            #hero .hero-typing {
-                font-size: 9px !important;
-            }
-            .flip-card {
-                height: 380px;
-            }
-            .pb-card {
-                min-width: 220px;
-                max-width: 280px;
-            }
-            #stockipa .grid .relative .featured-glow img {
-                height: 240px !important;
-            }
-            #stockipa .grid .grid-cols-1.sm\:grid-cols-2.lg\:grid-cols-4 {
-                grid-template-columns: 1fr 1fr;
-            }
-            #cv-skills .grid.sm\:grid-cols-2.lg\:grid-cols-3 {
-                grid-template-columns: 1fr 1fr;
-            }
-            #cv-contact .grid.sm\:grid-cols-3 {
-                grid-template-columns: 1fr 1fr;
-            }
-            .yearly-chart-overlay {
-                width: 64px !important;
-                top: 6px !important;
-                right: 6px !important;
-            }
-            .yearly-chart-overlay .label-bar span {
-                font-size: 5px !important;
-            }
-        }
-
         /* ——— CV: remove ICT Support, keep Discipleship only ——— */
         #cv-experience {
             display: none !important;
@@ -1952,31 +1731,231 @@
         #cv-awards {
             display: none !important;
         }
-        /* Keep only Discipleship in certifications */
-        #cv-certifications .cyber-card .flex-wrap.gap-2 .cv-tag:not(:first-child) {
-            display: none;
-        }
-        /* Remove extra tags from cert */
-        #cv-certifications .cyber-card .flex-wrap.gap-2 .cv-tag:first-child {
-            /* keep only Character Development, hide others */
-        }
-        /* We'll handle via JS or just keep them but they are harmless */
-        /* Actually better to just hide the extra tags via CSS */
         #cv-certifications .cyber-card .flex-wrap.gap-2 .cv-tag:nth-child(2),
         #cv-certifications .cyber-card .flex-wrap.gap-2 .cv-tag:nth-child(3) {
             display: none !important;
         }
-        /* Remove duplicate Get in Touch buttons - we'll keep only one in contact section */
-        /* The sticky CTA has "Hire Me" which is different, so it's fine */
-        /* Remove the extra button in mobile nav that might duplicate */
-        #mobile-menu .mt-1 {
-            /* keep it, it's "Hire Me" not "Get in Touch" */
+
+        /* ——— MOBILE HEADER FIXES ——— */
+        .mobile-controls-wrap {
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
-        /* Fix: ensure contact section has only one "Get in Touch" */
-        #contact .flex-col.sm\:flex-row .gap-3 .inline-flex:first-child {
-            /* this is the Get in Touch button, it's fine */
+        @media(max-width:480px) {
+            .mobile-controls-wrap {
+                gap: 4px;
+            }
+            .theme-toggle-btn-mobile {
+                padding: 4px 8px;
+                font-size: 11px;
+                min-width: 30px;
+                min-height: 30px;
+            }
+            #mobile-menu-btn {
+                width: 34px;
+                height: 34px;
+                font-size: 18px;
+            }
+            #mobile-menu-btn .hamburger-text {
+                font-size: 20px;
+            }
         }
-        /* Remove any other "Get in Touch" duplicates - there's only one in contact */
+
+        /* ——— PDF CV PAGE STYLES (print-friendly) ——— */
+        .pdf-cv-page {
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            background: #fff;
+            color: #1a1a1a;
+            padding: 48px 56px;
+            max-width: 1100px;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+        .pdf-cv-page .cv-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            border-bottom: 3px solid #D97706;
+            padding-bottom: 20px;
+            margin-bottom: 28px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .pdf-cv-page .cv-header .name {
+            font-size: 36px;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: #1a1a1a;
+        }
+        .pdf-cv-page .cv-header .title {
+            font-size: 18px;
+            font-weight: 500;
+            color: #D97706;
+            margin-top: 2px;
+        }
+        .pdf-cv-page .cv-header .contact {
+            text-align: right;
+            font-size: 14px;
+            color: #4a4a4a;
+            line-height: 1.6;
+        }
+        .pdf-cv-page .cv-header .contact a {
+            color: #D97706;
+            text-decoration: none;
+        }
+        .pdf-cv-page .cv-header .contact a:hover {
+            text-decoration: underline;
+        }
+        .pdf-cv-page .section {
+            margin-bottom: 24px;
+        }
+        .pdf-cv-page .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #D97706;
+            border-bottom: 2px solid #e5e5e5;
+            padding-bottom: 4px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+        .pdf-cv-page .section-content {
+            font-size: 14px;
+            color: #2a2a2a;
+        }
+        .pdf-cv-page .section-content p {
+            margin-bottom: 6px;
+        }
+        .pdf-cv-page .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px 40px;
+        }
+        .pdf-cv-page .grid-3 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 16px 32px;
+        }
+        .pdf-cv-page .skill-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 4px 0;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 13px;
+        }
+        .pdf-cv-page .skill-item .level {
+            color: #888;
+            font-size: 12px;
+        }
+        .pdf-cv-page .project-item {
+            margin-bottom: 14px;
+        }
+        .pdf-cv-page .project-item .proj-title {
+            font-weight: 700;
+            font-size: 15px;
+            color: #1a1a1a;
+        }
+        .pdf-cv-page .project-item .proj-meta {
+            font-size: 12px;
+            color: #888;
+            margin-bottom: 2px;
+        }
+        .pdf-cv-page .project-item .proj-desc {
+            font-size: 13px;
+            color: #3a3a3a;
+        }
+        .pdf-cv-page .edu-item {
+            margin-bottom: 12px;
+        }
+        .pdf-cv-page .edu-item .edu-title {
+            font-weight: 700;
+            font-size: 15px;
+        }
+        .pdf-cv-page .edu-item .edu-meta {
+            font-size: 13px;
+            color: #555;
+        }
+        .pdf-cv-page .edu-item .edu-desc {
+            font-size: 13px;
+            color: #4a4a4a;
+        }
+        .pdf-cv-page .lang-tag {
+            display: inline-block;
+            background: #f5f5f5;
+            padding: 2px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            margin: 2px 4px 2px 0;
+            border: 1px solid #e5e5e5;
+        }
+        .pdf-cv-page .lang-tag .lvl {
+            color: #888;
+            font-size: 11px;
+        }
+        .pdf-cv-page .ref-note {
+            font-style: italic;
+            color: #666;
+            font-size: 13px;
+        }
+        .pdf-cv-page .footer-note {
+            margin-top: 32px;
+            padding-top: 16px;
+            border-top: 1px solid #e5e5e5;
+            font-size: 12px;
+            color: #aaa;
+            text-align: center;
+        }
+        @media print {
+            .pdf-cv-page {
+                padding: 32px 40px;
+            }
+            .pdf-cv-page .cv-header .name {
+                font-size: 30px;
+            }
+            .pdf-cv-page .grid-2,
+            .pdf-cv-page .grid-3 {
+                break-inside: avoid;
+            }
+            .pdf-cv-page .section {
+                break-inside: avoid;
+            }
+            .no-print {
+                display: none !important;
+            }
+        }
+        @media(max-width:700px) {
+            .pdf-cv-page {
+                padding: 24px 20px;
+            }
+            .pdf-cv-page .cv-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .pdf-cv-page .cv-header .contact {
+                text-align: left;
+                width: 100%;
+            }
+            .pdf-cv-page .grid-2,
+            .pdf-cv-page .grid-3 {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+            .pdf-cv-page .cv-header .name {
+                font-size: 28px;
+            }
+        }
+        @media(max-width:400px) {
+            .pdf-cv-page {
+                padding: 16px 12px;
+            }
+            .pdf-cv-page .cv-header .name {
+                font-size: 22px;
+            }
+            .pdf-cv-page .section-title {
+                font-size: 15px;
+            }
+        }
     </style>
 </head>
 
@@ -2005,14 +1984,15 @@
                 <a href="https://mail.google.com/mail/?view=cm&fs=1&to=injuguna308@gmail.com" target="_blank" rel="noopener noreferrer" class="text-[11px] font-semibold tracking-[.2em] uppercase bg-warm-500 text-white px-5 py-2.5 rounded-sm hover:bg-warm-600 transition-colors">Hire Me</a>
             </div>
 
-            <!-- Mobile controls -->
-            <div class="flex items-center gap-2 sm:gap-3 md:hidden">
+            <!-- Mobile controls — FIXED: visible buttons, hamburger with fallback -->
+            <div class="flex items-center gap-2 md:hidden mobile-controls-wrap">
                 <button onclick="toggleTheme()" class="theme-toggle-btn theme-toggle-btn-mobile" aria-label="Toggle theme">
                     <iconify-icon icon="lucide:moon" width="14" id="theme-icon-mobile"></iconify-icon>
+                    <span class="hidden sm:inline text-[10px] font-semibold" id="theme-label-mobile">Dark</span>
                 </button>
-                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=injuguna308@gmail.com" target="_blank" rel="noopener noreferrer" class="text-[10px] sm:text-[11px] font-semibold tracking-[.15em] uppercase bg-warm-500 text-white px-3 sm:px-4 py-2 rounded-sm hover:bg-warm-600 transition-colors">Hire Me</a>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=injuguna308@gmail.com" target="_blank" rel="noopener noreferrer" class="text-[10px] sm:text-[11px] font-semibold tracking-[.15em] uppercase bg-warm-500 text-white px-3 sm:px-4 py-2 rounded-sm hover:bg-warm-600 transition-colors whitespace-nowrap">Hire Me</a>
                 <button id="mobile-menu-btn" aria-label="Toggle navigation menu">
-                    <iconify-icon icon="lucide:menu" width="24"></iconify-icon>
+                    <span class="hamburger-text" aria-hidden="true">☰</span>
                 </button>
             </div>
         </div>
@@ -2024,7 +2004,8 @@
                 <a href="#stockipa" class="text-sm font-semibold tracking-wider uppercase text-neutral-300 hover:text-warm-500 transition-colors mobile-link">Stockipa</a>
                 <a href="#cases" class="text-sm font-semibold tracking-wider uppercase text-neutral-300 hover:text-warm-500 transition-colors mobile-link">Case Studies</a>
                 <a href="#stack" class="text-sm font-semibold tracking-wider uppercase text-neutral-300 hover:text-warm-500 transition-colors mobile-link">Stack</a>
-                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=injuguna308@gmail.com" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold tracking-wider uppercase bg-warm-500 text-white px-5 py-3 rounded-sm text-center mt-1">Hire Me</a>
+                <button onclick="openPDFCV()" class="text-sm font-semibold tracking-wider uppercase bg-cyber-500/20 text-cyber-400 border border-cyber-500/30 px-5 py-3 rounded-sm text-center mt-1 hover:bg-cyber-500/30 transition-colors">📄 PDF CV</button>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=injuguna308@gmail.com" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold tracking-wider uppercase bg-warm-500 text-white px-5 py-3 rounded-sm text-center">Hire Me</a>
             </div>
         </div>
     </nav>
@@ -2066,6 +2047,9 @@
                 <button onclick="openCV()" class="btn-hero inline-flex items-center gap-1 sm:gap-2 border border-white/20 text-white text-[9px] sm:text-[11px] font-bold tracking-[.12em] uppercase px-3 sm:px-5 py-2 sm:py-3 rounded-sm hover:bg-white/5 transition-all" style="border-color:var(--border-color);color:var(--text-primary)">
                     <iconify-icon icon="lucide:file-text" width="11" class="sm:w-3"></iconify-icon>View CV
                 </button>
+                <button onclick="openPDFCV()" class="btn-hero inline-flex items-center gap-1 sm:gap-2 bg-cyber-500/20 text-cyber-400 border border-cyber-500/30 text-[9px] sm:text-[11px] font-bold tracking-[.12em] uppercase px-3 sm:px-5 py-2 sm:py-3 rounded-sm hover:bg-cyber-500/30 transition-all">
+                    <iconify-icon icon="lucide:file-text" width="11" class="sm:w-3"></iconify-icon>PDF CV
+                </button>
                 <button onclick="openBlog()" class="btn-hero inline-flex items-center gap-1 sm:gap-2 border border-cyber-400/30 text-cyber-400 text-[9px] sm:text-[11px] font-bold tracking-[.12em] uppercase px-3 sm:px-5 py-2 sm:py-3 rounded-sm hover:bg-cyber-500/10 transition-all">
                     <iconify-icon icon="lucide:terminal" width="11" class="sm:w-3"></iconify-icon>My Blog
                 </button>
@@ -2088,7 +2072,7 @@
         </div>
     </section>
 
-    <!-- ===== STOCKIPA ===== -->
+    <!-- ===== STOCKIPA (unchanged except PDF CV button) ===== -->
     <section id="stockipa" class="relative py-16 sm:py-24 md:py-32 overflow-hidden" style="background:var(--bg-primary)">
         <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-warm-500/5 rounded-full blur-[150px]"></div>
         <div class="max-w-7xl mx-auto px-6">
@@ -2112,7 +2096,7 @@
                     </div>
                 </div>
 
-                <!-- Stockipa main preview with YEARLY CHART OVERLAY -->
+                <!-- Stockipa main preview -->
                 <div class="relative pf-reveal pf-delay-2">
                     <div class="relative rounded-sm border border-white/10 overflow-hidden featured-glow scan-line-fx" style="border-color:var(--border-color)">
                         <img src="https://picsum.photos/seed/stockipa-main/700/900.jpg" alt="Stockipa App" class="w-full h-[360px] sm:h-[420px] md:h-[500px] lg:h-[600px] object-cover" style="filter:contrast(1.1) brightness(.8)" loading="lazy" />
@@ -2125,8 +2109,7 @@
                                 <div class="bg-white/5 backdrop-blur-sm rounded-lg p-2 sm:p-3 border border-white/5"><div class="text-[7px] sm:text-[9px] text-neutral-500 uppercase tracking-wider">Saved</div><div class="text-base sm:text-lg font-black text-warm-400 mt-0.5 sm:mt-1">20K</div></div>
                             </div>
                         </div>
-
-                        <!-- YEARLY CHART OVERLAY — clickable -->
+                        <!-- YEARLY CHART OVERLAY -->
                         <div class="yearly-chart-overlay" onclick="openYearlyChart()" title="Click to see the full yearly overview and Stockipa's impact">
                             <img src="https://cdn.jsdelivr.net/gh/Grimzeero78/images_cdn/tracking.jpeg" alt="Yearly chart overview" loading="lazy" />
                             <div class="label-bar">
@@ -2164,7 +2147,7 @@
         </div>
     </div>
 
-    <!-- ===== POWER BEAMING ===== -->
+    <!-- ===== POWER BEAMING (unchanged) ===== -->
     <section id="power-beaming" class="relative py-16 sm:py-24 md:py-32 border-t border-white/10 overflow-hidden" style="border-color:var(--border-color);background:var(--bg-secondary)">
         <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-cyber-400/5 rounded-full blur-[120px]"></div>
         <div class="max-w-7xl mx-auto px-6 relative z-10">
@@ -2274,7 +2257,7 @@
         </div>
     </section>
 
-    <!-- ===== PROJECTS ===== -->
+    <!-- ===== PROJECTS (unchanged) ===== -->
     <section id="projects" class="relative py-16 sm:py-24 md:py-32 border-t border-white/10" style="border-color:var(--border-color);background:var(--bg-primary)">
         <div class="max-w-7xl mx-auto px-6">
             <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 sm:gap-6 mb-10 sm:mb-16">
@@ -2290,7 +2273,7 @@
         </div>
     </section>
 
-    <!-- ===== CASE STUDIES ===== -->
+    <!-- ===== CASE STUDIES (unchanged) ===== -->
     <section id="cases" class="relative py-16 sm:py-24 md:py-32 border-t border-white/10" style="border-color:var(--border-color);background:var(--bg-secondary)">
         <div class="max-w-7xl mx-auto px-6 mb-8 sm:mb-12">
             <div class="pf-reveal"><p class="text-[9px] sm:text-[10px] font-semibold tracking-[.3em] uppercase text-warm-400 mb-2 sm:mb-3">Deep Dives</p><h2 class="text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter uppercase" style="color:var(--text-primary)">Case Studies</h2></div>
@@ -2306,7 +2289,7 @@
         </div>
     </section>
 
-    <!-- ===== STACK ===== -->
+    <!-- ===== STACK (unchanged) ===== -->
     <section id="stack" class="relative py-16 sm:py-24 md:py-32 border-t border-white/10" style="border-color:var(--border-color);background:var(--bg-primary)">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-10 sm:mb-16 pf-reveal"><p class="text-[9px] sm:text-[10px] font-semibold tracking-[.3em] uppercase text-warm-400 mb-2 sm:mb-3">Arsenal</p><h2 class="text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter uppercase" style="color:var(--text-primary)">Tech Stack</h2></div>
@@ -2365,6 +2348,9 @@
                 <button onclick="openCV()" class="inline-flex items-center justify-center gap-2 border border-white/20 text-white text-[10px] sm:text-[11px] font-bold tracking-[.15em] uppercase px-5 sm:px-8 py-3 sm:py-4 rounded-sm hover:bg-white/5 hover:border-white/40 transition-all" style="border-color:var(--border-color);color:var(--text-primary)">
                     <iconify-icon icon="lucide:file-text" width="12" class="sm:w-3.5"></iconify-icon>View CV
                 </button>
+                <button onclick="openPDFCV()" class="inline-flex items-center justify-center gap-2 bg-cyber-500/20 text-cyber-400 border border-cyber-500/30 text-[10px] sm:text-[11px] font-bold tracking-[.15em] uppercase px-5 sm:px-8 py-3 sm:py-4 rounded-sm hover:bg-cyber-500/30 transition-all">
+                    <iconify-icon icon="lucide:file-text" width="12" class="sm:w-3.5"></iconify-icon>PDF CV
+                </button>
             </div>
             <div class="mt-10 sm:mt-16 flex justify-center gap-4 sm:gap-6 pf-reveal pf-delay-4">
                 <a href="https://github.com/Grimzeero78" target="_blank" rel="noopener noreferrer" class="text-neutral-500 hover:text-warm-500 transition-colors" style="color:var(--text-secondary)"><iconify-icon icon="lucide:github" width="18" class="sm:w-5"></iconify-icon></a>
@@ -2386,7 +2372,12 @@
     <div id="sticky-cta" class="fixed bottom-0 left-0 w-full z-[8000] bg-black/90 backdrop-blur-md border-t border-white/10 py-3 sm:py-4 px-4 sm:px-6" style="background:var(--bg-nav);border-color:var(--border-color)">
         <div class="max-w-7xl mx-auto flex items-center justify-between">
             <p class="text-xs sm:text-sm hidden sm:block" style="color:var(--text-secondary)">Have a project in mind?</p>
-            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=injuguna308@gmail.com" target="_blank" rel="noopener noreferrer" class="ml-auto inline-flex items-center gap-2 bg-warm-500 text-white text-[10px] sm:text-[11px] font-bold tracking-[.15em] uppercase px-4 sm:px-6 py-2 sm:py-3 rounded-sm hover:bg-warm-600 transition-colors pulse-cta">Hire Me <iconify-icon icon="lucide:arrow-up-right" width="12" class="sm:w-3.5"></iconify-icon></a>
+            <div class="flex items-center gap-2 sm:gap-3 ml-auto">
+                <button onclick="openPDFCV()" class="inline-flex items-center gap-1 sm:gap-2 bg-cyber-500/20 text-cyber-400 border border-cyber-500/30 text-[9px] sm:text-[10px] font-bold tracking-[.15em] uppercase px-3 sm:px-4 py-2 sm:py-2.5 rounded-sm hover:bg-cyber-500/30 transition-colors">
+                    <iconify-icon icon="lucide:file-text" width="11" class="sm:w-3"></iconify-icon>PDF CV
+                </button>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=injuguna308@gmail.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-warm-500 text-white text-[10px] sm:text-[11px] font-bold tracking-[.15em] uppercase px-4 sm:px-6 py-2 sm:py-3 rounded-sm hover:bg-warm-600 transition-colors pulse-cta">Hire Me <iconify-icon icon="lucide:arrow-up-right" width="12" class="sm:w-3.5"></iconify-icon></a>
+            </div>
         </div>
     </div>
 
@@ -2580,7 +2571,7 @@
             </div>
         </section>
 
-        <!-- CV CERTIFICATIONS (only Discipleship) -->
+        <!-- CV CERTIFICATIONS -->
         <section id="cv-certifications" class="relative py-24 px-6" style="z-index:2;">
             <div class="max-w-5xl mx-auto">
                 <div class="cv-reveal flex items-center gap-3 mb-4"><div class="w-8 h-px bg-cyber-400"></div><span class="cyber-tag">// CERTIFICATIONS</span></div>
@@ -2603,7 +2594,7 @@
             </div>
         </section>
 
-        <!-- CV REFERENCES — HONEST -->
+        <!-- CV REFERENCES -->
         <section id="cv-references" class="relative py-24 px-6" style="z-index:2;">
             <div class="max-w-5xl mx-auto">
                 <div class="cv-reveal flex items-center gap-3 mb-4"><div class="w-8 h-px bg-cyber-400"></div><span class="cyber-tag">// REFERENCES</span></div>
@@ -2635,7 +2626,7 @@
             </div>
         </section>
 
-        <!-- CV CONTACT -->
+        <!-- CV CONTACT — replaced Print with PDF CV button -->
         <section id="cv-contact" class="relative py-24 px-6" style="z-index:2;">
             <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] rounded-full" style="background:radial-gradient(circle,rgba(56,189,248,.1) 0%,transparent 70%);filter:blur(100px);"></div>
             <div class="max-w-3xl mx-auto relative text-center">
@@ -2661,7 +2652,7 @@
                 </div>
                 <div class="cv-reveal cv-delay-4 flex flex-wrap justify-center gap-4">
                     <a href="https://mail.google.com/mail/?view=cm&fs=1&to=injuguna308@gmail.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 px-8 py-4 rounded-xl text-base font-semibold text-black transition-all duration-300 hover:scale-105" style="background:#fff;box-shadow:0 0 20px -5px rgba(255,255,255,.3);"><span class="iconify text-lg" data-icon="lucide:send"></span>Shoot Me a Message<span class="iconify text-lg" data-icon="lucide:arrow-right"></span></a>
-                    <button onclick="window.print()" class="inline-flex items-center gap-3 px-8 py-4 rounded-xl text-base font-semibold text-white transition-all duration-300 hover:scale-105" style="background:rgba(56,189,248,.15);border:1px solid rgba(56,189,248,.3);"><span class="iconify text-lg" data-icon="lucide:printer"></span>Print CV</button>
+                    <button onclick="openPDFCV()" class="inline-flex items-center gap-3 px-8 py-4 rounded-xl text-base font-semibold text-white transition-all duration-300 hover:scale-105" style="background:rgba(56,189,248,.15);border:1px solid rgba(56,189,248,.3);"><span class="iconify text-lg" data-icon="lucide:file-text"></span>PDF CV</button>
                 </div>
             </div>
         </section>
@@ -2680,7 +2671,7 @@
         Go Back
     </button>
 
-    <!-- ===== BLOG TERMINAL ===== -->
+    <!-- ===== BLOG TERMINAL (unchanged) ===== -->
     <div id="blog-terminal-overlay">
         <div class="crt-overlay" aria-hidden="true">
             <div class="scanlines"></div>
@@ -2844,6 +2835,173 @@
                 ] }
         ];
 
+        // ——— PDF CV ——— 
+        function openPDFCV() {
+            const win = window.open('', '_blank');
+            if (!win) {
+                alert('Please allow popups to view the PDF CV.');
+                return;
+            }
+            win.document.write(`
+            <!DOCTYPE html>
+            <html>
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Isaac Bridget · Professional CV</title>
+                <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+                <style>
+                    * { margin:0; padding:0; box-sizing:border-box; }
+                    body { background:#f0f2f5; font-family:'Inter',sans-serif; padding:24px; color:#1a1a1a; }
+                    .pdf-cv-page { max-width:1100px; margin:0 auto; background:#fff; padding:48px 56px; border-radius:12px; box-shadow:0 8px 40px rgba(0,0,0,0.08); }
+                    .pdf-cv-page .cv-header { display:flex; justify-content:space-between; align-items:flex-start; border-bottom:3px solid #D97706; padding-bottom:20px; margin-bottom:28px; flex-wrap:wrap; gap:12px; }
+                    .pdf-cv-page .cv-header .name { font-size:36px; font-weight:800; letter-spacing:-0.02em; color:#1a1a1a; }
+                    .pdf-cv-page .cv-header .title { font-size:18px; font-weight:500; color:#D97706; margin-top:2px; }
+                    .pdf-cv-page .cv-header .contact { text-align:right; font-size:14px; color:#4a4a4a; line-height:1.6; }
+                    .pdf-cv-page .cv-header .contact a { color:#D97706; text-decoration:none; }
+                    .pdf-cv-page .cv-header .contact a:hover { text-decoration:underline; }
+                    .pdf-cv-page .section { margin-bottom:24px; }
+                    .pdf-cv-page .section-title { font-size:18px; font-weight:700; color:#D97706; border-bottom:2px solid #e5e5e5; padding-bottom:4px; margin-bottom:12px; text-transform:uppercase; letter-spacing:0.04em; }
+                    .pdf-cv-page .section-content { font-size:14px; color:#2a2a2a; }
+                    .pdf-cv-page .section-content p { margin-bottom:6px; }
+                    .pdf-cv-page .grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:20px 40px; }
+                    .pdf-cv-page .grid-3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px 32px; }
+                    .pdf-cv-page .skill-item { display:flex; justify-content:space-between; padding:4px 0; border-bottom:1px solid #f0f0f0; font-size:13px; }
+                    .pdf-cv-page .skill-item .level { color:#888; font-size:12px; }
+                    .pdf-cv-page .project-item { margin-bottom:14px; }
+                    .pdf-cv-page .project-item .proj-title { font-weight:700; font-size:15px; color:#1a1a1a; }
+                    .pdf-cv-page .project-item .proj-meta { font-size:12px; color:#888; margin-bottom:2px; }
+                    .pdf-cv-page .project-item .proj-desc { font-size:13px; color:#3a3a3a; }
+                    .pdf-cv-page .edu-item { margin-bottom:12px; }
+                    .pdf-cv-page .edu-item .edu-title { font-weight:700; font-size:15px; }
+                    .pdf-cv-page .edu-item .edu-meta { font-size:13px; color:#555; }
+                    .pdf-cv-page .edu-item .edu-desc { font-size:13px; color:#4a4a4a; }
+                    .pdf-cv-page .lang-tag { display:inline-block; background:#f5f5f5; padding:2px 12px; border-radius:20px; font-size:13px; margin:2px 4px 2px 0; border:1px solid #e5e5e5; }
+                    .pdf-cv-page .lang-tag .lvl { color:#888; font-size:11px; }
+                    .pdf-cv-page .ref-note { font-style:italic; color:#666; font-size:13px; }
+                    .pdf-cv-page .footer-note { margin-top:32px; padding-top:16px; border-top:1px solid #e5e5e5; font-size:12px; color:#aaa; text-align:center; }
+                    .no-print { display:flex; justify-content:center; gap:16px; margin-top:24px; flex-wrap:wrap; }
+                    .no-print button { background:#D97706; color:#fff; border:none; padding:10px 28px; border-radius:6px; font-size:14px; font-weight:600; cursor:pointer; transition:background .2s; font-family:'Inter',sans-serif; }
+                    .no-print button:hover { background:#B45309; }
+                    .no-print button.secondary { background:transparent; color:#D97706; border:2px solid #D97706; }
+                    .no-print button.secondary:hover { background:#D97706; color:#fff; }
+                    @media print { body { background:#fff; padding:0; } .pdf-cv-page { box-shadow:none; border-radius:0; padding:32px 40px; } .no-print { display:none !important; } .pdf-cv-page .cv-header .name { font-size:30px; } .pdf-cv-page .grid-2, .pdf-cv-page .grid-3 { break-inside:avoid; } .pdf-cv-page .section { break-inside:avoid; } }
+                    @media(max-width:700px){ .pdf-cv-page{ padding:24px 20px; } .pdf-cv-page .cv-header{ flex-direction:column; align-items:flex-start; } .pdf-cv-page .cv-header .contact{ text-align:left; width:100%; } .pdf-cv-page .grid-2, .pdf-cv-page .grid-3 { grid-template-columns:1fr; gap:8px; } .pdf-cv-page .cv-header .name { font-size:28px; } }
+                    @media(max-width:400px){ .pdf-cv-page{ padding:16px 12px; } .pdf-cv-page .cv-header .name { font-size:22px; } .pdf-cv-page .section-title { font-size:15px; } }
+                </style>
+            </head>
+            <body>
+                <div class="pdf-cv-page" id="pdfCvContent">
+                    <div class="cv-header">
+                        <div>
+                            <div class="name">ISAAC BRIDGET</div>
+                            <div class="title">Applied Computer Science Student · Mobile Developer · AI Engineer</div>
+                        </div>
+                        <div class="contact">
+                            📧 <a href="mailto:injuguna308@gmail.com">injuguna308@gmail.com</a><br>
+                            📞 +254 143374333<br>
+                            📍 Kenya · Chuka University<br>
+                            🔗 <a href="https://github.com/Grimzeero78" target="_blank">github.com/Grimzeero78</a>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <div class="section-title">Professional Summary</div>
+                        <div class="section-content">
+                            <p>Applied Computer Science student at Chuka University (2023–2027) with a strong passion for mobile development, AI, and solving real-world problems. Builds offline-first apps that help small businesses track finances, train AI models for practical use, and believe in simple solutions for real people. Combines technical discipline with creativity from stencil art and teamwork from football.</p>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <div class="section-title">Education</div>
+                        <div class="section-content">
+                            <div class="edu-item"><div class="edu-title">BSc. Applied Computer Science</div><div class="edu-meta">Chuka University · 2023 – 2027</div><div class="edu-desc">Specializing in mobile application development &amp; AI. In progress.</div></div>
+                            <div class="edu-item"><div class="edu-title">Kagumo High School</div><div class="edu-meta">Secondary Education · 2019 – 2022</div><div class="edu-desc">Built the foundation of discipline, teamwork, and analytical thinking.</div></div>
+                            <div class="edu-item"><div class="edu-title">Ngenia Primary School</div><div class="edu-meta">Primary Education · – 2019</div></div>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <div class="section-title">Skills</div>
+                        <div class="section-content">
+                            <div class="grid-2">
+                                <div>
+                                    <strong style="color:#D97706;">Technical</strong>
+                                    <div class="skill-item"><span>Flutter / Dart</span><span class="level">Beginner</span></div>
+                                    <div class="skill-item"><span>C++</span><span class="level">Strong</span></div>
+                                    <div class="skill-item"><span>Python</span><span class="level">Intermediate</span></div>
+                                    <div class="skill-item"><span>MySQL</span><span class="level">Basic</span></div>
+                                    <div class="skill-item"><span>TensorFlow</span><span class="level">Beginner</span></div>
+                                    <div class="skill-item"><span>Pentesting</span><span class="level">Planning</span></div>
+                                </div>
+                                <div>
+                                    <strong style="color:#D97706;">Soft</strong>
+                                    <div class="skill-item"><span>Teamwork</span><span class="level">Strong</span></div>
+                                    <div class="skill-item"><span>Discipline</span><span class="level">Strong</span></div>
+                                    <div class="skill-item"><span>Creativity</span><span class="level">Strong</span></div>
+                                    <div class="skill-item"><span>Communication</span><span class="level">Strong</span></div>
+                                    <div class="skill-item"><span>Critical Thinking</span><span class="level">Strong</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <div class="section-title">Projects</div>
+                        <div class="section-content">
+                            <div class="project-item"><div class="proj-title">Stockipa — Finance Tracking App</div><div class="proj-meta">Flutter · SQLite · M-Pesa Integration · 2025</div><div class="proj-desc">Offline mobile app that auto-tracks income/expenses by reading M-Pesa SMS and scanning bills. Features stock management, multi-language support, and yearly charts. Built for small business owners.</div></div>
+                            <div class="project-item"><div class="proj-title">AI Image Detector</div><div class="proj-meta">Python · TensorFlow · OpenCV · 2024</div><div class="proj-desc">Desktop app using TensorFlow to classify objects in images. Successfully detected objects with accuracy scaling with model quality.</div></div>
+                            <div class="project-item"><div class="proj-title">City Stars FC — Football Website</div><div class="proj-meta">HTML · CSS · JavaScript · 2026</div><div class="proj-desc">Full website for Chuka University's football team with fixtures, results, player profiles, staff, league table, and club blog.</div></div>
+                            <div class="project-item"><div class="proj-title">DeepRest — Mental Health App</div><div class="proj-meta">Flutter · Firebase · Grok API · 2026</div><div class="proj-desc">Mobile app for reducing screen time and building healthier habits. Features accountability groups, AI companions, and rank tracking.</div></div>
+                            <div class="project-item"><div class="proj-title">Mirrorcam — Camera App</div><div class="proj-meta">Flutter · Camera Plugin · 2023</div><div class="proj-desc">Camera app with real-time mirror-like view and live adjustments for lighting, skin tone, clarity, and shadows.</div></div>
+                            <div class="project-item"><div class="proj-title">Merit AI — Hiring Bias Remover</div><div class="proj-meta">Python · Computer Vision · NLP · 2026</div><div class="proj-desc">AI system that analyzes interview videos and documents to rank candidates objectively, removing human bias from hiring.</div></div>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <div class="section-title">Certifications</div>
+                        <div class="section-content">
+                            <p><strong>Christian Discipleship Certificate</strong> — 2024<br><span style="color:#4a4a4a;font-size:13px;">Character development, leadership, and service training.</span></p>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <div class="section-title">Languages</div>
+                        <div class="section-content">
+                            <span class="lang-tag">Kiswahili <span class="lvl">Native</span></span>
+                            <span class="lang-tag">English <span class="lvl">Fluent</span></span>
+                            <span class="lang-tag">Kikuyu <span class="lvl">Native</span></span>
+                            <span class="lang-tag">Kimeru <span class="lvl">Native</span></span>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <div class="section-title">References</div>
+                        <div class="section-content">
+                            <p class="ref-note">Available upon request. As a student and emerging developer, I am building my professional network and happy to connect with mentors, church community, or university contacts for character references.</p>
+                        </div>
+                    </div>
+
+                    <div class="footer-note">
+                        Isaac Bridget · Applied Computer Science Student · Chuka University · 2026
+                    </div>
+                </div>
+
+                <div class="no-print">
+                    <button onclick="window.print()">🖨️ Print / Save as PDF</button>
+                    <button class="secondary" onclick="window.close()">✕ Close</button>
+                </div>
+
+                <script>
+                    // Auto-trigger print dialog after a short delay (optional, but user can click button)
+                    // setTimeout(() => { if (confirm('Would you like to save this CV as PDF?')) window.print(); }, 600);
+                </script>
+            </body>
+            </html>
+        `);
+            win.document.close();
+        }
+
         // ——— LIGHTBOX for Yearly Chart ———
         function openYearlyChart() {
             document.getElementById('chart-lightbox').classList.add('open');
@@ -2856,7 +3014,7 @@
             document.body.style.overflow = '';
         }
 
-        // ——— BLOG DATA ———
+        // ——— BLOG DATA (unchanged) ———
         const BLOG_ABOUT = `# My Story
 
         *I'm Isaac Bridget Njuguna 22 years old. Born and raised in Kenya. Student. Developer. Artist.Footballer.Problem solver.*
@@ -2969,7 +3127,7 @@
 
         > This is not a portfolio. This is a conversation.`;
 
-        // ——— BLOG ENGINE (condensed) ———
+        // ——— BLOG ENGINE (unchanged) ———
         const blogState = { cwd: '~', history: [], historyIndex: -1, theme: 'amber', bootTime: Date.now() };
         let blogComposeState = null;
         const b$ = (id) => document.getElementById(id);
@@ -3521,7 +3679,7 @@
             isDark = !isDark;
             document.documentElement.classList.toggle('light-theme', !isDark);
             const icons = document.querySelectorAll('#theme-icon, #theme-icon-mobile');
-            const labels = document.querySelectorAll('#theme-label');
+            const labels = document.querySelectorAll('#theme-label, #theme-label-mobile');
             icons.forEach(icon => {
                 icon.setAttribute('icon', isDark ? 'lucide:moon' : 'lucide:sun');
             });

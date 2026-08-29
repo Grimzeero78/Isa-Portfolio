@@ -1984,7 +1984,7 @@
                 <a href="https://mail.google.com/mail/?view=cm&fs=1&to=injuguna308@gmail.com" target="_blank" rel="noopener noreferrer" class="text-[11px] font-semibold tracking-[.2em] uppercase bg-warm-500 text-white px-5 py-2.5 rounded-sm hover:bg-warm-600 transition-colors">Hire Me</a>
             </div>
 
-            <!-- Mobile controls — FIXED: visible buttons, hamburger with fallback -->
+            <!-- Mobile controls -->
             <div class="flex items-center gap-2 md:hidden mobile-controls-wrap">
                 <button onclick="toggleTheme()" class="theme-toggle-btn theme-toggle-btn-mobile" aria-label="Toggle theme">
                     <iconify-icon icon="lucide:moon" width="14" id="theme-icon-mobile"></iconify-icon>
@@ -2072,7 +2072,7 @@
         </div>
     </section>
 
-    <!-- ===== STOCKIPA (unchanged except PDF CV button) ===== -->
+    <!-- ===== STOCKIPA ===== -->
     <section id="stockipa" class="relative py-16 sm:py-24 md:py-32 overflow-hidden" style="background:var(--bg-primary)">
         <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-warm-500/5 rounded-full blur-[150px]"></div>
         <div class="max-w-7xl mx-auto px-6">
@@ -2147,7 +2147,7 @@
         </div>
     </div>
 
-    <!-- ===== POWER BEAMING (unchanged) ===== -->
+    <!-- ===== POWER BEAMING ===== -->
     <section id="power-beaming" class="relative py-16 sm:py-24 md:py-32 border-t border-white/10 overflow-hidden" style="border-color:var(--border-color);background:var(--bg-secondary)">
         <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-cyber-400/5 rounded-full blur-[120px]"></div>
         <div class="max-w-7xl mx-auto px-6 relative z-10">
@@ -2257,7 +2257,7 @@
         </div>
     </section>
 
-    <!-- ===== PROJECTS (unchanged) ===== -->
+    <!-- ===== PROJECTS ===== -->
     <section id="projects" class="relative py-16 sm:py-24 md:py-32 border-t border-white/10" style="border-color:var(--border-color);background:var(--bg-primary)">
         <div class="max-w-7xl mx-auto px-6">
             <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 sm:gap-6 mb-10 sm:mb-16">
@@ -2273,7 +2273,7 @@
         </div>
     </section>
 
-    <!-- ===== CASE STUDIES (unchanged) ===== -->
+    <!-- ===== CASE STUDIES ===== -->
     <section id="cases" class="relative py-16 sm:py-24 md:py-32 border-t border-white/10" style="border-color:var(--border-color);background:var(--bg-secondary)">
         <div class="max-w-7xl mx-auto px-6 mb-8 sm:mb-12">
             <div class="pf-reveal"><p class="text-[9px] sm:text-[10px] font-semibold tracking-[.3em] uppercase text-warm-400 mb-2 sm:mb-3">Deep Dives</p><h2 class="text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter uppercase" style="color:var(--text-primary)">Case Studies</h2></div>
@@ -2289,7 +2289,7 @@
         </div>
     </section>
 
-    <!-- ===== STACK (unchanged) ===== -->
+    <!-- ===== STACK ===== -->
     <section id="stack" class="relative py-16 sm:py-24 md:py-32 border-t border-white/10" style="border-color:var(--border-color);background:var(--bg-primary)">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-10 sm:mb-16 pf-reveal"><p class="text-[9px] sm:text-[10px] font-semibold tracking-[.3em] uppercase text-warm-400 mb-2 sm:mb-3">Arsenal</p><h2 class="text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter uppercase" style="color:var(--text-primary)">Tech Stack</h2></div>
@@ -2335,7 +2335,7 @@
         </div>
     </section>
 
-    <!-- ===== CONTACT (only ONE "Get in Touch") ===== -->
+    <!-- ===== CONTACT ===== -->
     <section id="contact" class="relative py-16 sm:py-24 md:py-32 border-t border-white/10" style="border-color:var(--border-color);background:var(--bg-secondary)">
         <div class="max-w-3xl mx-auto px-6 text-center">
             <p class="text-[9px] sm:text-[10px] font-semibold tracking-[.3em] uppercase text-warm-400 mb-3 sm:mb-4 pf-reveal">Available for Work</p>
@@ -2626,7 +2626,7 @@
             </div>
         </section>
 
-        <!-- CV CONTACT — replaced Print with PDF CV button -->
+        <!-- CV CONTACT -->
         <section id="cv-contact" class="relative py-24 px-6" style="z-index:2;">
             <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] rounded-full" style="background:radial-gradient(circle,rgba(56,189,248,.1) 0%,transparent 70%);filter:blur(100px);"></div>
             <div class="max-w-3xl mx-auto relative text-center">
@@ -2671,7 +2671,7 @@
         Go Back
     </button>
 
-    <!-- ===== BLOG TERMINAL (unchanged) ===== -->
+    <!-- ===== BLOG TERMINAL ===== -->
     <div id="blog-terminal-overlay">
         <div class="crt-overlay" aria-hidden="true">
             <div class="scanlines"></div>
@@ -2837,12 +2837,14 @@
 
         // ——— PDF CV ——— 
         function openPDFCV() {
-            const win = window.open('', '_blank');
-            if (!win) {
-                alert('Please allow popups to view the PDF CV.');
-                return;
-            }
-            win.document.write(`
+            try {
+                const win = window.open('', '_blank');
+                if (!win) {
+                    alert('Please allow popups to view the PDF CV. You may need to disable your popup blocker.');
+                    return;
+                }
+                // Build the PDF content as a string to avoid any DOM manipulation issues
+                const htmlContent = `
             <!DOCTYPE html>
             <html>
             <head>
@@ -2991,15 +2993,15 @@
                     <button onclick="window.print()">🖨️ Print / Save as PDF</button>
                     <button class="secondary" onclick="window.close()">✕ Close</button>
                 </div>
-
-                <script>
-                    // Auto-trigger print dialog after a short delay (optional, but user can click button)
-                    // setTimeout(() => { if (confirm('Would you like to save this CV as PDF?')) window.print(); }, 600);
-                </script>
             </body>
             </html>
-        `);
-            win.document.close();
+            `;
+                win.document.write(htmlContent);
+                win.document.close();
+            } catch (err) {
+                console.error('PDF CV error:', err);
+                alert('Failed to open PDF CV. Please try again or use the "View CV" button instead.');
+            }
         }
 
         // ——— LIGHTBOX for Yearly Chart ———
@@ -3014,7 +3016,7 @@
             document.body.style.overflow = '';
         }
 
-        // ——— BLOG DATA (unchanged) ———
+        // ——— BLOG DATA ———
         const BLOG_ABOUT = `# My Story
 
         *I'm Isaac Bridget Njuguna 22 years old. Born and raised in Kenya. Student. Developer. Artist.Footballer.Problem solver.*
@@ -3127,7 +3129,7 @@
 
         > This is not a portfolio. This is a conversation.`;
 
-        // ——— BLOG ENGINE (unchanged) ———
+        // ——— BLOG ENGINE ———
         const blogState = { cwd: '~', history: [], historyIndex: -1, theme: 'amber', bootTime: Date.now() };
         let blogComposeState = null;
         const b$ = (id) => document.getElementById(id);
@@ -3693,8 +3695,9 @@
 
         // ——— RENDER FUNCTIONS ———
         function renderProjects(filter = 'all') {
-            const g = document.getElementById('projects-grid'),
-                f = filter === 'all' ? projects : projects.filter(p => p.category === filter);
+            const g = document.getElementById('projects-grid');
+            if (!g) return;
+            const f = filter === 'all' ? projects : projects.filter(p => p.category === filter);
             g.innerHTML = '';
             f.forEach((p, i) => {
                 const c = document.createElement('div');
@@ -3753,12 +3756,13 @@
                 const l = g.lastElementChild;
                 if (l) l.style.gridColumn = '2';
             }
-            observePFReveals();
+            setTimeout(observePFReveals, 100);
         }
 
         function renderCaseStudies() {
             const t = document.getElementById('carousel-track'),
                 d = document.getElementById('carousel-dots');
+            if (!t || !d) return;
             t.innerHTML = '';
             d.innerHTML = '';
             caseStudies.forEach((cs, i) => {
@@ -3803,6 +3807,7 @@
 
         function renderTechStack() {
             const g = document.getElementById('tech-grid');
+            if (!g) return;
             g.innerHTML = '';
             techCategories.forEach((cat, ci) => {
                 const c = document.createElement('div');
@@ -3817,7 +3822,7 @@
                 </div>`;
                 g.appendChild(c);
             });
-            observePFReveals();
+            setTimeout(observePFReveals, 100);
         }
 
         function typeCode() {
@@ -3830,6 +3835,7 @@
                 'build("City Stars");    // Football team website'
             ];
             const el = document.getElementById('typing-text');
+            if (!el) return;
             let li = 0,
                 ci = 0;
 
@@ -3901,6 +3907,7 @@
         function initCarousel() {
             const track = document.getElementById('carousel-track'),
                 container = document.getElementById('carousel-container');
+            if (!track || !container) return;
 
             function maxT() { return Math.max(0, track.scrollWidth - container.offsetWidth); }
 
@@ -3987,6 +3994,7 @@
             const prevBtn = document.getElementById('pb-prev');
             const nextBtn = document.getElementById('pb-next');
             const dotsContainer = document.getElementById('pb-dots');
+            if (!track || !container || !prevBtn || !nextBtn || !dotsContainer) return;
             let pbPos = 0;
             let currentPBSlide = 0;
             const cards = track.querySelectorAll('.pb-card');
@@ -4112,6 +4120,7 @@
         function initCursor() {
             const dot = document.getElementById('cursor-dot'),
                 ring = document.getElementById('cursor-ring');
+            if (!dot || !ring) return;
             let mx = 0,
                 my = 0,
                 rx = 0,
@@ -4141,6 +4150,7 @@
                 prog = document.getElementById('scroll-progress'),
                 sticky = document.getElementById('sticky-cta'),
                 grain = document.getElementById('grain');
+            if (!nav || !prog || !sticky || !grain) return;
             window.addEventListener('scroll', () => {
                 const st = window.scrollY,
                     docH = document.documentElement.scrollHeight - window.innerHeight;
@@ -4163,6 +4173,7 @@
             const flash = document.getElementById('transition-flash'),
                 overlay = document.getElementById('cv-overlay'),
                 closeBtn = document.getElementById('cv-close-btn');
+            if (!flash || !overlay || !closeBtn) return;
             flash.classList.add('flash');
             setTimeout(() => { flash.classList.remove('flash'); }, 200);
             document.body.style.overflow = 'hidden';
@@ -4179,6 +4190,7 @@
             const flash = document.getElementById('transition-flash'),
                 overlay = document.getElementById('cv-overlay'),
                 closeBtn = document.getElementById('cv-close-btn');
+            if (!flash || !overlay || !closeBtn) return;
             flash.classList.add('flash');
             setTimeout(() => { flash.classList.remove('flash'); }, 200);
             overlay.classList.remove('open');
@@ -4193,8 +4205,9 @@
 
         function startCVMatrix() {
             cvMatrixRunning = true;
-            const canvas = document.getElementById('cv-matrix-canvas'),
-                ctx = canvas.getContext('2d');
+            const canvas = document.getElementById('cv-matrix-canvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
 
             function resize() {
                 canvas.width = canvas.parentElement.offsetWidth;
@@ -4229,6 +4242,7 @@
 
         (function() {
             const c = document.getElementById('cv-particles');
+            if (!c) return;
             for (let i = 0; i < 20; i++) {
                 const p = document.createElement('div');
                 p.className = 'cv-particle';
@@ -4254,6 +4268,7 @@
                 ci = 0,
                 del = false;
             const el = document.getElementById('cv-typing-text');
+            if (!el) return;
 
             function t() {
                 if (!document.getElementById('cv-overlay').classList.contains('open')) { cvTypingRunning = false; return; }
@@ -4315,6 +4330,7 @@
         (function() {
             const sections = document.querySelectorAll('#cv-overlay section[id]'),
                 dots = document.querySelectorAll('.cv-side-dot');
+            if (!sections.length || !dots.length) return;
             const overlay = document.getElementById('cv-overlay');
             overlay.addEventListener('scroll', () => {
                 let cur = '';
@@ -4373,14 +4389,12 @@
             renderCaseStudies();
             renderTechStack();
             typeCode();
-            observePFReveals();
+            setTimeout(observePFReveals, 200);
             animateCounters();
-            initCarousel();
-            setTimeout(initPBCarousel, 300);
+            setTimeout(initCarousel, 300);
+            setTimeout(initPBCarousel, 400);
             initScrollFX();
             setTimeout(initCursor, 500);
-            const fo = new MutationObserver(() => setTimeout(initCursor, 100));
-            fo.observe(document.getElementById('projects-grid'), { childList: true });
         });
     </script>
 </body>

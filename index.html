@@ -1075,20 +1075,21 @@
             display: block;
         }
         .stockipa-main-wrap .img-caption {
-            padding: 18px 22px 22px;
+            padding: 22px 28px 28px;
             background: var(--bg-card);
             border-top: 1px solid var(--border-color);
         }
         .stockipa-main-wrap .img-caption h4 {
-            font-size: 15px;
+            font-size: 18px;
             font-weight: 700;
             color: var(--text-primary);
-            margin-bottom: 4px;
+            margin-bottom: 6px;
         }
         .stockipa-main-wrap .img-caption p {
-            font-size: 13px;
+            font-size: 15px;
             color: var(--text-secondary);
-            line-height: 1.6;
+            line-height: 1.7;
+            max-width: 700px;
         }
         .stockipa-main-wrap .img-caption .highlight {
             color: #D97706;
@@ -1107,13 +1108,13 @@
                 max-height: 380px;
             }
             .stockipa-main-wrap .img-caption {
-                padding: 14px 16px 18px;
+                padding: 16px 18px 22px;
             }
             .stockipa-main-wrap .img-caption h4 {
-                font-size: 13px;
+                font-size: 15px;
             }
             .stockipa-main-wrap .img-caption p {
-                font-size: 12px;
+                font-size: 13px;
             }
         }
 
@@ -1633,215 +1634,282 @@
             #mobile-menu-btn .hamburger-text {
                 font-size: 20px;
             }
-            .stats-grid .text-\[8px\] {
-                font-size: 7px;
+        }
+
+        /* ——— PDF CV PAGE STYLES (print-friendly) ——— */
+        .pdf-cv-page {
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            background: #fff;
+            color: #1a1a1a;
+            padding: 48px 56px;
+            max-width: 1100px;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+        .pdf-cv-page .cv-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            border-bottom: 3px solid #D97706;
+            padding-bottom: 20px;
+            margin-bottom: 28px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .pdf-cv-page .cv-header .name {
+            font-size: 36px;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: #1a1a1a;
+        }
+        .pdf-cv-page .cv-header .title {
+            font-size: 18px;
+            font-weight: 500;
+            color: #D97706;
+            margin-top: 2px;
+        }
+        .pdf-cv-page .cv-header .contact {
+            text-align: right;
+            font-size: 14px;
+            color: #4a4a4a;
+            line-height: 1.6;
+        }
+        .pdf-cv-page .cv-header .contact a {
+            color: #D97706;
+            text-decoration: none;
+        }
+        .pdf-cv-page .cv-header .contact a:hover {
+            text-decoration: underline;
+        }
+        .pdf-cv-page .section {
+            margin-bottom: 24px;
+        }
+        .pdf-cv-page .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #D97706;
+            border-bottom: 2px solid #e5e5e5;
+            padding-bottom: 4px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+        .pdf-cv-page .section-content {
+            font-size: 14px;
+            color: #2a2a2a;
+        }
+        .pdf-cv-page .section-content p {
+            margin-bottom: 6px;
+        }
+        .pdf-cv-page .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px 40px;
+        }
+        .pdf-cv-page .grid-3 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 16px 32px;
+        }
+        .pdf-cv-page .skill-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 4px 0;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 13px;
+        }
+        .pdf-cv-page .skill-item .level {
+            color: #888;
+            font-size: 12px;
+        }
+        .pdf-cv-page .project-item {
+            margin-bottom: 14px;
+        }
+        .pdf-cv-page .project-item .proj-title {
+            font-weight: 700;
+            font-size: 15px;
+            color: #1a1a1a;
+        }
+        .pdf-cv-page .project-item .proj-meta {
+            font-size: 12px;
+            color: #888;
+            margin-bottom: 2px;
+        }
+        .pdf-cv-page .project-item .proj-desc {
+            font-size: 13px;
+            color: #3a3a3a;
+        }
+        .pdf-cv-page .edu-item {
+            margin-bottom: 12px;
+        }
+        .pdf-cv-page .edu-item .edu-title {
+            font-weight: 700;
+            font-size: 15px;
+        }
+        .pdf-cv-page .edu-item .edu-meta {
+            font-size: 13px;
+            color: #555;
+        }
+        .pdf-cv-page .edu-item .edu-desc {
+            font-size: 13px;
+            color: #4a4a4a;
+        }
+        .pdf-cv-page .lang-tag {
+            display: inline-block;
+            background: #f5f5f5;
+            padding: 2px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            margin: 2px 4px 2px 0;
+            border: 1px solid #e5e5e5;
+        }
+        .pdf-cv-page .lang-tag .lvl {
+            color: #888;
+            font-size: 11px;
+        }
+        .pdf-cv-page .ref-note {
+            font-style: italic;
+            color: #666;
+            font-size: 13px;
+        }
+        .pdf-cv-page .footer-note {
+            margin-top: 32px;
+            padding-top: 16px;
+            border-top: 1px solid #e5e5e5;
+            font-size: 12px;
+            color: #aaa;
+            text-align: center;
+        }
+        /* PDF CV personal about */
+        .pdf-cv-page .personal-about {
+            background: #f8f6f4;
+            border-left: 4px solid #D97706;
+            padding: 16px 20px;
+            border-radius: 4px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            line-height: 1.7;
+            color: #2a2a2a;
+            margin-top: 6px;
+            overflow-x: auto;
+        }
+        .pdf-cv-page .personal-about .comment {
+            color: #888;
+        }
+        .pdf-cv-page .personal-about .key {
+            color: #0EA5E9;
+        }
+        .pdf-cv-page .personal-about .value {
+            color: #D97706;
+        }
+        .pdf-cv-page .personal-about .bracket {
+            color: #4a4a4a;
+        }
+        @media print {
+            .pdf-cv-page {
+                padding: 32px 40px;
             }
-            .cv-side-nav {
-                display: none;
+            .pdf-cv-page .cv-header .name {
+                font-size: 30px;
             }
-            #cv-hero h1 {
-                font-size: 2.2rem !important;
+            .pdf-cv-page .grid-2,
+            .pdf-cv-page .grid-3 {
+                break-inside: avoid;
             }
-            #cv-hero .cv-reveal .text-3xl {
-                font-size: 1.2rem !important;
+            .pdf-cv-page .section {
+                break-inside: avoid;
             }
-            #cv-hero .cv-reveal .gap-8 {
-                gap: 12px;
+            .no-print {
+                display: none !important;
             }
-            #cv-hero .cv-reveal .w-px {
-                height: 30px;
+        }
+        @media(max-width:700px) {
+            .pdf-cv-page {
+                padding: 24px 20px;
             }
-            #cv-about .grid.md\:grid-cols-5 {
+            .pdf-cv-page .cv-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .pdf-cv-page .cv-header .contact {
+                text-align: left;
+                width: 100%;
+            }
+            .pdf-cv-page .grid-2,
+            .pdf-cv-page .grid-3 {
                 grid-template-columns: 1fr;
+                gap: 8px;
             }
-            #cv-about .grid.md\:grid-cols-5 .md\:col-span-3 {
-                grid-column: 1;
+            .pdf-cv-page .cv-header .name {
+                font-size: 28px;
             }
-            #cv-about .grid.md\:grid-cols-5 .md\:col-span-2 {
-                grid-column: 1;
+        }
+        @media(max-width:400px) {
+            .pdf-cv-page {
+                padding: 16px 12px;
             }
-            .cyber-card .p-6 {
-                padding: 14px;
+            .pdf-cv-page .cv-header .name {
+                font-size: 22px;
             }
-            .cv-project-card .relative.h-48 {
-                height: 140px;
+            .pdf-cv-page .section-title {
+                font-size: 15px;
             }
-            .cv-project-card .p-6 {
-                padding: 14px;
+            .pdf-cv-page .personal-about {
+                font-size: 11px;
+                padding: 12px 14px;
             }
-            .cv-project-card .p-6 .text-2xl {
-                font-size: 1.2rem;
-            }
-            #cv-skills .grid.sm\:grid-cols-2.lg\:grid-cols-3 {
-                grid-template-columns: 1fr 1fr;
-                gap: 10px;
-            }
-            #cv-skills .cyber-card .p-6 {
-                padding: 12px;
-            }
-            #cv-skills .cyber-card .p-6 .text-2xl {
-                font-size: 1.2rem;
-            }
-            #cv-skills .cyber-card .p-6 .font-semibold {
-                font-size: 0.8rem;
-            }
-            #cv-skills .cyber-card .p-6 .text-xs {
-                font-size: 9px;
-            }
-            #cv-skills .cv-lang-tag {
-                font-size: 9px;
-                padding: 1px 6px;
-            }
-            #cv-education .relative .cyber-card .p-6 {
-                padding: 14px;
-            }
-            #cv-education .relative .cyber-card .p-6 .text-lg {
-                font-size: 1rem;
-            }
-            #cv-certifications .cyber-card .p-6 {
-                padding: 14px;
-            }
-            #cv-certifications .cyber-card .p-6 .text-lg {
-                font-size: 1rem;
-            }
-            #cv-certifications .cyber-card .p-6 .text-sm {
+        }
+
+        /* ——— PDF CV DOWNLOAD BUTTONS ——— */
+        .pdf-cv-actions {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 24px;
+            flex-wrap: wrap;
+        }
+        .pdf-cv-actions button {
+            font-family: 'Inter', sans-serif;
+            padding: 10px 28px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all .2s ease;
+            border: none;
+        }
+        .pdf-cv-actions .btn-download {
+            background: #D97706;
+            color: #fff;
+        }
+        .pdf-cv-actions .btn-download:hover {
+            background: #B45309;
+            transform: scale(1.04);
+        }
+        .pdf-cv-actions .btn-print {
+            background: transparent;
+            color: #D97706;
+            border: 2px solid #D97706;
+        }
+        .pdf-cv-actions .btn-print:hover {
+            background: #D97706;
+            color: #fff;
+            transform: scale(1.04);
+        }
+        .pdf-cv-actions .btn-close {
+            background: transparent;
+            color: #888;
+            border: 1px solid #ddd;
+        }
+        .pdf-cv-actions .btn-close:hover {
+            background: #f0f0f0;
+        }
+        @media(max-width:480px) {
+            .pdf-cv-actions button {
+                padding: 8px 18px;
                 font-size: 12px;
             }
-            #cv-contact .grid.sm\:grid-cols-3 {
-                grid-template-columns: 1fr 1fr;
-                gap: 10px;
-            }
-            #cv-contact .grid.sm\:grid-cols-3 .cyber-card .p-5 {
-                padding: 12px;
-            }
-            #cv-contact .cv-reveal .text-4xl {
-                font-size: 2rem;
-            }
-            #cv-contact .cv-reveal .text-lg {
-                font-size: 1rem;
-            }
-            #cv-contact .cv-reveal .px-8 {
-                padding-left: 20px;
-                padding-right: 20px;
-            }
-            #cv-contact .cv-reveal .py-4 {
-                padding-top: 12px;
-                padding-bottom: 12px;
-            }
-            #cv-contact .cv-reveal .text-base {
-                font-size: 13px;
-            }
-            #cv-overlay .cv-marquee-track span {
-                font-size: 9px;
-                gap: 6px;
-            }
-            #cv-overlay .cv-marquee-track span .gap-8 {
-                gap: 12px;
-            }
-            #cv-overlay .cv-marquee-track span .px-4 {
-                padding-left: 10px;
-                padding-right: 10px;
-            }
-            #cv-overlay .cv-side-nav {
-                display: none;
-            }
-            .yearly-chart-overlay {
-                width: 80px !important;
-                top: 8px !important;
-                right: 8px !important;
-            }
-            .yearly-chart-overlay .label-bar span {
-                font-size: 6px !important;
-            }
-            /* Mobile menu button fix */
-            #mobile-menu-btn {
-                width: 36px;
-                height: 36px;
-            }
-            #mobile-menu-btn .iconify {
-                font-size: 20px;
-            }
-            .theme-toggle-btn-mobile {
-                padding: 4px 10px;
-                font-size: 10px;
-            }
         }
-
-        @media(max-width:380px) {
-            #hero h1 .block {
-                font-size: clamp(1.8rem, 12vw, 2.8rem) !important;
-            }
-            #hero .hero-btn-group .btn-hero {
-                font-size: 7px !important;
-                padding: 0.3rem 0.5rem !important;
-            }
-            #hero .hero-typing {
-                font-size: 9px !important;
-            }
-            .flip-card {
-                height: 380px;
-            }
-            .pb-card {
-                min-width: 220px;
-                max-width: 280px;
-            }
-            #stockipa .grid .relative .featured-glow img {
-                height: 240px !important;
-            }
-            #stockipa .grid .grid-cols-1.sm\:grid-cols-2.lg\:grid-cols-4 {
-                grid-template-columns: 1fr 1fr;
-            }
-            #cv-skills .grid.sm\:grid-cols-2.lg\:grid-cols-3 {
-                grid-template-columns: 1fr 1fr;
-            }
-            #cv-contact .grid.sm\:grid-cols-3 {
-                grid-template-columns: 1fr 1fr;
-            }
-            .yearly-chart-overlay {
-                width: 64px !important;
-                top: 6px !important;
-                right: 6px !important;
-            }
-            .yearly-chart-overlay .label-bar span {
-                font-size: 5px !important;
-            }
-        }
-
-        /* ——— CV: remove ICT Support, keep Discipleship only ——— */
-        #cv-experience {
-            display: none !important;
-        }
-        #cv-volunteer {
-            display: none !important;
-        }
-        #cv-awards {
-            display: none !important;
-        }
-        /* Keep only Discipleship in certifications */
-        #cv-certifications .cyber-card .flex-wrap.gap-2 .cv-tag:not(:first-child) {
-            display: none;
-        }
-        /* Remove extra tags from cert */
-        #cv-certifications .cyber-card .flex-wrap.gap-2 .cv-tag:first-child {
-            /* keep only Character Development, hide others */
-        }
-        /* We'll handle via JS or just keep them but they are harmless */
-        /* Actually better to just hide the extra tags via CSS */
-        #cv-certifications .cyber-card .flex-wrap.gap-2 .cv-tag:nth-child(2),
-        #cv-certifications .cyber-card .flex-wrap.gap-2 .cv-tag:nth-child(3) {
-            display: none !important;
-        }
-        /* Remove duplicate Get in Touch buttons - we'll keep only one in contact section */
-        /* The sticky CTA has "Hire Me" which is different, so it's fine */
-        /* Remove the extra button in mobile nav that might duplicate */
-        #mobile-menu .mt-1 {
-            /* keep it, it's "Hire Me" not "Get in Touch" */
-        }
-        /* Fix: ensure contact section has only one "Get in Touch" */
-        #contact .flex-col.sm\:flex-row .gap-3 .inline-flex:first-child {
-            /* this is the Get in Touch button, it's fine */
-        }
-        /* Remove any other "Get in Touch" duplicates - there's only one in contact */
     </style>
 </head>
 
@@ -1982,27 +2050,17 @@
                     </div>
                 </div>
 
-                <!-- Stockipa main preview with YEARLY CHART OVERLAY -->
-                <div class="relative pf-reveal pf-delay-2">
-                    <div class="relative rounded-sm border border-white/10 overflow-hidden featured-glow scan-line-fx" style="border-color:var(--border-color)">
-                        <img src="https://picsum.photos/seed/stockipa-main/700/900.jpg" alt="Stockipa App" class="w-full h-[360px] sm:h-[420px] md:h-[500px] lg:h-[600px] object-cover" style="filter:contrast(1.1) brightness(.8)" loading="lazy" />
-                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
-                        <div class="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6">
-                            <div class="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3"><div class="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-warm-500 flex items-center justify-center"><iconify-icon icon="lucide:wallet" width="16" class="sm:w-5 text-white"></iconify-icon></div><div><div class="text-xs sm:text-sm font-bold text-white">Stockipa</div><div class="text-[8px] sm:text-[10px] text-neutral-400">Finance Manager</div></div></div>
-                            <div class="grid grid-cols-3 gap-1 sm:gap-2">
-                                <div class="bg-white/5 backdrop-blur-sm rounded-lg p-2 sm:p-3 border border-white/5"><div class="text-[7px] sm:text-[9px] text-neutral-500 uppercase tracking-wider">Money In</div><div class="text-base sm:text-lg font-black text-green-400 mt-0.5 sm:mt-1">300K</div></div>
-                                <div class="bg-white/5 backdrop-blur-sm rounded-lg p-2 sm:p-3 border border-white/5"><div class="text-[7px] sm:text-[9px] text-neutral-500 uppercase tracking-wider">Expenses</div><div class="text-base sm:text-lg font-black text-red-400 mt-0.5 sm:mt-1">280K</div></div>
-                                <div class="bg-white/5 backdrop-blur-sm rounded-lg p-2 sm:p-3 border border-white/5"><div class="text-[7px] sm:text-[9px] text-neutral-500 uppercase tracking-wider">Saved</div><div class="text-base sm:text-lg font-black text-warm-400 mt-0.5 sm:mt-1">20K</div></div>
-                            </div>
-                        </div>
-
-                        <!-- YEARLY CHART OVERLAY — clickable -->
-                        <div class="yearly-chart-overlay" onclick="openYearlyChart()" title="Click to see the full yearly overview and Stockipa's impact">
-                            <img src="https://cdn.jsdelivr.net/gh/Grimzeero78/images_cdn/tracking.jpeg" alt="Yearly chart overview" loading="lazy" />
-                            <div class="label-bar">
-                                <span>📊 Yearly overview</span>
-                            </div>
-                        </div>
+                <!-- Stockipa main preview — ONLY ONE IMAGE + CAPTION, no overlays, no extra garbage -->
+                <div class="pf-reveal pf-delay-2 stockipa-main-wrap">
+                    <img src="https://cdn.jsdelivr.net/gh/Grimzeero78/images_cdn/tracking.jpeg" alt="Stockipa Yearly Overview — real screenshot" loading="lazy" />
+                    <div class="img-caption">
+                        <h4>📈 The Stockipa Journey — Real Results</h4>
+                        <p>
+                            From <span class="red">May</span>, the user (my mom) was <span class="red">overspending</span> — expenses outpaced income every week.<br />
+                            But as the months went by, with <span class="highlight">consistent tracking</span>, she started to <span class="green">reduce overspending</span>.<br />
+                            By <span class="highlight">August</span>, <span class="green">money in exceeded expenses</span>, and she was able to <span class="green">save more</span> each month.<br /><br />
+                            <strong style="color:#D97706;">This is what Stockipa does.</strong> Know where your money goes, and watch your savings grow.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -2705,176 +2763,7 @@
                 ] }
         ];
 
-        // ——— PDF CV ——— 
-        function openPDFCV() {
-            try {
-                const win = window.open('', '_blank');
-                if (!win) {
-                    alert('Please allow popups to view the PDF CV. You may need to disable your popup blocker.');
-                    return;
-                }
-                // Build the PDF content as a string to avoid any DOM manipulation issues
-                const htmlContent = `
-            <!DOCTYPE html>
-            <html>
-            <head>
-                <meta charset="UTF-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>Isaac Bridget · Professional CV</title>
-                <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
-                <style>
-                    * { margin:0; padding:0; box-sizing:border-box; }
-                    body { background:#f0f2f5; font-family:'Inter',sans-serif; padding:24px; color:#1a1a1a; }
-                    .pdf-cv-page { max-width:1100px; margin:0 auto; background:#fff; padding:48px 56px; border-radius:12px; box-shadow:0 8px 40px rgba(0,0,0,0.08); }
-                    .pdf-cv-page .cv-header { display:flex; justify-content:space-between; align-items:flex-start; border-bottom:3px solid #D97706; padding-bottom:20px; margin-bottom:28px; flex-wrap:wrap; gap:12px; }
-                    .pdf-cv-page .cv-header .name { font-size:36px; font-weight:800; letter-spacing:-0.02em; color:#1a1a1a; }
-                    .pdf-cv-page .cv-header .title { font-size:18px; font-weight:500; color:#D97706; margin-top:2px; }
-                    .pdf-cv-page .cv-header .contact { text-align:right; font-size:14px; color:#4a4a4a; line-height:1.6; }
-                    .pdf-cv-page .cv-header .contact a { color:#D97706; text-decoration:none; }
-                    .pdf-cv-page .cv-header .contact a:hover { text-decoration:underline; }
-                    .pdf-cv-page .section { margin-bottom:24px; }
-                    .pdf-cv-page .section-title { font-size:18px; font-weight:700; color:#D97706; border-bottom:2px solid #e5e5e5; padding-bottom:4px; margin-bottom:12px; text-transform:uppercase; letter-spacing:0.04em; }
-                    .pdf-cv-page .section-content { font-size:14px; color:#2a2a2a; }
-                    .pdf-cv-page .section-content p { margin-bottom:6px; }
-                    .pdf-cv-page .grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:20px 40px; }
-                    .pdf-cv-page .grid-3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px 32px; }
-                    .pdf-cv-page .skill-item { display:flex; justify-content:space-between; padding:4px 0; border-bottom:1px solid #f0f0f0; font-size:13px; }
-                    .pdf-cv-page .skill-item .level { color:#888; font-size:12px; }
-                    .pdf-cv-page .project-item { margin-bottom:14px; }
-                    .pdf-cv-page .project-item .proj-title { font-weight:700; font-size:15px; color:#1a1a1a; }
-                    .pdf-cv-page .project-item .proj-meta { font-size:12px; color:#888; margin-bottom:2px; }
-                    .pdf-cv-page .project-item .proj-desc { font-size:13px; color:#3a3a3a; }
-                    .pdf-cv-page .edu-item { margin-bottom:12px; }
-                    .pdf-cv-page .edu-item .edu-title { font-weight:700; font-size:15px; }
-                    .pdf-cv-page .edu-item .edu-meta { font-size:13px; color:#555; }
-                    .pdf-cv-page .edu-item .edu-desc { font-size:13px; color:#4a4a4a; }
-                    .pdf-cv-page .lang-tag { display:inline-block; background:#f5f5f5; padding:2px 12px; border-radius:20px; font-size:13px; margin:2px 4px 2px 0; border:1px solid #e5e5e5; }
-                    .pdf-cv-page .lang-tag .lvl { color:#888; font-size:11px; }
-                    .pdf-cv-page .ref-note { font-style:italic; color:#666; font-size:13px; }
-                    .pdf-cv-page .footer-note { margin-top:32px; padding-top:16px; border-top:1px solid #e5e5e5; font-size:12px; color:#aaa; text-align:center; }
-                    .no-print { display:flex; justify-content:center; gap:16px; margin-top:24px; flex-wrap:wrap; }
-                    .no-print button { background:#D97706; color:#fff; border:none; padding:10px 28px; border-radius:6px; font-size:14px; font-weight:600; cursor:pointer; transition:background .2s; font-family:'Inter',sans-serif; }
-                    .no-print button:hover { background:#B45309; }
-                    .no-print button.secondary { background:transparent; color:#D97706; border:2px solid #D97706; }
-                    .no-print button.secondary:hover { background:#D97706; color:#fff; }
-                    @media print { body { background:#fff; padding:0; } .pdf-cv-page { box-shadow:none; border-radius:0; padding:32px 40px; } .no-print { display:none !important; } .pdf-cv-page .cv-header .name { font-size:30px; } .pdf-cv-page .grid-2, .pdf-cv-page .grid-3 { break-inside:avoid; } .pdf-cv-page .section { break-inside:avoid; } }
-                    @media(max-width:700px){ .pdf-cv-page{ padding:24px 20px; } .pdf-cv-page .cv-header{ flex-direction:column; align-items:flex-start; } .pdf-cv-page .cv-header .contact{ text-align:left; width:100%; } .pdf-cv-page .grid-2, .pdf-cv-page .grid-3 { grid-template-columns:1fr; gap:8px; } .pdf-cv-page .cv-header .name { font-size:28px; } }
-                    @media(max-width:400px){ .pdf-cv-page{ padding:16px 12px; } .pdf-cv-page .cv-header .name { font-size:22px; } .pdf-cv-page .section-title { font-size:15px; } }
-                </style>
-            </head>
-            <body>
-                <div class="pdf-cv-page" id="pdfCvContent">
-                    <div class="cv-header">
-                        <div>
-                            <div class="name">ISAAC BRIDGET</div>
-                            <div class="title">Applied Computer Science Student · Mobile Developer · AI Engineer</div>
-                        </div>
-                        <div class="contact">
-                            📧 <a href="mailto:injuguna308@gmail.com">injuguna308@gmail.com</a><br>
-                            📞 +254 143374333<br>
-                            📍 Kenya · Chuka University<br>
-                            🔗 <a href="https://github.com/Grimzeero78" target="_blank">github.com/Grimzeero78</a>
-                        </div>
-                    </div>
-
-                    <div class="section">
-                        <div class="section-title">Professional Summary</div>
-                        <div class="section-content">
-                            <p>Applied Computer Science student at Chuka University (2023–2027) with a strong passion for mobile development, AI, and solving real-world problems. Builds offline-first apps that help small businesses track finances, train AI models for practical use, and believe in simple solutions for real people. Combines technical discipline with creativity from stencil art and teamwork from football.</p>
-                        </div>
-                    </div>
-
-                    <div class="section">
-                        <div class="section-title">Education</div>
-                        <div class="section-content">
-                            <div class="edu-item"><div class="edu-title">BSc. Applied Computer Science</div><div class="edu-meta">Chuka University · 2023 – 2027</div><div class="edu-desc">Specializing in mobile application development &amp; AI. In progress.</div></div>
-                            <div class="edu-item"><div class="edu-title">Kagumo High School</div><div class="edu-meta">Secondary Education · 2019 – 2022</div><div class="edu-desc">Built the foundation of discipline, teamwork, and analytical thinking.</div></div>
-                            <div class="edu-item"><div class="edu-title">Ngenia Primary School</div><div class="edu-meta">Primary Education · – 2019</div></div>
-                        </div>
-                    </div>
-
-                    <div class="section">
-                        <div class="section-title">Skills</div>
-                        <div class="section-content">
-                            <div class="grid-2">
-                                <div>
-                                    <strong style="color:#D97706;">Technical</strong>
-                                    <div class="skill-item"><span>Flutter / Dart</span><span class="level">Beginner</span></div>
-                                    <div class="skill-item"><span>C++</span><span class="level">Strong</span></div>
-                                    <div class="skill-item"><span>Python</span><span class="level">Intermediate</span></div>
-                                    <div class="skill-item"><span>MySQL</span><span class="level">Basic</span></div>
-                                    <div class="skill-item"><span>TensorFlow</span><span class="level">Beginner</span></div>
-                                    <div class="skill-item"><span>Pentesting</span><span class="level">Planning</span></div>
-                                </div>
-                                <div>
-                                    <strong style="color:#D97706;">Soft</strong>
-                                    <div class="skill-item"><span>Teamwork</span><span class="level">Strong</span></div>
-                                    <div class="skill-item"><span>Discipline</span><span class="level">Strong</span></div>
-                                    <div class="skill-item"><span>Creativity</span><span class="level">Strong</span></div>
-                                    <div class="skill-item"><span>Communication</span><span class="level">Strong</span></div>
-                                    <div class="skill-item"><span>Critical Thinking</span><span class="level">Strong</span></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="section">
-                        <div class="section-title">Projects</div>
-                        <div class="section-content">
-                            <div class="project-item"><div class="proj-title">Stockipa — Finance Tracking App</div><div class="proj-meta">Flutter · SQLite · M-Pesa Integration · 2025</div><div class="proj-desc">Offline mobile app that auto-tracks income/expenses by reading M-Pesa SMS and scanning bills. Features stock management, multi-language support, and yearly charts. Built for small business owners.</div></div>
-                            <div class="project-item"><div class="proj-title">AI Image Detector</div><div class="proj-meta">Python · TensorFlow · OpenCV · 2024</div><div class="proj-desc">Desktop app using TensorFlow to classify objects in images. Successfully detected objects with accuracy scaling with model quality.</div></div>
-                            <div class="project-item"><div class="proj-title">City Stars FC — Football Website</div><div class="proj-meta">HTML · CSS · JavaScript · 2026</div><div class="proj-desc">Full website for Chuka University's football team with fixtures, results, player profiles, staff, league table, and club blog.</div></div>
-                            <div class="project-item"><div class="proj-title">DeepRest — Mental Health App</div><div class="proj-meta">Flutter · Firebase · Grok API · 2026</div><div class="proj-desc">Mobile app for reducing screen time and building healthier habits. Features accountability groups, AI companions, and rank tracking.</div></div>
-                            <div class="project-item"><div class="proj-title">Mirrorcam — Camera App</div><div class="proj-meta">Flutter · Camera Plugin · 2023</div><div class="proj-desc">Camera app with real-time mirror-like view and live adjustments for lighting, skin tone, clarity, and shadows.</div></div>
-                            <div class="project-item"><div class="proj-title">Merit AI — Hiring Bias Remover</div><div class="proj-meta">Python · Computer Vision · NLP · 2026</div><div class="proj-desc">AI system that analyzes interview videos and documents to rank candidates objectively, removing human bias from hiring.</div></div>
-                        </div>
-                    </div>
-
-                    <div class="section">
-                        <div class="section-title">Certifications</div>
-                        <div class="section-content">
-                            <p><strong>Christian Discipleship Certificate</strong> — 2024<br><span style="color:#4a4a4a;font-size:13px;">Character development, leadership, and service training.</span></p>
-                        </div>
-                    </div>
-
-                    <div class="section">
-                        <div class="section-title">Languages</div>
-                        <div class="section-content">
-                            <span class="lang-tag">Kiswahili <span class="lvl">Native</span></span>
-                            <span class="lang-tag">English <span class="lvl">Fluent</span></span>
-                            <span class="lang-tag">Kikuyu <span class="lvl">Native</span></span>
-                            <span class="lang-tag">Kimeru <span class="lvl">Native</span></span>
-                        </div>
-                    </div>
-
-                    <div class="section">
-                        <div class="section-title">References</div>
-                        <div class="section-content">
-                            <p class="ref-note">Available upon request. As a student and emerging developer, I am building my professional network and happy to connect with mentors, church community, or university contacts for character references.</p>
-                        </div>
-                    </div>
-
-                    <div class="footer-note">
-                        Isaac Bridget · Applied Computer Science Student · Chuka University · 2026
-                    </div>
-                </div>
-
-                <div class="no-print">
-                    <button onclick="window.print()">🖨️ Print / Save as PDF</button>
-                    <button class="secondary" onclick="window.close()">✕ Close</button>
-                </div>
-            </body>
-            </html>
-            `;
-                win.document.write(htmlContent);
-                win.document.close();
-            } catch (err) {
-                console.error('PDF CV error:', err);
-                alert('Failed to open PDF CV. Please try again or use the "View CV" button instead.');
-            }
-        }
-
-        // ——— PDF CV ——— 
+        // ——— PDF CV ——— with personal about section and real download
         function openPDFCV() {
             try {
                 const win = window.open('', '_blank');
@@ -2889,6 +2778,7 @@
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
                 <title>Isaac Njuguna Bridget · Professional CV</title>
                 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+                <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
                 <style>
                     * { margin:0; padding:0; box-sizing:border-box; }
                     body { background:#f0f2f5; font-family:'Inter',sans-serif; padding:24px; color:#1a1a1a; }
@@ -2919,6 +2809,23 @@
                     .pdf-cv-page .lang-tag .lvl { color:#888; font-size:11px; }
                     .pdf-cv-page .ref-note { font-style:italic; color:#666; font-size:13px; }
                     .pdf-cv-page .footer-note { margin-top:32px; padding-top:16px; border-top:1px solid #e5e5e5; font-size:12px; color:#aaa; text-align:center; }
+                    /* personal about */
+                    .pdf-cv-page .personal-about {
+                        background: #f8f6f4;
+                        border-left: 4px solid #D97706;
+                        padding: 16px 20px;
+                        border-radius: 4px;
+                        font-family: 'JetBrains Mono', monospace;
+                        font-size: 13px;
+                        line-height: 1.8;
+                        color: #2a2a2a;
+                        margin-top: 6px;
+                        overflow-x: auto;
+                    }
+                    .pdf-cv-page .personal-about .comment { color: #888; }
+                    .pdf-cv-page .personal-about .key { color: #0EA5E9; }
+                    .pdf-cv-page .personal-about .value { color: #D97706; }
+                    .pdf-cv-page .personal-about .bracket { color: #4a4a4a; }
                     .no-print { display:flex; justify-content:center; gap:16px; margin-top:24px; flex-wrap:wrap; }
                     .no-print button { font-family:'Inter',sans-serif; padding:10px 28px; border-radius:6px; font-size:14px; font-weight:600; cursor:pointer; transition:all .2s ease; border:none; }
                     .no-print .btn-download { background:#D97706; color:#fff; }
@@ -2928,8 +2835,8 @@
                     .no-print .btn-close { background:transparent; color:#888; border:1px solid #ddd; }
                     .no-print .btn-close:hover { background:#f0f0f0; }
                     @media print { body { background:#fff; padding:0; } .pdf-cv-page { box-shadow:none; border-radius:0; padding:32px 40px; } .no-print { display:none !important; } .pdf-cv-page .cv-header .name { font-size:30px; } .pdf-cv-page .grid-2, .pdf-cv-page .grid-3 { break-inside:avoid; } .pdf-cv-page .section { break-inside:avoid; } }
-                    @media(max-width:700px){ .pdf-cv-page{ padding:24px 20px; } .pdf-cv-page .cv-header{ flex-direction:column; align-items:flex-start; } .pdf-cv-page .cv-header .contact{ text-align:left; width:100%; } .pdf-cv-page .grid-2, .pdf-cv-page .grid-3 { grid-template-columns:1fr; gap:8px; } .pdf-cv-page .cv-header .name { font-size:28px; } }
-                    @media(max-width:400px){ .pdf-cv-page{ padding:16px 12px; } .pdf-cv-page .cv-header .name { font-size:22px; } .pdf-cv-page .section-title { font-size:15px; } .no-print button { padding:8px 18px; font-size:12px; } }
+                    @media(max-width:700px){ .pdf-cv-page{ padding:24px 20px; } .pdf-cv-page .cv-header{ flex-direction:column; align-items:flex-start; } .pdf-cv-page .cv-header .contact{ text-align:left; width:100%; } .pdf-cv-page .grid-2, .pdf-cv-page .grid-3 { grid-template-columns:1fr; gap:8px; } .pdf-cv-page .cv-header .name { font-size:28px; } .pdf-cv-page .personal-about { font-size:12px; padding:14px 16px; } }
+                    @media(max-width:400px){ .pdf-cv-page{ padding:16px 12px; } .pdf-cv-page .cv-header .name { font-size:22px; } .pdf-cv-page .section-title { font-size:15px; } .pdf-cv-page .personal-about { font-size:11px; padding:12px 14px; } .no-print button { padding:8px 18px; font-size:12px; } }
                 </style>
             </head>
             <body>
@@ -2951,6 +2858,26 @@
                         <div class="section-title">Professional Summary</div>
                         <div class="section-content">
                             <p>Applied Computer Science student at Chuka University (2023–2027) with a strong passion for mobile development, AI, and solving real-world problems. Builds offline-first apps that help small businesses track finances, train AI models for practical use, and believe in simple solutions for real people. Combines technical discipline with creativity from stencil art and teamwork from football.</p>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <div class="section-title">About Me — Personal</div>
+                        <div class="section-content">
+                            <div class="personal-about">
+                                <span class="comment">// This is me, no filter, no AI-generated fluff.</span><br>
+                                <span class="bracket">{</span><br>
+                                &nbsp;&nbsp;<span class="key">name</span>: <span class="value">"Isaac Njuguna Bridget"</span>,<br>
+                                &nbsp;&nbsp;<span class="key">role</span>: <span class="value">"Applied CS Student"</span>,<br>
+                                &nbsp;&nbsp;<span class="key">focus</span>: <span class="value">"Mobile App &amp; AI Development"</span>,<br>
+                                &nbsp;&nbsp;<span class="key">university</span>: <span class="value">"Chuka University"</span>,<br>
+                                &nbsp;&nbsp;<span class="key">flagship</span>: <span class="value">"Stockipa — Finance Tracker"</span>,<br>
+                                &nbsp;&nbsp;<span class="key">passion</span>: <span class="value">"Solving real-world problems with tech"</span>,<br>
+                                &nbsp;&nbsp;<span class="key">hobbies</span>: [<span class="value">"Football"</span>, <span class="value">"Stencil Art"</span>],<br>
+                                &nbsp;&nbsp;<span class="key">mindset</span>: <span class="value">"Break things → Understand things → Build things"</span>,<br>
+                                <span class="bracket">}</span><br>
+                                <span class="comment">// I do not just write code. I create art with spray cans, play football as an attacking midfielder.</span>
+                            </div>
                         </div>
                     </div>
 
@@ -3030,13 +2957,28 @@
                 </div>
 
                 <div class="no-print">
-                    <button class="btn-download" onclick="document.getElementById('pdfCvContent').style.display='block';window.print();">⬇ Download PDF</button>
+                    <button class="btn-download" id="cvDownloadBtn">⬇ Download PDF</button>
                     <button class="btn-print" onclick="window.print();">🖨 Print</button>
                     <button class="btn-close" onclick="window.close();">✕ Close</button>
                 </div>
                 <script>
-                    // auto-trigger download via print dialog with save-as-pdf hint
-                    // both buttons use window.print() — user chooses "Save as PDF" or print
+                    document.getElementById('cvDownloadBtn').addEventListener('click', function() {
+                        // grab the content and trigger download as .html (which can be opened and printed to PDF)
+                        const content = document.getElementById('pdfCvContent').outerHTML;
+                        const fullHtml = \`<!DOCTYPE html>
+                        <html><head><meta charset="UTF-8"><title>Isaac Njuguna Bridget CV</title>
+                        <style>${document.querySelector('style').innerHTML}<\/style>
+                        <\/head><body><div class="pdf-cv-page">\${content}<\/div><\/body><\/html>\`;
+                        const blob = new Blob([fullHtml], { type: 'text/html' });
+                        const url = URL.createObjectURL(blob);
+                        const a = document.createElement('a');
+                        a.href = url;
+                        a.download = 'Isaac_Njuguna_Bridget_CV.html';
+                        document.body.appendChild(a);
+                        a.click();
+                        document.body.removeChild(a);
+                        URL.revokeObjectURL(url);
+                    });
                 <\/script>
             </body>
             <\/html>`;

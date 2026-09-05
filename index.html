@@ -1222,7 +1222,7 @@
             position: fixed;
             inset: 0;
             z-index: 50050;
-            background: #050709;
+            background: #080b12;
             color: #d8d4ce;
             overflow: hidden;
             transform: translateX(100%);
@@ -1462,121 +1462,63 @@
             color: #4ade80;
         }
 
-        #blog-terminal-overlay .prompt-line {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding-top: 6px;
-            border-top: 1px solid #0e1217;
-            position: relative;
-            flex-shrink: 0;
-        }
-        #blog-terminal-overlay .prompt {
-            color: #4ade80;
-            text-shadow: 0 0 8px rgba(74, 222, 128, 0.45);
-            font-weight: 500;
-            flex-shrink: 0;
-            user-select: none;
-        }
-        #blog-terminal-overlay .prompt .path {
-            color: #67e8f9;
-            text-shadow: 0 0 6px rgba(103, 232, 249, 0.4);
-        }
-        #blog-terminal-overlay .prompt.compose {
-            color: #f472b6;
-            text-shadow: 0 0 8px rgba(244, 114, 182, 0.5);
-        }
-        #blog-terminal-overlay .input-area {
-            position: relative;
-            flex: 1;
-            min-width: 0;
-        }
-        #blog-terminal-overlay .input-display {
-            pointer-events: none;
-            color: #d8d4ce;
-        }
-        #blog-terminal-overlay .ghost-text {
-            color: #6b7585;
-            opacity: 0.55;
-        }
-        #blog-terminal-overlay .block-cursor {
-            display: inline-block;
-            width: 8px;
-            height: 17px;
-            background: #ffb86c;
-            vertical-align: text-bottom;
-            box-shadow: 0 0 8px #ffb86c;
-            animation: blink 1.06s steps(2, end) infinite;
-            margin-left: 1px;
-            margin-right: 1px;
-        }
-        #blog-terminal-overlay #blogCmdInput {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            background: transparent;
-            border: none;
-            outline: none;
-            color: transparent;
-            caret-color: transparent;
-            font: inherit;
-            z-index: 2;
-            cursor: text;
-            padding: 0;
-        }
+        /* ——— BLOG MARKDOWN READABILITY ——— */
         #blog-terminal-overlay .post {
-            margin: 8px 0 14px;
+            margin: 6px 0 12px;
+            padding: 0 2px;
         }
         #blog-terminal-overlay .post h1,
         #blog-terminal-overlay .post h2,
         #blog-terminal-overlay .post h3 {
-            color: #ffb86c;
-            font-weight: 600;
-            text-shadow: 0 0 10px rgba(255, 184, 108, 0.4);
+            color: #fbbf24;
+            font-weight: 700;
+            text-shadow: 0 0 12px rgba(251, 191, 36, 0.25);
             line-height: 1.3;
             margin: 18px 0 8px;
+            letter-spacing: -0.01em;
         }
         #blog-terminal-overlay .post h1 {
-            font-size: 1.5em;
-            letter-spacing: -0.01em;
+            font-size: 1.6em;
             padding-bottom: 6px;
             border-bottom: 1px solid #1d2530;
+            color: #ffd966;
         }
         #blog-terminal-overlay .post h2 {
-            font-size: 1.2em;
+            font-size: 1.25em;
+            color: #fcd34d;
         }
         #blog-terminal-overlay .post h3 {
             font-size: 1.05em;
-            color: #ffd09b;
+            color: #fde68a;
         }
         #blog-terminal-overlay .post p {
             margin: 8px 0;
-            color: #d8d4ce;
+            color: #e8e6e0;
+            line-height: 1.7;
+            font-size: 0.98em;
         }
-        #blog-terminal-overlay .post em {
-            color: #d8d4ce;
-            font-style: italic;
-            opacity: 0.85;
-        }
-        #blog-terminal-overlay .post strong {
-            color: #ffd09b;
+        #blog-terminal-overlay .post p strong {
+            color: #fcd34d;
             font-weight: 600;
+        }
+        #blog-terminal-overlay .post p em {
+            color: #c4bdb5;
+            font-style: italic;
         }
         #blog-terminal-overlay .post code {
             color: #a3e635;
             background: rgba(163, 230, 53, 0.08);
-            padding: 1px 5px;
-            border-radius: 2px;
-            font-size: 0.95em;
-            border: 1px solid rgba(163, 230, 53, 0.18);
+            padding: 1px 6px;
+            border-radius: 3px;
+            font-size: 0.92em;
+            border: 1px solid rgba(163, 230, 53, 0.15);
         }
         #blog-terminal-overlay .post pre {
             margin: 10px 0;
             background: #0e1217;
             border: 1px solid #1d2530;
-            border-radius: 3px;
-            padding: 10px 12px;
+            border-radius: 4px;
+            padding: 10px 14px;
             overflow-x: auto;
         }
         #blog-terminal-overlay .post pre code {
@@ -1585,14 +1527,14 @@
             background: transparent;
             border: none;
             color: #d8d4ce;
-            font-size: 0.95em;
-            line-height: 1.5;
+            font-size: 0.92em;
+            line-height: 1.6;
         }
         #blog-terminal-overlay .post a {
             color: #67e8f9;
             text-decoration: underline;
             text-underline-offset: 2px;
-            text-decoration-color: rgba(103, 232, 249, 0.4);
+            text-decoration-color: rgba(103, 232, 249, 0.35);
             transition: color 0.15s, text-decoration-color 0.15s;
         }
         #blog-terminal-overlay .post a:hover {
@@ -1600,30 +1542,61 @@
             text-decoration-color: #f472b6;
         }
         #blog-terminal-overlay .post blockquote {
-            border-left: 2px solid #ffb86c;
-            padding: 6px 0 6px 14px;
+            border-left: 3px solid #fbbf24;
+            padding: 6px 0 6px 16px;
             margin: 12px 0;
-            color: #6b7585;
+            color: #a8a39a;
             font-style: italic;
-            background: rgba(255, 184, 108, 0.04);
+            background: rgba(251, 191, 36, 0.04);
+            border-radius: 0 3px 3px 0;
+        }
+        #blog-terminal-overlay .post blockquote p {
+            color: #a8a39a;
         }
         #blog-terminal-overlay .post ul,
         #blog-terminal-overlay .post ol {
-            padding-left: 22px;
+            padding-left: 24px;
             margin: 8px 0;
         }
         #blog-terminal-overlay .post li {
-            margin: 3px 0;
+            margin: 4px 0;
+            color: #e8e6e0;
+            line-height: 1.6;
         }
-        #blog-terminal-overlay .post ul li::marker,
+        #blog-terminal-overlay .post ul li::marker {
+            color: #fbbf24;
+        }
         #blog-terminal-overlay .post ol li::marker {
-            color: #ffb86c;
+            color: #fbbf24;
+            font-weight: 600;
         }
-        #blog-terminal-overlay .divider {
+        #blog-terminal-overlay .post hr {
+            border: none;
+            border-top: 1px solid #1d2530;
+            margin: 16px 0;
+        }
+        #blog-terminal-overlay .post .divider {
             color: #2a303c;
             margin: 8px 0;
             overflow: hidden;
+            letter-spacing: 2px;
         }
+        #blog-terminal-overlay .post .emoji {
+            font-style: normal;
+        }
+        #blog-terminal-overlay .post .highlight-box {
+            background: rgba(251, 191, 36, 0.05);
+            border: 1px solid rgba(251, 191, 36, 0.15);
+            border-radius: 4px;
+            padding: 12px 16px;
+            margin: 12px 0;
+        }
+        #blog-terminal-overlay .post .highlight-box p {
+            margin: 4px 0;
+            color: #e8e6e0;
+        }
+
+        /* ——— BLOG COMMANDS ——— */
         #blog-terminal-overlay .listing {
             display: flex;
             flex-wrap: wrap;
@@ -1692,6 +1665,70 @@
             border: 1px dashed #1d2530;
             padding: 8px 12px;
             margin: 6px 0;
+        }
+
+        #blog-terminal-overlay .prompt-line {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding-top: 6px;
+            border-top: 1px solid #0e1217;
+            position: relative;
+            flex-shrink: 0;
+        }
+        #blog-terminal-overlay .prompt {
+            color: #4ade80;
+            text-shadow: 0 0 8px rgba(74, 222, 128, 0.45);
+            font-weight: 500;
+            flex-shrink: 0;
+            user-select: none;
+        }
+        #blog-terminal-overlay .prompt .path {
+            color: #67e8f9;
+            text-shadow: 0 0 6px rgba(103, 232, 249, 0.4);
+        }
+        #blog-terminal-overlay .prompt.compose {
+            color: #f472b6;
+            text-shadow: 0 0 8px rgba(244, 114, 182, 0.5);
+        }
+        #blog-terminal-overlay .input-area {
+            position: relative;
+            flex: 1;
+            min-width: 0;
+        }
+        #blog-terminal-overlay .input-display {
+            pointer-events: none;
+            color: #d8d4ce;
+        }
+        #blog-terminal-overlay .ghost-text {
+            color: #6b7585;
+            opacity: 0.55;
+        }
+        #blog-terminal-overlay .block-cursor {
+            display: inline-block;
+            width: 8px;
+            height: 17px;
+            background: #ffb86c;
+            vertical-align: text-bottom;
+            box-shadow: 0 0 8px #ffb86c;
+            animation: blink 1.06s steps(2, end) infinite;
+            margin-left: 1px;
+            margin-right: 1px;
+        }
+        #blog-terminal-overlay #blogCmdInput {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            border: none;
+            outline: none;
+            color: transparent;
+            caret-color: transparent;
+            font: inherit;
+            z-index: 2;
+            cursor: text;
+            padding: 0;
         }
 
         /* ——— MOBILE HEADER FIXES ——— */
@@ -1903,6 +1940,63 @@
         .pdf-cv-page .main .link-list .label {
             color: #555;
             font-weight: 400;
+        }
+        .pdf-cv-page .main .link-list .google-term {
+            font-size: 11px;
+            color: #999;
+            background: #f5f5f5;
+            padding: 1px 8px;
+            border-radius: 12px;
+            display: inline-block;
+            margin-left: 2px;
+        }
+        .pdf-cv-page .main .website-item {
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .pdf-cv-page .main .website-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .pdf-cv-page .main .website-item .site-title {
+            font-weight: 700;
+            font-size: 15px;
+            color: #1a1a1a;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .pdf-cv-page .main .website-item .site-title a {
+            color: #D97706;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 13px;
+            border-bottom: 1px dotted rgba(217, 119, 6, 0.3);
+        }
+        .pdf-cv-page .main .website-item .site-title a:hover {
+            border-bottom: 1px solid #D97706;
+        }
+        .pdf-cv-page .main .website-item .site-desc {
+            font-size: 13px;
+            color: #3a3a3a;
+            margin-top: 3px;
+            line-height: 1.6;
+        }
+        .pdf-cv-page .main .website-item .site-search {
+            font-size: 12px;
+            color: #777;
+            margin-top: 4px;
+            background: #f8f8f8;
+            padding: 2px 12px;
+            border-radius: 14px;
+            display: inline-block;
+        }
+        .pdf-cv-page .main .website-item .site-search strong {
+            color: #D97706;
+            font-weight: 600;
         }
         .pdf-cv-page .main .cert-item {
             margin-bottom: 8px;
@@ -2881,7 +2975,7 @@
             if (e.key === 'Escape') closeLightbox();
         });
 
-        // ——— PDF CV ——— with modern two-column format and live links
+        // ——— PDF CV ——— with modern two-column format and live links + website explanations
         function openPDFCV() {
             try {
                 const win = window.open('', '_blank');
@@ -2927,6 +3021,14 @@
                     .pdf-cv-page .main .footer-note { margin-top:24px; padding-top:16px; border-top:1px solid #e5e5e5; font-size:12px; color:#aaa; text-align:center; }
                     .pdf-cv-page .main .about-text { font-size:14px; line-height:1.7; color:#2a2a2a; }
                     .pdf-cv-page .main .about-text strong { color:#D97706; }
+                    .pdf-cv-page .main .website-item { margin-bottom:12px; padding-bottom:12px; border-bottom:1px solid #f0f0f0; }
+                    .pdf-cv-page .main .website-item:last-child { border-bottom:none; margin-bottom:0; padding-bottom:0; }
+                    .pdf-cv-page .main .website-item .site-title { font-weight:700; font-size:15px; color:#1a1a1a; display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+                    .pdf-cv-page .main .website-item .site-title a { color:#D97706; text-decoration:none; font-weight:600; font-size:13px; border-bottom:1px dotted rgba(217,119,6,0.3); }
+                    .pdf-cv-page .main .website-item .site-title a:hover { border-bottom:1px solid #D97706; }
+                    .pdf-cv-page .main .website-item .site-desc { font-size:13px; color:#3a3a3a; margin-top:3px; line-height:1.6; }
+                    .pdf-cv-page .main .website-item .site-search { font-size:12px; color:#777; margin-top:4px; background:#f8f8f8; padding:2px 12px; border-radius:14px; display:inline-block; }
+                    .pdf-cv-page .main .website-item .site-search strong { color:#D97706; font-weight:600; }
                     .pdf-cv-page .main .link-list { display:flex; flex-wrap:wrap; gap:6px 16px; margin-top:6px; }
                     .pdf-cv-page .main .link-list a { color:#D97706; text-decoration:none; font-weight:500; font-size:13px; border-bottom:1px dotted rgba(217,119,6,0.3); }
                     .pdf-cv-page .main .link-list a:hover { border-bottom:1px solid #D97706; }
@@ -2998,14 +3100,48 @@
                             </div>
                         </div>
 
+                        <!-- ===== WEBSITES SECTION — updated with explanations & Google search terms ===== -->
                         <div class="section">
-                            <div class="section-title">Websites I've Built</div>
+                            <div class="section-title">🌐 Websites I've Built</div>
                             <div class="section-content">
-                                <div class="link-list">
-                                    <span class="label">Portfolio:</span> <a href="https://portfolio.isaacbridget.workers.dev" target="_blank">portfolio.isaacbridget.workers.dev</a>
-                                    <span class="label">Art:</span> <a href="https://artweb.isaacbridget.workers.dev" target="_blank">artweb.isaacbridget.workers.dev</a>
-                                    <span class="label">City Stars FC:</span> <a href="https://citystars.isaacbridget.workers.dev" target="_blank">citystars.isaacbridget.workers.dev</a>
+
+                                <div class="website-item">
+                                    <div class="site-title">
+                                        🎨 Isaac Art — Stencil Art Storefront
+                                        <a href="https://artweb.isaacbridget.workers.dev" target="_blank">artweb.isaacbridget.workers.dev</a>
+                                    </div>
+                                    <div class="site-desc">
+                                        I built this site to <strong>sell my stencil art</strong> and attract commissions. It showcases my spray-paint pieces, tells my story as an artist, and makes it easy for potential buyers to connect with me. Whether you want a custom portrait, a mural, or a limited-edition print, this is where my art meets the world.
+                                    </div>
+                                    <div class="site-search">🔍 Search on Google: <strong>isaac bridget art</strong></div>
                                 </div>
+
+                                <div class="website-item">
+                                    <div class="site-title">
+                                        📄 Isaac Bridget — Developer Portfolio
+                                        <a href="https://portfolio.isaacbridget.workers.dev" target="_blank">portfolio.isaacbridget.workers.dev</a>
+                                    </div>
+                                    <div class="site-desc">
+                                        This is my <strong>developer headquarters</strong>. Everything I build, from Stockipa to AI models, lives here. It's where clients, collaborators, and employers can see my work, understand my process, and get a feel for who I am as a developer. Clean, fast, and built with purpose.
+                                    </div>
+                                    <div class="site-search">🔍 Search on Google: <strong>isaac bridget portfolio</strong></div>
+                                </div>
+
+                                <div class="website-item">
+                                    <div class="site-title">
+                                        ⚽ City Stars FC — Chuka University Football
+                                        <a href="https://citystars.isaacbridget.workers.dev" target="_blank">citystars.isaacbridget.workers.dev</a>
+                                    </div>
+                                    <div class="site-desc">
+                                        I built this for my football family at Chuka University. It's the <strong>digital home of City Stars FC</strong>, featuring match fixtures, results, player and staff profiles, league standings, and a club blog. It keeps the team connected and the fans informed.
+                                    </div>
+                                    <div class="site-search">🔍 Search on Google: <strong>city stars chuka</strong></div>
+                                </div>
+
+                                <div style="margin-top:12px;padding:10px 14px;background:#f8fafc;border-radius:6px;border-left:3px solid #D97706;font-size:13px;color:#444;">
+                                    <strong>📌 All three websites are indexed on Google.</strong> You can find them by searching the terms above, or by visiting the links directly.
+                                </div>
+
                             </div>
                         </div>
 
@@ -3076,44 +3212,44 @@
             }
         }
 
-        // ——— BLOG DATA ———
+        // ——— BLOG DATA ——— with improved readability and formatting
         const BLOG_ABOUT = `# My Story
 
-        *I'm Isaac Bridget Njuguna 22 years old. Born and raised in Kenya. Student. Developer. Artist.Footballer.Problem solver.*
+        *I'm Isaac Bridget Njuguna — 22 years old. Born and raised in Kenya. Student. Developer. Artist. Footballer. Problem solver.*
 
         ## Where I Come From
 
-        Born in Nanyuki I grew up watching my mom, CJ, hustle every day as a mtumba seller. She was making money, sometimes 300K in a good month, but she never knew where it all went. That bugged me.
+        Born in Nanyuki, I grew up watching my mom, CJ, hustle every day as a mtumba seller. She was making money — sometimes 300K in a good month — but she never knew where it all went. That bugged me.
 
-        So I built Stockipa. Not because I wanted to be a developer. Because my mom needed to manage her sales.She would come home and say she has no money to get another bale coz she ate all her stock.So i had an idea of creating a software that would help her to be able to manage her incomes and expenses and Stock keeper aka StocKipa was born.
+        So I built **Stockipa**. Not because I wanted to be a developer. Because my mom needed to manage her sales. She would come home and say she has no money to get another bale because she ate all her stock. So I had an idea: create a software that would help her manage her incomes, expenses, and stock. StocKipa was born.
 
         ## The Journey
 
-        I am studying Applied Computer Science at Chuka University (2023-2027). But honestly? Most of what I know I learned from YouTube, ChatGPT, Claude, and just building things. Breaking things. Fixing them. Breaking them again.
+        I am studying Applied Computer Science at Chuka University (2023–2027). But honestly? Most of what I know I learned from YouTube, ChatGPT, Claude, and just **building things**. Breaking things. Fixing them. Breaking them again.
 
         I started with C++. Then Python. Then Flutter. Now I am training AI models, building mobile apps, and planning to learn penetration testing because I want to understand how systems break.
 
         ## What I Believe
 
-        - **Real problems first.** I do not build apps for fun. I build them because someone needs them.
+        - **Real problems first.** I don't build apps for fun. I build them because someone needs them.
         - **Offline matters.** Not everyone has 5G. Not everyone can afford data. My apps work without the internet.
-        - **Simple > complex.** If my mom can't use it, it is useless.
+        - **Simple > complex.** If my mom can't use it, it's useless.
         - **AI is a tool, not a replacement.** I use ChatGPT, Claude, Gemini, but I make the final call on every line.
 
         ## Outside Code
 
         When I am not building things, I am:
 
-        - 🎨 Making stencil art. Spray paint + cardboard = expression.
-        - ⚽ Playing football. The pitch taught me teamwork.This is my real and only passion.
-        - 📖 Reading about things I do not understand yet.
-        - 🔨 Breaking things to figure out how they work.
+        - 🎨 **Making stencil art.** Spray paint + cardboard = expression.
+        - ⚽ **Playing football.** The pitch taught me teamwork. This is my real and only passion.
+        - 📖 **Reading about things I don't understand yet.**
+        - 🔨 **Breaking things to figure out how they work.**
 
         ## The Bottom Line
 
         I am not the smartest person in the room. But I am the one who stays until the problem is solved. I ask questions. I make mistakes. I learn. I build.
 
-        > If you have a problem that needs solving, or an idea that needs building — let's talk.
+        > *"If you have a problem that needs solving, or an idea that needs building — let's talk."*
 
         Type \`contact\` to reach me, or \`projects\` to see what I have built.`;
 
@@ -3261,7 +3397,7 @@
                     closeLists();
                     out.push('<h1>' + bInlineMd(m[1]) + '</h1>'); } else if (m = line.match(/^&gt; (.+)$/)) { flushPara();
                     closeLists();
-                    out.push('<blockquote>' + bInlineMd(m[1]) + '</blockquote>'); } else if (m = line.match(/^(\d+)\. (.+)$/)) {
+                    out.push('<blockquote><p>' + bInlineMd(m[1]) + '</p></blockquote>'); } else if (m = line.match(/^(\d+)\. (.+)$/)) {
                     flushPara();
                     if (inUl) { out.push('</ul>');
                         inUl = false; }
@@ -3278,7 +3414,7 @@
                 } else if (line.match(/^---+$/)) {
                     flushPara();
                     closeLists();
-                    out.push('<div class="divider">' + '─'.repeat(72) + '</div>');
+                    out.push('<hr>');
                 } else {
                     paraBuf.push(bInlineMd(line));
                 }

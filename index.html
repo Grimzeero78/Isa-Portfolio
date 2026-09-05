@@ -1066,27 +1066,54 @@
             overflow: hidden;
             border: 1px solid var(--border-color);
             background: var(--bg-card);
+            cursor: pointer;
         }
         .stockipa-main-wrap img {
             width: 100%;
             height: auto;
-            max-height: 620px;
-            object-fit: cover;
+            max-height: 520px;
+            object-fit: contain;
             display: block;
+            background: #0a0a0c;
+            transition: filter 0.3s ease;
+        }
+        .stockipa-main-wrap:hover img {
+            filter: brightness(1.05);
+        }
+        .stockipa-main-wrap .zoom-hint {
+            position: absolute;
+            bottom: 16px;
+            right: 16px;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(6px);
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: 11px;
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            pointer-events: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+        }
+        .stockipa-main-wrap .zoom-hint .iconify {
+            font-size: 14px;
         }
         .stockipa-main-wrap .img-caption {
-            padding: 22px 28px 28px;
+            padding: 18px 24px 22px;
             background: var(--bg-card);
             border-top: 1px solid var(--border-color);
         }
         .stockipa-main-wrap .img-caption h4 {
-            font-size: 18px;
+            font-size: 17px;
             font-weight: 700;
             color: var(--text-primary);
-            margin-bottom: 6px;
+            margin-bottom: 4px;
         }
         .stockipa-main-wrap .img-caption p {
-            font-size: 15px;
+            font-size: 14px;
             color: var(--text-secondary);
             line-height: 1.7;
             max-width: 700px;
@@ -1105,16 +1132,88 @@
         }
         @media(max-width:640px) {
             .stockipa-main-wrap img {
-                max-height: 380px;
+                max-height: 340px;
             }
             .stockipa-main-wrap .img-caption {
-                padding: 16px 18px 22px;
+                padding: 14px 16px 18px;
             }
             .stockipa-main-wrap .img-caption h4 {
-                font-size: 15px;
+                font-size: 14px;
             }
             .stockipa-main-wrap .img-caption p {
-                font-size: 13px;
+                font-size: 12px;
+            }
+            .stockipa-main-wrap .zoom-hint {
+                font-size: 9px;
+                padding: 4px 10px;
+                bottom: 10px;
+                right: 10px;
+            }
+            .stockipa-main-wrap .zoom-hint .iconify {
+                font-size: 11px;
+            }
+        }
+
+        /* ——— LIGHTBOX ZOOM ——— */
+        #stockipa-lightbox {
+            position: fixed;
+            inset: 0;
+            z-index: 70000;
+            background: rgba(0, 0, 0, 0.92);
+            backdrop-filter: blur(12px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+            cursor: zoom-out;
+        }
+        #stockipa-lightbox.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        #stockipa-lightbox img {
+            max-width: 92vw;
+            max-height: 92vh;
+            object-fit: contain;
+            border-radius: 4px;
+            box-shadow: 0 0 60px rgba(0, 0, 0, 0.6);
+            transform: scale(0.95);
+            transition: transform 0.4s cubic-bezier(.16, 1, .3, 1);
+        }
+        #stockipa-lightbox.open img {
+            transform: scale(1);
+        }
+        #stockipa-lightbox .close-lightbox {
+            position: absolute;
+            top: 24px;
+            right: 28px;
+            color: #fff;
+            font-size: 28px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 300;
+        }
+        #stockipa-lightbox .close-lightbox:hover {
+            background: rgba(255, 255, 255, 0.18);
+            transform: scale(1.06);
+        }
+        @media(max-width:640px) {
+            #stockipa-lightbox .close-lightbox {
+                top: 16px;
+                right: 16px;
+                width: 40px;
+                height: 40px;
+                font-size: 22px;
             }
         }
 
@@ -1595,21 +1694,6 @@
             margin: 6px 0;
         }
 
-        /* ——— CV: remove ICT Support, keep Discipleship only ——— */
-        #cv-experience {
-            display: none !important;
-        }
-        #cv-volunteer {
-            display: none !important;
-        }
-        #cv-awards {
-            display: none !important;
-        }
-        #cv-certifications .cyber-card .flex-wrap.gap-2 .cv-tag:nth-child(2),
-        #cv-certifications .cyber-card .flex-wrap.gap-2 .cv-tag:nth-child(3) {
-            display: none !important;
-        }
-
         /* ——— MOBILE HEADER FIXES ——— */
         .mobile-controls-wrap {
             display: flex;
@@ -1636,7 +1720,7 @@
             }
         }
 
-        /* ——— PDF CV PAGE STYLES (print-friendly) ——— */
+        /* ——— PDF CV PAGE STYLES ——— */
         .pdf-cv-page {
             font-family: 'Inter', 'Segoe UI', sans-serif;
             background: #fff;
@@ -1780,18 +1864,17 @@
             color: #aaa;
             text-align: center;
         }
-        /* PDF CV personal about */
         .pdf-cv-page .personal-about {
             background: #f8f6f4;
             border-left: 4px solid #D97706;
             padding: 16px 20px;
             border-radius: 4px;
-            font-family: 'JetBrains Mono', monospace;
             font-size: 13px;
-            line-height: 1.7;
+            line-height: 1.8;
             color: #2a2a2a;
             margin-top: 6px;
             overflow-x: auto;
+            font-family: 'JetBrains Mono', monospace;
         }
         .pdf-cv-page .personal-about .comment {
             color: #888;
@@ -1860,7 +1943,6 @@
             }
         }
 
-        /* ——— PDF CV DOWNLOAD BUTTONS ——— */
         .pdf-cv-actions {
             display: flex;
             justify-content: center;
@@ -2030,7 +2112,8 @@
     <section id="stockipa" class="relative py-16 sm:py-24 md:py-32 overflow-hidden" style="background:var(--bg-primary)">
         <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-warm-500/5 rounded-full blur-[150px]"></div>
         <div class="max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-20 items-start lg:items-center">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
+                <!-- Left: Text -->
                 <div>
                     <div class="pf-reveal"><div class="inline-flex items-center gap-2 bg-warm-500/10 border border-warm-500/20 rounded-sm px-3 py-1.5 mb-4 sm:mb-6"><iconify-icon icon="lucide:star" width="12" class="text-warm-500"></iconify-icon><span class="text-[9px] sm:text-[10px] font-bold tracking-[.2em] uppercase text-warm-500">Featured Project</span></div></div>
                     <h2 class="text-4xl sm:text-5xl md:text-7xl font-black tracking-tighter pf-reveal pf-delay-1" style="color:var(--text-primary)">STOCKIPA</h2>
@@ -2050,17 +2133,23 @@
                     </div>
                 </div>
 
-                <!-- Stockipa main preview — ONLY ONE IMAGE + CAPTION, no overlays, no extra garbage -->
-                <div class="pf-reveal pf-delay-2 stockipa-main-wrap">
-                    <img src="https://cdn.jsdelivr.net/gh/Grimzeero78/images_cdn/tracking.jpeg" alt="Stockipa Yearly Overview — real screenshot" loading="lazy" />
-                    <div class="img-caption">
-                        <h4>📈 The Stockipa Journey — Real Results</h4>
-                        <p>
-                            From <span class="red">May</span>, the user (my mom) was <span class="red">overspending</span> — expenses outpaced income every week.<br />
-                            But as the months went by, with <span class="highlight">consistent tracking</span>, she started to <span class="green">reduce overspending</span>.<br />
-                            By <span class="highlight">August</span>, <span class="green">money in exceeded expenses</span>, and she was able to <span class="green">save more</span> each month.<br /><br />
-                            <strong style="color:#D97706;">This is what Stockipa does.</strong> Know where your money goes, and watch your savings grow.
-                        </p>
+                <!-- Right: Image with zoom -->
+                <div class="pf-reveal pf-delay-2">
+                    <div class="stockipa-main-wrap" id="stockipaMainImg">
+                        <img src="https://cdn.jsdelivr.net/gh/Grimzeero78/images_cdn/tracking.jpeg" alt="Stockipa Yearly Overview — real screenshot" loading="lazy" id="stockipaImg" />
+                        <div class="zoom-hint">
+                            <iconify-icon icon="lucide:maximize-2" width="14"></iconify-icon>
+                            Click to zoom
+                        </div>
+                        <div class="img-caption">
+                            <h4>📈 The Stockipa Journey — Real Results</h4>
+                            <p>
+                                From <span class="red">May</span>, the user (my mom) was <span class="red">overspending</span> — expenses outpaced income every week.<br />
+                                But as the months went by, with <span class="highlight">consistent tracking</span>, she started to <span class="green">reduce overspending</span>.<br />
+                                By <span class="highlight">August</span>, <span class="green">money in exceeded expenses</span>, and she was able to <span class="green">save more</span> each month.<br /><br />
+                                <strong style="color:#D97706;">This is what Stockipa does.</strong> Know where your money goes, and watch your savings grow.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -2074,6 +2163,12 @@
             </div>
         </div>
     </section>
+
+    <!-- ===== LIGHTBOX ZOOM ===== -->
+    <div id="stockipa-lightbox" onclick="closeLightbox()">
+        <button class="close-lightbox" onclick="closeLightbox()">✕</button>
+        <img src="https://cdn.jsdelivr.net/gh/Grimzeero78/images_cdn/tracking.jpeg" alt="Stockipa Yearly Overview — zoomed" id="lightboxImg" />
+    </div>
 
     <!-- ===== POWER BEAMING ===== -->
     <section id="power-beaming" class="relative py-16 sm:py-24 md:py-32 border-t border-white/10 overflow-hidden" style="border-color:var(--border-color);background:var(--bg-secondary)">
@@ -2763,7 +2858,26 @@
                 ] }
         ];
 
-        // ——— PDF CV ——— with personal about section and real download
+        // ——— LIGHTBOX ZOOM ———
+        document.getElementById('stockipaMainImg').addEventListener('click', function(e) {
+            const lb = document.getElementById('stockipa-lightbox');
+            const img = document.getElementById('lightboxImg');
+            img.src = this.querySelector('img').src;
+            lb.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        });
+
+        function closeLightbox() {
+            const lb = document.getElementById('stockipa-lightbox');
+            lb.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeLightbox();
+        });
+
+        // ——— PDF CV ——— with first-person language and professional format
         function openPDFCV() {
             try {
                 const win = window.open('', '_blank');
@@ -2809,7 +2923,6 @@
                     .pdf-cv-page .lang-tag .lvl { color:#888; font-size:11px; }
                     .pdf-cv-page .ref-note { font-style:italic; color:#666; font-size:13px; }
                     .pdf-cv-page .footer-note { margin-top:32px; padding-top:16px; border-top:1px solid #e5e5e5; font-size:12px; color:#aaa; text-align:center; }
-                    /* personal about */
                     .pdf-cv-page .personal-about {
                         background: #f8f6f4;
                         border-left: 4px solid #D97706;
@@ -2857,7 +2970,7 @@
                     <div class="section">
                         <div class="section-title">Professional Summary</div>
                         <div class="section-content">
-                            <p>Applied Computer Science student at Chuka University (2023–2027) with a strong passion for mobile development, AI, and solving real-world problems. Builds offline-first apps that help small businesses track finances, train AI models for practical use, and believe in simple solutions for real people. Combines technical discipline with creativity from stencil art and teamwork from football.</p>
+                            <p>I am an Applied Computer Science student at Chuka University (2023–2027), and I build things that solve real problems. I specialize in mobile development and AI, but my real strength is understanding people and the problems they face. I built Stockipa for my mom because she was hustling hard as a mtumba seller and had no idea where her money was going. That is who I build for — real people with real challenges.</p>
                         </div>
                     </div>
 
@@ -2884,7 +2997,7 @@
                     <div class="section">
                         <div class="section-title">Education</div>
                         <div class="section-content">
-                            <div class="edu-item"><div class="edu-title">BSc. Applied Computer Science</div><div class="edu-meta">Chuka University · 2023 – 2027</div><div class="edu-desc">Specializing in mobile application development &amp; AI. In progress.</div></div>
+                            <div class="edu-item"><div class="edu-title">BSc. Applied Computer Science</div><div class="edu-meta">Chuka University · 2023 – 2027</div><div class="edu-desc">Specializing in mobile application development and AI. Currently in progress.</div></div>
                             <div class="edu-item"><div class="edu-title">Kagumo High School</div><div class="edu-meta">Secondary Education · 2019 – 2022</div><div class="edu-desc">Built the foundation of discipline, teamwork, and analytical thinking.</div></div>
                             <div class="edu-item"><div class="edu-title">Ngenia Primary School</div><div class="edu-meta">Primary Education · – 2019</div></div>
                         </div>
@@ -2918,7 +3031,7 @@
                     <div class="section">
                         <div class="section-title">Projects</div>
                         <div class="section-content">
-                            <div class="project-item"><div class="proj-title">Stockipa — Finance Tracking App</div><div class="proj-meta">Flutter · SQLite · M-Pesa Integration · 2025</div><div class="proj-desc">Offline mobile app that auto-tracks income/expenses by reading M-Pesa SMS and scanning bills. Features stock management, multi-language support, and yearly charts. Built for small business owners.</div></div>
+                            <div class="project-item"><div class="proj-title">Stockipa — Finance Tracking App</div><div class="proj-meta">Flutter · SQLite · M-Pesa Integration · 2025</div><div class="proj-desc">Offline mobile app that auto-tracks income and expenses by reading M-Pesa SMS and scanning bills. Features stock management, multi-language support, and yearly charts. Built for small business owners, starting with my mom.</div></div>
                             <div class="project-item"><div class="proj-title">AI Image Detector</div><div class="proj-meta">Python · TensorFlow · OpenCV · 2024</div><div class="proj-desc">Desktop app using TensorFlow to classify objects in images. Successfully detected objects with accuracy scaling with model quality.</div></div>
                             <div class="project-item"><div class="proj-title">City Stars FC — Football Website</div><div class="proj-meta">HTML · CSS · JavaScript · 2026</div><div class="proj-desc">Full website for Chuka University's football team with fixtures, results, player profiles, staff, league table, and club blog.</div></div>
                             <div class="project-item"><div class="proj-title">DeepRest — Mental Health App</div><div class="proj-meta">Flutter · Firebase · Grok API · 2026</div><div class="proj-desc">Mobile app for reducing screen time and building healthier habits. Features accountability groups, AI companions, and rank tracking.</div></div>
@@ -2930,7 +3043,7 @@
                     <div class="section">
                         <div class="section-title">Certifications</div>
                         <div class="section-content">
-                            <p><strong>Christian Discipleship Certificate</strong> — 2024<br><span style="color:#4a4a4a;font-size:13px;">Character development, leadership, and service training.</span></p>
+                            <p><strong>Christian Discipleship Certificate</strong> — 2024<br><span style="color:#4a4a4a;font-size:13px;">Character development, leadership, and service training. Shaped my integrity and discipline.</span></p>
                         </div>
                     </div>
 
@@ -2947,7 +3060,7 @@
                     <div class="section">
                         <div class="section-title">References</div>
                         <div class="section-content">
-                            <p class="ref-note">Available upon request. As a student and emerging developer, I am building my professional network and happy to connect with mentors, church community, or university contacts for character references.</p>
+                            <p class="ref-note">Available upon request. I am currently building my professional network and happy to connect with mentors, church community, or university contacts for character references.</p>
                         </div>
                     </div>
 
@@ -2963,7 +3076,6 @@
                 </div>
                 <script>
                     document.getElementById('cvDownloadBtn').addEventListener('click', function() {
-                        // grab the content and trigger download as .html (which can be opened and printed to PDF)
                         const content = document.getElementById('pdfCvContent').outerHTML;
                         const fullHtml = \`<!DOCTYPE html>
                         <html><head><meta charset="UTF-8"><title>Isaac Njuguna Bridget CV</title>

@@ -1720,187 +1720,204 @@
             }
         }
 
-        /* ——— PDF CV PAGE STYLES ——— */
+        /* ——— PDF CV PAGE ——— */
         .pdf-cv-page {
             font-family: 'Inter', 'Segoe UI', sans-serif;
             background: #fff;
             color: #1a1a1a;
-            padding: 48px 56px;
             max-width: 1100px;
             margin: 0 auto;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 0;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.06);
+            border-radius: 12px;
+            overflow: hidden;
             line-height: 1.5;
         }
-        .pdf-cv-page .cv-header {
+        .pdf-cv-page .sidebar {
+            background: #1a1a1a;
+            color: #e5e7eb;
+            padding: 40px 28px;
             display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            border-bottom: 3px solid #D97706;
-            padding-bottom: 20px;
-            margin-bottom: 28px;
-            flex-wrap: wrap;
-            gap: 12px;
+            flex-direction: column;
+            gap: 28px;
         }
-        .pdf-cv-page .cv-header .name {
-            font-size: 36px;
+        .pdf-cv-page .sidebar .name {
+            font-size: 26px;
             font-weight: 800;
             letter-spacing: -0.02em;
-            color: #1a1a1a;
+            color: #fff;
+            line-height: 1.1;
         }
-        .pdf-cv-page .cv-header .title {
-            font-size: 18px;
+        .pdf-cv-page .sidebar .title {
+            font-size: 14px;
             font-weight: 500;
             color: #D97706;
-            margin-top: 2px;
+            margin-top: 4px;
         }
-        .pdf-cv-page .cv-header .contact {
-            text-align: right;
-            font-size: 14px;
-            color: #4a4a4a;
-            line-height: 1.6;
+        .pdf-cv-page .sidebar .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 13px;
+            color: #cbd5e1;
+            margin-bottom: 6px;
         }
-        .pdf-cv-page .cv-header .contact a {
-            color: #D97706;
+        .pdf-cv-page .sidebar .contact-item a {
+            color: #cbd5e1;
             text-decoration: none;
+            transition: color 0.2s;
         }
-        .pdf-cv-page .cv-header .contact a:hover {
-            text-decoration: underline;
-        }
-        .pdf-cv-page .section {
-            margin-bottom: 24px;
-        }
-        .pdf-cv-page .section-title {
-            font-size: 18px;
-            font-weight: 700;
+        .pdf-cv-page .sidebar .contact-item a:hover {
             color: #D97706;
-            border-bottom: 2px solid #e5e5e5;
-            padding-bottom: 4px;
-            margin-bottom: 12px;
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
         }
-        .pdf-cv-page .section-content {
+        .pdf-cv-page .sidebar .section-title {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #D97706;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding-bottom: 6px;
+            margin-bottom: 14px;
+        }
+        .pdf-cv-page .sidebar .skill-tag {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            color: #e5e7eb;
+            margin: 0 4px 6px 0;
+        }
+        .pdf-cv-page .sidebar .lang-tag {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            color: #e5e7eb;
+            margin: 0 4px 6px 0;
+        }
+        .pdf-cv-page .sidebar .lang-tag .lvl {
+            color: #94a3b8;
+            font-size: 10px;
+            margin-left: 4px;
+        }
+        .pdf-cv-page .main {
+            padding: 40px 44px 44px;
+            background: #fff;
+        }
+        .pdf-cv-page .main .section {
+            margin-bottom: 28px;
+        }
+        .pdf-cv-page .main .section-title {
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: #D97706;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 4px;
+            margin-bottom: 14px;
+        }
+        .pdf-cv-page .main .section-content {
             font-size: 14px;
             color: #2a2a2a;
         }
-        .pdf-cv-page .section-content p {
+        .pdf-cv-page .main .section-content p {
             margin-bottom: 6px;
         }
-        .pdf-cv-page .grid-2 {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px 40px;
-        }
-        .pdf-cv-page .grid-3 {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 16px 32px;
-        }
-        .pdf-cv-page .skill-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 4px 0;
-            border-bottom: 1px solid #f0f0f0;
-            font-size: 13px;
-        }
-        .pdf-cv-page .skill-item .level {
-            color: #888;
-            font-size: 12px;
-        }
-        .pdf-cv-page .project-item {
+        .pdf-cv-page .main .project-item {
             margin-bottom: 14px;
         }
-        .pdf-cv-page .project-item .proj-title {
+        .pdf-cv-page .main .project-item .proj-title {
             font-weight: 700;
             font-size: 15px;
             color: #1a1a1a;
         }
-        .pdf-cv-page .project-item .proj-meta {
+        .pdf-cv-page .main .project-item .proj-meta {
             font-size: 12px;
             color: #888;
             margin-bottom: 2px;
         }
-        .pdf-cv-page .project-item .proj-desc {
+        .pdf-cv-page .main .project-item .proj-desc {
             font-size: 13px;
             color: #3a3a3a;
         }
-        .pdf-cv-page .edu-item {
+        .pdf-cv-page .main .edu-item {
             margin-bottom: 12px;
         }
-        .pdf-cv-page .edu-item .edu-title {
+        .pdf-cv-page .main .edu-item .edu-title {
             font-weight: 700;
             font-size: 15px;
         }
-        .pdf-cv-page .edu-item .edu-meta {
+        .pdf-cv-page .main .edu-item .edu-meta {
             font-size: 13px;
             color: #555;
         }
-        .pdf-cv-page .edu-item .edu-desc {
+        .pdf-cv-page .main .edu-item .edu-desc {
             font-size: 13px;
             color: #4a4a4a;
         }
-        .pdf-cv-page .lang-tag {
-            display: inline-block;
-            background: #f5f5f5;
-            padding: 2px 12px;
-            border-radius: 20px;
-            font-size: 13px;
-            margin: 2px 4px 2px 0;
-            border: 1px solid #e5e5e5;
-        }
-        .pdf-cv-page .lang-tag .lvl {
-            color: #888;
-            font-size: 11px;
-        }
-        .pdf-cv-page .ref-note {
+        .pdf-cv-page .main .ref-note {
             font-style: italic;
             color: #666;
             font-size: 13px;
         }
-        .pdf-cv-page .footer-note {
-            margin-top: 32px;
+        .pdf-cv-page .main .footer-note {
+            margin-top: 24px;
             padding-top: 16px;
             border-top: 1px solid #e5e5e5;
             font-size: 12px;
             color: #aaa;
             text-align: center;
         }
-        .pdf-cv-page .personal-about {
-            background: #f8f6f4;
-            border-left: 4px solid #D97706;
-            padding: 16px 20px;
-            border-radius: 4px;
-            font-size: 13px;
-            line-height: 1.8;
+        .pdf-cv-page .main .about-text {
+            font-size: 14px;
+            line-height: 1.7;
             color: #2a2a2a;
-            margin-top: 6px;
-            overflow-x: auto;
-            font-family: 'JetBrains Mono', monospace;
         }
-        .pdf-cv-page .personal-about .comment {
-            color: #888;
-        }
-        .pdf-cv-page .personal-about .key {
-            color: #0EA5E9;
-        }
-        .pdf-cv-page .personal-about .value {
+        .pdf-cv-page .main .about-text strong {
             color: #D97706;
         }
-        .pdf-cv-page .personal-about .bracket {
-            color: #4a4a4a;
+        .pdf-cv-page .main .link-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px 16px;
+            margin-top: 6px;
+        }
+        .pdf-cv-page .main .link-list a {
+            color: #D97706;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 13px;
+            border-bottom: 1px dotted rgba(217, 119, 6, 0.3);
+        }
+        .pdf-cv-page .main .link-list a:hover {
+            border-bottom: 1px solid #D97706;
+        }
+        .pdf-cv-page .main .link-list .label {
+            color: #555;
+            font-weight: 400;
+        }
+        .pdf-cv-page .main .cert-item {
+            margin-bottom: 8px;
+        }
+        .pdf-cv-page .main .cert-item strong {
+            color: #1a1a1a;
+        }
+        .pdf-cv-page .main .cert-item .cert-meta {
+            font-size: 13px;
+            color: #555;
         }
         @media print {
             .pdf-cv-page {
-                padding: 32px 40px;
-            }
-            .pdf-cv-page .cv-header .name {
-                font-size: 30px;
-            }
-            .pdf-cv-page .grid-2,
-            .pdf-cv-page .grid-3 {
-                break-inside: avoid;
-            }
-            .pdf-cv-page .section {
-                break-inside: avoid;
+                box-shadow: none;
+                border-radius: 0;
             }
             .no-print {
                 display: none !important;
@@ -1908,49 +1925,36 @@
         }
         @media(max-width:700px) {
             .pdf-cv-page {
-                padding: 24px 20px;
-            }
-            .pdf-cv-page .cv-header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            .pdf-cv-page .cv-header .contact {
-                text-align: left;
-                width: 100%;
-            }
-            .pdf-cv-page .grid-2,
-            .pdf-cv-page .grid-3 {
                 grid-template-columns: 1fr;
-                gap: 8px;
+                border-radius: 0;
             }
-            .pdf-cv-page .cv-header .name {
-                font-size: 28px;
+            .pdf-cv-page .sidebar {
+                padding: 28px 24px;
+            }
+            .pdf-cv-page .main {
+                padding: 28px 24px;
             }
         }
         @media(max-width:400px) {
-            .pdf-cv-page {
-                padding: 16px 12px;
-            }
-            .pdf-cv-page .cv-header .name {
+            .pdf-cv-page .sidebar .name {
                 font-size: 22px;
             }
-            .pdf-cv-page .section-title {
-                font-size: 15px;
-            }
-            .pdf-cv-page .personal-about {
-                font-size: 11px;
-                padding: 12px 14px;
+            .pdf-cv-page .main .section-title {
+                font-size: 14px;
             }
         }
 
-        .pdf-cv-actions {
+        .no-print {
             display: flex;
             justify-content: center;
             gap: 16px;
             margin-top: 24px;
             flex-wrap: wrap;
+            max-width: 1100px;
+            margin-left: auto;
+            margin-right: auto;
         }
-        .pdf-cv-actions button {
+        .no-print button {
             font-family: 'Inter', sans-serif;
             padding: 10px 28px;
             border-radius: 6px;
@@ -1960,34 +1964,34 @@
             transition: all .2s ease;
             border: none;
         }
-        .pdf-cv-actions .btn-download {
+        .no-print .btn-download {
             background: #D97706;
             color: #fff;
         }
-        .pdf-cv-actions .btn-download:hover {
+        .no-print .btn-download:hover {
             background: #B45309;
             transform: scale(1.04);
         }
-        .pdf-cv-actions .btn-print {
+        .no-print .btn-print {
             background: transparent;
             color: #D97706;
             border: 2px solid #D97706;
         }
-        .pdf-cv-actions .btn-print:hover {
+        .no-print .btn-print:hover {
             background: #D97706;
             color: #fff;
             transform: scale(1.04);
         }
-        .pdf-cv-actions .btn-close {
+        .no-print .btn-close {
             background: transparent;
             color: #888;
             border: 1px solid #ddd;
         }
-        .pdf-cv-actions .btn-close:hover {
+        .no-print .btn-close:hover {
             background: #f0f0f0;
         }
         @media(max-width:480px) {
-            .pdf-cv-actions button {
+            .no-print button {
                 padding: 8px 18px;
                 font-size: 12px;
             }
@@ -2877,7 +2881,7 @@
             if (e.key === 'Escape') closeLightbox();
         });
 
-        // ——— PDF CV ——— with first-person language and professional format
+        // ——— PDF CV ——— with modern two-column format and live links
         function openPDFCV() {
             try {
                 const win = window.open('', '_blank');
@@ -2892,54 +2896,48 @@
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
                 <title>Isaac Njuguna Bridget · Professional CV</title>
                 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
-                <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
                 <style>
                     * { margin:0; padding:0; box-sizing:border-box; }
                     body { background:#f0f2f5; font-family:'Inter',sans-serif; padding:24px; color:#1a1a1a; }
-                    .pdf-cv-page { max-width:1100px; margin:0 auto; background:#fff; padding:48px 56px; border-radius:12px; box-shadow:0 8px 40px rgba(0,0,0,0.08); }
-                    .pdf-cv-page .cv-header { display:flex; justify-content:space-between; align-items:flex-start; border-bottom:3px solid #D97706; padding-bottom:20px; margin-bottom:28px; flex-wrap:wrap; gap:12px; }
-                    .pdf-cv-page .cv-header .name { font-size:36px; font-weight:800; letter-spacing:-0.02em; color:#1a1a1a; }
-                    .pdf-cv-page .cv-header .title { font-size:18px; font-weight:500; color:#D97706; margin-top:2px; }
-                    .pdf-cv-page .cv-header .contact { text-align:right; font-size:14px; color:#4a4a4a; line-height:1.6; }
-                    .pdf-cv-page .cv-header .contact a { color:#D97706; text-decoration:none; }
-                    .pdf-cv-page .cv-header .contact a:hover { text-decoration:underline; }
-                    .pdf-cv-page .section { margin-bottom:24px; }
-                    .pdf-cv-page .section-title { font-size:18px; font-weight:700; color:#D97706; border-bottom:2px solid #e5e5e5; padding-bottom:4px; margin-bottom:12px; text-transform:uppercase; letter-spacing:0.04em; }
-                    .pdf-cv-page .section-content { font-size:14px; color:#2a2a2a; }
-                    .pdf-cv-page .section-content p { margin-bottom:6px; }
-                    .pdf-cv-page .grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:20px 40px; }
-                    .pdf-cv-page .grid-3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px 32px; }
-                    .pdf-cv-page .skill-item { display:flex; justify-content:space-between; padding:4px 0; border-bottom:1px solid #f0f0f0; font-size:13px; }
-                    .pdf-cv-page .skill-item .level { color:#888; font-size:12px; }
-                    .pdf-cv-page .project-item { margin-bottom:14px; }
-                    .pdf-cv-page .project-item .proj-title { font-weight:700; font-size:15px; color:#1a1a1a; }
-                    .pdf-cv-page .project-item .proj-meta { font-size:12px; color:#888; margin-bottom:2px; }
-                    .pdf-cv-page .project-item .proj-desc { font-size:13px; color:#3a3a3a; }
-                    .pdf-cv-page .edu-item { margin-bottom:12px; }
-                    .pdf-cv-page .edu-item .edu-title { font-weight:700; font-size:15px; }
-                    .pdf-cv-page .edu-item .edu-meta { font-size:13px; color:#555; }
-                    .pdf-cv-page .edu-item .edu-desc { font-size:13px; color:#4a4a4a; }
-                    .pdf-cv-page .lang-tag { display:inline-block; background:#f5f5f5; padding:2px 12px; border-radius:20px; font-size:13px; margin:2px 4px 2px 0; border:1px solid #e5e5e5; }
-                    .pdf-cv-page .lang-tag .lvl { color:#888; font-size:11px; }
-                    .pdf-cv-page .ref-note { font-style:italic; color:#666; font-size:13px; }
-                    .pdf-cv-page .footer-note { margin-top:32px; padding-top:16px; border-top:1px solid #e5e5e5; font-size:12px; color:#aaa; text-align:center; }
-                    .pdf-cv-page .personal-about {
-                        background: #f8f6f4;
-                        border-left: 4px solid #D97706;
-                        padding: 16px 20px;
-                        border-radius: 4px;
-                        font-family: 'JetBrains Mono', monospace;
-                        font-size: 13px;
-                        line-height: 1.8;
-                        color: #2a2a2a;
-                        margin-top: 6px;
-                        overflow-x: auto;
-                    }
-                    .pdf-cv-page .personal-about .comment { color: #888; }
-                    .pdf-cv-page .personal-about .key { color: #0EA5E9; }
-                    .pdf-cv-page .personal-about .value { color: #D97706; }
-                    .pdf-cv-page .personal-about .bracket { color: #4a4a4a; }
-                    .no-print { display:flex; justify-content:center; gap:16px; margin-top:24px; flex-wrap:wrap; }
+                    .pdf-cv-page { max-width:1100px; margin:0 auto; background:#fff; display:grid; grid-template-columns:280px 1fr; gap:0; box-shadow:0 8px 40px rgba(0,0,0,0.06); border-radius:12px; overflow:hidden; }
+                    .pdf-cv-page .sidebar { background:#1a1a1a; color:#e5e7eb; padding:40px 28px; display:flex; flex-direction:column; gap:28px; }
+                    .pdf-cv-page .sidebar .name { font-size:26px; font-weight:800; letter-spacing:-0.02em; color:#fff; line-height:1.1; }
+                    .pdf-cv-page .sidebar .title { font-size:14px; font-weight:500; color:#D97706; margin-top:4px; }
+                    .pdf-cv-page .sidebar .contact-item { display:flex; align-items:center; gap:10px; font-size:13px; color:#cbd5e1; margin-bottom:6px; }
+                    .pdf-cv-page .sidebar .contact-item a { color:#cbd5e1; text-decoration:none; transition:color 0.2s; }
+                    .pdf-cv-page .sidebar .contact-item a:hover { color:#D97706; }
+                    .pdf-cv-page .sidebar .section-title { font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:#D97706; border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:6px; margin-bottom:14px; }
+                    .pdf-cv-page .sidebar .skill-tag { display:inline-block; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.08); padding:4px 12px; border-radius:20px; font-size:12px; color:#e5e7eb; margin:0 4px 6px 0; }
+                    .pdf-cv-page .sidebar .lang-tag { display:inline-block; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.08); padding:4px 12px; border-radius:20px; font-size:12px; color:#e5e7eb; margin:0 4px 6px 0; }
+                    .pdf-cv-page .sidebar .lang-tag .lvl { color:#94a3b8; font-size:10px; margin-left:4px; }
+                    .pdf-cv-page .main { padding:40px 44px 44px; background:#fff; }
+                    .pdf-cv-page .main .section { margin-bottom:28px; }
+                    .pdf-cv-page .main .section-title { font-size:16px; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:#D97706; border-bottom:2px solid #f0f0f0; padding-bottom:4px; margin-bottom:14px; }
+                    .pdf-cv-page .main .section-content { font-size:14px; color:#2a2a2a; }
+                    .pdf-cv-page .main .section-content p { margin-bottom:6px; }
+                    .pdf-cv-page .main .project-item { margin-bottom:14px; }
+                    .pdf-cv-page .main .project-item .proj-title { font-weight:700; font-size:15px; color:#1a1a1a; }
+                    .pdf-cv-page .main .project-item .proj-meta { font-size:12px; color:#888; margin-bottom:2px; }
+                    .pdf-cv-page .main .project-item .proj-desc { font-size:13px; color:#3a3a3a; }
+                    .pdf-cv-page .main .edu-item { margin-bottom:12px; }
+                    .pdf-cv-page .main .edu-item .edu-title { font-weight:700; font-size:15px; }
+                    .pdf-cv-page .main .edu-item .edu-meta { font-size:13px; color:#555; }
+                    .pdf-cv-page .main .edu-item .edu-desc { font-size:13px; color:#4a4a4a; }
+                    .pdf-cv-page .main .ref-note { font-style:italic; color:#666; font-size:13px; }
+                    .pdf-cv-page .main .footer-note { margin-top:24px; padding-top:16px; border-top:1px solid #e5e5e5; font-size:12px; color:#aaa; text-align:center; }
+                    .pdf-cv-page .main .about-text { font-size:14px; line-height:1.7; color:#2a2a2a; }
+                    .pdf-cv-page .main .about-text strong { color:#D97706; }
+                    .pdf-cv-page .main .link-list { display:flex; flex-wrap:wrap; gap:6px 16px; margin-top:6px; }
+                    .pdf-cv-page .main .link-list a { color:#D97706; text-decoration:none; font-weight:500; font-size:13px; border-bottom:1px dotted rgba(217,119,6,0.3); }
+                    .pdf-cv-page .main .link-list a:hover { border-bottom:1px solid #D97706; }
+                    .pdf-cv-page .main .link-list .label { color:#555; font-weight:400; }
+                    .pdf-cv-page .main .cert-item { margin-bottom:8px; }
+                    .pdf-cv-page .main .cert-item strong { color:#1a1a1a; }
+                    .pdf-cv-page .main .cert-item .cert-meta { font-size:13px; color:#555; }
+                    @media print { body { background:#fff; padding:0; } .pdf-cv-page { box-shadow:none; border-radius:0; } .no-print { display:none !important; } }
+                    @media(max-width:700px) { .pdf-cv-page { grid-template-columns:1fr; border-radius:0; } .pdf-cv-page .sidebar { padding:28px 24px; } .pdf-cv-page .main { padding:28px 24px; } }
+                    @media(max-width:400px) { .pdf-cv-page .sidebar .name { font-size:22px; } .pdf-cv-page .main .section-title { font-size:14px; } }
+                    .no-print { display:flex; justify-content:center; gap:16px; margin-top:24px; flex-wrap:wrap; max-width:1100px; margin-left:auto; margin-right:auto; }
                     .no-print button { font-family:'Inter',sans-serif; padding:10px 28px; border-radius:6px; font-size:14px; font-weight:600; cursor:pointer; transition:all .2s ease; border:none; }
                     .no-print .btn-download { background:#D97706; color:#fff; }
                     .no-print .btn-download:hover { background:#B45309; transform:scale(1.04); }
@@ -2947,125 +2945,101 @@
                     .no-print .btn-print:hover { background:#D97706; color:#fff; transform:scale(1.04); }
                     .no-print .btn-close { background:transparent; color:#888; border:1px solid #ddd; }
                     .no-print .btn-close:hover { background:#f0f0f0; }
-                    @media print { body { background:#fff; padding:0; } .pdf-cv-page { box-shadow:none; border-radius:0; padding:32px 40px; } .no-print { display:none !important; } .pdf-cv-page .cv-header .name { font-size:30px; } .pdf-cv-page .grid-2, .pdf-cv-page .grid-3 { break-inside:avoid; } .pdf-cv-page .section { break-inside:avoid; } }
-                    @media(max-width:700px){ .pdf-cv-page{ padding:24px 20px; } .pdf-cv-page .cv-header{ flex-direction:column; align-items:flex-start; } .pdf-cv-page .cv-header .contact{ text-align:left; width:100%; } .pdf-cv-page .grid-2, .pdf-cv-page .grid-3 { grid-template-columns:1fr; gap:8px; } .pdf-cv-page .cv-header .name { font-size:28px; } .pdf-cv-page .personal-about { font-size:12px; padding:14px 16px; } }
-                    @media(max-width:400px){ .pdf-cv-page{ padding:16px 12px; } .pdf-cv-page .cv-header .name { font-size:22px; } .pdf-cv-page .section-title { font-size:15px; } .pdf-cv-page .personal-about { font-size:11px; padding:12px 14px; } .no-print button { padding:8px 18px; font-size:12px; } }
+                    @media(max-width:480px) { .no-print button { padding:8px 18px; font-size:12px; } }
                 </style>
             </head>
             <body>
                 <div class="pdf-cv-page" id="pdfCvContent">
-                    <div class="cv-header">
+                    <!-- SIDEBAR -->
+                    <div class="sidebar">
                         <div>
                             <div class="name">ISAAC NJUGUNA BRIDGET</div>
-                            <div class="title">Applied Computer Science Student · Mobile Developer · Artist · Footballer</div>
+                            <div class="title">Applied CS Student · Mobile Developer</div>
                         </div>
-                        <div class="contact">
-                            📧 <a href="mailto:injuguna308@gmail.com">injuguna308@gmail.com</a><br>
-                            📞 +254 143374333<br>
-                            📍 Kenya · Chuka University<br>
-                            🔗 <a href="https://github.com/Grimzeero78" target="_blank">github.com/Grimzeero78</a>
+                        <div>
+                            <div class="section-title">Contact</div>
+                            <div class="contact-item">📧 <a href="mailto:injuguna308@gmail.com">injuguna308@gmail.com</a></div>
+                            <div class="contact-item">📞 +254 143374333</div>
+                            <div class="contact-item">📍 Kenya</div>
+                            <div class="contact-item">🔗 <a href="https://github.com/Grimzeero78" target="_blank">github.com/Grimzeero78</a></div>
                         </div>
-                    </div>
-
-                    <div class="section">
-                        <div class="section-title">Professional Summary</div>
-                        <div class="section-content">
-                            <p>I am an Applied Computer Science student at Chuka University (2023–2027), and I build things that solve real problems. I specialize in mobile development and AI, but my real strength is understanding people and the problems they face. I built Stockipa for my mom because she was hustling hard as a mtumba seller and had no idea where her money was going. That is who I build for — real people with real challenges.</p>
+                        <div>
+                            <div class="section-title">Skills</div>
+                            <span class="skill-tag">Flutter</span>
+                            <span class="skill-tag">C++</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">MySQL</span>
+                            <span class="skill-tag">TensorFlow</span>
+                            <span class="skill-tag">Git</span>
+                            <span class="skill-tag">Critical Thinking</span>
+                            <span class="skill-tag">Teamwork</span>
+                            <span class="skill-tag">Creativity</span>
                         </div>
-                    </div>
-
-                    <div class="section">
-                        <div class="section-title">About Me — Personal</div>
-                        <div class="section-content">
-                            <div class="personal-about">
-                                <span class="comment">// This is me, no filter, no AI-generated fluff.</span><br>
-                                <span class="bracket">{</span><br>
-                                &nbsp;&nbsp;<span class="key">name</span>: <span class="value">"Isaac Njuguna Bridget"</span>,<br>
-                                &nbsp;&nbsp;<span class="key">role</span>: <span class="value">"Applied CS Student"</span>,<br>
-                                &nbsp;&nbsp;<span class="key">focus</span>: <span class="value">"Mobile App &amp; AI Development"</span>,<br>
-                                &nbsp;&nbsp;<span class="key">university</span>: <span class="value">"Chuka University"</span>,<br>
-                                &nbsp;&nbsp;<span class="key">flagship</span>: <span class="value">"Stockipa — Finance Tracker"</span>,<br>
-                                &nbsp;&nbsp;<span class="key">passion</span>: <span class="value">"Solving real-world problems with tech"</span>,<br>
-                                &nbsp;&nbsp;<span class="key">hobbies</span>: [<span class="value">"Football"</span>, <span class="value">"Stencil Art"</span>],<br>
-                                &nbsp;&nbsp;<span class="key">mindset</span>: <span class="value">"Break things → Understand things → Build things"</span>,<br>
-                                <span class="bracket">}</span><br>
-                                <span class="comment">// I do not just write code. I create art with spray cans, play football as an attacking midfielder.</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="section">
-                        <div class="section-title">Education</div>
-                        <div class="section-content">
-                            <div class="edu-item"><div class="edu-title">BSc. Applied Computer Science</div><div class="edu-meta">Chuka University · 2023 – 2027</div><div class="edu-desc">Specializing in mobile application development and AI. Currently in progress.</div></div>
-                            <div class="edu-item"><div class="edu-title">Kagumo High School</div><div class="edu-meta">Secondary Education · 2019 – 2022</div><div class="edu-desc">Built the foundation of discipline, teamwork, and analytical thinking.</div></div>
-                            <div class="edu-item"><div class="edu-title">Ngenia Primary School</div><div class="edu-meta">Primary Education · – 2019</div></div>
-                        </div>
-                    </div>
-
-                    <div class="section">
-                        <div class="section-title">Skills</div>
-                        <div class="section-content">
-                            <div class="grid-2">
-                                <div>
-                                    <strong style="color:#D97706;">Technical</strong>
-                                    <div class="skill-item"><span>Flutter / Dart</span><span class="level">Beginner</span></div>
-                                    <div class="skill-item"><span>C++</span><span class="level">Strong</span></div>
-                                    <div class="skill-item"><span>Python</span><span class="level">Intermediate</span></div>
-                                    <div class="skill-item"><span>MySQL</span><span class="level">Basic</span></div>
-                                    <div class="skill-item"><span>TensorFlow</span><span class="level">Beginner</span></div>
-                                    <div class="skill-item"><span>Pentesting</span><span class="level">Planning</span></div>
-                                </div>
-                                <div>
-                                    <strong style="color:#D97706;">Soft</strong>
-                                    <div class="skill-item"><span>Teamwork</span><span class="level">Strong</span></div>
-                                    <div class="skill-item"><span>Discipline</span><span class="level">Strong</span></div>
-                                    <div class="skill-item"><span>Creativity</span><span class="level">Strong</span></div>
-                                    <div class="skill-item"><span>Communication</span><span class="level">Strong</span></div>
-                                    <div class="skill-item"><span>Critical Thinking</span><span class="level">Strong</span></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="section">
-                        <div class="section-title">Projects</div>
-                        <div class="section-content">
-                            <div class="project-item"><div class="proj-title">Stockipa — Finance Tracking App</div><div class="proj-meta">Flutter · SQLite · M-Pesa Integration · 2025</div><div class="proj-desc">Offline mobile app that auto-tracks income and expenses by reading M-Pesa SMS and scanning bills. Features stock management, multi-language support, and yearly charts. Built for small business owners, starting with my mom.</div></div>
-                            <div class="project-item"><div class="proj-title">AI Image Detector</div><div class="proj-meta">Python · TensorFlow · OpenCV · 2024</div><div class="proj-desc">Desktop app using TensorFlow to classify objects in images. Successfully detected objects with accuracy scaling with model quality.</div></div>
-                            <div class="project-item"><div class="proj-title">City Stars FC — Football Website</div><div class="proj-meta">HTML · CSS · JavaScript · 2026</div><div class="proj-desc">Full website for Chuka University's football team with fixtures, results, player profiles, staff, league table, and club blog.</div></div>
-                            <div class="project-item"><div class="proj-title">DeepRest — Mental Health App</div><div class="proj-meta">Flutter · Firebase · Grok API · 2026</div><div class="proj-desc">Mobile app for reducing screen time and building healthier habits. Features accountability groups, AI companions, and rank tracking.</div></div>
-                            <div class="project-item"><div class="proj-title">Mirrorcam — Camera App</div><div class="proj-meta">Flutter · Camera Plugin · 2023</div><div class="proj-desc">Camera app with real-time mirror-like view and live adjustments for lighting, skin tone, clarity, and shadows.</div></div>
-                            <div class="project-item"><div class="proj-title">Merit AI — Hiring Bias Remover</div><div class="proj-meta">Python · Computer Vision · NLP · 2026</div><div class="proj-desc">AI system that analyzes interview videos and documents to rank candidates objectively, removing human bias from hiring.</div></div>
-                        </div>
-                    </div>
-
-                    <div class="section">
-                        <div class="section-title">Certifications</div>
-                        <div class="section-content">
-                            <p><strong>Christian Discipleship Certificate</strong> — 2024<br><span style="color:#4a4a4a;font-size:13px;">Character development, leadership, and service training. Shaped my integrity and discipline.</span></p>
-                        </div>
-                    </div>
-
-                    <div class="section">
-                        <div class="section-title">Languages</div>
-                        <div class="section-content">
+                        <div>
+                            <div class="section-title">Languages</div>
                             <span class="lang-tag">Kiswahili <span class="lvl">Native</span></span>
                             <span class="lang-tag">English <span class="lvl">Fluent</span></span>
                             <span class="lang-tag">Kikuyu <span class="lvl">Native</span></span>
                             <span class="lang-tag">Kimeru <span class="lvl">Native</span></span>
                         </div>
-                    </div>
-
-                    <div class="section">
-                        <div class="section-title">References</div>
-                        <div class="section-content">
-                            <p class="ref-note">Available upon request. I am currently building my professional network and happy to connect with mentors, church community, or university contacts for character references.</p>
+                        <div>
+                            <div class="section-title">Certifications</div>
+                            <p style="font-size:13px;color:#cbd5e1;line-height:1.5;"><strong style="color:#fff;">Christian Discipleship</strong> (2024)</p>
+                            <p style="font-size:12px;color:#94a3b8;margin-top:4px;">Character, leadership &amp; service training.</p>
                         </div>
                     </div>
 
-                    <div class="footer-note">
-                        Isaac Njuguna Bridget · Applied Computer Science Student · Chuka University · 2026
+                    <!-- MAIN -->
+                    <div class="main">
+                        <div class="section">
+                            <div class="section-title">Profile</div>
+                            <div class="section-content">
+                                <p class="about-text">I am an Applied Computer Science student at <strong>Chuka University</strong> (2023–2027) with a passion for mobile development, AI, and solving real problems. I build offline-first apps, train practical AI models, and believe in simple solutions for real people. My flagship project, <strong>Stockipa</strong>, was born from watching my mom hustle as a mtumba seller without knowing where her money went.</p>
+                            </div>
+                        </div>
+
+                        <div class="section">
+                            <div class="section-title">Websites I've Built</div>
+                            <div class="section-content">
+                                <div class="link-list">
+                                    <span class="label">Portfolio:</span> <a href="https://portfolio.isaacbridget.workers.dev" target="_blank">portfolio.isaacbridget.workers.dev</a>
+                                    <span class="label">Art:</span> <a href="https://artweb.isaacbridget.workers.dev" target="_blank">artweb.isaacbridget.workers.dev</a>
+                                    <span class="label">City Stars FC:</span> <a href="https://citystars.isaacbridget.workers.dev" target="_blank">citystars.isaacbridget.workers.dev</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="section">
+                            <div class="section-title">Education</div>
+                            <div class="section-content">
+                                <div class="edu-item"><div class="edu-title">BSc. Applied Computer Science</div><div class="edu-meta">Chuka University · 2023 – 2027</div><div class="edu-desc">Specializing in mobile development and AI. In progress.</div></div>
+                                <div class="edu-item"><div class="edu-title">Kagumo High School</div><div class="edu-meta">Secondary Education · 2019 – 2022</div></div>
+                                <div class="edu-item"><div class="edu-title">Ngenia Primary School</div><div class="edu-meta">Primary Education · – 2019</div></div>
+                            </div>
+                        </div>
+
+                        <div class="section">
+                            <div class="section-title">Projects</div>
+                            <div class="section-content">
+                                <div class="project-item"><div class="proj-title">Stockipa — Finance Tracking App</div><div class="proj-meta">Flutter · SQLite · M-Pesa Integration · 2025</div><div class="proj-desc">Offline mobile app that auto-tracks income and expenses by reading M-Pesa SMS and scanning bills. Features stock management, multi-language support, and yearly charts. Built for small business owners, starting with my mom.</div></div>
+                                <div class="project-item"><div class="proj-title">AI Image Detector</div><div class="proj-meta">Python · TensorFlow · OpenCV · 2024</div><div class="proj-desc">Desktop app using TensorFlow to classify objects in images. Successfully detected objects with accuracy scaling with model quality.</div></div>
+                                <div class="project-item"><div class="proj-title">City Stars FC — Football Website</div><div class="proj-meta">HTML · CSS · JavaScript · 2026</div><div class="proj-desc">Full website for Chuka University's football team with fixtures, results, player profiles, staff, league table, and club blog.</div></div>
+                                <div class="project-item"><div class="proj-title">DeepRest — Mental Health App</div><div class="proj-meta">Flutter · Firebase · Grok API · 2026</div><div class="proj-desc">Mobile app for reducing screen time and building healthier habits. Features accountability groups, AI companions, and rank tracking.</div></div>
+                                <div class="project-item"><div class="proj-title">Mirrorcam — Camera App</div><div class="proj-meta">Flutter · Camera Plugin · 2023</div><div class="proj-desc">Camera app with real-time mirror-like view and live adjustments for lighting, skin tone, clarity, and shadows.</div></div>
+                                <div class="project-item"><div class="proj-title">Merit AI — Hiring Bias Remover</div><div class="proj-meta">Python · Computer Vision · NLP · 2026</div><div class="proj-desc">AI system that analyzes interview videos and documents to rank candidates objectively, removing human bias from hiring.</div></div>
+                            </div>
+                        </div>
+
+                        <div class="section">
+                            <div class="section-title">References</div>
+                            <div class="section-content">
+                                <p class="ref-note">Available upon request. I am currently building my professional network and happy to connect with mentors, church community, or university contacts for character references.</p>
+                            </div>
+                        </div>
+
+                        <div class="footer-note">
+                            Isaac Njuguna Bridget · Applied Computer Science Student · Chuka University · 2026
+                        </div>
                     </div>
                 </div>
 

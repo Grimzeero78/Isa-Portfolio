@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="google-site-verification" content="oeDfPU047d5Lk5H24rfTv4vU2PEvHqSo0VTYtD4FUUU" />
-    <title>Isaac Bridget · Developer Portfolio & CV</title>
-    <meta name="description" content="Isaac Bridget's developer portfolio — Mobile Developer, AI Engineer, and Problem Solver." />
+    <title>Isaac Njuguna Bridget · Developer Portfolio & CV</title>
+    <meta name="description" content="Isaac Njuguna Bridget's developer portfolio — Mobile Developer, AI Engineer, and Problem Solver." />
     <script type="application/ld+json">
         {
             "@context": "https://schema.org",
             "@type": "Person",
-            "name": "Isaac Bridget",
+            "name": "Isaac Njuguna Bridget",
             "jobTitle": "Mobile Developer & AI Engineer",
             "url": "https://portfolio.isaacbridget.workers.dev",
             "description": "Mobile Developer and AI Engineer building real-world solutions.",
@@ -125,9 +125,10 @@
         .theme-toggle-btn {
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            padding: 8px 16px;
-            border-radius: 8px;
+            justify-content: center;
+            gap: 4px;
+            padding: 6px 12px;
+            border-radius: 6px;
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid var(--border-color);
             color: var(--text-primary);
@@ -136,19 +137,51 @@
             font-size: 13px;
             font-weight: 600;
             font-family: 'Inter', sans-serif;
+            min-width: 38px;
+            min-height: 38px;
         }
         .theme-toggle-btn:hover {
             border-color: #D97706;
             background: rgba(217, 119, 6, 0.1);
-            transform: scale(1.05);
+            transform: scale(1.04);
         }
         .theme-toggle-btn .iconify {
             font-size: 16px;
         }
         .theme-toggle-btn-mobile {
-            padding: 6px 12px;
-            font-size: 11px;
+            padding: 4px 10px;
+            font-size: 12px;
+            min-width: 34px;
+            min-height: 34px;
         }
+
+        #mobile-menu-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            background: rgba(255, 255, 255, 0.04);
+            color: var(--text-primary);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 22px;
+            line-height: 1;
+            font-weight: 300;
+        }
+        #mobile-menu-btn:hover {
+            border-color: #D97706;
+            background: rgba(217, 119, 6, 0.08);
+        }
+        #mobile-menu-btn .hamburger-text {
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: 0;
+            user-select: none;
+        }
+
         .light-theme .hero-stroke-text {
             -webkit-text-stroke: 2px rgba(0, 0, 0, 0.3) !important;
             color: transparent !important;
@@ -719,8 +752,8 @@
                 linear-gradient(150deg, rgba(56, 189, 248, .03) 12%, transparent 12.5%, transparent 87%, rgba(56, 189, 248, .03) 87.5%),
                 linear-gradient(30deg, rgba(56, 189, 248, .03) 12%, transparent 12.5%, transparent 87%, rgba(56, 189, 248, .03) 87.5%),
                 linear-gradient(150deg, rgba(56, 189, 248, .03) 12%, transparent 12.5%, transparent 87%, rgba(56, 189, 248, .03) 87.5%),
-                linear-gradient(60deg, rgba(14, 165, 233, .04) 25%, transparent 25.5%, transparent 75%, rgba(14, 165, 233, .04) 75%),
-                linear-gradient(60deg, rgba(14, 165, 233, .04) 25%, transparent 25.5%, transparent 75%, rgba(14, 165, 233, .04) 75%);
+                linear-gradient(60deg, rgba(14, 165, 233, .04) 25%, transparent 25.5%, transparent 75%, rgba(14, 165, 233, .04) 75),
+                linear-gradient(60deg, rgba(14, 165, 233, .04) 25%, transparent 25.5%, transparent 75%, rgba(14, 165, 233, .04) 75);
             background-size: 80px 140px;
             background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px;
         }
@@ -934,27 +967,6 @@
             color: #4a4a4a !important;
         }
 
-        #mobile-menu-btn {
-            color: var(--text-primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 6px;
-            border: 1px solid var(--border-color);
-            background: rgba(255, 255, 255, 0.03);
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-        #mobile-menu-btn:hover {
-            border-color: #D97706;
-            background: rgba(217, 119, 6, 0.08);
-        }
-        #mobile-menu-btn .iconify {
-            font-size: 24px;
-        }
-
         /* ——— HERO FIXES ——— */
         #hero .hero-content-wrap {
             display: flex;
@@ -1047,188 +1059,61 @@
             }
         }
 
-        /* ——— YEARLY CHART OVERLAY ——— */
-        .yearly-chart-overlay {
-            position: absolute;
-            top: 12px;
-            right: 12px;
-            z-index: 20;
-            width: 110px;
-            border-radius: 10px;
-            border: 2px solid rgba(255, 255, 255, 0.2);
+        /* ——— STOCKIPA MAIN IMAGE ——— */
+        .stockipa-main-wrap {
+            position: relative;
+            border-radius: 8px;
             overflow: hidden;
-            cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.6);
+            border: 1px solid var(--border-color);
+            background: var(--bg-card);
         }
-        .yearly-chart-overlay img {
+        .stockipa-main-wrap img {
             width: 100%;
             height: auto;
-            aspect-ratio: 4/5;
+            max-height: 620px;
             object-fit: cover;
             display: block;
         }
-        .yearly-chart-overlay .label-bar {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(0, 0, 0, 0.75);
-            backdrop-filter: blur(4px);
-            padding: 4px 6px;
-            text-align: center;
+        .stockipa-main-wrap .img-caption {
+            padding: 18px 22px 22px;
+            background: var(--bg-card);
+            border-top: 1px solid var(--border-color);
         }
-        .yearly-chart-overlay .label-bar span {
-            font-size: 8px;
+        .stockipa-main-wrap .img-caption h4 {
+            font-size: 15px;
             font-weight: 700;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+        .stockipa-main-wrap .img-caption p {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        .stockipa-main-wrap .img-caption .highlight {
             color: #D97706;
+            font-weight: 600;
         }
-        .yearly-chart-overlay:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 40px rgba(217, 119, 6, 0.35);
-            border-color: #D97706;
-        }
-        @media(min-width:640px) {
-            .yearly-chart-overlay {
-                width: 140px;
-                top: 16px;
-                right: 16px;
-            }
-            .yearly-chart-overlay .label-bar span {
-                font-size: 9px;
-            }
-        }
-        @media(min-width:1024px) {
-            .yearly-chart-overlay {
-                width: 170px;
-                top: 20px;
-                right: 20px;
-            }
-            .yearly-chart-overlay .label-bar span {
-                font-size: 10px;
-            }
-        }
-
-        /* ——— LIGHTBOX ——— */
-        #chart-lightbox {
-            position: fixed;
-            inset: 0;
-            z-index: 70000;
-            background: rgba(0, 0, 0, 0.92);
-            backdrop-filter: blur(16px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.4s ease;
-            padding: 20px;
-        }
-        #chart-lightbox.open {
-            opacity: 1;
-            pointer-events: auto;
-        }
-        #chart-lightbox .lightbox-content {
-            max-width: 900px;
-            width: 100%;
-            max-height: 90vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
-            transform: scale(0.95) translateY(20px);
-            transition: transform 0.4s cubic-bezier(.16, 1, .3, 1);
-        }
-        #chart-lightbox.open .lightbox-content {
-            transform: scale(1) translateY(0);
-        }
-        #chart-lightbox .lightbox-img {
-            width: 100%;
-            max-height: 55vh;
-            object-fit: contain;
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
-        }
-        #chart-lightbox .lightbox-msg {
-            max-width: 700px;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 12px;
-            padding: 18px 22px;
-            color: #d8d4ce;
-            font-family: 'Inter', sans-serif;
-            text-align: center;
-            backdrop-filter: blur(8px);
-        }
-        #chart-lightbox .lightbox-msg .highlight {
-            color: #D97706;
-            font-weight: 700;
-        }
-        #chart-lightbox .lightbox-msg .green {
+        .stockipa-main-wrap .img-caption .green {
             color: #4ade80;
             font-weight: 600;
         }
-        #chart-lightbox .lightbox-msg .red {
+        .stockipa-main-wrap .img-caption .red {
             color: #f87171;
             font-weight: 600;
         }
-        #chart-lightbox .lightbox-msg .title {
-            font-size: 18px;
-            font-weight: 700;
-            color: #fff;
-            margin-bottom: 6px;
-        }
-        #chart-lightbox .lightbox-msg .desc {
-            font-size: 14px;
-            line-height: 1.6;
-            color: #a3a3a3;
-        }
-        #chart-lightbox .lightbox-close {
-            position: absolute;
-            top: 20px;
-            right: 24px;
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            color: #fff;
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            font-size: 24px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            font-family: 'Inter', sans-serif;
-        }
-        #chart-lightbox .lightbox-close:hover {
-            background: rgba(217, 119, 6, 0.2);
-            border-color: #D97706;
-            transform: rotate(90deg);
-        }
         @media(max-width:640px) {
-            #chart-lightbox .lightbox-msg .title {
-                font-size: 15px;
+            .stockipa-main-wrap img {
+                max-height: 380px;
             }
-            #chart-lightbox .lightbox-msg .desc {
+            .stockipa-main-wrap .img-caption {
+                padding: 14px 16px 18px;
+            }
+            .stockipa-main-wrap .img-caption h4 {
+                font-size: 13px;
+            }
+            .stockipa-main-wrap .img-caption p {
                 font-size: 12px;
-            }
-            #chart-lightbox .lightbox-msg {
-                padding: 14px 16px;
-            }
-            #chart-lightbox .lightbox-close {
-                top: 12px;
-                right: 16px;
-                width: 36px;
-                height: 36px;
-                font-size: 18px;
-            }
-            #chart-lightbox .lightbox-img {
-                max-height: 40vh;
             }
         }
 
@@ -1709,239 +1594,6 @@
             margin: 6px 0;
         }
 
-        /* ——— MOBILE TWEAKS ——— */
-        @media(max-width:480px) {
-            .flip-card {
-                height: 420px;
-            }
-            .flip-card-front .relative.h-48 {
-                height: 160px;
-            }
-            .flip-card-front .p-5 {
-                padding: 14px;
-            }
-            .flip-card-back .p-6 {
-                padding: 16px;
-            }
-            #projects-grid {
-                gap: 14px;
-            }
-            .pb-card {
-                min-width: 260px;
-                max-width: 320px;
-            }
-            .pb-card .p-5 {
-                padding: 14px;
-            }
-            .carousel-track .flex-shrink-0 {
-                width: 92vw !important;
-            }
-            #stockipa .grid .relative {
-                margin-top: 0;
-            }
-            #stockipa .grid .relative .featured-glow {
-                border-radius: 10px;
-            }
-            #stockipa .grid .relative .featured-glow img {
-                height: 320px !important;
-            }
-            #stockipa .mt-12 {
-                margin-top: 1.5rem;
-            }
-            #stockipa .grid .grid-cols-1.sm\:grid-cols-2.lg\:grid-cols-4 {
-                gap: 10px;
-            }
-            #stockipa .grid .grid-cols-1.sm\:grid-cols-2.lg\:grid-cols-4 .border {
-                padding: 12px;
-            }
-            #stockipa .grid .grid-cols-1.sm\:grid-cols-2.lg\:grid-cols-4 .border h4 {
-                font-size: 11px;
-            }
-            #stockipa .grid .grid-cols-1.sm\:grid-cols-2.lg\:grid-cols-4 .border p {
-                font-size: 9px;
-            }
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 12px;
-                padding: 12px 16px;
-            }
-            .stats-grid .text-2xl {
-                font-size: 1.3rem;
-            }
-            .stats-grid .text-\[8px\] {
-                font-size: 7px;
-            }
-            .cv-side-nav {
-                display: none;
-            }
-            #cv-hero h1 {
-                font-size: 2.2rem !important;
-            }
-            #cv-hero .cv-reveal .text-3xl {
-                font-size: 1.2rem !important;
-            }
-            #cv-hero .cv-reveal .gap-8 {
-                gap: 12px;
-            }
-            #cv-hero .cv-reveal .w-px {
-                height: 30px;
-            }
-            #cv-about .grid.md\:grid-cols-5 {
-                grid-template-columns: 1fr;
-            }
-            #cv-about .grid.md\:grid-cols-5 .md\:col-span-3 {
-                grid-column: 1;
-            }
-            #cv-about .grid.md\:grid-cols-5 .md\:col-span-2 {
-                grid-column: 1;
-            }
-            .cyber-card .p-6 {
-                padding: 14px;
-            }
-            .cv-project-card .relative.h-48 {
-                height: 140px;
-            }
-            .cv-project-card .p-6 {
-                padding: 14px;
-            }
-            .cv-project-card .p-6 .text-2xl {
-                font-size: 1.2rem;
-            }
-            #cv-skills .grid.sm\:grid-cols-2.lg\:grid-cols-3 {
-                grid-template-columns: 1fr 1fr;
-                gap: 10px;
-            }
-            #cv-skills .cyber-card .p-6 {
-                padding: 12px;
-            }
-            #cv-skills .cyber-card .p-6 .text-2xl {
-                font-size: 1.2rem;
-            }
-            #cv-skills .cyber-card .p-6 .font-semibold {
-                font-size: 0.8rem;
-            }
-            #cv-skills .cyber-card .p-6 .text-xs {
-                font-size: 9px;
-            }
-            #cv-skills .cv-lang-tag {
-                font-size: 9px;
-                padding: 1px 6px;
-            }
-            #cv-education .relative .cyber-card .p-6 {
-                padding: 14px;
-            }
-            #cv-education .relative .cyber-card .p-6 .text-lg {
-                font-size: 1rem;
-            }
-            #cv-certifications .cyber-card .p-6 {
-                padding: 14px;
-            }
-            #cv-certifications .cyber-card .p-6 .text-lg {
-                font-size: 1rem;
-            }
-            #cv-certifications .cyber-card .p-6 .text-sm {
-                font-size: 12px;
-            }
-            #cv-contact .grid.sm\:grid-cols-3 {
-                grid-template-columns: 1fr 1fr;
-                gap: 10px;
-            }
-            #cv-contact .grid.sm\:grid-cols-3 .cyber-card .p-5 {
-                padding: 12px;
-            }
-            #cv-contact .cv-reveal .text-4xl {
-                font-size: 2rem;
-            }
-            #cv-contact .cv-reveal .text-lg {
-                font-size: 1rem;
-            }
-            #cv-contact .cv-reveal .px-8 {
-                padding-left: 20px;
-                padding-right: 20px;
-            }
-            #cv-contact .cv-reveal .py-4 {
-                padding-top: 12px;
-                padding-bottom: 12px;
-            }
-            #cv-contact .cv-reveal .text-base {
-                font-size: 13px;
-            }
-            #cv-overlay .cv-marquee-track span {
-                font-size: 9px;
-                gap: 6px;
-            }
-            #cv-overlay .cv-marquee-track span .gap-8 {
-                gap: 12px;
-            }
-            #cv-overlay .cv-marquee-track span .px-4 {
-                padding-left: 10px;
-                padding-right: 10px;
-            }
-            #cv-overlay .cv-side-nav {
-                display: none;
-            }
-            .yearly-chart-overlay {
-                width: 80px !important;
-                top: 8px !important;
-                right: 8px !important;
-            }
-            .yearly-chart-overlay .label-bar span {
-                font-size: 6px !important;
-            }
-            /* Mobile menu button fix */
-            #mobile-menu-btn {
-                width: 36px;
-                height: 36px;
-            }
-            #mobile-menu-btn .iconify {
-                font-size: 20px;
-            }
-            .theme-toggle-btn-mobile {
-                padding: 4px 10px;
-                font-size: 10px;
-            }
-        }
-
-        @media(max-width:380px) {
-            #hero h1 .block {
-                font-size: clamp(1.8rem, 12vw, 2.8rem) !important;
-            }
-            #hero .hero-btn-group .btn-hero {
-                font-size: 7px !important;
-                padding: 0.3rem 0.5rem !important;
-            }
-            #hero .hero-typing {
-                font-size: 9px !important;
-            }
-            .flip-card {
-                height: 380px;
-            }
-            .pb-card {
-                min-width: 220px;
-                max-width: 280px;
-            }
-            #stockipa .grid .relative .featured-glow img {
-                height: 240px !important;
-            }
-            #stockipa .grid .grid-cols-1.sm\:grid-cols-2.lg\:grid-cols-4 {
-                grid-template-columns: 1fr 1fr;
-            }
-            #cv-skills .grid.sm\:grid-cols-2.lg\:grid-cols-3 {
-                grid-template-columns: 1fr 1fr;
-            }
-            #cv-contact .grid.sm\:grid-cols-3 {
-                grid-template-columns: 1fr 1fr;
-            }
-            .yearly-chart-overlay {
-                width: 64px !important;
-                top: 6px !important;
-                right: 6px !important;
-            }
-            .yearly-chart-overlay .label-bar span {
-                font-size: 5px !important;
-            }
-        }
-
         /* ——— CV: remove ICT Support, keep Discipleship only ——— */
         #cv-experience {
             display: none !important;
@@ -1952,31 +1604,282 @@
         #cv-awards {
             display: none !important;
         }
-        /* Keep only Discipleship in certifications */
-        #cv-certifications .cyber-card .flex-wrap.gap-2 .cv-tag:not(:first-child) {
-            display: none;
-        }
-        /* Remove extra tags from cert */
-        #cv-certifications .cyber-card .flex-wrap.gap-2 .cv-tag:first-child {
-            /* keep only Character Development, hide others */
-        }
-        /* We'll handle via JS or just keep them but they are harmless */
-        /* Actually better to just hide the extra tags via CSS */
         #cv-certifications .cyber-card .flex-wrap.gap-2 .cv-tag:nth-child(2),
         #cv-certifications .cyber-card .flex-wrap.gap-2 .cv-tag:nth-child(3) {
             display: none !important;
         }
-        /* Remove duplicate Get in Touch buttons - we'll keep only one in contact section */
-        /* The sticky CTA has "Hire Me" which is different, so it's fine */
-        /* Remove the extra button in mobile nav that might duplicate */
-        #mobile-menu .mt-1 {
-            /* keep it, it's "Hire Me" not "Get in Touch" */
+
+        /* ——— MOBILE HEADER FIXES ——— */
+        .mobile-controls-wrap {
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
-        /* Fix: ensure contact section has only one "Get in Touch" */
-        #contact .flex-col.sm\:flex-row .gap-3 .inline-flex:first-child {
-            /* this is the Get in Touch button, it's fine */
+        @media(max-width:480px) {
+            .mobile-controls-wrap {
+                gap: 4px;
+            }
+            .theme-toggle-btn-mobile {
+                padding: 4px 8px;
+                font-size: 11px;
+                min-width: 30px;
+                min-height: 30px;
+            }
+            #mobile-menu-btn {
+                width: 34px;
+                height: 34px;
+                font-size: 18px;
+            }
+            #mobile-menu-btn .hamburger-text {
+                font-size: 20px;
+            }
         }
-        /* Remove any other "Get in Touch" duplicates - there's only one in contact */
+
+        /* ——— PDF CV PAGE STYLES (print-friendly) ——— */
+        .pdf-cv-page {
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            background: #fff;
+            color: #1a1a1a;
+            padding: 48px 56px;
+            max-width: 1100px;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+        .pdf-cv-page .cv-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            border-bottom: 3px solid #D97706;
+            padding-bottom: 20px;
+            margin-bottom: 28px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .pdf-cv-page .cv-header .name {
+            font-size: 36px;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: #1a1a1a;
+        }
+        .pdf-cv-page .cv-header .title {
+            font-size: 18px;
+            font-weight: 500;
+            color: #D97706;
+            margin-top: 2px;
+        }
+        .pdf-cv-page .cv-header .contact {
+            text-align: right;
+            font-size: 14px;
+            color: #4a4a4a;
+            line-height: 1.6;
+        }
+        .pdf-cv-page .cv-header .contact a {
+            color: #D97706;
+            text-decoration: none;
+        }
+        .pdf-cv-page .cv-header .contact a:hover {
+            text-decoration: underline;
+        }
+        .pdf-cv-page .section {
+            margin-bottom: 24px;
+        }
+        .pdf-cv-page .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #D97706;
+            border-bottom: 2px solid #e5e5e5;
+            padding-bottom: 4px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+        .pdf-cv-page .section-content {
+            font-size: 14px;
+            color: #2a2a2a;
+        }
+        .pdf-cv-page .section-content p {
+            margin-bottom: 6px;
+        }
+        .pdf-cv-page .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px 40px;
+        }
+        .pdf-cv-page .grid-3 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 16px 32px;
+        }
+        .pdf-cv-page .skill-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 4px 0;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 13px;
+        }
+        .pdf-cv-page .skill-item .level {
+            color: #888;
+            font-size: 12px;
+        }
+        .pdf-cv-page .project-item {
+            margin-bottom: 14px;
+        }
+        .pdf-cv-page .project-item .proj-title {
+            font-weight: 700;
+            font-size: 15px;
+            color: #1a1a1a;
+        }
+        .pdf-cv-page .project-item .proj-meta {
+            font-size: 12px;
+            color: #888;
+            margin-bottom: 2px;
+        }
+        .pdf-cv-page .project-item .proj-desc {
+            font-size: 13px;
+            color: #3a3a3a;
+        }
+        .pdf-cv-page .edu-item {
+            margin-bottom: 12px;
+        }
+        .pdf-cv-page .edu-item .edu-title {
+            font-weight: 700;
+            font-size: 15px;
+        }
+        .pdf-cv-page .edu-item .edu-meta {
+            font-size: 13px;
+            color: #555;
+        }
+        .pdf-cv-page .edu-item .edu-desc {
+            font-size: 13px;
+            color: #4a4a4a;
+        }
+        .pdf-cv-page .lang-tag {
+            display: inline-block;
+            background: #f5f5f5;
+            padding: 2px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            margin: 2px 4px 2px 0;
+            border: 1px solid #e5e5e5;
+        }
+        .pdf-cv-page .lang-tag .lvl {
+            color: #888;
+            font-size: 11px;
+        }
+        .pdf-cv-page .ref-note {
+            font-style: italic;
+            color: #666;
+            font-size: 13px;
+        }
+        .pdf-cv-page .footer-note {
+            margin-top: 32px;
+            padding-top: 16px;
+            border-top: 1px solid #e5e5e5;
+            font-size: 12px;
+            color: #aaa;
+            text-align: center;
+        }
+        @media print {
+            .pdf-cv-page {
+                padding: 32px 40px;
+            }
+            .pdf-cv-page .cv-header .name {
+                font-size: 30px;
+            }
+            .pdf-cv-page .grid-2,
+            .pdf-cv-page .grid-3 {
+                break-inside: avoid;
+            }
+            .pdf-cv-page .section {
+                break-inside: avoid;
+            }
+            .no-print {
+                display: none !important;
+            }
+        }
+        @media(max-width:700px) {
+            .pdf-cv-page {
+                padding: 24px 20px;
+            }
+            .pdf-cv-page .cv-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .pdf-cv-page .cv-header .contact {
+                text-align: left;
+                width: 100%;
+            }
+            .pdf-cv-page .grid-2,
+            .pdf-cv-page .grid-3 {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+            .pdf-cv-page .cv-header .name {
+                font-size: 28px;
+            }
+        }
+        @media(max-width:400px) {
+            .pdf-cv-page {
+                padding: 16px 12px;
+            }
+            .pdf-cv-page .cv-header .name {
+                font-size: 22px;
+            }
+            .pdf-cv-page .section-title {
+                font-size: 15px;
+            }
+        }
+
+        /* ——— PDF CV DOWNLOAD BUTTONS ——— */
+        .pdf-cv-actions {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 24px;
+            flex-wrap: wrap;
+        }
+        .pdf-cv-actions button {
+            font-family: 'Inter', sans-serif;
+            padding: 10px 28px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all .2s ease;
+            border: none;
+        }
+        .pdf-cv-actions .btn-download {
+            background: #D97706;
+            color: #fff;
+        }
+        .pdf-cv-actions .btn-download:hover {
+            background: #B45309;
+            transform: scale(1.04);
+        }
+        .pdf-cv-actions .btn-print {
+            background: transparent;
+            color: #D97706;
+            border: 2px solid #D97706;
+        }
+        .pdf-cv-actions .btn-print:hover {
+            background: #D97706;
+            color: #fff;
+            transform: scale(1.04);
+        }
+        .pdf-cv-actions .btn-close {
+            background: transparent;
+            color: #888;
+            border: 1px solid #ddd;
+        }
+        .pdf-cv-actions .btn-close:hover {
+            background: #f0f0f0;
+        }
+        @media(max-width:480px) {
+            .pdf-cv-actions button {
+                padding: 8px 18px;
+                font-size: 12px;
+            }
+        }
     </style>
 </head>
 
@@ -2006,13 +1909,14 @@
             </div>
 
             <!-- Mobile controls -->
-            <div class="flex items-center gap-2 sm:gap-3 md:hidden">
+            <div class="flex items-center gap-2 md:hidden mobile-controls-wrap">
                 <button onclick="toggleTheme()" class="theme-toggle-btn theme-toggle-btn-mobile" aria-label="Toggle theme">
                     <iconify-icon icon="lucide:moon" width="14" id="theme-icon-mobile"></iconify-icon>
+                    <span class="hidden sm:inline text-[10px] font-semibold" id="theme-label-mobile">Dark</span>
                 </button>
-                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=injuguna308@gmail.com" target="_blank" rel="noopener noreferrer" class="text-[10px] sm:text-[11px] font-semibold tracking-[.15em] uppercase bg-warm-500 text-white px-3 sm:px-4 py-2 rounded-sm hover:bg-warm-600 transition-colors">Hire Me</a>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=injuguna308@gmail.com" target="_blank" rel="noopener noreferrer" class="text-[10px] sm:text-[11px] font-semibold tracking-[.15em] uppercase bg-warm-500 text-white px-3 sm:px-4 py-2 rounded-sm hover:bg-warm-600 transition-colors whitespace-nowrap">Hire Me</a>
                 <button id="mobile-menu-btn" aria-label="Toggle navigation menu">
-                    <iconify-icon icon="lucide:menu" width="24"></iconify-icon>
+                    <span class="hamburger-text" aria-hidden="true">☰</span>
                 </button>
             </div>
         </div>
@@ -2024,7 +1928,8 @@
                 <a href="#stockipa" class="text-sm font-semibold tracking-wider uppercase text-neutral-300 hover:text-warm-500 transition-colors mobile-link">Stockipa</a>
                 <a href="#cases" class="text-sm font-semibold tracking-wider uppercase text-neutral-300 hover:text-warm-500 transition-colors mobile-link">Case Studies</a>
                 <a href="#stack" class="text-sm font-semibold tracking-wider uppercase text-neutral-300 hover:text-warm-500 transition-colors mobile-link">Stack</a>
-                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=injuguna308@gmail.com" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold tracking-wider uppercase bg-warm-500 text-white px-5 py-3 rounded-sm text-center mt-1">Hire Me</a>
+                <button onclick="openPDFCV()" class="text-sm font-semibold tracking-wider uppercase bg-cyber-500/20 text-cyber-400 border border-cyber-500/30 px-5 py-3 rounded-sm text-center mt-1 hover:bg-cyber-500/30 transition-colors">📄 PDF CV</button>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=injuguna308@gmail.com" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold tracking-wider uppercase bg-warm-500 text-white px-5 py-3 rounded-sm text-center">Hire Me</a>
             </div>
         </div>
     </nav>
@@ -2066,6 +1971,9 @@
                 <button onclick="openCV()" class="btn-hero inline-flex items-center gap-1 sm:gap-2 border border-white/20 text-white text-[9px] sm:text-[11px] font-bold tracking-[.12em] uppercase px-3 sm:px-5 py-2 sm:py-3 rounded-sm hover:bg-white/5 transition-all" style="border-color:var(--border-color);color:var(--text-primary)">
                     <iconify-icon icon="lucide:file-text" width="11" class="sm:w-3"></iconify-icon>View CV
                 </button>
+                <button onclick="openPDFCV()" class="btn-hero inline-flex items-center gap-1 sm:gap-2 bg-cyber-500/20 text-cyber-400 border border-cyber-500/30 text-[9px] sm:text-[11px] font-bold tracking-[.12em] uppercase px-3 sm:px-5 py-2 sm:py-3 rounded-sm hover:bg-cyber-500/30 transition-all">
+                    <iconify-icon icon="lucide:file-text" width="11" class="sm:w-3"></iconify-icon>PDF CV
+                </button>
                 <button onclick="openBlog()" class="btn-hero inline-flex items-center gap-1 sm:gap-2 border border-cyber-400/30 text-cyber-400 text-[9px] sm:text-[11px] font-bold tracking-[.12em] uppercase px-3 sm:px-5 py-2 sm:py-3 rounded-sm hover:bg-cyber-500/10 transition-all">
                     <iconify-icon icon="lucide:terminal" width="11" class="sm:w-3"></iconify-icon>My Blog
                 </button>
@@ -2084,7 +1992,7 @@
             <div class="text-center pf-reveal"><div class="text-2xl sm:text-3xl md:text-4xl font-black counter" data-target="8" style="color:var(--text-primary)">0</div><div class="text-[8px] sm:text-[10px] tracking-[.2em] uppercase text-neutral-500 mt-1" style="color:var(--text-secondary)">Projects Built</div></div>
             <div class="text-center pf-reveal pf-delay-1"><div class="text-2xl sm:text-3xl md:text-4xl font-black counter" data-target="4" style="color:var(--text-primary)">0</div><div class="text-[8px] sm:text-[10px] tracking-[.2em] uppercase text-neutral-500 mt-1" style="color:var(--text-secondary)">Languages</div></div>
             <div class="text-center pf-reveal pf-delay-2"><div class="text-2xl sm:text-3xl md:text-4xl font-black counter" data-target="5" style="color:var(--text-primary)">0</div><div class="text-[8px] sm:text-[10px] tracking-[.2em] uppercase text-neutral-500 mt-1" style="color:var(--text-secondary)">AI Models Trained</div></div>
-            <div class="text-center pf-reveal pf-delay-3"><div class="text-2xl sm:text-3xl md:text-4xl font-black" style="color:var(--text-primary)">100<span class="text-warm-500">%</span></div><div class="text-[8px] sm:text-[10px] tracking-[.2em] uppercase text-neutral-500 mt-1" style="color:var(--text-secondary)">Offline Capable</div></div>
+            <div class="text-center pf-reveal pf-delay-3"><div class="text-2xl sm:text-3xl md:text-4xl font-black" style="color:var(--text-primary)">78<span class="text-warm-500">%</span></div><div class="text-[8px] sm:text-[10px] tracking-[.2em] uppercase text-neutral-500 mt-1" style="color:var(--text-secondary)">Offline Capable</div></div>
         </div>
     </section>
 
@@ -2112,27 +2020,17 @@
                     </div>
                 </div>
 
-                <!-- Stockipa main preview with YEARLY CHART OVERLAY -->
-                <div class="relative pf-reveal pf-delay-2">
-                    <div class="relative rounded-sm border border-white/10 overflow-hidden featured-glow scan-line-fx" style="border-color:var(--border-color)">
-                        <img src="https://picsum.photos/seed/stockipa-main/700/900.jpg" alt="Stockipa App" class="w-full h-[360px] sm:h-[420px] md:h-[500px] lg:h-[600px] object-cover" style="filter:contrast(1.1) brightness(.8)" loading="lazy" />
-                        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
-                        <div class="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6">
-                            <div class="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3"><div class="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-warm-500 flex items-center justify-center"><iconify-icon icon="lucide:wallet" width="16" class="sm:w-5 text-white"></iconify-icon></div><div><div class="text-xs sm:text-sm font-bold text-white">Stockipa</div><div class="text-[8px] sm:text-[10px] text-neutral-400">Finance Manager</div></div></div>
-                            <div class="grid grid-cols-3 gap-1 sm:gap-2">
-                                <div class="bg-white/5 backdrop-blur-sm rounded-lg p-2 sm:p-3 border border-white/5"><div class="text-[7px] sm:text-[9px] text-neutral-500 uppercase tracking-wider">Money In</div><div class="text-base sm:text-lg font-black text-green-400 mt-0.5 sm:mt-1">300K</div></div>
-                                <div class="bg-white/5 backdrop-blur-sm rounded-lg p-2 sm:p-3 border border-white/5"><div class="text-[7px] sm:text-[9px] text-neutral-500 uppercase tracking-wider">Expenses</div><div class="text-base sm:text-lg font-black text-red-400 mt-0.5 sm:mt-1">280K</div></div>
-                                <div class="bg-white/5 backdrop-blur-sm rounded-lg p-2 sm:p-3 border border-white/5"><div class="text-[7px] sm:text-[9px] text-neutral-500 uppercase tracking-wider">Saved</div><div class="text-base sm:text-lg font-black text-warm-400 mt-0.5 sm:mt-1">20K</div></div>
-                            </div>
-                        </div>
-
-                        <!-- YEARLY CHART OVERLAY — clickable -->
-                        <div class="yearly-chart-overlay" onclick="openYearlyChart()" title="Click to see the full yearly overview and Stockipa's impact">
-                            <img src="https://cdn.jsdelivr.net/gh/Grimzeero78/images_cdn/tracking.jpeg" alt="Yearly chart overview" loading="lazy" />
-                            <div class="label-bar">
-                                <span>📊 Yearly overview</span>
-                            </div>
-                        </div>
+                <!-- Stockipa main preview — REAL IMAGE + CAPTION, no overlay popup -->
+                <div class="pf-reveal pf-delay-2 stockipa-main-wrap">
+                    <img src="https://cdn.jsdelivr.net/gh/Grimzeero78/images_cdn/tracking.jpeg" alt="Stockipa Yearly Overview — real screenshot" loading="lazy" />
+                    <div class="img-caption">
+                        <h4>📈 The Stockipa Journey — Real Results</h4>
+                        <p>
+                            From <span class="red">May</span>, the user (my mom) was <span class="red">overspending</span> — expenses outpaced income every week.<br />
+                            But as the months went by, with <span class="highlight">consistent tracking</span>, she started to <span class="green">reduce overspending</span>.<br />
+                            By <span class="highlight">August</span>, <span class="green">money in exceeded expenses</span>, and she was able to <span class="green">save more</span> each month.<br /><br />
+                            <strong style="color:#D97706;">This is what Stockipa does.</strong> Know where your money goes, and watch your savings grow.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -2142,27 +2040,10 @@
                 <div class="border border-white/10 rounded-sm bg-neutral-950 p-4 sm:p-5 pf-reveal pf-delay-1 hover:border-warm-500/30 transition-colors" style="border-color:var(--border-color);background:var(--bg-card)"><div class="w-7 h-7 sm:w-8 sm:h-8 rounded-sm bg-warm-500/10 flex items-center justify-center mb-2 sm:mb-3"><iconify-icon icon="lucide:home" width="12" class="sm:w-3.5 text-warm-500"></iconify-icon></div><h4 class="text-xs sm:text-sm font-bold mb-1" style="color:var(--text-primary)">Home Page</h4><p class="text-[10px] sm:text-[11px]" style="color:var(--text-secondary)">Add sales/expenses manually or scan bills. M-Pesa auto-recorded. See if you saved or overspent today.</p></div>
                 <div class="border border-white/10 rounded-sm bg-neutral-950 p-4 sm:p-5 pf-reveal pf-delay-2 hover:border-warm-500/30 transition-colors" style="border-color:var(--border-color);background:var(--bg-card)"><div class="w-7 h-7 sm:w-8 sm:h-8 rounded-sm bg-warm-500/10 flex items-center justify-center mb-2 sm:mb-3"><iconify-icon icon="lucide:trending-up" width="12" class="sm:w-3.5 text-warm-500"></iconify-icon></div><h4 class="text-xs sm:text-sm font-bold mb-1" style="color:var(--text-primary)">Tracking Page</h4><p class="text-[10px] sm:text-[11px]" style="color:var(--text-secondary)">Daily, weekly, monthly, yearly views. Yearly chart. Calendar picker. Search. See your performance.</p></div>
                 <div class="border border-white/10 rounded-sm bg-neutral-950 p-4 sm:p-5 pf-reveal pf-delay-3 hover:border-warm-500/30 transition-colors" style="border-color:var(--border-color);background:var(--bg-card)"><div class="w-7 h-7 sm:w-8 sm:h-8 rounded-sm bg-warm-500/10 flex items-center justify-center mb-2 sm:mb-3"><iconify-icon icon="lucide:package" width="12" class="sm:w-3.5 text-warm-500"></iconify-icon></div><h4 class="text-xs sm:text-sm font-bold mb-1" style="color:var(--text-primary)">Stock Management</h4><p class="text-[10px] sm:text-[11px]" style="color:var(--text-secondary)">Item name, buying price, quantity, selling price. Low stock alerts. Know your profit.</p></div>
-                <div class="border border-white/10 rounded-sm bg-neutral-950 p-4 sm:p-5 pf-reveal pf-delay-4 hover:border-warm-500/30 transition-colors" style="border-color:var(--border-color);background:var(--bg-card)"><div class="w-7 h-7 sm:w-8 sm:h-8 rounded-sm bg-warm-500/10 flex items-center justify-center mb-2 sm:mb-3"><iconify-icon icon="lucide:settings" width="12" class="sm:w-3.5 text-warm-500"></iconify-icon></div><h4 class="text-xs sm:text-sm font-bold mb-1" style="color:var(--text-primary)">Settings</h4><p class="text-[10px] sm:text-[11px]" style="color:var(--text-secondary)">Switch language (English, Kiswahili, Chinese — currency auto-switches). Light/dark mode. Clear data.</p></div>
+                <div class="border border-white/10 rounded-sm bg-neutral-950 p-4 sm:p-5 pf-reveal pf-delay-4 hover:border-warm-500/30 transition-colors" style="border-color:var(--border-color);background:var(--bg-card)"><div class="w-7 h-7 sm:w-8 sm:h-8 rounded-sm bg-warm-500/10 flex items-center justify-center mb-2 sm:mb-3"><iconify-icon icon="lucide:settings" width="12" class="sm:w-3.5 text-warm-500"></iconify-icon></div><h4 class="text-xs sm:text-sm font-bold mb-1" style="color:var(--text-primary)">Settings</h4><p class="text-[10px] sm:text-[11px]" style="color:var(--text-secondary)">Switch language (English, Kiswahili, Chinese currency auto-switches). Light/dark mode. Clear data.</p></div>
             </div>
         </div>
     </section>
-
-    <!-- ===== LIGHTBOX for Yearly Chart ===== -->
-    <div id="chart-lightbox" onclick="closeYearlyChart(event)">
-        <div class="lightbox-content" onclick="event.stopPropagation();">
-            <img src="https://cdn.jsdelivr.net/gh/Grimzeero78/images_cdn/tracking.jpeg" alt="Stockipa Yearly Overview" class="lightbox-img" />
-            <div class="lightbox-msg">
-                <div class="title">📈 The Stockipa Journey</div>
-                <div class="desc">
-                    From <span class="red">May</span>, the user was <span class="red">overspending</span> — expenses outpaced income every week.<br />
-                    But as the months went by, with <span class="highlight">consistent tracking</span>, the user started to <span class="green">reduce overspending</span>.<br />
-                    By <span class="highlight">August</span>, <span class="green">money in exceeded expenses</span>, and the user was able to <span class="green">save more</span> each month.<br /><br />
-                    <strong style="color:#D97706;">This is the potential of Stockipa.</strong> &mdash; Know where your money goes, and watch your savings grow.
-                </div>
-            </div>
-            <button class="lightbox-close" onclick="closeYearlyChart(event)" aria-label="Close lightbox">✕</button>
-        </div>
-    </div>
 
     <!-- ===== POWER BEAMING ===== -->
     <section id="power-beaming" class="relative py-16 sm:py-24 md:py-32 border-t border-white/10 overflow-hidden" style="border-color:var(--border-color);background:var(--bg-secondary)">
@@ -2352,7 +2233,7 @@
         </div>
     </section>
 
-    <!-- ===== CONTACT (only ONE "Get in Touch") ===== -->
+    <!-- ===== CONTACT ===== -->
     <section id="contact" class="relative py-16 sm:py-24 md:py-32 border-t border-white/10" style="border-color:var(--border-color);background:var(--bg-secondary)">
         <div class="max-w-3xl mx-auto px-6 text-center">
             <p class="text-[9px] sm:text-[10px] font-semibold tracking-[.3em] uppercase text-warm-400 mb-3 sm:mb-4 pf-reveal">Available for Work</p>
@@ -2364,6 +2245,9 @@
                 </a>
                 <button onclick="openCV()" class="inline-flex items-center justify-center gap-2 border border-white/20 text-white text-[10px] sm:text-[11px] font-bold tracking-[.15em] uppercase px-5 sm:px-8 py-3 sm:py-4 rounded-sm hover:bg-white/5 hover:border-white/40 transition-all" style="border-color:var(--border-color);color:var(--text-primary)">
                     <iconify-icon icon="lucide:file-text" width="12" class="sm:w-3.5"></iconify-icon>View CV
+                </button>
+                <button onclick="openPDFCV()" class="inline-flex items-center justify-center gap-2 bg-cyber-500/20 text-cyber-400 border border-cyber-500/30 text-[10px] sm:text-[11px] font-bold tracking-[.15em] uppercase px-5 sm:px-8 py-3 sm:py-4 rounded-sm hover:bg-cyber-500/30 transition-all">
+                    <iconify-icon icon="lucide:file-text" width="12" class="sm:w-3.5"></iconify-icon>PDF CV
                 </button>
             </div>
             <div class="mt-10 sm:mt-16 flex justify-center gap-4 sm:gap-6 pf-reveal pf-delay-4">
@@ -2377,7 +2261,7 @@
 
     <footer class="border-t border-white/10 py-6 sm:py-8" style="border-color:var(--border-color);background:var(--bg-primary)">
         <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-3 sm:gap-4">
-            <p class="text-[10px] sm:text-[11px]" style="color:var(--text-secondary)">© 2026 Isaac Bridget. All rights reserved.</p>
+            <p class="text-[10px] sm:text-[11px]" style="color:var(--text-secondary)">© 2026 Isaac Njuguna Bridget. All rights reserved.</p>
             <p class="text-[10px] sm:text-[11px]" style="color:var(--text-secondary)">Designed and coded with purpose. · <span class="text-warm-500/70 font-mono tracking-wider">isaacportfolio</span></p>
         </div>
     </footer>
@@ -2386,7 +2270,12 @@
     <div id="sticky-cta" class="fixed bottom-0 left-0 w-full z-[8000] bg-black/90 backdrop-blur-md border-t border-white/10 py-3 sm:py-4 px-4 sm:px-6" style="background:var(--bg-nav);border-color:var(--border-color)">
         <div class="max-w-7xl mx-auto flex items-center justify-between">
             <p class="text-xs sm:text-sm hidden sm:block" style="color:var(--text-secondary)">Have a project in mind?</p>
-            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=injuguna308@gmail.com" target="_blank" rel="noopener noreferrer" class="ml-auto inline-flex items-center gap-2 bg-warm-500 text-white text-[10px] sm:text-[11px] font-bold tracking-[.15em] uppercase px-4 sm:px-6 py-2 sm:py-3 rounded-sm hover:bg-warm-600 transition-colors pulse-cta">Hire Me <iconify-icon icon="lucide:arrow-up-right" width="12" class="sm:w-3.5"></iconify-icon></a>
+            <div class="flex items-center gap-2 sm:gap-3 ml-auto">
+                <button onclick="openPDFCV()" class="inline-flex items-center gap-1 sm:gap-2 bg-cyber-500/20 text-cyber-400 border border-cyber-500/30 text-[9px] sm:text-[10px] font-bold tracking-[.15em] uppercase px-3 sm:px-4 py-2 sm:py-2.5 rounded-sm hover:bg-cyber-500/30 transition-colors">
+                    <iconify-icon icon="lucide:file-text" width="11" class="sm:w-3"></iconify-icon>PDF CV
+                </button>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=injuguna308@gmail.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-warm-500 text-white text-[10px] sm:text-[11px] font-bold tracking-[.15em] uppercase px-4 sm:px-6 py-2 sm:py-3 rounded-sm hover:bg-warm-600 transition-colors pulse-cta">Hire Me <iconify-icon icon="lucide:arrow-up-right" width="12" class="sm:w-3.5"></iconify-icon></a>
+            </div>
         </div>
     </div>
 
@@ -2414,7 +2303,7 @@
             <div class="cv-hero-accent-2 absolute top-1/3 left-1/4 w-[300px] h-[300px] rounded-full"></div>
             <div class="relative text-center max-w-4xl mx-auto">
                 <div class="cv-reveal inline-flex items-center gap-2 mb-8 px-4 py-2 rounded-full" style="background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.2);"><span class="relative flex h-2 w-2"><span class="cv-pulse-ring absolute inline-flex h-full w-full rounded-full bg-cyber-400"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-cyber-500"></span></span><span class="text-cyber-400 text-xs font-medium tracking-wider uppercase">Available for Opportunities</span></div>
-                <h1 class="cv-glitch text-5xl sm:text-7xl md:text-8xl font-black tracking-tighter leading-none mb-4" data-text="ISAAC BRIDGET"><span class="bg-gradient-to-r from-white via-cyber-200 to-white bg-clip-text text-transparent">ISAAC BRIDGET</span></h1>
+                <h1 class="cv-glitch text-5xl sm:text-7xl md:text-8xl font-black tracking-tighter leading-none mb-4" data-text="ISAAC NJUGUNA BRIDGET"><span class="bg-gradient-to-r from-white via-cyber-200 to-white bg-clip-text text-transparent">ISAAC NJUGUNA BRIDGET</span></h1>
                 <div class="cv-reveal cv-delay-1 mt-6 mb-8"><div class="inline-flex items-center gap-3 px-5 py-3 rounded-lg terminal-header"><span class="text-cyber-400 font-mono text-sm">$</span><span class="text-slate-300 font-mono text-sm cv-typing-cursor" id="cv-typing-text"></span></div></div>
                 <div class="cv-reveal cv-delay-2 flex flex-wrap justify-center gap-8 mt-10">
                     <div class="text-center"><div class="text-3xl font-bold text-white cv-count-up" data-target="2027">0</div><div class="text-xs text-slate-500 uppercase tracking-wider mt-1">Graduation</div></div>
@@ -2440,7 +2329,7 @@
                         </div>
                         <div>
                             <p class="text-slate-300 text-base leading-relaxed max-w-3xl">
-                                Applied Computer Science student at <span class="text-cyber-400 font-medium">Chuka University</span> (2023–2027) with a passion for <span class="text-white font-medium">mobile development, AI, and solving real-world problems</span>. I build apps that work offline, help small businesses track their money, and train AI models that actually do something useful. I believe in <span class="text-amber-300 font-medium">simple solutions for real people</span>.
+                                I am an Applied Computer Science student at <span class="text-cyber-400 font-medium">Chuka University</span> (2023–2027) with a passion for <span class="text-white font-medium">mobile development, AI, and solving real-world problems</span>. I build apps that work offline, help small businesses track their money, and train AI models that actually do something useful. I believe in <span class="text-amber-300 font-medium">simple solutions for real people</span>.
                             </p>
                             <div class="flex flex-wrap gap-3 mt-4">
                                 <span class="cv-lang-tag">🎯 Mobile-first</span>
@@ -2454,7 +2343,7 @@
             </div>
         </section>
 
-        <!-- CV ABOUT -->
+        <!-- CV ABOUT — personal, authentic voice -->
         <section id="cv-about" class="relative py-24 px-6" style="z-index:2;">
             <div class="max-w-5xl mx-auto">
                 <div class="cv-reveal flex items-center gap-3 mb-12"><div class="w-8 h-px bg-cyber-400"></div><span class="cyber-tag">// ABOUT_ME</span></div>
@@ -2463,8 +2352,8 @@
                         <div class="cyber-card corner-deco rounded-xl overflow-hidden cv-neon-border">
                             <div class="terminal-header px-4 py-3 flex items-center gap-2"><div class="terminal-dot bg-red-500/80"></div><div class="terminal-dot bg-yellow-500/80"></div><div class="terminal-dot bg-green-500/80"></div><span class="text-slate-500 text-xs font-mono ml-2">profile.sh</span></div>
                             <div class="p-6 font-mono text-sm leading-relaxed space-y-2">
-                                <p><span class="text-cyber-400">const</span> <span class="text-cyber-300">developer</span> = {</p>
-                                <p class="pl-4"><span class="text-purple-400">name</span>: <span class="text-amber-300">"Isaac Bridget"</span>,</p>
+                                <p><span class="text-cyber-400">const</span> <span class="text-cyber-300">me</span> = {</p>
+                                <p class="pl-4"><span class="text-purple-400">name</span>: <span class="text-amber-300">"Isaac Njuguna Bridget"</span>,</p>
                                 <p class="pl-4"><span class="text-purple-400">role</span>: <span class="text-amber-300">"Applied CS Student"</span>,</p>
                                 <p class="pl-4"><span class="text-purple-400">focus</span>: <span class="text-amber-300">"Mobile App & AI Development"</span>,</p>
                                 <p class="pl-4"><span class="text-purple-400">university</span>: <span class="text-amber-300">"Chuka University"</span>,</p>
@@ -2475,13 +2364,13 @@
                                 <p>};</p>
                                 <p class="mt-4 text-slate-500">// I do not just write code.</p>
                                 <p class="text-slate-500">// I create art with spray cans,</p>
-                                <p class="text-slate-500">// train AI models, and build apps that matter.</p>
+                                <p class="text-slate-500">// Play football as an attacking midfielder.</p>
                             </div>
                         </div>
                     </div>
                     <div class="cv-reveal cv-delay-2 md:col-span-2 space-y-4">
                         <div class="cyber-card rounded-xl p-5"><div class="flex items-center gap-3 mb-2"><div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background:rgba(56,189,248,.15);"><span class="iconify text-cyber-400 text-xl" data-icon="lucide:brain"></span></div><h3 class="font-semibold text-white">Critical Thinker</h3></div><p class="text-slate-400 text-sm">I use critical thinking to solve real-world problems, breaking down complex challenges into simple, actionable solutions.</p></div>
-                        <div class="cyber-card rounded-xl p-5"><div class="flex items-center gap-3 mb-2"><div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background:rgba(56,189,248,.15);"><span class="iconify text-cyber-400 text-xl" data-icon="lucide:palette"></span></div><h3 class="font-semibold text-white">Stencil Artist</h3></div><p class="text-slate-400 text-sm">Creativity flows through code and spray paint. Art teaches me to see patterns others miss.</p></div>
+                        <div class="cyber-card rounded-xl p-5"><div class="flex items-center gap-3 mb-2"><div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background:rgba(56,189,248,.15);"><span class="iconify text-cyber-400 text-xl" data-icon="lucide:palette"></span></div><h3 class="font-semibold text-white">Stencil Artist</h3></div><p class="text-slate-400 text-sm">Art teaches me to see patterns others miss.</p></div>
                         <div class="cyber-card rounded-xl p-5"><div class="flex items-center gap-3 mb-2"><div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background:rgba(56,189,248,.15);"><span class="iconify text-cyber-400 text-xl" data-icon="lucide:trophy"></span></div><h3 class="font-semibold text-white">Football Discipline</h3></div><p class="text-slate-400 text-sm">The pitch taught me teamwork and showing up when it matters most.</p></div>
                     </div>
                 </div>
@@ -2541,7 +2430,7 @@
                 <div class="cv-reveal cv-delay-3 cyber-card rounded-2xl overflow-hidden cv-project-card mb-6">
                     <div class="p-6 sm:p-8">
                         <div class="flex items-start justify-between flex-wrap gap-4"><div><h3 class="text-xl font-bold text-white mb-2 flex items-center gap-3"><span class="iconify text-cyber-400 text-2xl" data-icon="lucide:brain"></span>AI Image Detector</h3><p class="text-cyber-400 font-mono text-sm mb-4">🧠 TensorFlow Image Classification</p></div><a href="https://github.com/Grimzeero78/Currencytraining.git" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 hover:scale-105" style="background:rgba(56,189,248,.15);border:1px solid rgba(56,189,248,.3);color:#7DD3FC;"><span class="iconify" data-icon="lucide:github"></span>Source Code</a></div>
-                        <p class="text-slate-400 leading-relaxed max-w-2xl">Python software using <span class="text-white font-medium">TensorFlow models to detect and classify objects</span> in user-selected images. Successfully detected a jeep at 8% confidence — accuracy scales with model quality.</p>
+                        <p class="text-slate-400 leading-relaxed max-w-2xl">Python software using <span class="text-white font-medium">TensorFlow models to detect and classify objects</span> in user-selected images. Successfully detected a jeep at 8% confidence accuracy scales with model quality.</p>
                         <div class="mt-4 flex flex-wrap gap-2"><span class="cv-tag px-2 py-1 text-[10px] rounded-md bg-white/5 text-slate-400 border border-white/10">Python</span><span class="cv-tag px-2 py-1 text-[10px] rounded-md bg-white/5 text-slate-400 border border-white/10">TensorFlow</span><span class="cv-tag px-2 py-1 text-[10px] rounded-md bg-white/5 text-slate-400 border border-white/10">OpenCV</span></div>
                     </div>
                 </div>
@@ -2580,7 +2469,7 @@
             </div>
         </section>
 
-        <!-- CV CERTIFICATIONS (only Discipleship) -->
+        <!-- CV CERTIFICATIONS -->
         <section id="cv-certifications" class="relative py-24 px-6" style="z-index:2;">
             <div class="max-w-5xl mx-auto">
                 <div class="cv-reveal flex items-center gap-3 mb-4"><div class="w-8 h-px bg-cyber-400"></div><span class="cyber-tag">// CERTIFICATIONS</span></div>
@@ -2593,7 +2482,7 @@
                         <div>
                             <h3 class="text-lg font-bold text-white">Christian Discipleship Certificate</h3>
                             <p class="text-cyber-400 text-sm font-medium">Issued: 2024</p>
-                            <p class="text-slate-400 text-sm mt-2 leading-relaxed">Completed a comprehensive discipleship program focused on Christian foundations, leadership, and service. This training shaped my character, discipline, and commitment to integrity, values I carry into every project I build.</p>
+                            <p class="text-slate-400 text-sm mt-2 leading-relaxed">I Completed a comprehensive discipleship program focused on Christian foundations, leadership, and service. This training shaped my character, discipline, and commitment to integrity, values I carry into every project I build.</p>
                             <div class="mt-3 flex flex-wrap gap-2">
                                 <span class="cv-tag px-2 py-1 text-[10px] rounded-md bg-white/5 text-slate-400 border border-white/10">Character Development</span>
                             </div>
@@ -2603,7 +2492,7 @@
             </div>
         </section>
 
-        <!-- CV REFERENCES — HONEST -->
+        <!-- CV REFERENCES -->
         <section id="cv-references" class="relative py-24 px-6" style="z-index:2;">
             <div class="max-w-5xl mx-auto">
                 <div class="cv-reveal flex items-center gap-3 mb-4"><div class="w-8 h-px bg-cyber-400"></div><span class="cyber-tag">// REFERENCES</span></div>
@@ -2629,7 +2518,7 @@
                         </div>
                     </div>
                     <div class="mt-4 text-center text-slate-600 text-xs font-mono border-t border-white/5 pt-4">
-                        // References available upon request — I am happy to connect and build trust.
+                        // References available upon request I am happy to connect and build trust.
                     </div>
                 </div>
             </div>
@@ -2661,7 +2550,7 @@
                 </div>
                 <div class="cv-reveal cv-delay-4 flex flex-wrap justify-center gap-4">
                     <a href="https://mail.google.com/mail/?view=cm&fs=1&to=injuguna308@gmail.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-3 px-8 py-4 rounded-xl text-base font-semibold text-black transition-all duration-300 hover:scale-105" style="background:#fff;box-shadow:0 0 20px -5px rgba(255,255,255,.3);"><span class="iconify text-lg" data-icon="lucide:send"></span>Shoot Me a Message<span class="iconify text-lg" data-icon="lucide:arrow-right"></span></a>
-                    <button onclick="window.print()" class="inline-flex items-center gap-3 px-8 py-4 rounded-xl text-base font-semibold text-white transition-all duration-300 hover:scale-105" style="background:rgba(56,189,248,.15);border:1px solid rgba(56,189,248,.3);"><span class="iconify text-lg" data-icon="lucide:printer"></span>Print CV</button>
+                    <button onclick="openPDFCV()" class="inline-flex items-center gap-3 px-8 py-4 rounded-xl text-base font-semibold text-white transition-all duration-300 hover:scale-105" style="background:rgba(56,189,248,.15);border:1px solid rgba(56,189,248,.3);"><span class="iconify text-lg" data-icon="lucide:file-text"></span>PDF CV</button>
                 </div>
             </div>
         </section>
@@ -2669,7 +2558,7 @@
         <footer class="relative py-8 px-6 border-t" style="border-color:rgba(255,255,255,.05);z-index:2;">
             <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
                 <p class="text-slate-600 text-xs font-mono">&lt;/&gt; Built with raw HTML, CSS &amp; JS — no frameworks, just code.</p>
-                <p class="text-slate-700 text-xs">© 2026 ISAAC BRIDGET. All rights reserved.</p>
+                <p class="text-slate-700 text-xs">© 2026 ISAAC NJUGUNA BRIDGET. All rights reserved.</p>
             </div>
         </footer>
     </div>
@@ -2844,16 +2733,178 @@
                 ] }
         ];
 
-        // ——— LIGHTBOX for Yearly Chart ———
-        function openYearlyChart() {
-            document.getElementById('chart-lightbox').classList.add('open');
-            document.body.style.overflow = 'hidden';
-        }
+        // ——— PDF CV ——— 
+        function openPDFCV() {
+            try {
+                const win = window.open('', '_blank');
+                if (!win) {
+                    alert('Please allow popups to view the PDF CV. You may need to disable your popup blocker.');
+                    return;
+                }
+                const htmlContent = `<!DOCTYPE html>
+            <html>
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Isaac Njuguna Bridget · Professional CV</title>
+                <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+                <style>
+                    * { margin:0; padding:0; box-sizing:border-box; }
+                    body { background:#f0f2f5; font-family:'Inter',sans-serif; padding:24px; color:#1a1a1a; }
+                    .pdf-cv-page { max-width:1100px; margin:0 auto; background:#fff; padding:48px 56px; border-radius:12px; box-shadow:0 8px 40px rgba(0,0,0,0.08); }
+                    .pdf-cv-page .cv-header { display:flex; justify-content:space-between; align-items:flex-start; border-bottom:3px solid #D97706; padding-bottom:20px; margin-bottom:28px; flex-wrap:wrap; gap:12px; }
+                    .pdf-cv-page .cv-header .name { font-size:36px; font-weight:800; letter-spacing:-0.02em; color:#1a1a1a; }
+                    .pdf-cv-page .cv-header .title { font-size:18px; font-weight:500; color:#D97706; margin-top:2px; }
+                    .pdf-cv-page .cv-header .contact { text-align:right; font-size:14px; color:#4a4a4a; line-height:1.6; }
+                    .pdf-cv-page .cv-header .contact a { color:#D97706; text-decoration:none; }
+                    .pdf-cv-page .cv-header .contact a:hover { text-decoration:underline; }
+                    .pdf-cv-page .section { margin-bottom:24px; }
+                    .pdf-cv-page .section-title { font-size:18px; font-weight:700; color:#D97706; border-bottom:2px solid #e5e5e5; padding-bottom:4px; margin-bottom:12px; text-transform:uppercase; letter-spacing:0.04em; }
+                    .pdf-cv-page .section-content { font-size:14px; color:#2a2a2a; }
+                    .pdf-cv-page .section-content p { margin-bottom:6px; }
+                    .pdf-cv-page .grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:20px 40px; }
+                    .pdf-cv-page .grid-3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px 32px; }
+                    .pdf-cv-page .skill-item { display:flex; justify-content:space-between; padding:4px 0; border-bottom:1px solid #f0f0f0; font-size:13px; }
+                    .pdf-cv-page .skill-item .level { color:#888; font-size:12px; }
+                    .pdf-cv-page .project-item { margin-bottom:14px; }
+                    .pdf-cv-page .project-item .proj-title { font-weight:700; font-size:15px; color:#1a1a1a; }
+                    .pdf-cv-page .project-item .proj-meta { font-size:12px; color:#888; margin-bottom:2px; }
+                    .pdf-cv-page .project-item .proj-desc { font-size:13px; color:#3a3a3a; }
+                    .pdf-cv-page .edu-item { margin-bottom:12px; }
+                    .pdf-cv-page .edu-item .edu-title { font-weight:700; font-size:15px; }
+                    .pdf-cv-page .edu-item .edu-meta { font-size:13px; color:#555; }
+                    .pdf-cv-page .edu-item .edu-desc { font-size:13px; color:#4a4a4a; }
+                    .pdf-cv-page .lang-tag { display:inline-block; background:#f5f5f5; padding:2px 12px; border-radius:20px; font-size:13px; margin:2px 4px 2px 0; border:1px solid #e5e5e5; }
+                    .pdf-cv-page .lang-tag .lvl { color:#888; font-size:11px; }
+                    .pdf-cv-page .ref-note { font-style:italic; color:#666; font-size:13px; }
+                    .pdf-cv-page .footer-note { margin-top:32px; padding-top:16px; border-top:1px solid #e5e5e5; font-size:12px; color:#aaa; text-align:center; }
+                    .no-print { display:flex; justify-content:center; gap:16px; margin-top:24px; flex-wrap:wrap; }
+                    .no-print button { font-family:'Inter',sans-serif; padding:10px 28px; border-radius:6px; font-size:14px; font-weight:600; cursor:pointer; transition:all .2s ease; border:none; }
+                    .no-print .btn-download { background:#D97706; color:#fff; }
+                    .no-print .btn-download:hover { background:#B45309; transform:scale(1.04); }
+                    .no-print .btn-print { background:transparent; color:#D97706; border:2px solid #D97706; }
+                    .no-print .btn-print:hover { background:#D97706; color:#fff; transform:scale(1.04); }
+                    .no-print .btn-close { background:transparent; color:#888; border:1px solid #ddd; }
+                    .no-print .btn-close:hover { background:#f0f0f0; }
+                    @media print { body { background:#fff; padding:0; } .pdf-cv-page { box-shadow:none; border-radius:0; padding:32px 40px; } .no-print { display:none !important; } .pdf-cv-page .cv-header .name { font-size:30px; } .pdf-cv-page .grid-2, .pdf-cv-page .grid-3 { break-inside:avoid; } .pdf-cv-page .section { break-inside:avoid; } }
+                    @media(max-width:700px){ .pdf-cv-page{ padding:24px 20px; } .pdf-cv-page .cv-header{ flex-direction:column; align-items:flex-start; } .pdf-cv-page .cv-header .contact{ text-align:left; width:100%; } .pdf-cv-page .grid-2, .pdf-cv-page .grid-3 { grid-template-columns:1fr; gap:8px; } .pdf-cv-page .cv-header .name { font-size:28px; } }
+                    @media(max-width:400px){ .pdf-cv-page{ padding:16px 12px; } .pdf-cv-page .cv-header .name { font-size:22px; } .pdf-cv-page .section-title { font-size:15px; } .no-print button { padding:8px 18px; font-size:12px; } }
+                </style>
+            </head>
+            <body>
+                <div class="pdf-cv-page" id="pdfCvContent">
+                    <div class="cv-header">
+                        <div>
+                            <div class="name">ISAAC NJUGUNA BRIDGET</div>
+                            <div class="title">Applied Computer Science Student · Mobile Developer · Artist · Footballer</div>
+                        </div>
+                        <div class="contact">
+                            📧 <a href="mailto:injuguna308@gmail.com">injuguna308@gmail.com</a><br>
+                            📞 +254 143374333<br>
+                            📍 Kenya · Chuka University<br>
+                            🔗 <a href="https://github.com/Grimzeero78" target="_blank">github.com/Grimzeero78</a>
+                        </div>
+                    </div>
 
-        function closeYearlyChart(e) {
-            if (e) e.stopPropagation();
-            document.getElementById('chart-lightbox').classList.remove('open');
-            document.body.style.overflow = '';
+                    <div class="section">
+                        <div class="section-title">Professional Summary</div>
+                        <div class="section-content">
+                            <p>Applied Computer Science student at Chuka University (2023–2027) with a strong passion for mobile development, AI, and solving real-world problems. Builds offline-first apps that help small businesses track finances, train AI models for practical use, and believe in simple solutions for real people. Combines technical discipline with creativity from stencil art and teamwork from football.</p>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <div class="section-title">Education</div>
+                        <div class="section-content">
+                            <div class="edu-item"><div class="edu-title">BSc. Applied Computer Science</div><div class="edu-meta">Chuka University · 2023 – 2027</div><div class="edu-desc">Specializing in mobile application development &amp; AI. In progress.</div></div>
+                            <div class="edu-item"><div class="edu-title">Kagumo High School</div><div class="edu-meta">Secondary Education · 2019 – 2022</div><div class="edu-desc">Built the foundation of discipline, teamwork, and analytical thinking.</div></div>
+                            <div class="edu-item"><div class="edu-title">Ngenia Primary School</div><div class="edu-meta">Primary Education · – 2019</div></div>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <div class="section-title">Skills</div>
+                        <div class="section-content">
+                            <div class="grid-2">
+                                <div>
+                                    <strong style="color:#D97706;">Technical</strong>
+                                    <div class="skill-item"><span>Flutter / Dart</span><span class="level">Beginner</span></div>
+                                    <div class="skill-item"><span>C++</span><span class="level">Strong</span></div>
+                                    <div class="skill-item"><span>Python</span><span class="level">Intermediate</span></div>
+                                    <div class="skill-item"><span>MySQL</span><span class="level">Basic</span></div>
+                                    <div class="skill-item"><span>TensorFlow</span><span class="level">Beginner</span></div>
+                                    <div class="skill-item"><span>Pentesting</span><span class="level">Planning</span></div>
+                                </div>
+                                <div>
+                                    <strong style="color:#D97706;">Soft</strong>
+                                    <div class="skill-item"><span>Teamwork</span><span class="level">Strong</span></div>
+                                    <div class="skill-item"><span>Discipline</span><span class="level">Strong</span></div>
+                                    <div class="skill-item"><span>Creativity</span><span class="level">Strong</span></div>
+                                    <div class="skill-item"><span>Communication</span><span class="level">Strong</span></div>
+                                    <div class="skill-item"><span>Critical Thinking</span><span class="level">Strong</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <div class="section-title">Projects</div>
+                        <div class="section-content">
+                            <div class="project-item"><div class="proj-title">Stockipa — Finance Tracking App</div><div class="proj-meta">Flutter · SQLite · M-Pesa Integration · 2025</div><div class="proj-desc">Offline mobile app that auto-tracks income/expenses by reading M-Pesa SMS and scanning bills. Features stock management, multi-language support, and yearly charts. Built for small business owners.</div></div>
+                            <div class="project-item"><div class="proj-title">AI Image Detector</div><div class="proj-meta">Python · TensorFlow · OpenCV · 2024</div><div class="proj-desc">Desktop app using TensorFlow to classify objects in images. Successfully detected objects with accuracy scaling with model quality.</div></div>
+                            <div class="project-item"><div class="proj-title">City Stars FC — Football Website</div><div class="proj-meta">HTML · CSS · JavaScript · 2026</div><div class="proj-desc">Full website for Chuka University's football team with fixtures, results, player profiles, staff, league table, and club blog.</div></div>
+                            <div class="project-item"><div class="proj-title">DeepRest — Mental Health App</div><div class="proj-meta">Flutter · Firebase · Grok API · 2026</div><div class="proj-desc">Mobile app for reducing screen time and building healthier habits. Features accountability groups, AI companions, and rank tracking.</div></div>
+                            <div class="project-item"><div class="proj-title">Mirrorcam — Camera App</div><div class="proj-meta">Flutter · Camera Plugin · 2023</div><div class="proj-desc">Camera app with real-time mirror-like view and live adjustments for lighting, skin tone, clarity, and shadows.</div></div>
+                            <div class="project-item"><div class="proj-title">Merit AI — Hiring Bias Remover</div><div class="proj-meta">Python · Computer Vision · NLP · 2026</div><div class="proj-desc">AI system that analyzes interview videos and documents to rank candidates objectively, removing human bias from hiring.</div></div>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <div class="section-title">Certifications</div>
+                        <div class="section-content">
+                            <p><strong>Christian Discipleship Certificate</strong> — 2024<br><span style="color:#4a4a4a;font-size:13px;">Character development, leadership, and service training.</span></p>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <div class="section-title">Languages</div>
+                        <div class="section-content">
+                            <span class="lang-tag">Kiswahili <span class="lvl">Native</span></span>
+                            <span class="lang-tag">English <span class="lvl">Fluent</span></span>
+                            <span class="lang-tag">Kikuyu <span class="lvl">Native</span></span>
+                            <span class="lang-tag">Kimeru <span class="lvl">Native</span></span>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <div class="section-title">References</div>
+                        <div class="section-content">
+                            <p class="ref-note">Available upon request. As a student and emerging developer, I am building my professional network and happy to connect with mentors, church community, or university contacts for character references.</p>
+                        </div>
+                    </div>
+
+                    <div class="footer-note">
+                        Isaac Njuguna Bridget · Applied Computer Science Student · Chuka University · 2026
+                    </div>
+                </div>
+
+                <div class="no-print">
+                    <button class="btn-download" onclick="document.getElementById('pdfCvContent').style.display='block';window.print();">⬇ Download PDF</button>
+                    <button class="btn-print" onclick="window.print();">🖨 Print</button>
+                    <button class="btn-close" onclick="window.close();">✕ Close</button>
+                </div>
+                <script>
+                    // auto-trigger download via print dialog with save-as-pdf hint
+                    // both buttons use window.print() — user chooses "Save as PDF" or print
+                <\/script>
+            </body>
+            <\/html>`;
+                win.document.write(htmlContent);
+                win.document.close();
+            } catch (err) {
+                console.error('PDF CV error:', err);
+                alert('Failed to open PDF CV. Please try again or use the "View CV" button instead.');
+            }
         }
 
         // ——— BLOG DATA ———
@@ -2969,7 +3020,7 @@
 
         > This is not a portfolio. This is a conversation.`;
 
-        // ——— BLOG ENGINE (condensed) ———
+        // ——— BLOG ENGINE ———
         const blogState = { cwd: '~', history: [], historyIndex: -1, theme: 'amber', bootTime: Date.now() };
         let blogComposeState = null;
         const b$ = (id) => document.getElementById(id);
@@ -3232,7 +3283,7 @@
             blogComposeState = null;
             bUpdatePrompt();
             const mailto = 'mailto:' + cs.to + '?subject=' + encodeURIComponent(cs.subject) + '&body=' + encodeURIComponent(
-            body);
+                body);
             setTimeout(() => { try { window.open(mailto, '_blank'); } catch (e) {} }, 800);
         }
 
@@ -3244,7 +3295,7 @@
             } else {
                 const p = blogState.cwd === '~' ? ':~' : ':' + blogState.cwd;
                 blogPromptText.innerHTML = '<span style="color:#4ade80">isaac@blog</span><span class="path">' + p +
-                '</span>$';
+                    '</span>$';
                 blogStatusPath.textContent = blogState.cwd;
             }
         }
@@ -3521,7 +3572,7 @@
             isDark = !isDark;
             document.documentElement.classList.toggle('light-theme', !isDark);
             const icons = document.querySelectorAll('#theme-icon, #theme-icon-mobile');
-            const labels = document.querySelectorAll('#theme-label');
+            const labels = document.querySelectorAll('#theme-label, #theme-label-mobile');
             icons.forEach(icon => {
                 icon.setAttribute('icon', isDark ? 'lucide:moon' : 'lucide:sun');
             });
@@ -3535,8 +3586,9 @@
 
         // ——— RENDER FUNCTIONS ———
         function renderProjects(filter = 'all') {
-            const g = document.getElementById('projects-grid'),
-                f = filter === 'all' ? projects : projects.filter(p => p.category === filter);
+            const g = document.getElementById('projects-grid');
+            if (!g) return;
+            const f = filter === 'all' ? projects : projects.filter(p => p.category === filter);
             g.innerHTML = '';
             f.forEach((p, i) => {
                 const c = document.createElement('div');
@@ -3595,12 +3647,13 @@
                 const l = g.lastElementChild;
                 if (l) l.style.gridColumn = '2';
             }
-            observePFReveals();
+            setTimeout(observePFReveals, 100);
         }
 
         function renderCaseStudies() {
             const t = document.getElementById('carousel-track'),
                 d = document.getElementById('carousel-dots');
+            if (!t || !d) return;
             t.innerHTML = '';
             d.innerHTML = '';
             caseStudies.forEach((cs, i) => {
@@ -3645,6 +3698,7 @@
 
         function renderTechStack() {
             const g = document.getElementById('tech-grid');
+            if (!g) return;
             g.innerHTML = '';
             techCategories.forEach((cat, ci) => {
                 const c = document.createElement('div');
@@ -3659,7 +3713,7 @@
                 </div>`;
                 g.appendChild(c);
             });
-            observePFReveals();
+            setTimeout(observePFReveals, 100);
         }
 
         function typeCode() {
@@ -3672,6 +3726,7 @@
                 'build("City Stars");    // Football team website'
             ];
             const el = document.getElementById('typing-text');
+            if (!el) return;
             let li = 0,
                 ci = 0;
 
@@ -3743,6 +3798,7 @@
         function initCarousel() {
             const track = document.getElementById('carousel-track'),
                 container = document.getElementById('carousel-container');
+            if (!track || !container) return;
 
             function maxT() { return Math.max(0, track.scrollWidth - container.offsetWidth); }
 
@@ -3829,6 +3885,7 @@
             const prevBtn = document.getElementById('pb-prev');
             const nextBtn = document.getElementById('pb-next');
             const dotsContainer = document.getElementById('pb-dots');
+            if (!track || !container || !prevBtn || !nextBtn || !dotsContainer) return;
             let pbPos = 0;
             let currentPBSlide = 0;
             const cards = track.querySelectorAll('.pb-card');
@@ -3954,6 +4011,7 @@
         function initCursor() {
             const dot = document.getElementById('cursor-dot'),
                 ring = document.getElementById('cursor-ring');
+            if (!dot || !ring) return;
             let mx = 0,
                 my = 0,
                 rx = 0,
@@ -3983,6 +4041,7 @@
                 prog = document.getElementById('scroll-progress'),
                 sticky = document.getElementById('sticky-cta'),
                 grain = document.getElementById('grain');
+            if (!nav || !prog || !sticky || !grain) return;
             window.addEventListener('scroll', () => {
                 const st = window.scrollY,
                     docH = document.documentElement.scrollHeight - window.innerHeight;
@@ -4005,6 +4064,7 @@
             const flash = document.getElementById('transition-flash'),
                 overlay = document.getElementById('cv-overlay'),
                 closeBtn = document.getElementById('cv-close-btn');
+            if (!flash || !overlay || !closeBtn) return;
             flash.classList.add('flash');
             setTimeout(() => { flash.classList.remove('flash'); }, 200);
             document.body.style.overflow = 'hidden';
@@ -4021,6 +4081,7 @@
             const flash = document.getElementById('transition-flash'),
                 overlay = document.getElementById('cv-overlay'),
                 closeBtn = document.getElementById('cv-close-btn');
+            if (!flash || !overlay || !closeBtn) return;
             flash.classList.add('flash');
             setTimeout(() => { flash.classList.remove('flash'); }, 200);
             overlay.classList.remove('open');
@@ -4035,8 +4096,9 @@
 
         function startCVMatrix() {
             cvMatrixRunning = true;
-            const canvas = document.getElementById('cv-matrix-canvas'),
-                ctx = canvas.getContext('2d');
+            const canvas = document.getElementById('cv-matrix-canvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
 
             function resize() {
                 canvas.width = canvas.parentElement.offsetWidth;
@@ -4071,6 +4133,7 @@
 
         (function() {
             const c = document.getElementById('cv-particles');
+            if (!c) return;
             for (let i = 0; i < 20; i++) {
                 const p = document.createElement('div');
                 p.className = 'cv-particle';
@@ -4096,6 +4159,7 @@
                 ci = 0,
                 del = false;
             const el = document.getElementById('cv-typing-text');
+            if (!el) return;
 
             function t() {
                 if (!document.getElementById('cv-overlay').classList.contains('open')) { cvTypingRunning = false; return; }
@@ -4157,6 +4221,7 @@
         (function() {
             const sections = document.querySelectorAll('#cv-overlay section[id]'),
                 dots = document.querySelectorAll('.cv-side-dot');
+            if (!sections.length || !dots.length) return;
             const overlay = document.getElementById('cv-overlay');
             overlay.addEventListener('scroll', () => {
                 let cur = '';
@@ -4215,14 +4280,12 @@
             renderCaseStudies();
             renderTechStack();
             typeCode();
-            observePFReveals();
+            setTimeout(observePFReveals, 200);
             animateCounters();
-            initCarousel();
-            setTimeout(initPBCarousel, 300);
+            setTimeout(initCarousel, 300);
+            setTimeout(initPBCarousel, 400);
             initScrollFX();
             setTimeout(initCursor, 500);
-            const fo = new MutationObserver(() => setTimeout(initCursor, 100));
-            fo.observe(document.getElementById('projects-grid'), { childList: true });
         });
     </script>
 </body>

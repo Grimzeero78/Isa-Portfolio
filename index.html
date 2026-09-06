@@ -3,22 +3,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="google-site-verification" content="oeDfPU047d5Lk5H24rfTv4vU2PEvHqSo0VTYtD4FUUU" />
     <title>Isaac Njuguna Bridget · Developer Portfolio & CV</title>
     <meta name="description" content="Isaac Njuguna Bridget's developer portfolio — Mobile Developer, AI Engineer, and Problem Solver." />
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "Person",
-            "name": "Isaac Njuguna Bridget",
-            "jobTitle": "Mobile Developer & AI Engineer",
-            "url": "https://portfolio.isaacbridget.workers.dev",
-            "description": "Mobile Developer and AI Engineer building real-world solutions.",
-            "sameAs": [
-                "https://github.com/Grimzeero78"
-            ]
-        }
-    </script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com">
@@ -122,6 +108,756 @@
             color: var(--text-secondary) !important;
         }
 
+        /* ============================================================
+                   BLOG TERMINAL — READABILITY & UNIQUE COLOR
+                   ============================================================ */
+        #blog-terminal-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 50050;
+            background: #0b0d12;
+            color: #e8e2d8;
+            overflow: hidden;
+            transform: translateX(100%);
+            opacity: 0;
+            pointer-events: none;
+            transition: transform .7s cubic-bezier(.16, 1, .3, 1), opacity .5s ease;
+            font-family: 'JetBrains Mono', 'SF Mono', monospace;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+        #blog-terminal-overlay.open {
+            transform: translateX(0);
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* Unique warm-amber-on-dark color palette */
+        #blog-terminal-overlay .output .line {
+            color: #e8e2d8;
+            margin-bottom: 6px;
+            padding: 1px 0;
+        }
+        #blog-terminal-overlay .output .line p {
+            margin: 10px 0 12px 0;
+            line-height: 1.7;
+            color: #ece6dc;
+        }
+        #blog-terminal-overlay .output .line p strong {
+            color: #fbbf24;
+            font-weight: 600;
+        }
+        #blog-terminal-overlay .output .line p em {
+            color: #fcd34d;
+            font-style: italic;
+        }
+        #blog-terminal-overlay .output .line h1 {
+            color: #fcd34d;
+            font-size: 1.5em;
+            font-weight: 700;
+            margin: 20px 0 10px 0;
+            padding-bottom: 4px;
+            border-bottom: 1px solid rgba(251, 191, 36, 0.15);
+            letter-spacing: -0.01em;
+        }
+        #blog-terminal-overlay .output .line h2 {
+            color: #fbbf24;
+            font-size: 1.2em;
+            font-weight: 600;
+            margin: 18px 0 8px 0;
+            letter-spacing: -0.01em;
+        }
+        #blog-terminal-overlay .output .line h3 {
+            color: #f59e0b;
+            font-size: 1.05em;
+            font-weight: 600;
+            margin: 14px 0 6px 0;
+        }
+        #blog-terminal-overlay .output .line blockquote {
+            border-left: 3px solid #fbbf24;
+            padding: 6px 0 6px 18px;
+            margin: 14px 0;
+            background: rgba(251, 191, 36, 0.04);
+            border-radius: 0 4px 4px 0;
+            color: #c4bdb5;
+            font-style: italic;
+        }
+        #blog-terminal-overlay .output .line blockquote p {
+            color: #c4bdb5;
+            margin: 4px 0;
+        }
+        #blog-terminal-overlay .output .line ul,
+        #blog-terminal-overlay .output .line ol {
+            padding-left: 26px;
+            margin: 8px 0 14px 0;
+            /* inline spacing: each list item stays inline-flow */
+        }
+        #blog-terminal-overlay .output .line li {
+            margin: 4px 0;
+            color: #e8e2d8;
+            line-height: 1.6;
+            display: list-item;
+        }
+        #blog-terminal-overlay .output .line ul li::marker {
+            color: #fbbf24;
+        }
+        #blog-terminal-overlay .output .line ol li::marker {
+            color: #fbbf24;
+            font-weight: 600;
+        }
+        #blog-terminal-overlay .output .line code {
+            color: #a3e635;
+            background: rgba(163, 230, 53, 0.07);
+            padding: 1px 7px;
+            border-radius: 3px;
+            font-size: 0.92em;
+            border: 1px solid rgba(163, 230, 53, 0.12);
+        }
+        #blog-terminal-overlay .output .line pre {
+            margin: 12px 0;
+            background: #10141c;
+            border: 1px solid #1d2530;
+            border-radius: 4px;
+            padding: 12px 16px;
+            overflow-x: auto;
+        }
+        #blog-terminal-overlay .output .line pre code {
+            display: block;
+            padding: 0;
+            background: transparent;
+            border: none;
+            color: #d8d4ce;
+            font-size: 0.92em;
+            line-height: 1.7;
+        }
+        #blog-terminal-overlay .output .line a {
+            color: #67e8f9;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            text-decoration-color: rgba(103, 232, 249, 0.3);
+        }
+        #blog-terminal-overlay .output .line a:hover {
+            color: #f472b6;
+            text-decoration-color: #f472b6;
+        }
+        #blog-terminal-overlay .output .line hr {
+            border: none;
+            border-top: 1px solid #1d2530;
+            margin: 18px 0;
+        }
+
+        /* special inline list styling — "points should be inline" */
+        #blog-terminal-overlay .output .listing {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px 28px;
+            margin: 6px 0 14px 0;
+            line-height: 1.8;
+        }
+        #blog-terminal-overlay .output .listing .file {
+            display: inline-block;
+            padding: 2px 0;
+        }
+        #blog-terminal-overlay .output .listing .file.dir {
+            color: #67e8f9;
+            font-weight: 500;
+        }
+        #blog-terminal-overlay .output .listing .file.md {
+            color: #fbbf24;
+        }
+        #blog-terminal-overlay .output .listing .file.hidden {
+            color: #6b7585;
+        }
+
+        /* status bar & prompt keep their existing styles */
+        #blog-terminal-overlay .status-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 14px;
+            background: linear-gradient(to bottom, #0e1217, #0a0d11);
+            border-bottom: 1px solid #1d2530;
+            font-size: 11px;
+            color: #6b7585;
+            flex-shrink: 0;
+            user-select: none;
+            letter-spacing: 0.02em;
+        }
+        #blog-terminal-overlay .status-group {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+        #blog-terminal-overlay .status-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            white-space: nowrap;
+        }
+        #blog-terminal-overlay .status-item b {
+            color: #fbbf24;
+            font-weight: 500;
+        }
+        #blog-terminal-overlay .status-item .dot {
+            display: inline-block;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #4ade80;
+            box-shadow: 0 0 7px #4ade80;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.5;
+                transform: scale(0.85);
+            }
+        }
+
+        #blog-terminal-overlay .terminal {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            min-height: 0;
+            padding: 14px 18px;
+            position: relative;
+            overflow: hidden;
+            height: calc(100vh - 40px);
+        }
+        #blog-terminal-overlay .output {
+            flex: 1;
+            overflow-y: auto;
+            overflow-x: hidden;
+            padding-right: 8px;
+            padding-bottom: 6px;
+            scrollbar-width: thin;
+            scrollbar-color: #1d2530 transparent;
+        }
+        #blog-terminal-overlay .output::-webkit-scrollbar {
+            width: 6px;
+        }
+        #blog-terminal-overlay .output::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        #blog-terminal-overlay .output::-webkit-scrollbar-thumb {
+            background: #1d2530;
+            border-radius: 3px;
+        }
+        #blog-terminal-overlay .output::-webkit-scrollbar-thumb:hover {
+            background: #6b7585;
+        }
+
+        /* prompt */
+        #blog-terminal-overlay .prompt-line {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding-top: 6px;
+            border-top: 1px solid #0e1217;
+            position: relative;
+            flex-shrink: 0;
+        }
+        #blog-terminal-overlay .prompt {
+            color: #4ade80;
+            text-shadow: 0 0 8px rgba(74, 222, 128, 0.45);
+            font-weight: 500;
+            flex-shrink: 0;
+            user-select: none;
+        }
+        #blog-terminal-overlay .prompt .path {
+            color: #67e8f9;
+            text-shadow: 0 0 6px rgba(103, 232, 249, 0.4);
+        }
+        #blog-terminal-overlay .prompt.compose {
+            color: #f472b6;
+            text-shadow: 0 0 8px rgba(244, 114, 182, 0.5);
+        }
+        #blog-terminal-overlay .input-area {
+            position: relative;
+            flex: 1;
+            min-width: 0;
+        }
+        #blog-terminal-overlay .input-display {
+            pointer-events: none;
+            color: #e8e2d8;
+        }
+        #blog-terminal-overlay .ghost-text {
+            color: #6b7585;
+            opacity: 0.55;
+        }
+        #blog-terminal-overlay .block-cursor {
+            display: inline-block;
+            width: 8px;
+            height: 17px;
+            background: #fbbf24;
+            vertical-align: text-bottom;
+            box-shadow: 0 0 8px #fbbf24;
+            animation: blink 1.06s steps(2, end) infinite;
+            margin-left: 1px;
+            margin-right: 1px;
+        }
+        #blog-terminal-overlay #blogCmdInput {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            border: none;
+            outline: none;
+            color: transparent;
+            caret-color: transparent;
+            font: inherit;
+            z-index: 2;
+            cursor: text;
+            padding: 0;
+        }
+
+        /* CRT overlay / scanlines */
+        #blog-terminal-overlay .crt-overlay {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 100;
+            opacity: 0.8;
+        }
+        #blog-terminal-overlay .scanlines {
+            position: absolute;
+            inset: 0;
+            background: repeating-linear-gradient(to bottom,
+                    rgba(0, 0, 0, 0) 0px,
+                    rgba(0, 0, 0, 0) 2px,
+                    rgba(0, 0, 0, 0.32) 3px,
+                    rgba(0, 0, 0, 0.32) 4px);
+            opacity: 0.55;
+            animation: scan 6s linear infinite;
+        }
+        @keyframes scan {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(4px);
+            }
+        }
+        #blog-terminal-overlay .vignette {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 110% 100% at center, transparent 45%, rgba(0, 0, 0, 0.55) 100%);
+        }
+        #blog-terminal-overlay .flicker {
+            position: absolute;
+            inset: 0;
+            background: rgba(255, 184, 108, 0.018);
+            animation: flicker 7s infinite;
+        }
+        @keyframes flicker {
+            0%,
+            94%,
+            100% {
+                opacity: 1;
+            }
+            95% {
+                opacity: 0.82;
+            }
+            96% {
+                opacity: 1;
+            }
+            97% {
+                opacity: 0.93;
+            }
+            98% {
+                opacity: 1;
+            }
+        }
+
+        /* blog close button */
+        #blog-close-btn {
+            position: fixed;
+            top: 20px;
+            right: 24px;
+            z-index: 50060;
+            padding: 10px 20px;
+            border-radius: 8px;
+            background: rgba(251, 191, 36, 0.12);
+            border: 1px solid rgba(251, 191, 36, 0.25);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #fbbf24;
+            cursor: pointer;
+            transition: all .3s ease;
+            font-size: 13px;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            pointer-events: none;
+            opacity: 0;
+            transform: scale(0.95);
+            transition: opacity .4s ease, transform .4s ease, background .3s, border-color .3s;
+            z-index: 50060;
+        }
+        #blog-close-btn.visible {
+            pointer-events: auto;
+            opacity: 1;
+            transform: scale(1);
+        }
+        #blog-close-btn:hover {
+            background: rgba(251, 191, 36, 0.22);
+            border-color: #fbbf24;
+            transform: scale(1.05);
+        }
+        #blog-close-btn .iconify {
+            font-size: 18px;
+        }
+        @media(max-width:768px) {
+            #blog-close-btn {
+                padding: 8px 14px;
+                font-size: 11px;
+                top: 16px;
+                right: 16px;
+            }
+            #blog-close-btn .iconify {
+                font-size: 14px;
+            }
+        }
+
+        /* ============================================================
+                   PDF CV — WEBSITE DESCRIPTIONS (ONE SENTENCE, BRIEF)
+                   ============================================================ */
+        .pdf-cv-page {
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            background: #fff;
+            color: #1a1a1a;
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 0;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.06);
+            border-radius: 12px;
+            overflow: hidden;
+            line-height: 1.5;
+        }
+        .pdf-cv-page .sidebar {
+            background: #1a1a1a;
+            color: #e5e7eb;
+            padding: 40px 28px;
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+        }
+        .pdf-cv-page .sidebar .name {
+            font-size: 26px;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: #fff;
+            line-height: 1.1;
+        }
+        .pdf-cv-page .sidebar .title {
+            font-size: 14px;
+            font-weight: 500;
+            color: #D97706;
+            margin-top: 4px;
+        }
+        .pdf-cv-page .sidebar .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 13px;
+            color: #cbd5e1;
+            margin-bottom: 6px;
+        }
+        .pdf-cv-page .sidebar .contact-item a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .pdf-cv-page .sidebar .contact-item a:hover {
+            color: #D97706;
+        }
+        .pdf-cv-page .sidebar .section-title {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #D97706;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding-bottom: 6px;
+            margin-bottom: 14px;
+        }
+        .pdf-cv-page .sidebar .skill-tag {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            color: #e5e7eb;
+            margin: 0 4px 6px 0;
+        }
+        .pdf-cv-page .sidebar .lang-tag {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            color: #e5e7eb;
+            margin: 0 4px 6px 0;
+        }
+        .pdf-cv-page .sidebar .lang-tag .lvl {
+            color: #94a3b8;
+            font-size: 10px;
+            margin-left: 4px;
+        }
+        .pdf-cv-page .main {
+            padding: 40px 44px 44px;
+            background: #fff;
+        }
+        .pdf-cv-page .main .section {
+            margin-bottom: 28px;
+        }
+        .pdf-cv-page .main .section-title {
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: #D97706;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 4px;
+            margin-bottom: 14px;
+        }
+        .pdf-cv-page .main .section-content {
+            font-size: 14px;
+            color: #2a2a2a;
+        }
+        .pdf-cv-page .main .section-content p {
+            margin-bottom: 6px;
+        }
+        .pdf-cv-page .main .project-item {
+            margin-bottom: 14px;
+        }
+        .pdf-cv-page .main .project-item .proj-title {
+            font-weight: 700;
+            font-size: 15px;
+            color: #1a1a1a;
+        }
+        .pdf-cv-page .main .project-item .proj-meta {
+            font-size: 12px;
+            color: #888;
+            margin-bottom: 2px;
+        }
+        .pdf-cv-page .main .project-item .proj-desc {
+            font-size: 13px;
+            color: #3a3a3a;
+        }
+        .pdf-cv-page .main .edu-item {
+            margin-bottom: 12px;
+        }
+        .pdf-cv-page .main .edu-item .edu-title {
+            font-weight: 700;
+            font-size: 15px;
+        }
+        .pdf-cv-page .main .edu-item .edu-meta {
+            font-size: 13px;
+            color: #555;
+        }
+        .pdf-cv-page .main .edu-item .edu-desc {
+            font-size: 13px;
+            color: #4a4a4a;
+        }
+        .pdf-cv-page .main .ref-note {
+            font-style: italic;
+            color: #666;
+            font-size: 13px;
+        }
+        .pdf-cv-page .main .footer-note {
+            margin-top: 24px;
+            padding-top: 16px;
+            border-top: 1px solid #e5e5e5;
+            font-size: 12px;
+            color: #aaa;
+            text-align: center;
+        }
+        .pdf-cv-page .main .about-text {
+            font-size: 14px;
+            line-height: 1.7;
+            color: #2a2a2a;
+        }
+        .pdf-cv-page .main .about-text strong {
+            color: #D97706;
+        }
+
+        /* ——— WEBSITE SECTION — ONE-SENTENCE DESCRIPTIONS ——— */
+        .pdf-cv-page .main .website-item {
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .pdf-cv-page .main .website-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .pdf-cv-page .main .website-item .site-title {
+            font-weight: 700;
+            font-size: 15px;
+            color: #1a1a1a;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .pdf-cv-page .main .website-item .site-title a {
+            color: #D97706;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 13px;
+            border-bottom: 1px dotted rgba(217, 119, 6, 0.3);
+        }
+        .pdf-cv-page .main .website-item .site-title a:hover {
+            border-bottom: 1px solid #D97706;
+        }
+        /* BRIEF one-sentence description */
+        .pdf-cv-page .main .website-item .site-desc {
+            font-size: 13px;
+            color: #3a3a3a;
+            margin-top: 3px;
+            line-height: 1.5;
+        }
+        .pdf-cv-page .main .website-item .site-search {
+            font-size: 12px;
+            color: #777;
+            margin-top: 4px;
+            background: #f8f8f8;
+            padding: 2px 12px;
+            border-radius: 14px;
+            display: inline-block;
+        }
+        .pdf-cv-page .main .website-item .site-search strong {
+            color: #D97706;
+            font-weight: 600;
+        }
+
+        .pdf-cv-page .main .link-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px 16px;
+            margin-top: 6px;
+        }
+        .pdf-cv-page .main .link-list a {
+            color: #D97706;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 13px;
+            border-bottom: 1px dotted rgba(217, 119, 6, 0.3);
+        }
+        .pdf-cv-page .main .link-list a:hover {
+            border-bottom: 1px solid #D97706;
+        }
+        .pdf-cv-page .main .link-list .label {
+            color: #555;
+            font-weight: 400;
+        }
+        .pdf-cv-page .main .cert-item {
+            margin-bottom: 8px;
+        }
+        .pdf-cv-page .main .cert-item strong {
+            color: #1a1a1a;
+        }
+        .pdf-cv-page .main .cert-item .cert-meta {
+            font-size: 13px;
+            color: #555;
+        }
+
+        @media print {
+            .pdf-cv-page {
+                box-shadow: none;
+                border-radius: 0;
+            }
+            .no-print {
+                display: none !important;
+            }
+        }
+        @media(max-width:700px) {
+            .pdf-cv-page {
+                grid-template-columns: 1fr;
+                border-radius: 0;
+            }
+            .pdf-cv-page .sidebar {
+                padding: 28px 24px;
+            }
+            .pdf-cv-page .main {
+                padding: 28px 24px;
+            }
+        }
+        @media(max-width:400px) {
+            .pdf-cv-page .sidebar .name {
+                font-size: 22px;
+            }
+            .pdf-cv-page .main .section-title {
+                font-size: 14px;
+            }
+        }
+
+        .no-print {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 24px;
+            flex-wrap: wrap;
+            max-width: 1100px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .no-print button {
+            font-family: 'Inter', sans-serif;
+            padding: 10px 28px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all .2s ease;
+            border: none;
+        }
+        .no-print .btn-download {
+            background: #D97706;
+            color: #fff;
+        }
+        .no-print .btn-download:hover {
+            background: #B45309;
+            transform: scale(1.04);
+        }
+        .no-print .btn-print {
+            background: transparent;
+            color: #D97706;
+            border: 2px solid #D97706;
+        }
+        .no-print .btn-print:hover {
+            background: #D97706;
+            color: #fff;
+            transform: scale(1.04);
+        }
+        .no-print .btn-close {
+            background: transparent;
+            color: #888;
+            border: 1px solid #ddd;
+        }
+        .no-print .btn-close:hover {
+            background: #f0f0f0;
+        }
+        @media(max-width:480px) {
+            .no-print button {
+                padding: 8px 18px;
+                font-size: 12px;
+            }
+        }
+
+        /* ——— Other existing styles (kept intact) ——— */
         .theme-toggle-btn {
             display: inline-flex;
             align-items: center;
@@ -454,7 +1190,7 @@
             border-radius: 2px;
         }
 
-        /* ——— CV OVERLAY ——— */
+        /* CV OVERLAY (kept as before) */
         #cv-overlay {
             position: fixed;
             inset: 0;
@@ -522,6 +1258,7 @@
             }
         }
 
+        /* CV glitch etc. — kept */
         .cv-glitch {
             position: relative;
             animation: cv-glitch-skew 4s infinite linear alternate-reverse;
@@ -618,7 +1355,6 @@
                 display: none;
             }
         }
-
         .cv-neon-text {
             text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #38BDF8, 0 0 82px #0EA5E9, 0 0 92px #0284C7;
         }
@@ -913,7 +1649,6 @@
         .cv-neon-blue-glow {
             text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #38BDF8, 0 0 42px #38BDF8, 0 0 82px #0EA5E9;
         }
-
         .cv-lang-tag {
             display: inline-block;
             padding: 2px 10px;
@@ -967,7 +1702,7 @@
             color: #4a4a4a !important;
         }
 
-        /* ——— HERO FIXES ——— */
+        /* HERO FIXES */
         #hero .hero-content-wrap {
             display: flex;
             flex-direction: column;
@@ -1059,7 +1794,6 @@
             }
         }
 
-        /* ——— STOCKIPA MAIN IMAGE ——— */
         .stockipa-main-wrap {
             position: relative;
             border-radius: 8px;
@@ -1154,7 +1888,6 @@
             }
         }
 
-        /* ——— LIGHTBOX ZOOM ——— */
         #stockipa-lightbox {
             position: fixed;
             inset: 0;
@@ -1217,521 +1950,6 @@
             }
         }
 
-        /* ——— BLOG TERMINAL ——— */
-        #blog-terminal-overlay {
-            position: fixed;
-            inset: 0;
-            z-index: 50050;
-            background: #080b12;
-            color: #d8d4ce;
-            overflow: hidden;
-            transform: translateX(100%);
-            opacity: 0;
-            pointer-events: none;
-            transition: transform .7s cubic-bezier(.16, 1, .3, 1), opacity .5s ease;
-            font-family: 'JetBrains Mono', 'SF Mono', monospace;
-            font-size: 14px;
-            line-height: 1.55;
-        }
-        #blog-terminal-overlay.open {
-            transform: translateX(0);
-            opacity: 1;
-            pointer-events: auto;
-        }
-        #blog-terminal-overlay .crt-overlay {
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: 100;
-            opacity: 0.8;
-        }
-        #blog-terminal-overlay .scanlines {
-            position: absolute;
-            inset: 0;
-            background: repeating-linear-gradient(to bottom,
-                    rgba(0, 0, 0, 0) 0px,
-                    rgba(0, 0, 0, 0) 2px,
-                    rgba(0, 0, 0, 0.32) 3px,
-                    rgba(0, 0, 0, 0.32) 4px);
-            opacity: 0.55;
-            animation: scan 6s linear infinite;
-        }
-        @keyframes scan {
-            0% {
-                transform: translateY(0);
-            }
-            100% {
-                transform: translateY(4px);
-            }
-        }
-        #blog-terminal-overlay .vignette {
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(ellipse 110% 100% at center, transparent 45%, rgba(0, 0, 0, 0.55) 100%);
-        }
-        #blog-terminal-overlay .flicker {
-            position: absolute;
-            inset: 0;
-            background: rgba(255, 184, 108, 0.018);
-            animation: flicker 7s infinite;
-        }
-        @keyframes flicker {
-            0%,
-            94%,
-            100% {
-                opacity: 1;
-            }
-            95% {
-                opacity: 0.82;
-            }
-            96% {
-                opacity: 1;
-            }
-            97% {
-                opacity: 0.93;
-            }
-            98% {
-                opacity: 1;
-            }
-        }
-
-        #blog-close-btn {
-            position: fixed;
-            top: 20px;
-            right: 24px;
-            z-index: 50060;
-            padding: 10px 20px;
-            border-radius: 8px;
-            background: rgba(56, 189, 248, 0.15);
-            border: 1px solid rgba(56, 189, 248, 0.3);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: #38BDF8;
-            cursor: pointer;
-            transition: all .3s ease;
-            font-size: 13px;
-            font-weight: 600;
-            font-family: 'Inter', sans-serif;
-            pointer-events: none;
-            opacity: 0;
-            transform: scale(0.95);
-            transition: opacity .4s ease, transform .4s ease, background .3s, border-color .3s;
-            z-index: 50060;
-        }
-        #blog-close-btn.visible {
-            pointer-events: auto;
-            opacity: 1;
-            transform: scale(1);
-        }
-        #blog-close-btn:hover {
-            background: rgba(56, 189, 248, 0.25);
-            border-color: #38BDF8;
-            transform: scale(1.05);
-        }
-        #blog-close-btn .iconify {
-            font-size: 18px;
-        }
-        @media(max-width:768px) {
-            #blog-close-btn {
-                padding: 8px 14px;
-                font-size: 11px;
-                top: 16px;
-                right: 16px;
-            }
-            #blog-close-btn .iconify {
-                font-size: 14px;
-            }
-        }
-
-        #blog-terminal-overlay .status-bar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 5px 14px;
-            background: linear-gradient(to bottom, #0e1217, #0a0d11);
-            border-bottom: 1px solid #1d2530;
-            font-size: 11px;
-            color: #6b7585;
-            flex-shrink: 0;
-            user-select: none;
-            letter-spacing: 0.02em;
-        }
-        #blog-terminal-overlay .status-group {
-            display: flex;
-            gap: 16px;
-            align-items: center;
-        }
-        #blog-terminal-overlay .status-item {
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            white-space: nowrap;
-        }
-        #blog-terminal-overlay .status-item b {
-            color: #ffb86c;
-            font-weight: 500;
-        }
-        #blog-terminal-overlay .status-item .dot {
-            display: inline-block;
-            width: 7px;
-            height: 7px;
-            border-radius: 50%;
-            background: #4ade80;
-            box-shadow: 0 0 7px #4ade80;
-            animation: pulse 2s ease-in-out infinite;
-        }
-        @keyframes pulse {
-            0%,
-            100% {
-                opacity: 1;
-                transform: scale(1);
-            }
-            50% {
-                opacity: 0.5;
-                transform: scale(0.85);
-            }
-        }
-
-        #blog-terminal-overlay .terminal {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            min-height: 0;
-            padding: 14px 18px;
-            position: relative;
-            overflow: hidden;
-            height: calc(100vh - 40px);
-        }
-        #blog-terminal-overlay .output {
-            flex: 1;
-            overflow-y: auto;
-            overflow-x: hidden;
-            padding-right: 8px;
-            padding-bottom: 6px;
-            scrollbar-width: thin;
-            scrollbar-color: #1d2530 transparent;
-        }
-        #blog-terminal-overlay .output::-webkit-scrollbar {
-            width: 6px;
-        }
-        #blog-terminal-overlay .output::-webkit-scrollbar-track {
-            background: transparent;
-        }
-        #blog-terminal-overlay .output::-webkit-scrollbar-thumb {
-            background: #1d2530;
-            border-radius: 3px;
-        }
-        #blog-terminal-overlay .output::-webkit-scrollbar-thumb:hover {
-            background: #6b7585;
-        }
-        #blog-terminal-overlay .line {
-            margin-bottom: 2px;
-            word-break: break-word;
-            white-space: pre-wrap;
-            color: #d8d4ce;
-        }
-        #blog-terminal-overlay .error {
-            color: #ef4444;
-            text-shadow: 0 0 5px rgba(239, 68, 68, 0.4);
-        }
-        #blog-terminal-overlay .success {
-            color: #4ade80;
-        }
-        #blog-terminal-overlay .info,
-        #blog-terminal-overlay .cyan {
-            color: #67e8f9;
-        }
-        #blog-terminal-overlay .warn,
-        #blog-terminal-overlay .yellow {
-            color: #facc15;
-        }
-        #blog-terminal-overlay .dim {
-            color: #6b7585;
-        }
-        #blog-terminal-overlay .amber {
-            color: #ffb86c;
-        }
-        #blog-terminal-overlay .magenta {
-            color: #f472b6;
-        }
-        #blog-terminal-overlay .phosphor {
-            color: #a3e635;
-        }
-        #blog-terminal-overlay .green {
-            color: #4ade80;
-        }
-
-        /* ——— BLOG MARKDOWN READABILITY ——— */
-        #blog-terminal-overlay .post {
-            margin: 6px 0 12px;
-            padding: 0 2px;
-        }
-        #blog-terminal-overlay .post h1,
-        #blog-terminal-overlay .post h2,
-        #blog-terminal-overlay .post h3 {
-            color: #fbbf24;
-            font-weight: 700;
-            text-shadow: 0 0 12px rgba(251, 191, 36, 0.25);
-            line-height: 1.3;
-            margin: 18px 0 8px;
-            letter-spacing: -0.01em;
-        }
-        #blog-terminal-overlay .post h1 {
-            font-size: 1.6em;
-            padding-bottom: 6px;
-            border-bottom: 1px solid #1d2530;
-            color: #ffd966;
-        }
-        #blog-terminal-overlay .post h2 {
-            font-size: 1.25em;
-            color: #fcd34d;
-        }
-        #blog-terminal-overlay .post h3 {
-            font-size: 1.05em;
-            color: #fde68a;
-        }
-        #blog-terminal-overlay .post p {
-            margin: 8px 0;
-            color: #e8e6e0;
-            line-height: 1.7;
-            font-size: 0.98em;
-        }
-        #blog-terminal-overlay .post p strong {
-            color: #fcd34d;
-            font-weight: 600;
-        }
-        #blog-terminal-overlay .post p em {
-            color: #c4bdb5;
-            font-style: italic;
-        }
-        #blog-terminal-overlay .post code {
-            color: #a3e635;
-            background: rgba(163, 230, 53, 0.08);
-            padding: 1px 6px;
-            border-radius: 3px;
-            font-size: 0.92em;
-            border: 1px solid rgba(163, 230, 53, 0.15);
-        }
-        #blog-terminal-overlay .post pre {
-            margin: 10px 0;
-            background: #0e1217;
-            border: 1px solid #1d2530;
-            border-radius: 4px;
-            padding: 10px 14px;
-            overflow-x: auto;
-        }
-        #blog-terminal-overlay .post pre code {
-            display: block;
-            padding: 0;
-            background: transparent;
-            border: none;
-            color: #d8d4ce;
-            font-size: 0.92em;
-            line-height: 1.6;
-        }
-        #blog-terminal-overlay .post a {
-            color: #67e8f9;
-            text-decoration: underline;
-            text-underline-offset: 2px;
-            text-decoration-color: rgba(103, 232, 249, 0.35);
-            transition: color 0.15s, text-decoration-color 0.15s;
-        }
-        #blog-terminal-overlay .post a:hover {
-            color: #f472b6;
-            text-decoration-color: #f472b6;
-        }
-        #blog-terminal-overlay .post blockquote {
-            border-left: 3px solid #fbbf24;
-            padding: 6px 0 6px 16px;
-            margin: 12px 0;
-            color: #a8a39a;
-            font-style: italic;
-            background: rgba(251, 191, 36, 0.04);
-            border-radius: 0 3px 3px 0;
-        }
-        #blog-terminal-overlay .post blockquote p {
-            color: #a8a39a;
-        }
-        #blog-terminal-overlay .post ul,
-        #blog-terminal-overlay .post ol {
-            padding-left: 24px;
-            margin: 8px 0;
-        }
-        #blog-terminal-overlay .post li {
-            margin: 4px 0;
-            color: #e8e6e0;
-            line-height: 1.6;
-        }
-        #blog-terminal-overlay .post ul li::marker {
-            color: #fbbf24;
-        }
-        #blog-terminal-overlay .post ol li::marker {
-            color: #fbbf24;
-            font-weight: 600;
-        }
-        #blog-terminal-overlay .post hr {
-            border: none;
-            border-top: 1px solid #1d2530;
-            margin: 16px 0;
-        }
-        #blog-terminal-overlay .post .divider {
-            color: #2a303c;
-            margin: 8px 0;
-            overflow: hidden;
-            letter-spacing: 2px;
-        }
-        #blog-terminal-overlay .post .emoji {
-            font-style: normal;
-        }
-        #blog-terminal-overlay .post .highlight-box {
-            background: rgba(251, 191, 36, 0.05);
-            border: 1px solid rgba(251, 191, 36, 0.15);
-            border-radius: 4px;
-            padding: 12px 16px;
-            margin: 12px 0;
-        }
-        #blog-terminal-overlay .post .highlight-box p {
-            margin: 4px 0;
-            color: #e8e6e0;
-        }
-
-        /* ——— BLOG COMMANDS ——— */
-        #blog-terminal-overlay .listing {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 4px 22px;
-            margin: 4px 0;
-            line-height: 1.7;
-        }
-        #blog-terminal-overlay .file {
-            color: #d8d4ce;
-        }
-        #blog-terminal-overlay .file.dir {
-            color: #67e8f9;
-            font-weight: 500;
-        }
-        #blog-terminal-overlay .file.dir::after {
-            content: '/';
-            opacity: 0.7;
-        }
-        #blog-terminal-overlay .file.md {
-            color: #ffb86c;
-        }
-        #blog-terminal-overlay .file.hidden {
-            color: #6b7585;
-        }
-        #blog-terminal-overlay .boot-line {
-            color: #6b7585;
-            font-size: 0.95em;
-        }
-        #blog-terminal-overlay .boot-line .ok {
-            color: #4ade80;
-            font-weight: 500;
-        }
-        #blog-terminal-overlay .boot-line .warn {
-            color: #facc15;
-            font-weight: 500;
-        }
-        #blog-terminal-overlay .man-page {
-            border: 1px solid #1d2530;
-            background: linear-gradient(to bottom, rgba(255, 184, 108, 0.025), rgba(255, 184, 108, 0.005));
-            padding: 10px 14px;
-            margin: 8px 0;
-            border-radius: 2px;
-            box-shadow: inset 0 0 30px rgba(255, 184, 108, 0.03);
-        }
-        #blog-terminal-overlay .man-page pre {
-            font: inherit;
-            white-space: pre-wrap;
-            color: #d8d4ce;
-        }
-        #blog-terminal-overlay .neofetch {
-            color: #d8d4ce;
-            line-height: 1.25;
-        }
-        #blog-terminal-overlay .file-header {
-            color: #6b7585;
-            margin: 6px 0 4px;
-            line-height: 1.5;
-        }
-        #blog-terminal-overlay .mail-summary {
-            border: 1px solid #1d2530;
-            padding: 10px 14px;
-            margin: 8px 0;
-            background: rgba(74, 222, 128, 0.04);
-        }
-        #blog-terminal-overlay .mail-form {
-            border: 1px dashed #1d2530;
-            padding: 8px 12px;
-            margin: 6px 0;
-        }
-
-        #blog-terminal-overlay .prompt-line {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding-top: 6px;
-            border-top: 1px solid #0e1217;
-            position: relative;
-            flex-shrink: 0;
-        }
-        #blog-terminal-overlay .prompt {
-            color: #4ade80;
-            text-shadow: 0 0 8px rgba(74, 222, 128, 0.45);
-            font-weight: 500;
-            flex-shrink: 0;
-            user-select: none;
-        }
-        #blog-terminal-overlay .prompt .path {
-            color: #67e8f9;
-            text-shadow: 0 0 6px rgba(103, 232, 249, 0.4);
-        }
-        #blog-terminal-overlay .prompt.compose {
-            color: #f472b6;
-            text-shadow: 0 0 8px rgba(244, 114, 182, 0.5);
-        }
-        #blog-terminal-overlay .input-area {
-            position: relative;
-            flex: 1;
-            min-width: 0;
-        }
-        #blog-terminal-overlay .input-display {
-            pointer-events: none;
-            color: #d8d4ce;
-        }
-        #blog-terminal-overlay .ghost-text {
-            color: #6b7585;
-            opacity: 0.55;
-        }
-        #blog-terminal-overlay .block-cursor {
-            display: inline-block;
-            width: 8px;
-            height: 17px;
-            background: #ffb86c;
-            vertical-align: text-bottom;
-            box-shadow: 0 0 8px #ffb86c;
-            animation: blink 1.06s steps(2, end) infinite;
-            margin-left: 1px;
-            margin-right: 1px;
-        }
-        #blog-terminal-overlay #blogCmdInput {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            background: transparent;
-            border: none;
-            outline: none;
-            color: transparent;
-            caret-color: transparent;
-            font: inherit;
-            z-index: 2;
-            cursor: text;
-            padding: 0;
-        }
-
-        /* ——— MOBILE HEADER FIXES ——— */
         .mobile-controls-wrap {
             display: flex;
             align-items: center;
@@ -1754,340 +1972,6 @@
             }
             #mobile-menu-btn .hamburger-text {
                 font-size: 20px;
-            }
-        }
-
-        /* ——— PDF CV PAGE ——— */
-        .pdf-cv-page {
-            font-family: 'Inter', 'Segoe UI', sans-serif;
-            background: #fff;
-            color: #1a1a1a;
-            max-width: 1100px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 280px 1fr;
-            gap: 0;
-            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.06);
-            border-radius: 12px;
-            overflow: hidden;
-            line-height: 1.5;
-        }
-        .pdf-cv-page .sidebar {
-            background: #1a1a1a;
-            color: #e5e7eb;
-            padding: 40px 28px;
-            display: flex;
-            flex-direction: column;
-            gap: 28px;
-        }
-        .pdf-cv-page .sidebar .name {
-            font-size: 26px;
-            font-weight: 800;
-            letter-spacing: -0.02em;
-            color: #fff;
-            line-height: 1.1;
-        }
-        .pdf-cv-page .sidebar .title {
-            font-size: 14px;
-            font-weight: 500;
-            color: #D97706;
-            margin-top: 4px;
-        }
-        .pdf-cv-page .sidebar .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 13px;
-            color: #cbd5e1;
-            margin-bottom: 6px;
-        }
-        .pdf-cv-page .sidebar .contact-item a {
-            color: #cbd5e1;
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-        .pdf-cv-page .sidebar .contact-item a:hover {
-            color: #D97706;
-        }
-        .pdf-cv-page .sidebar .section-title {
-            font-size: 13px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: #D97706;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-            padding-bottom: 6px;
-            margin-bottom: 14px;
-        }
-        .pdf-cv-page .sidebar .skill-tag {
-            display: inline-block;
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            color: #e5e7eb;
-            margin: 0 4px 6px 0;
-        }
-        .pdf-cv-page .sidebar .lang-tag {
-            display: inline-block;
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            color: #e5e7eb;
-            margin: 0 4px 6px 0;
-        }
-        .pdf-cv-page .sidebar .lang-tag .lvl {
-            color: #94a3b8;
-            font-size: 10px;
-            margin-left: 4px;
-        }
-        .pdf-cv-page .main {
-            padding: 40px 44px 44px;
-            background: #fff;
-        }
-        .pdf-cv-page .main .section {
-            margin-bottom: 28px;
-        }
-        .pdf-cv-page .main .section-title {
-            font-size: 16px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            color: #D97706;
-            border-bottom: 2px solid #f0f0f0;
-            padding-bottom: 4px;
-            margin-bottom: 14px;
-        }
-        .pdf-cv-page .main .section-content {
-            font-size: 14px;
-            color: #2a2a2a;
-        }
-        .pdf-cv-page .main .section-content p {
-            margin-bottom: 6px;
-        }
-        .pdf-cv-page .main .project-item {
-            margin-bottom: 14px;
-        }
-        .pdf-cv-page .main .project-item .proj-title {
-            font-weight: 700;
-            font-size: 15px;
-            color: #1a1a1a;
-        }
-        .pdf-cv-page .main .project-item .proj-meta {
-            font-size: 12px;
-            color: #888;
-            margin-bottom: 2px;
-        }
-        .pdf-cv-page .main .project-item .proj-desc {
-            font-size: 13px;
-            color: #3a3a3a;
-        }
-        .pdf-cv-page .main .edu-item {
-            margin-bottom: 12px;
-        }
-        .pdf-cv-page .main .edu-item .edu-title {
-            font-weight: 700;
-            font-size: 15px;
-        }
-        .pdf-cv-page .main .edu-item .edu-meta {
-            font-size: 13px;
-            color: #555;
-        }
-        .pdf-cv-page .main .edu-item .edu-desc {
-            font-size: 13px;
-            color: #4a4a4a;
-        }
-        .pdf-cv-page .main .ref-note {
-            font-style: italic;
-            color: #666;
-            font-size: 13px;
-        }
-        .pdf-cv-page .main .footer-note {
-            margin-top: 24px;
-            padding-top: 16px;
-            border-top: 1px solid #e5e5e5;
-            font-size: 12px;
-            color: #aaa;
-            text-align: center;
-        }
-        .pdf-cv-page .main .about-text {
-            font-size: 14px;
-            line-height: 1.7;
-            color: #2a2a2a;
-        }
-        .pdf-cv-page .main .about-text strong {
-            color: #D97706;
-        }
-        .pdf-cv-page .main .link-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px 16px;
-            margin-top: 6px;
-        }
-        .pdf-cv-page .main .link-list a {
-            color: #D97706;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 13px;
-            border-bottom: 1px dotted rgba(217, 119, 6, 0.3);
-        }
-        .pdf-cv-page .main .link-list a:hover {
-            border-bottom: 1px solid #D97706;
-        }
-        .pdf-cv-page .main .link-list .label {
-            color: #555;
-            font-weight: 400;
-        }
-        .pdf-cv-page .main .link-list .google-term {
-            font-size: 11px;
-            color: #999;
-            background: #f5f5f5;
-            padding: 1px 8px;
-            border-radius: 12px;
-            display: inline-block;
-            margin-left: 2px;
-        }
-        .pdf-cv-page .main .website-item {
-            margin-bottom: 12px;
-            padding-bottom: 12px;
-            border-bottom: 1px solid #f0f0f0;
-        }
-        .pdf-cv-page .main .website-item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-        .pdf-cv-page .main .website-item .site-title {
-            font-weight: 700;
-            font-size: 15px;
-            color: #1a1a1a;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
-        .pdf-cv-page .main .website-item .site-title a {
-            color: #D97706;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 13px;
-            border-bottom: 1px dotted rgba(217, 119, 6, 0.3);
-        }
-        .pdf-cv-page .main .website-item .site-title a:hover {
-            border-bottom: 1px solid #D97706;
-        }
-        .pdf-cv-page .main .website-item .site-desc {
-            font-size: 13px;
-            color: #3a3a3a;
-            margin-top: 3px;
-            line-height: 1.6;
-        }
-        .pdf-cv-page .main .website-item .site-search {
-            font-size: 12px;
-            color: #777;
-            margin-top: 4px;
-            background: #f8f8f8;
-            padding: 2px 12px;
-            border-radius: 14px;
-            display: inline-block;
-        }
-        .pdf-cv-page .main .website-item .site-search strong {
-            color: #D97706;
-            font-weight: 600;
-        }
-        .pdf-cv-page .main .cert-item {
-            margin-bottom: 8px;
-        }
-        .pdf-cv-page .main .cert-item strong {
-            color: #1a1a1a;
-        }
-        .pdf-cv-page .main .cert-item .cert-meta {
-            font-size: 13px;
-            color: #555;
-        }
-        @media print {
-            .pdf-cv-page {
-                box-shadow: none;
-                border-radius: 0;
-            }
-            .no-print {
-                display: none !important;
-            }
-        }
-        @media(max-width:700px) {
-            .pdf-cv-page {
-                grid-template-columns: 1fr;
-                border-radius: 0;
-            }
-            .pdf-cv-page .sidebar {
-                padding: 28px 24px;
-            }
-            .pdf-cv-page .main {
-                padding: 28px 24px;
-            }
-        }
-        @media(max-width:400px) {
-            .pdf-cv-page .sidebar .name {
-                font-size: 22px;
-            }
-            .pdf-cv-page .main .section-title {
-                font-size: 14px;
-            }
-        }
-
-        .no-print {
-            display: flex;
-            justify-content: center;
-            gap: 16px;
-            margin-top: 24px;
-            flex-wrap: wrap;
-            max-width: 1100px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .no-print button {
-            font-family: 'Inter', sans-serif;
-            padding: 10px 28px;
-            border-radius: 6px;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all .2s ease;
-            border: none;
-        }
-        .no-print .btn-download {
-            background: #D97706;
-            color: #fff;
-        }
-        .no-print .btn-download:hover {
-            background: #B45309;
-            transform: scale(1.04);
-        }
-        .no-print .btn-print {
-            background: transparent;
-            color: #D97706;
-            border: 2px solid #D97706;
-        }
-        .no-print .btn-print:hover {
-            background: #D97706;
-            color: #fff;
-            transform: scale(1.04);
-        }
-        .no-print .btn-close {
-            background: transparent;
-            color: #888;
-            border: 1px solid #ddd;
-        }
-        .no-print .btn-close:hover {
-            background: #f0f0f0;
-        }
-        @media(max-width:480px) {
-            .no-print button {
-                padding: 8px 18px;
-                font-size: 12px;
             }
         }
     </style>
@@ -2975,7 +2859,7 @@
             if (e.key === 'Escape') closeLightbox();
         });
 
-        // ——— PDF CV ——— with modern two-column format and live links + website explanations
+        // ——— PDF CV ——— with brief one-sentence website descriptions
         function openPDFCV() {
             try {
                 const win = window.open('', '_blank');
@@ -3026,7 +2910,8 @@
                     .pdf-cv-page .main .website-item .site-title { font-weight:700; font-size:15px; color:#1a1a1a; display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
                     .pdf-cv-page .main .website-item .site-title a { color:#D97706; text-decoration:none; font-weight:600; font-size:13px; border-bottom:1px dotted rgba(217,119,6,0.3); }
                     .pdf-cv-page .main .website-item .site-title a:hover { border-bottom:1px solid #D97706; }
-                    .pdf-cv-page .main .website-item .site-desc { font-size:13px; color:#3a3a3a; margin-top:3px; line-height:1.6; }
+                    /* BRIEF one-sentence description */
+                    .pdf-cv-page .main .website-item .site-desc { font-size:13px; color:#3a3a3a; margin-top:3px; line-height:1.5; }
                     .pdf-cv-page .main .website-item .site-search { font-size:12px; color:#777; margin-top:4px; background:#f8f8f8; padding:2px 12px; border-radius:14px; display:inline-block; }
                     .pdf-cv-page .main .website-item .site-search strong { color:#D97706; font-weight:600; }
                     .pdf-cv-page .main .link-list { display:flex; flex-wrap:wrap; gap:6px 16px; margin-top:6px; }
@@ -3100,46 +2985,40 @@
                             </div>
                         </div>
 
-                        <!-- ===== WEBSITES SECTION — updated with explanations & Google search terms ===== -->
+                        <!-- ===== WEBSITES SECTION — BRIEF ONE-SENTENCE DESCRIPTIONS ===== -->
                         <div class="section">
                             <div class="section-title">🌐 Websites I've Built</div>
                             <div class="section-content">
 
                                 <div class="website-item">
                                     <div class="site-title">
-                                        🎨 Isaac Art — Stencil Art Storefront
+                                        🎨 Isaac Art
                                         <a href="https://artweb.isaacbridget.workers.dev" target="_blank">artweb.isaacbridget.workers.dev</a>
                                     </div>
-                                    <div class="site-desc">
-                                        I built this site to <strong>sell my stencil art</strong> and attract commissions. It showcases my spray-paint pieces, tells my story as an artist, and makes it easy for potential buyers to connect with me. Whether you want a custom portrait, a mural, or a limited-edition print, this is where my art meets the world.
-                                    </div>
-                                    <div class="site-search">🔍 Search on Google: <strong>isaac bridget art</strong></div>
+                                    <div class="site-desc">A stencil art storefront where I showcase and sell my spray-paint work.</div>
+                                    <div class="site-search">🔍 Search: <strong>isaac bridget art</strong></div>
                                 </div>
 
                                 <div class="website-item">
                                     <div class="site-title">
-                                        📄 Isaac Bridget — Developer Portfolio
+                                        📄 Isaac Bridget Portfolio
                                         <a href="https://portfolio.isaacbridget.workers.dev" target="_blank">portfolio.isaacbridget.workers.dev</a>
                                     </div>
-                                    <div class="site-desc">
-                                        This is my <strong>developer headquarters</strong>. Everything I build, from Stockipa to AI models, lives here. It's where clients, collaborators, and employers can see my work, understand my process, and get a feel for who I am as a developer. Clean, fast, and built with purpose.
-                                    </div>
-                                    <div class="site-search">🔍 Search on Google: <strong>isaac bridget portfolio</strong></div>
+                                    <div class="site-desc">My developer headquarters — all my projects, skills, and work in one place.</div>
+                                    <div class="site-search">🔍 Search: <strong>isaac bridget portfolio</strong></div>
                                 </div>
 
                                 <div class="website-item">
                                     <div class="site-title">
-                                        ⚽ City Stars FC — Chuka University Football
+                                        ⚽ City Stars FC
                                         <a href="https://citystars.isaacbridget.workers.dev" target="_blank">citystars.isaacbridget.workers.dev</a>
                                     </div>
-                                    <div class="site-desc">
-                                        I built this for my football family at Chuka University. It's the <strong>digital home of City Stars FC</strong>, featuring match fixtures, results, player and staff profiles, league standings, and a club blog. It keeps the team connected and the fans informed.
-                                    </div>
-                                    <div class="site-search">🔍 Search on Google: <strong>city stars chuka</strong></div>
+                                    <div class="site-desc">The digital home of Chuka University's football team — fixtures, results, and club news.</div>
+                                    <div class="site-search">🔍 Search: <strong>city stars chuka</strong></div>
                                 </div>
 
                                 <div style="margin-top:12px;padding:10px 14px;background:#f8fafc;border-radius:6px;border-left:3px solid #D97706;font-size:13px;color:#444;">
-                                    <strong>📌 All three websites are indexed on Google.</strong> You can find them by searching the terms above, or by visiting the links directly.
+                                    <strong>📌 All three sites are live and indexed on Google.</strong>
                                 </div>
 
                             </div>
@@ -3212,10 +3091,10 @@
             }
         }
 
-        // ——— BLOG DATA ——— with improved readability and formatting
+        // ——— BLOG DATA ——— (with improved readability & warm-amber palette)
         const BLOG_ABOUT = `# My Story
 
-        *I'm Isaac Bridget Njuguna — 22 years old. Born and raised in Kenya. Student. Developer. Artist. Footballer. Problem solver.*
+        I'm Isaac Bridget Njuguna — 22 years old. Born and raised in Kenya. Student. Developer. Artist. Footballer. Problem solver.
 
         ## Where I Come From
 
@@ -3231,19 +3110,19 @@
 
         ## What I Believe
 
-        - **Real problems first.** I don't build apps for fun. I build them because someone needs them.
-        - **Offline matters.** Not everyone has 5G. Not everyone can afford data. My apps work without the internet.
-        - **Simple > complex.** If my mom can't use it, it's useless.
-        - **AI is a tool, not a replacement.** I use ChatGPT, Claude, Gemini, but I make the final call on every line.
+        - Real problems first. I don't build apps for fun. I build them because someone needs them.
+        - Offline matters. Not everyone has 5G. Not everyone can afford data. My apps work without the internet.
+        - Simple > complex. If my mom can't use it, it's useless.
+        - AI is a tool, not a replacement. I use ChatGPT, Claude, Gemini, but I make the final call on every line.
 
         ## Outside Code
 
         When I am not building things, I am:
 
-        - 🎨 **Making stencil art.** Spray paint + cardboard = expression.
-        - ⚽ **Playing football.** The pitch taught me teamwork. This is my real and only passion.
-        - 📖 **Reading about things I don't understand yet.**
-        - 🔨 **Breaking things to figure out how they work.**
+        - 🎨 Making stencil art. Spray paint + cardboard = expression.
+        - ⚽ Playing football. The pitch taught me teamwork. This is my real and only passion.
+        - 📖 Reading about things I don't understand yet.
+        - 🔨 Breaking things to figure out how they work.
 
         ## The Bottom Line
 

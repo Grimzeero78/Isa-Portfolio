@@ -109,7 +109,7 @@
         }
 
         /* ============================================================
-           BLOG TERMINAL — CLEAN POWERSHELL/CMD STYLE
+           BLOG TERMINAL — CLEAN, RELIABLE, WITH GUIDELINES
            ============================================================ */
         #blog-terminal-overlay {
             position: fixed;
@@ -132,7 +132,7 @@
             pointer-events: auto;
         }
 
-        /* Simple status bar — like PowerShell title */
+        /* Simple status bar — just a path indicator */
         #blog-terminal-overlay .status-bar {
             display: flex;
             justify-content: space-between;
@@ -191,8 +191,15 @@
             white-space: pre-wrap;
             word-break: break-word;
         }
+        /* Color classes for command output */
+        #blog-terminal-overlay .output .line .cyan { color: #67e8f9; }
+        #blog-terminal-overlay .output .line .amber { color: #fbbf24; }
+        #blog-terminal-overlay .output .line .green { color: #4ade80; }
+        #blog-terminal-overlay .output .line .dim { color: #888; }
+        #blog-terminal-overlay .output .line .error { color: #ef4444; }
+        #blog-terminal-overlay .output .line .success { color: #4ade80; }
+        #blog-terminal-overlay .output .line .cmd-echo { color: #ccc; }
 
-        /* Markdown styling — clean, minimal */
         #blog-terminal-overlay .output .line p {
             margin: 8px 0;
             line-height: 1.6;
@@ -339,9 +346,6 @@
         #blog-terminal-overlay .prompt .path {
             color: #67e8f9;
         }
-        #blog-terminal-overlay .prompt.compose {
-            color: #f472b6;
-        }
         #blog-terminal-overlay .input-area {
             position: relative;
             flex: 1;
@@ -388,14 +392,6 @@
             z-index: 2;
             cursor: text;
             padding: 0;
-        }
-
-        /* Remove all CRT effects */
-        #blog-terminal-overlay .crt-overlay,
-        #blog-terminal-overlay .scanlines,
-        #blog-terminal-overlay .vignette,
-        #blog-terminal-overlay .flicker {
-            display: none !important;
         }
 
         /* Close button */
@@ -2596,24 +2592,23 @@
         Go Back
     </button>
 
-    <!-- ===== BLOG TERMINAL ===== -->
+    <!-- ===== BLOG TERMINAL — CLEAN, RELIABLE, WITH GUIDELINES ===== -->
     <div id="blog-terminal-overlay">
-        <!-- Removed CRT effects -->
-        <div class="status-bar" role="banner">
-            <div class="status-item"><span style="color:#4ade80;">●</span> PowerShell 7.4.0</div>
-            <div class="status-item" id="blogStatusTime">--:--:--</div>
+        <!-- Simple status bar -->
+        <div class="status-bar">
+            <span class="status-item">📁 <b id="blogStatusPath">~</b></span>
+            <span class="status-item" id="blogStatusTime">--:--:--</span>
         </div>
 
-        <div class="terminal" role="main">
-            <div class="output" id="blogOutput" aria-live="polite" aria-label="terminal output" tabindex="-1"></div>
-
-            <div class="prompt-line" id="blogPromptLine">
-                <span class="prompt" id="blogPromptText" aria-hidden="true">PS <span class="path">C:\Users\isaac</span>&gt;</span>
+        <div class="terminal">
+            <div class="output" id="blogOutput"></div>
+            <div class="prompt-line">
+                <span class="prompt" id="blogPromptText">$</span>
                 <div class="input-area">
-                    <div class="input-display" aria-hidden="true">
+                    <div class="input-display">
                         <span id="blogTypedText"></span><span class="block-cursor" id="blogBlockCursor"></span><span class="ghost-text" id="blogGhostText"></span>
                     </div>
-                    <input type="text" id="blogCmdInput" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="terminal command input" autofocus />
+                    <input type="text" id="blogCmdInput" autocomplete="off" autocapitalize="off" spellcheck="false" autofocus />
                 </div>
             </div>
         </div>
@@ -2998,7 +2993,7 @@
             }
         }
 
-        // ——— BLOG DATA ——— (clean, PowerShell style)
+        // ——— BLOG DATA ———
         const BLOG_ABOUT = `# My Story
 
         I'm Isaac Bridget Njuguna — 22 years old. Born and raised in Kenya. Student. Developer. Artist. Footballer. Problem solver.
@@ -3111,29 +3106,28 @@
 
         > This is not a portfolio. This is a conversation.`;
 
-        // ——— BLOG ENGINE ———
-        const blogState = { cwd: '~', history: [], historyIndex: -1, theme: 'cmd', bootTime: Date.now() };
+        // ——— BLOG ENGINE ——— (clean, robust)
+        const blogState = { cwd: '~', history: [], historyIndex: -1, bootTime: Date.now() };
         let blogComposeState = null;
+        let blogReady = false;
         const b$ = (id) => document.getElementById(id);
-        const blogOutput = b$('blogOutput');
-        const blogCmdInput = b$('blogCmdInput');
-        const blogTypedText = b$('blogTypedText');
-        const blogGhostText = b$('blogGhostText');
-        const blogPromptText = b$('blogPromptText');
-        const blogStatusPath = b$('blogStatusPath');
-        const blogStatusTime = b$('blogStatusTime');
 
         function bEscapeHtml(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
 
         function bSleep(ms) { return new Promise(r => setTimeout(r, ms)); }
 
-        function bScrollBottom() { blogOutput.scrollTop = blogOutput.scrollHeight; }
+        function bScrollBottom() {
+            const out = b$('blogOutput');
+            if (out) out.scrollTop = out.scrollHeight;
+        }
 
         function bPrint(html, cls = '') {
+            const out = b$('blogOutput');
+            if (!out) return;
             const div = document.createElement('div');
             div.className = 'line' + (cls ? ' ' + cls : '');
             div.innerHTML = html;
-            blogOutput.appendChild(div);
+            out.appendChild(div);
             bScrollBottom();
             return div;
         }
@@ -3255,12 +3249,14 @@
             return null;
         }
 
+        // ——— COMMANDS ———
         const BLOG_COMMANDS = {};
+
         BLOG_COMMANDS.help = () => {
             bPrint(`<span class="amber">Available Commands:</span>
           <span class="cyan">help</span>       show this message
           <span class="cyan">ls</span>         list files and directories
-          <span class="cyan">cat</span> <span class="dim">&lt;file&gt;</span>    read a file
+          <span class="cyan">cat</span> <span class="dim">&lt;file&gt;</span>    read a file (about, posts, README.md)
           <span class="cyan">cd</span> <span class="dim">&lt;dir&gt;</span>     change directory
           <span class="cyan">pwd</span>        show current directory
           <span class="cyan">whoami</span>     about me
@@ -3269,9 +3265,11 @@
           <span class="cyan">clear</span>      clear screen
           <span class="cyan">neofetch</span>   system info
           <span class="cyan">date</span>       current date and time
+          <span class="cyan">exit</span>       close the terminal
 
         <span class="dim">Try 'cat about' to learn about me, or 'cat posts' to read what I have written.</span>`);
         };
+
         BLOG_COMMANDS.ls = (args) => {
             let target = blogState.cwd;
             if (args[0]) target = bResolvePath(args[0]);
@@ -3284,12 +3282,14 @@
             }).join('');
             bPrintRaw('<div class="listing">' + html + '</div>');
         };
+
         BLOG_COMMANDS.cat = (args) => {
             if (!args[0]) { bPrint('cat: missing file operand', 'error'); return; }
             const file = bResolveFile(args[0]);
             if (!file) { bPrint('cat: ' + args[0] + ': No such file or directory', 'error'); return; }
             bPrintRaw('<div class="post">' + bRenderMarkdown(file.content) + '</div>');
         };
+
         BLOG_COMMANDS.cd = (args) => {
             const target = args[0] || '~';
             const resolved = bResolvePath(target);
@@ -3297,8 +3297,11 @@
             blogState.cwd = resolved;
             bUpdatePrompt();
         };
+
         BLOG_COMMANDS.pwd = () => bPrint(blogState.cwd.replace('~', '/home/isaac'));
+
         BLOG_COMMANDS.whoami = () => { bPrintRaw('<div class="post">' + bRenderMarkdown(BLOG_ABOUT) + '</div>'); };
+
         BLOG_COMMANDS.projects = () => {
             bPrint('<span class="cyan">My Projects:</span>');
             projects.forEach(p => {
@@ -3306,15 +3309,22 @@
             });
             bPrint('<span class="dim">Type \'cat projects\' for details, or visit my GitHub.</span>');
         };
+
         BLOG_COMMANDS.contact = () => {
             bPrint('<span class="amber">Get in touch:</span>');
             bPrint('  <span class="cyan">Email:</span> injuguna308@gmail.com');
             bPrint('  <span class="cyan">GitHub:</span> github.com/Grimzeero78');
             bPrint('  <span class="cyan">WhatsApp:</span>+254 143374333');
         };
-        BLOG_COMMANDS.clear = () => { blogOutput.innerHTML = ''; };
+
+        BLOG_COMMANDS.clear = () => {
+            const out = b$('blogOutput');
+            if (out) out.innerHTML = '';
+        };
         BLOG_COMMANDS.cls = BLOG_COMMANDS.clear;
+
         BLOG_COMMANDS.date = () => bPrint(new Date().toString());
+
         BLOG_COMMANDS.neofetch = () => {
             const uptime = bFormatUptime(Date.now() - blogState.bootTime);
             const logo = `   ___
@@ -3330,73 +3340,35 @@
                       <span class="amber">mom</span>:    proud (I hope)`;
             bPrintRaw('<pre class="neofetch">' + logo + '</pre>');
         };
-        BLOG_COMMANDS.mail = (args) => {
-            if (!args[0]) { bPrint('usage: mail <address>', 'error'); return; }
-            bStartMailCompose(args[0]);
+
+        BLOG_COMMANDS.exit = () => {
+            closeBlog();
         };
-        BLOG_COMMANDS.sudo = () => bPrint('<span class="error">you are already root of your own life.</span>');
-        BLOG_COMMANDS.exit = () => bPrint('<span class="dim">there is no escape. this is your blog now.</span>');
-        BLOG_COMMANDS.vim = () => bPrint('<span class="dim">you are in a terminal. vim would be redundant.</span>');
+
+        // aliases
         BLOG_COMMANDS.about = BLOG_COMMANDS.whoami;
         BLOG_COMMANDS.posts = () => { bPrintRaw('<div class="post">' + bRenderMarkdown(BLOG_POSTS) + '</div>'); };
 
-        function bStartMailCompose(to) {
-            blogComposeState = { to, subject: '', lines: [], mode: 'subject' };
-            bPrintRaw('<div class="mail-form"><span class="dim">┌── compose ──────────────────────────────</span>\n<span class="dim">│</span> <span class="dim">to:</span> <span class="cyan">' + bEscapeHtml(to) +
-                '</span>\n<span class="dim">│</span> <span class="dim">subject:</span> <span class="dim">(type below, then Enter)</span>\n<span class="dim">└─────────────────────────────────────────</span></div>');
-            bUpdatePrompt();
-        }
-
-        function bHandleComposeLine(val) {
-            if (!blogComposeState) return;
-            if (blogComposeState.mode === 'subject') {
-                blogComposeState.subject = val;
-                bPrint('<span class="dim">subject:</span> <span class="amber">' + bEscapeHtml(val) + '</span>');
-                bPrint('<span class="dim">type your message. end with a single "." on its own line.</span>', 'dim');
-                blogComposeState.mode = 'body';
-            } else {
-                if (val === '.') bFinishMailCompose();
-                else { blogComposeState.lines.push(val);
-                    bPrint('<span class="dim">›</span> ' + bEscapeHtml(val)); }
-            }
-        }
-
-        function bFinishMailCompose() {
-            if (!blogComposeState) return;
-            const cs = blogComposeState;
-            bPrintBlank();
-            const body = cs.lines.join('\n');
-            bPrintRaw('<div class="mail-summary"><span class="dim">─── message ready ───</span>\n\n  <span class="dim">To:</span> <span class="cyan">' +
-                bEscapeHtml(cs.to) + '</span>\n  <span class="dim">Subject:</span> <span class="amber">' + bEscapeHtml(cs
-                    .subject || '(no subject)') + '</span>\n\n' + (body ? cs.lines.map(l =>
-                    '  ' + bEscapeHtml(l)).join('\n') : '  <span class="dim">(empty body)</span>') +
-                '\n\n<span class="success">[message sent! or it would be, if this were a real mail server.]</span>\n<span class="dim">[opening your mail client as backup...]</span></div>');
-            blogComposeState = null;
-            bUpdatePrompt();
-            const mailto = 'mailto:' + cs.to + '?subject=' + encodeURIComponent(cs.subject) + '&body=' + encodeURIComponent(
-                body);
-            setTimeout(() => { try { window.open(mailto, '_blank'); } catch (e) {} }, 800);
-        }
-
+        // ——— PROMPT & UI ———
         function bUpdatePrompt() {
-            if (blogComposeState) {
-                blogPromptText.innerHTML = '<span class="compose">mail</span>(<span style="color:var(--cyan)">' + blogComposeState
-                    .mode + '</span>)<span class="path">▸</span>';
-                blogStatusPath.textContent = '~ (composing)';
-            } else {
-                const p = blogState.cwd === '~' ? 'C:\\Users\\isaac' : blogState.cwd.replace('~', 'C:\\Users\\isaac');
-                blogPromptText.innerHTML = 'PS <span class="path">' + p + '</span>&gt;';
-                blogStatusPath.textContent = blogState.cwd;
-            }
+            const prompt = b$('blogPromptText');
+            const path = b$('blogStatusPath');
+            if (!prompt || !path) return;
+            const p = blogState.cwd === '~' ? '~' : blogState.cwd;
+            prompt.innerHTML = '<span class="path">' + p + '</span> $';
+            path.textContent = p;
         }
 
         function bUpdateGhost() {
-            const val = blogCmdInput.value;
+            const input = b$('blogCmdInput');
+            const ghost = b$('blogGhostText');
+            if (!input || !ghost) return;
+            const val = input.value;
             const words = val.split(' ');
             const word = words[words.length - 1];
             const isFirst = words.length === 1;
             const cmd = words[0];
-            if (!word) { blogGhostText.textContent = ''; return; }
+            if (!word) { ghost.textContent = ''; return; }
             let candidates = [];
             if (isFirst) candidates = Object.keys(BLOG_COMMANDS);
             else if (cmd === 'cat' || cmd === 'ls') {
@@ -3409,25 +3381,28 @@
                 candidates.push('..', '~', 'about', 'posts');
             } else if (cmd === 'mail') candidates = ['injuguna308@gmail.com'];
             const matches = candidates.filter(c => c.toLowerCase().startsWith(word.toLowerCase()));
-            if (matches.length === 0) blogGhostText.textContent = '';
-            else if (matches.length === 1) blogGhostText.textContent = matches[0].slice(word.length);
+            if (matches.length === 0) ghost.textContent = '';
+            else if (matches.length === 1) ghost.textContent = matches[0].slice(word.length);
             else {
                 let prefix = matches[0];
                 for (const m of matches)
                     while (!m.toLowerCase().startsWith(prefix.toLowerCase())) prefix = prefix.slice(0, -1);
-                blogGhostText.textContent = prefix.length > word.length ? prefix.slice(word.length) : '';
+                ghost.textContent = prefix.length > word.length ? prefix.slice(word.length) : '';
             }
         }
 
         function bAcceptCompletion() {
-            if (blogGhostText.textContent) {
-                blogCmdInput.value += blogGhostText.textContent;
-                blogTypedText.textContent = blogCmdInput.value;
-                blogGhostText.textContent = '';
+            const input = b$('blogCmdInput');
+            const ghost = b$('blogGhostText');
+            if (!input || !ghost) return;
+            if (ghost.textContent) {
+                input.value += ghost.textContent;
+                b$('blogTypedText').textContent = input.value;
+                ghost.textContent = '';
                 bUpdateGhost();
                 return;
             }
-            const val = blogCmdInput.value;
+            const val = input.value;
             const words = val.split(' ');
             const word = words[words.length - 1];
             const isFirst = words.length === 1;
@@ -3452,6 +3427,8 @@
 
         function bNavigateHistory(dir) {
             if (blogState.history.length === 0) return;
+            const input = b$('blogCmdInput');
+            if (!input) return;
             if (dir === -1) {
                 if (blogState.historyIndex === -1) blogState.historyIndex = blogState.history.length - 1;
                 else if (blogState.historyIndex > 0) blogState.historyIndex--;
@@ -3460,29 +3437,28 @@
                 if (blogState.historyIndex === -1) return;
                 if (blogState.historyIndex < blogState.history.length - 1) blogState.historyIndex++;
                 else { blogState.historyIndex = -1;
-                    blogCmdInput.value = '';
-                    blogTypedText.textContent = '';
-                    blogGhostText.textContent = '';
+                    input.value = '';
+                    b$('blogTypedText').textContent = '';
+                    b$('blogGhostText').textContent = '';
                     return; }
             }
-            blogCmdInput.value = blogState.history[blogState.historyIndex];
-            blogTypedText.textContent = blogCmdInput.value;
-            blogGhostText.textContent = '';
+            input.value = blogState.history[blogState.historyIndex];
+            b$('blogTypedText').textContent = input.value;
+            b$('blogGhostText').textContent = '';
             bUpdateGhost();
         }
 
         function bSubmitCommand(raw) {
             const val = raw.trim();
-            const pathStr = blogState.cwd === '~' ? 'C:\\Users\\isaac' : blogState.cwd.replace('~', 'C:\\Users\\isaac');
-            bPrint('<span style="color:#4ade80">PS</span> <span class="path">' + pathStr + '</span>&gt; ' + bEscapeHtml(
-                val), 'cmd-echo');
+            const p = blogState.cwd === '~' ? '~' : blogState.cwd;
+            bPrint('<span class="path">' + p + '</span> $ ' + bEscapeHtml(val), 'cmd-echo');
             if (!val) return;
             if (blogState.history[blogState.history.length - 1] !== val) blogState.history.push(val);
             if (blogState.history.length > 100) blogState.history.shift();
             blogState.historyIndex = -1;
             try { localStorage.setItem('blogTerminalHistory', JSON.stringify(blogState.history)); } catch (e) {}
             const parts = val.split(/\s+/);
-            const cmd = parts[0];
+            const cmd = parts[0].toLowerCase();
             const args = parts.slice(1);
             if (BLOG_COMMANDS[cmd]) {
                 try { BLOG_COMMANDS[cmd](args); } catch (e) { bPrint('<span class="error">internal error: ' + bEscapeHtml(e
@@ -3510,36 +3486,26 @@
         function bUpdateClock() {
             const d = new Date();
             const pad = (n) => String(n).padStart(2, '0');
-            blogStatusTime.textContent = pad(d.getHours()) + ':' + pad(d.getMinutes()) + ':' + pad(d.getSeconds());
+            const time = b$('blogStatusTime');
+            if (time) time.textContent = pad(d.getHours()) + ':' + pad(d.getMinutes()) + ':' + pad(d.getSeconds());
         }
 
         function bSetupInput() {
-            blogCmdInput.addEventListener('keydown', (e) => {
-                if (blogComposeState) {
-                    if (e.key === 'Enter') {
-                        e.preventDefault();
-                        const val = blogCmdInput.value;
-                        bHandleComposeLine(val);
-                        blogCmdInput.value = '';
-                        blogTypedText.textContent = '';
-                        blogGhostText.textContent = '';
-                    } else if (e.key === 'c' && e.ctrlKey) {
-                        e.preventDefault();
-                        bPrint('<span class="error">^C</span> <span class="dim">[compose cancelled]</span>');
-                        blogComposeState = null;
-                        blogCmdInput.value = '';
-                        blogTypedText.textContent = '';
-                        bUpdatePrompt();
-                    }
-                    return;
-                }
+            const input = b$('blogCmdInput');
+            if (!input) return;
+            // Remove any existing listeners by cloning
+            const newInput = input.cloneNode(true);
+            input.parentNode.replaceChild(newInput, input);
+            const newInput2 = b$('blogCmdInput');
+
+            newInput2.addEventListener('keydown', (e) => {
                 if (e.key === 'Enter') {
                     e.preventDefault();
-                    const val = blogCmdInput.value;
+                    const val = newInput2.value;
                     bSubmitCommand(val);
-                    blogCmdInput.value = '';
-                    blogTypedText.textContent = '';
-                    blogGhostText.textContent = '';
+                    newInput2.value = '';
+                    b$('blogTypedText').textContent = '';
+                    b$('blogGhostText').textContent = '';
                 } else if (e.key === 'Tab') {
                     e.preventDefault();
                     bAcceptCompletion();
@@ -3549,38 +3515,48 @@
                 } else if (e.key === 'ArrowDown') {
                     e.preventDefault();
                     bNavigateHistory(1);
-                } else if (e.key === 'ArrowRight' && blogGhostText.textContent) {
+                } else if (e.key === 'ArrowRight' && b$('blogGhostText').textContent) {
                     e.preventDefault();
-                    blogCmdInput.value += blogGhostText.textContent;
-                    blogTypedText.textContent = blogCmdInput.value;
-                    blogGhostText.textContent = '';
+                    newInput2.value += b$('blogGhostText').textContent;
+                    b$('blogTypedText').textContent = newInput2.value;
+                    b$('blogGhostText').textContent = '';
                     bUpdateGhost();
                 } else if (e.key === 'l' && e.ctrlKey) {
                     e.preventDefault();
-                    blogOutput.innerHTML = '';
+                    const out = b$('blogOutput');
+                    if (out) out.innerHTML = '';
                 } else if (e.key === 'c' && e.ctrlKey) {
                     e.preventDefault();
-                    const val = blogCmdInput.value;
-                    const pathStr = blogState.cwd === '~' ? 'C:\\Users\\isaac' : blogState.cwd.replace('~', 'C:\\Users\\isaac');
-                    bPrint('<span style="color:#4ade80">PS</span> <span class="path">' + pathStr + '</span>&gt; ' +
-                        bEscapeHtml(val) + '<span class="error">^C</span>', 'cmd-echo');
-                    blogCmdInput.value = '';
-                    blogTypedText.textContent = '';
-                    blogGhostText.textContent = '';
+                    const val = newInput2.value;
+                    const p = blogState.cwd === '~' ? '~' : blogState.cwd;
+                    bPrint('<span class="path">' + p + '</span> $ ' + bEscapeHtml(val) + '<span class="error">^C</span>',
+                        'cmd-echo');
+                    newInput2.value = '';
+                    b$('blogTypedText').textContent = '';
+                    b$('blogGhostText').textContent = '';
                 }
             });
-            blogCmdInput.addEventListener('input', () => {
-                blogTypedText.textContent = blogCmdInput.value;
+
+            newInput2.addEventListener('input', () => {
+                b$('blogTypedText').textContent = newInput2.value;
                 bUpdateGhost();
             });
-            blogCmdInput.addEventListener('paste', () => {
-                setTimeout(() => { blogTypedText.textContent = blogCmdInput.value;
-                    bUpdateGhost(); }, 0);
+
+            newInput2.addEventListener('paste', () => {
+                setTimeout(() => {
+                    b$('blogTypedText').textContent = newInput2.value;
+                    bUpdateGhost();
+                }, 0);
             });
-            document.querySelector('#blog-terminal-overlay .terminal').addEventListener('click', (e) => {
-                if (window.getSelection().toString()) return;
-                blogCmdInput.focus();
-            });
+
+            // Click on terminal to focus input
+            const term = document.querySelector('#blog-terminal-overlay .terminal');
+            if (term) {
+                term.addEventListener('click', (e) => {
+                    if (window.getSelection().toString()) return;
+                    newInput2.focus();
+                });
+            }
         }
 
         async function bBoot() {
@@ -3594,27 +3570,26 @@
                 { t: '[ <span class="ok">OK</span> ] blog shell v1.0 starting...', d: 60 },
                 { t: '[ <span class="ok">OK</span> ] loading <span class="cyan">about</span>', d: 80 },
                 { t: '[ <span class="ok">OK</span> ] loading <span class="cyan">posts</span>', d: 70 },
-                { t: '[ <span class="ok">OK</span> ] reading history <span class="dim">(' + blogState.history.length +
-                        ' commands)</span>', d: 50 },
+                { t: '[ <span class="ok">OK</span> ] ready. type <span class="cyan">help</span> for commands.', d: 50 },
                 { t: '', d: 80 },
             ];
             for (const line of bootLines) {
                 bPrint(line.t, 'boot-line');
                 await bSleep(line.d);
             }
-            const motd = `<span class="dim">┌──────────────────────────────────────────────────────────────────────────┐</span>
-        <span class="dim">│</span>                                                                          <span class="dim">│</span>
-        <span class="dim">│</span>   <span class="amber" style="font-weight:600">isaac's blog</span>  <span class="dim">—</span>  thoughts, stories, and things I have built    <span class="dim">│</span>
-        <span class="dim">│</span>                                                                          <span class="dim">│</span>
-        <span class="dim">│</span>   type <span class="success">help</span> to see commands.    type <span class="success">ls</span> to look around.        <span class="dim">│</span>
-        <span class="dim">│</span>   type <span class="success">cat about</span> to learn about me.    type <span class="success">cat posts</span> to read.   <span class="dim">│</span>
-        <span class="dim">│</span>                                                                          <span class="dim">│</span>
-        <span class="dim">└──────────────────────────────────────────────────────────────────────────┘</span>`;
+            const motd = `<span class="dim">┌──────────────────────────────────────────────────────────────────────┐</span>
+        <span class="dim">│</span>  <span class="amber" style="font-weight:600">isaac's blog</span>  —  thoughts, stories, and things I have built  <span class="dim">│</span>
+        <span class="dim">│</span>                                                                      <span class="dim">│</span>
+        <span class="dim">│</span>  type <span class="success">help</span> for commands.    type <span class="success">ls</span> to look around.        <span class="dim">│</span>
+        <span class="dim">│</span>  type <span class="success">cat about</span> to learn about me.    type <span class="success">cat posts</span> to read.   <span class="dim">│</span>
+        <span class="dim">└──────────────────────────────────────────────────────────────────────┘</span>`;
             bPrintRaw(motd);
             bPrintBlank();
-            blogCmdInput.focus();
+            const input = b$('blogCmdInput');
+            if (input) input.focus();
             setInterval(bUpdateClock, 1000);
             bUpdateClock();
+            blogReady = true;
         }
 
         function openBlog() {
@@ -3627,9 +3602,15 @@
             document.getElementById('grain').style.opacity = '0';
             overlay.classList.add('open');
             closeBtn.classList.add('visible');
+            // Reset state
+            blogState.cwd = '~';
+            blogState.history = [];
+            blogState.historyIndex = -1;
+            blogComposeState = null;
+            const out = b$('blogOutput');
+            if (out) out.innerHTML = '';
             setTimeout(() => {
                 bBoot();
-                blogCmdInput.focus();
             }, 300);
         }
 
@@ -3641,13 +3622,9 @@
             setTimeout(() => { flash.classList.remove('flash'); }, 200);
             overlay.classList.remove('open');
             closeBtn.classList.remove('visible');
-            overlay.scrollTop = 0;
             document.body.style.overflow = '';
             document.getElementById('grain').style.opacity = '0.035';
-            blogOutput.innerHTML = '';
-            blogState.cwd = '~';
-            blogComposeState = null;
-            bUpdatePrompt();
+            blogReady = false;
         }
 
         document.addEventListener('keydown', e => {

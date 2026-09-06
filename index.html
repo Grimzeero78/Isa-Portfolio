@@ -109,20 +109,20 @@
         }
 
         /* ============================================================
-           BLOG TERMINAL — CMD-INSPIRED LIGHT GREEN THEME
+           BLOG TERMINAL — CLEAN POWERSHELL/CMD STYLE
            ============================================================ */
         #blog-terminal-overlay {
             position: fixed;
             inset: 0;
             z-index: 50050;
-            background: #0a0a0a;
-            color: #b3f0b3;
+            background: #0c0c0c;
+            color: #d4d4d4;
             overflow: hidden;
             transform: translateX(100%);
             opacity: 0;
             pointer-events: none;
             transition: transform .7s cubic-bezier(.16, 1, .3, 1), opacity .5s ease;
-            font-family: 'JetBrains Mono', 'SF Mono', monospace;
+            font-family: 'Consolas', 'JetBrains Mono', 'SF Mono', monospace;
             font-size: 15px;
             line-height: 1.6;
         }
@@ -132,18 +132,74 @@
             pointer-events: auto;
         }
 
-        #blog-terminal-overlay .output .line {
-            color: #b3f0b3;
-            margin-bottom: 6px;
-            padding: 1px 0;
+        /* Simple status bar — like PowerShell title */
+        #blog-terminal-overlay .status-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 4px 16px;
+            background: #1e1e1e;
+            border-bottom: 1px solid #333;
+            font-size: 12px;
+            color: #aaa;
+            flex-shrink: 0;
+            user-select: none;
         }
+        #blog-terminal-overlay .status-bar .status-item b {
+            color: #4ade80;
+            font-weight: 400;
+        }
+
+        #blog-terminal-overlay .terminal {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            min-height: 0;
+            padding: 12px 16px;
+            position: relative;
+            overflow: hidden;
+            height: calc(100vh - 40px);
+        }
+        #blog-terminal-overlay .output {
+            flex: 1;
+            overflow-y: auto;
+            overflow-x: hidden;
+            padding-right: 8px;
+            padding-bottom: 6px;
+            scrollbar-width: thin;
+            scrollbar-color: #333 transparent;
+        }
+        #blog-terminal-overlay .output::-webkit-scrollbar {
+            width: 6px;
+        }
+        #blog-terminal-overlay .output::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        #blog-terminal-overlay .output::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 3px;
+        }
+        #blog-terminal-overlay .output::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        /* Output lines */
+        #blog-terminal-overlay .output .line {
+            color: #d4d4d4;
+            margin-bottom: 2px;
+            padding: 1px 0;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+
+        /* Markdown styling — clean, minimal */
         #blog-terminal-overlay .output .line p {
-            margin: 12px 0;
-            line-height: 1.7;
-            color: #c8f0c8;
+            margin: 8px 0;
+            line-height: 1.6;
+            color: #d4d4d4;
         }
         #blog-terminal-overlay .output .line p strong {
-            color: #fcd34d;
+            color: #facc15;
             font-weight: 600;
         }
         #blog-terminal-overlay .output .line p em {
@@ -152,71 +208,66 @@
         }
         #blog-terminal-overlay .output .line h1 {
             color: #facc15;
-            font-size: 1.5em;
+            font-size: 1.4em;
             font-weight: 700;
-            margin: 20px 0 12px 0;
-            padding-bottom: 4px;
-            border-bottom: 1px solid rgba(250, 204, 21, 0.2);
-            letter-spacing: -0.01em;
+            margin: 16px 0 10px 0;
+            padding-bottom: 2px;
+            border-bottom: 1px solid #2a2a2a;
         }
         #blog-terminal-overlay .output .line h2 {
             color: #facc15;
-            font-size: 1.2em;
-            font-weight: 600;
-            margin: 18px 0 10px 0;
-            letter-spacing: -0.01em;
-        }
-        #blog-terminal-overlay .output .line h3 {
-            color: #fcd34d;
-            font-size: 1.05em;
+            font-size: 1.15em;
             font-weight: 600;
             margin: 14px 0 8px 0;
         }
+        #blog-terminal-overlay .output .line h3 {
+            color: #fcd34d;
+            font-size: 1.0em;
+            font-weight: 600;
+            margin: 12px 0 6px 0;
+        }
         #blog-terminal-overlay .output .line blockquote {
-            border-left: 3px solid #facc15;
-            padding: 6px 0 6px 18px;
-            margin: 14px 0;
-            background: rgba(250, 204, 21, 0.04);
-            border-radius: 0 4px 4px 0;
-            color: #a8c8a8;
-            font-style: italic;
+            border-left: 3px solid #4ade80;
+            padding: 4px 0 4px 16px;
+            margin: 10px 0;
+            background: rgba(74, 222, 128, 0.04);
+            color: #b0b0b0;
         }
         #blog-terminal-overlay .output .line blockquote p {
-            color: #a8c8a8;
+            color: #b0b0b0;
             margin: 4px 0;
         }
         #blog-terminal-overlay .output .line ul,
         #blog-terminal-overlay .output .line ol {
-            padding-left: 26px;
-            margin: 8px 0 14px 0;
+            padding-left: 24px;
+            margin: 6px 0 12px 0;
         }
         #blog-terminal-overlay .output .line li {
-            margin: 6px 0;
-            color: #c8f0c8;
-            line-height: 1.6;
-            display: list-item;
+            margin: 4px 0;
+            color: #d4d4d4;
+            line-height: 1.5;
         }
         #blog-terminal-overlay .output .line ul li::marker {
-            color: #facc15;
+            color: #4ade80;
         }
         #blog-terminal-overlay .output .line ol li::marker {
-            color: #facc15;
+            color: #4ade80;
             font-weight: 600;
         }
         #blog-terminal-overlay .output .line code {
             color: #67e8f9;
-            background: rgba(103, 232, 249, 0.07);
-            padding: 1px 7px;
-            border-radius: 3px;
+            background: rgba(103, 232, 249, 0.06);
+            padding: 1px 6px;
+            border-radius: 2px;
             font-size: 0.92em;
-            border: 1px solid rgba(103, 232, 249, 0.15);
+            border: 1px solid rgba(103, 232, 249, 0.08);
         }
         #blog-terminal-overlay .output .line pre {
-            margin: 12px 0;
-            background: #0f0f0f;
-            border: 1px solid #1d2530;
-            border-radius: 4px;
-            padding: 12px 16px;
+            margin: 8px 0;
+            background: #1a1a1a;
+            border: 1px solid #2a2a2a;
+            border-radius: 2px;
+            padding: 10px 14px;
             overflow-x: auto;
         }
         #blog-terminal-overlay .output .line pre code {
@@ -224,9 +275,9 @@
             padding: 0;
             background: transparent;
             border: none;
-            color: #b3f0b3;
-            font-size: 0.92em;
-            line-height: 1.7;
+            color: #d4d4d4;
+            font-size: 0.9em;
+            line-height: 1.6;
         }
         #blog-terminal-overlay .output .line a {
             color: #67e8f9;
@@ -240,20 +291,22 @@
         }
         #blog-terminal-overlay .output .line hr {
             border: none;
-            border-top: 1px solid #1d2530;
-            margin: 18px 0;
+            border-top: 1px solid #2a2a2a;
+            margin: 14px 0;
         }
 
+        /* Inline listing (ls output) */
         #blog-terminal-overlay .output .listing {
             display: flex;
             flex-wrap: wrap;
-            gap: 6px 28px;
-            margin: 6px 0 14px 0;
-            line-height: 1.8;
+            gap: 4px 24px;
+            margin: 4px 0 10px 0;
+            line-height: 1.7;
         }
         #blog-terminal-overlay .output .listing .file {
             display: inline-block;
             padding: 2px 0;
+            color: #d4d4d4;
         }
         #blog-terminal-overlay .output .listing .file.dir {
             color: #67e8f9;
@@ -263,114 +316,31 @@
             color: #facc15;
         }
         #blog-terminal-overlay .output .listing .file.hidden {
-            color: #6b7585;
+            color: #666;
         }
 
-        #blog-terminal-overlay .status-bar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 5px 14px;
-            background: linear-gradient(to bottom, #0f0f0f, #0a0a0a);
-            border-bottom: 1px solid #1a1a1a;
-            font-size: 11px;
-            color: #6b7585;
-            flex-shrink: 0;
-            user-select: none;
-            letter-spacing: 0.02em;
-        }
-        #blog-terminal-overlay .status-group {
-            display: flex;
-            gap: 16px;
-            align-items: center;
-        }
-        #blog-terminal-overlay .status-item {
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            white-space: nowrap;
-        }
-        #blog-terminal-overlay .status-item b {
-            color: #facc15;
-            font-weight: 500;
-        }
-        #blog-terminal-overlay .status-item .dot {
-            display: inline-block;
-            width: 7px;
-            height: 7px;
-            border-radius: 50%;
-            background: #4ade80;
-            box-shadow: 0 0 7px #4ade80;
-            animation: pulse 2s ease-in-out infinite;
-        }
-        @keyframes pulse {
-            0%,
-            100% {
-                opacity: 1;
-                transform: scale(1);
-            }
-            50% {
-                opacity: 0.5;
-                transform: scale(0.85);
-            }
-        }
-
-        #blog-terminal-overlay .terminal {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            min-height: 0;
-            padding: 14px 18px;
-            position: relative;
-            overflow: hidden;
-            height: calc(100vh - 40px);
-        }
-        #blog-terminal-overlay .output {
-            flex: 1;
-            overflow-y: auto;
-            overflow-x: hidden;
-            padding-right: 8px;
-            padding-bottom: 6px;
-            scrollbar-width: thin;
-            scrollbar-color: #1a1a1a transparent;
-        }
-        #blog-terminal-overlay .output::-webkit-scrollbar {
-            width: 6px;
-        }
-        #blog-terminal-overlay .output::-webkit-scrollbar-track {
-            background: transparent;
-        }
-        #blog-terminal-overlay .output::-webkit-scrollbar-thumb {
-            background: #1a1a1a;
-            border-radius: 3px;
-        }
-        #blog-terminal-overlay .output::-webkit-scrollbar-thumb:hover {
-            background: #6b7585;
-        }
-
+        /* Prompt line */
         #blog-terminal-overlay .prompt-line {
             display: flex;
             align-items: center;
             gap: 8px;
             padding-top: 6px;
-            border-top: 1px solid #0f0f0f;
+            border-top: 1px solid #1a1a1a;
             position: relative;
             flex-shrink: 0;
         }
         #blog-terminal-overlay .prompt {
             color: #4ade80;
-            text-shadow: 0 0 8px rgba(74, 222, 128, 0.45);
             font-weight: 500;
             flex-shrink: 0;
             user-select: none;
+            font-size: 14px;
         }
         #blog-terminal-overlay .prompt .path {
             color: #67e8f9;
-            text-shadow: 0 0 6px rgba(103, 232, 249, 0.4);
         }
         #blog-terminal-overlay .prompt.compose {
             color: #f472b6;
-            text-shadow: 0 0 8px rgba(244, 114, 182, 0.5);
         }
         #blog-terminal-overlay .input-area {
             position: relative;
@@ -379,22 +349,30 @@
         }
         #blog-terminal-overlay .input-display {
             pointer-events: none;
-            color: #b3f0b3;
+            color: #d4d4d4;
         }
         #blog-terminal-overlay .ghost-text {
-            color: #6b7585;
-            opacity: 0.55;
+            color: #666;
+            opacity: 0.6;
         }
         #blog-terminal-overlay .block-cursor {
             display: inline-block;
-            width: 8px;
-            height: 17px;
-            background: #facc15;
+            width: 10px;
+            height: 18px;
+            background: #d4d4d4;
             vertical-align: text-bottom;
-            box-shadow: 0 0 8px #facc15;
-            animation: blink 1.06s steps(2, end) infinite;
+            animation: blink 1.0s steps(2, end) infinite;
             margin-left: 1px;
             margin-right: 1px;
+        }
+        @keyframes blink {
+            0%,
+            100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
         }
         #blog-terminal-overlay #blogCmdInput {
             position: absolute;
@@ -412,76 +390,28 @@
             padding: 0;
         }
 
-        #blog-terminal-overlay .crt-overlay {
-            position: fixed;
-            inset: 0;
-            pointer-events: none;
-            z-index: 100;
-            opacity: 0.8;
-        }
-        #blog-terminal-overlay .scanlines {
-            position: absolute;
-            inset: 0;
-            background: repeating-linear-gradient(to bottom,
-                    rgba(0, 0, 0, 0) 0px,
-                    rgba(0, 0, 0, 0) 2px,
-                    rgba(0, 0, 0, 0.32) 3px,
-                    rgba(0, 0, 0, 0.32) 4px);
-            opacity: 0.55;
-            animation: scan 6s linear infinite;
-        }
-        @keyframes scan {
-            0% {
-                transform: translateY(0);
-            }
-            100% {
-                transform: translateY(4px);
-            }
-        }
-        #blog-terminal-overlay .vignette {
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(ellipse 110% 100% at center, transparent 45%, rgba(0, 0, 0, 0.55) 100%);
-        }
+        /* Remove all CRT effects */
+        #blog-terminal-overlay .crt-overlay,
+        #blog-terminal-overlay .scanlines,
+        #blog-terminal-overlay .vignette,
         #blog-terminal-overlay .flicker {
-            position: absolute;
-            inset: 0;
-            background: rgba(255, 184, 108, 0.018);
-            animation: flicker 7s infinite;
-        }
-        @keyframes flicker {
-            0%,
-            94%,
-            100% {
-                opacity: 1;
-            }
-            95% {
-                opacity: 0.82;
-            }
-            96% {
-                opacity: 1;
-            }
-            97% {
-                opacity: 0.93;
-            }
-            98% {
-                opacity: 1;
-            }
+            display: none !important;
         }
 
+        /* Close button */
         #blog-close-btn {
             position: fixed;
             top: 20px;
             right: 24px;
             z-index: 50060;
-            padding: 10px 20px;
-            border-radius: 8px;
-            background: rgba(250, 204, 21, 0.12);
-            border: 1px solid rgba(250, 204, 21, 0.25);
+            padding: 8px 16px;
+            border-radius: 4px;
+            background: rgba(74, 222, 128, 0.12);
+            border: 1px solid rgba(74, 222, 128, 0.25);
             display: flex;
             align-items: center;
-            gap: 8px;
-            color: #facc15;
+            gap: 6px;
+            color: #4ade80;
             cursor: pointer;
             transition: all .3s ease;
             font-size: 13px;
@@ -491,7 +421,6 @@
             opacity: 0;
             transform: scale(0.95);
             transition: opacity .4s ease, transform .4s ease, background .3s, border-color .3s;
-            z-index: 50060;
         }
         #blog-close-btn.visible {
             pointer-events: auto;
@@ -499,16 +428,16 @@
             transform: scale(1);
         }
         #blog-close-btn:hover {
-            background: rgba(250, 204, 21, 0.22);
-            border-color: #facc15;
+            background: rgba(74, 222, 128, 0.2);
+            border-color: #4ade80;
             transform: scale(1.05);
         }
         #blog-close-btn .iconify {
-            font-size: 18px;
+            font-size: 16px;
         }
         @media(max-width:768px) {
             #blog-close-btn {
-                padding: 8px 14px;
+                padding: 6px 12px;
                 font-size: 11px;
                 top: 16px;
                 right: 16px;
@@ -2669,29 +2598,17 @@
 
     <!-- ===== BLOG TERMINAL ===== -->
     <div id="blog-terminal-overlay">
-        <div class="crt-overlay" aria-hidden="true">
-            <div class="scanlines"></div>
-            <div class="vignette"></div>
-            <div class="flicker"></div>
-        </div>
-
+        <!-- Removed CRT effects -->
         <div class="status-bar" role="banner">
-            <div class="status-group">
-                <span class="status-item"><span class="dot" aria-hidden="true"></span>isaac@blog</span>
-                <span class="status-item">pwd: <b id="blogStatusPath">~</b></span>
-            </div>
-            <div class="status-group">
-                <span class="status-item">theme: <b id="blogStatusTheme">cmd</b></span>
-                <span class="status-item">crt: <b id="blogStatusCrt">on</b></span>
-                <span class="status-item" id="blogStatusTime">--:--:--</span>
-            </div>
+            <div class="status-item"><span style="color:#4ade80;">●</span> PowerShell 7.4.0</div>
+            <div class="status-item" id="blogStatusTime">--:--:--</div>
         </div>
 
         <div class="terminal" role="main">
             <div class="output" id="blogOutput" aria-live="polite" aria-label="terminal output" tabindex="-1"></div>
 
             <div class="prompt-line" id="blogPromptLine">
-                <span class="prompt" id="blogPromptText" aria-hidden="true">isaac@blog<span class="path">:~</span>$</span>
+                <span class="prompt" id="blogPromptText" aria-hidden="true">PS <span class="path">C:\Users\isaac</span>&gt;</span>
                 <div class="input-area">
                     <div class="input-display" aria-hidden="true">
                         <span id="blogTypedText"></span><span class="block-cursor" id="blogBlockCursor"></span><span class="ghost-text" id="blogGhostText"></span>
@@ -3081,7 +2998,7 @@
             }
         }
 
-        // ——— BLOG DATA ——— (with improved readability & CMD colors)
+        // ——— BLOG DATA ——— (clean, PowerShell style)
         const BLOG_ABOUT = `# My Story
 
         I'm Isaac Bridget Njuguna — 22 years old. Born and raised in Kenya. Student. Developer. Artist. Footballer. Problem solver.
@@ -3467,9 +3384,8 @@
                     .mode + '</span>)<span class="path">▸</span>';
                 blogStatusPath.textContent = '~ (composing)';
             } else {
-                const p = blogState.cwd === '~' ? ':~' : ':' + blogState.cwd;
-                blogPromptText.innerHTML = '<span style="color:#4ade80">isaac@blog</span><span class="path">' + p +
-                    '</span>$';
+                const p = blogState.cwd === '~' ? 'C:\\Users\\isaac' : blogState.cwd.replace('~', 'C:\\Users\\isaac');
+                blogPromptText.innerHTML = 'PS <span class="path">' + p + '</span>&gt;';
                 blogStatusPath.textContent = blogState.cwd;
             }
         }
@@ -3557,8 +3473,8 @@
 
         function bSubmitCommand(raw) {
             const val = raw.trim();
-            const pathStr = blogState.cwd === '~' ? ':~' : ':' + blogState.cwd;
-            bPrint('<span style="color:#4ade80">isaac@blog</span><span class="path">' + pathStr + '</span>$ ' + bEscapeHtml(
+            const pathStr = blogState.cwd === '~' ? 'C:\\Users\\isaac' : blogState.cwd.replace('~', 'C:\\Users\\isaac');
+            bPrint('<span style="color:#4ade80">PS</span> <span class="path">' + pathStr + '</span>&gt; ' + bEscapeHtml(
                 val), 'cmd-echo');
             if (!val) return;
             if (blogState.history[blogState.history.length - 1] !== val) blogState.history.push(val);
@@ -3645,8 +3561,8 @@
                 } else if (e.key === 'c' && e.ctrlKey) {
                     e.preventDefault();
                     const val = blogCmdInput.value;
-                    const pathStr = blogState.cwd === '~' ? ':~' : ':' + blogState.cwd;
-                    bPrint('<span style="color:#4ade80">isaac@blog</span><span class="path">' + pathStr + '</span>$ ' +
+                    const pathStr = blogState.cwd === '~' ? 'C:\\Users\\isaac' : blogState.cwd.replace('~', 'C:\\Users\\isaac');
+                    bPrint('<span style="color:#4ade80">PS</span> <span class="path">' + pathStr + '</span>&gt; ' +
                         bEscapeHtml(val) + '<span class="error">^C</span>', 'cmd-echo');
                     blogCmdInput.value = '';
                     blogTypedText.textContent = '';

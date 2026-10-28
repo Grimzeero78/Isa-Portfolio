@@ -989,85 +989,181 @@
 
         function openPDFCV() {
             try {
-                const htmlContent = `<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Isaac Njuguna Bridget · Professional CV</title><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet"><style>*{margin:0;padding:0;box-sizing:border-box}body{background:#f0f2f5;font-family:'Inter',sans-serif;padding:24px;color:#1a1a1a}.pdf-cv-page{max-width:1100px;margin:0 auto;background:#fff;display:grid;grid-template-columns:280px 1fr;gap:0;box-shadow:0 8px 40px rgba(0,0,0,0.06);border-radius:12px;overflow:hidden}.pdf-cv-page .sidebar{background:#1a1a1a;color:#e5e7eb;padding:40px 28px;display:flex;flex-direction:column;gap:28px}.pdf-cv-page .sidebar .name{font-size:26px;font-weight:800;letter-spacing:-0.02em;color:#fff;line-height:1.1}.pdf-cv-page .sidebar .title{font-size:14px;font-weight:500;color:#D97706;margin-top:4px}.pdf-cv-page .sidebar .contact-item{display:flex;align-items:center;gap:10px;font-size:13px;color:#cbd5e1;margin-bottom:6px}.pdf-cv-page .sidebar .contact-item a{color:#cbd5e1;text-decoration:none}.pdf-cv-page .sidebar .section-title{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#D97706;border-bottom:1px solid rgba(255,255,255,0.08);padding-bottom:6px;margin-bottom:14px}.pdf-cv-page .sidebar .skill-tag,.pdf-cv-page .sidebar .lang-tag{display:inline-block;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);padding:4px 12px;border-radius:20px;font-size:12px;color:#e5e7eb;margin:0 4px 6px 0}.pdf-cv-page .sidebar .lang-tag .lvl{color:#94a3b8;font-size:10px;margin-left:4px}.pdf-cv-page .main{padding:40px 44px 44px;background:#fff}.pdf-cv-page .main .section{margin-bottom:28px}.pdf-cv-page .main .section-title{font-size:16px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#D97706;border-bottom:2px solid #f0f0f0;padding-bottom:4px;margin-bottom:14px}.pdf-cv-page .main .section-content{font-size:14px;color:#2a2a2a}.pdf-cv-page .main .section-content p{margin-bottom:6px}.pdf-cv-page .main .project-item{margin-bottom:14px}.pdf-cv-page .main .project-item .proj-title{font-weight:700;font-size:15px;color:#1a1a1a}.pdf-cv-page .main .project-item .proj-meta{font-size:12px;color:#888;margin-bottom:2px}.pdf-cv-page .main .project-item .proj-desc{font-size:13px;color:#3a3a3a}.pdf-cv-page .main .edu-item{margin-bottom:12px}.pdf-cv-page .main .edu-item .edu-title{font-weight:700;font-size:15px}.pdf-cv-page .main .edu-item .edu-meta{font-size:13px;color:#555}.pdf-cv-page .main .edu-item .edu-desc{font-size:13px;color:#4a4a4a}.pdf-cv-page .main .ref-note{font-style:italic;color:#666;font-size:13px}.pdf-cv-page .main .footer-note{margin-top:24px;padding-top:16px;border-top:1px solid #e5e5e5;font-size:12px;color:#aaa;text-align:center}.pdf-cv-page .main .about-text{font-size:14px;line-height:1.7;color:#2a2a2a}.pdf-cv-page .main .about-text strong{color:#D97706}.pdf-cv-page .main .website-item{margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid #f0f0f0}.pdf-cv-page .main .website-item:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}.pdf-cv-page .main .website-item .site-title{font-weight:700;font-size:15px;color:#1a1a1a;display:flex;align-items:center;gap:8px;flex-wrap:wrap}.pdf-cv-page .main .website-item .site-title a{color:#D97706;text-decoration:none;font-weight:600;font-size:13px;border-bottom:1px dotted rgba(217,119,6,0.3)}.pdf-cv-page .main .website-item .site-desc{font-size:13px;color:#3a3a3a;margin-top:3px;line-height:1.5}.pdf-cv-page .main .website-item .site-search{font-size:12px;color:#777;margin-top:4px;background:#f8f8f8;padding:2px 12px;border-radius:14px;display:inline-block}.pdf-cv-page .main .website-item .site-search strong{color:#D97706;font-weight:600}.pdf-cv-page .main .cert-item{margin-bottom:8px}.pdf-cv-page .main .cert-item strong{color:#1a1a1a}.pdf-cv-page .main .cert-item .cert-meta{font-size:13px;color:#555}@media print{body{background:#fff;padding:0}.pdf-cv-page{box-shadow:none;border-radius:0}.no-print{display:none !important}}@media(max-width:700px){.pdf-cv-page{grid-template-columns:1fr;border-radius:0}.pdf-cv-page .sidebar{padding:28px 24px}.pdf-cv-page .main{padding:28px 24px}}.no-print{display:flex;justify-content:center;gap:16px;margin-top:24px;flex-wrap:wrap;max-width:1100px;margin-left:auto;margin-right:auto}.no-print button{font-family:'Inter',sans-serif;padding:10px 28px;border-radius:6px;font-size:14px;font-weight:600;cursor:pointer;transition:all .2s ease;border:none}.no-print .btn-download{background:#D97706;color:#fff}.no-print .btn-download:hover{background:#B45309;transform:scale(1.04)}.no-print .btn-print{background:transparent;color:#D97706;border:2px solid #D97706}.no-print .btn-print:hover{background:#D97706;color:#fff;transform:scale(1.04)}.no-print .btn-close{background:transparent;color:#888;border:1px solid #ddd}.no-print .btn-close:hover{background:#f0f0f0}</style></head><body>
-                <div class="pdf-cv-page" id="pdfCvContent">
-                    <div class="sidebar">
-                        <div><div class="name">ISAAC NJUGUNA BRIDGET</div><div class="title">Applied CS Student · Full-Stack &amp; Mobile Developer</div></div>
-                        <div><div class="section-title">Contact</div>
-                            <div class="contact-item">📧 <a href="mailto:injuguna308@gmail.com">injuguna308@gmail.com</a></div>
-                            <div class="contact-item">📞 +254 143374333</div>
-                            <div class="contact-item">📍 Kenya</div>
-                            <div class="contact-item">🔗 <a href="https://github.com/Grimzeero78" target="_blank">github.com/Grimzeero78</a></div>
-                        </div>
-                        <div><div class="section-title">Skills</div><span class="skill-tag">Flutter</span><span class="skill-tag">C++</span><span class="skill-tag">Python</span><span class="skill-tag">TypeScript</span><span class="skill-tag">Next.js</span><span class="skill-tag">MySQL</span><span class="skill-tag">TensorFlow</span><span class="skill-tag">Git</span><span class="skill-tag">Cloudflare Workers</span><span class="skill-tag">Prisma</span><span class="skill-tag">Critical Thinking</span><span class="skill-tag">Teamwork</span><span class="skill-tag">Creativity</span></div>
-                        <div><div class="section-title">Languages</div><span class="lang-tag">Kiswahili <span class="lvl">Native</span></span><span class="lang-tag">English <span class="lvl">Fluent</span></span><span class="lang-tag">Kikuyu <span class="lvl">Native</span></span><span class="lang-tag">Kimeru <span class="lvl">Native</span></span></div>
-                        <div><div class="section-title">Certifications</div><p style="font-size:13px;color:#cbd5e1;line-height:1.5;"><strong style="color:#fff;">Christian Discipleship</strong> (2024)</p><p style="font-size:12px;color:#94a3b8;margin-top:4px;">Character, leadership &amp; service training.</p></div>
-                    </div>
-                    <div class="main">
-                        <div class="section"><div class="section-title">Profile</div><div class="section-content"><p class="about-text">I am an Applied Computer Science student at <strong>Chuka University</strong> (2023-2027) with a passion for mobile development, AI, full-stack engineering, and solving real problems. I build offline-first apps, train practical AI models, and ship products designed to survive decades. My flagship mobile project, <strong>Stockipa</strong>, was born from watching my mom hustle as a mtumba seller without knowing where her money went. My first full-stack product, <strong>Future Voices</strong>, is a time-capsule platform built to last 1,000 years.</p></div></div>
-                        <div class="section"><div class="section-title">🌐 Websites I've Built</div><div class="section-content">
-                            <div class="website-item"><div class="site-title">⏳ Future Voices <a href="https://futurevoice.dev078.workers.dev" target="_blank">futurevoice.dev078.workers.dev</a></div><div class="site-desc">A digital time-capsule platform - write a letter, seal it with an unlock date (1 day to 1,000 years), and it stays locked. Magic Key system lets heirs open messages without email. Built with Next.js 16, TypeScript, Cloudflare Workers &amp; D1.</div><div class="site-search">🔍 Search: <strong>future voices time capsule</strong></div></div>
-                            <div class="website-item"><div class="site-title">🎨 Isaac Art <a href="https://artweb.dev078.workers.dev" target="_blank">artweb.dev078.workers.dev</a></div><div class="site-desc">A stencil art storefront where I showcase and sell my spray-paint work.</div><div class="site-search">🔍 Search: <strong>isaac bridget art</strong></div></div>
-                            <div class="website-item"><div class="site-title">📄 Isaac Bridget Portfolio <a href="https://portfolio.dev078.workers.dev" target="_blank">portfolio.dev078.workers.dev</a></div><div class="site-desc">My developer headquarters - all my projects, skills, and work in one place.</div><div class="site-search">🔍 Search: <strong>isaac bridget portfolio</strong></div></div>
-                            <div class="website-item"><div class="site-title">⚽ City Stars FC <a href="https://citystars.dev078.workers.dev" target="_blank">citystars.dev078.workers.dev</a></div><div class="site-desc">The digital home of Chuka University's football team - fixtures, results, and club news.</div><div class="site-search">🔍 Search: <strong>city stars chuka</strong></div></div>
-                            <div class="website-item"><div class="site-title">🏆 Merit AI <a href="https://truemerit.dev078.workers.dev/" target="_blank">truemerit.dev078.workers.dev</a></div><div class="site-desc">AI hiring-bias remover - analyze interview videos and documents to objectively rank candidates.</div><div class="site-search">🔍 Search: <strong>merit ai hiring bias</strong></div></div>
-                            <div class="website-item"><div class="site-title">🧘 DeepRest <a href="https://deeprest-app.dev078.workers.dev/" target="_blank">deeprest-app.dev078.workers.dev</a></div><div class="site-desc">Mental-health app that helps users reduce screen time, build healthier habits, and stay accountable.</div><div class="site-search">🔍 Search: <strong>deeprest screen time</strong></div></div>
-                            <div style="margin-top:12px;padding:10px 14px;background:#f8fafc;border-radius:6px;border-left:3px solid #D97706;font-size:13px;color:#444;"><strong>📌 All sites are live and indexed on Google.</strong></div>
-                        </div></div>
-                        <div class="section"><div class="section-title">Education</div><div class="section-content">
-                            <div class="edu-item"><div class="edu-title">BSc. Applied Computer Science</div><div class="edu-meta">Chuka University · 2023 - 2027</div><div class="edu-desc">Specializing in mobile development and AI. In progress.</div></div>
-                            <div class="edu-item"><div class="edu-title">Kagumo High School</div><div class="edu-meta">Secondary Education · 2019 - 2022</div></div>
-                            <div class="edu-item"><div class="edu-title">Ngenia Primary School</div><div class="edu-meta">Primary Education · - 2019</div></div>
-                        </div></div>
-                        <div class="section"><div class="section-title">Projects</div><div class="section-content">
-                            <div class="project-item"><div class="proj-title">Stockipa - Finance Tracking App</div><div class="proj-meta">Flutter · SQLite · M-Pesa Integration · 2025</div><div class="proj-desc">Offline mobile app that auto-tracks income and expenses by reading M-Pesa SMS and scanning bills. Features stock management, multi-language support, and yearly charts. Built for small business owners, starting with my mom.</div></div>
-                            <div class="project-item"><div class="proj-title">Future Voices - Digital Time Capsule (Full-Stack)</div><div class="proj-meta">Next.js 16 · TypeScript · Cloudflare Workers · D1 · Prisma · 2026</div><div class="proj-desc">My first full-stack product: a time-capsule platform where users seal letters, voice notes, and photos with an unlock date from 1 day to 1,000 years. Magic Key system lets loved ones open messages with a paper secret word, with no email dependency. Custom auth (scrypt hashing, hashed session tokens, brute-force lockouts), streaming media uploads, daily diary mode, and a public heir-lookup. 14,000+ lines of TypeScript; security-audited to 0 vulnerabilities. Live: <a href="https://futurevoice.dev078.workers.dev" target="_blank">futurevoice.dev078.workers.dev</a></div></div>
-                            <div class="project-item"><div class="proj-title">Merit AI - Hiring Bias Remover</div><div class="proj-meta">Python · Computer Vision · NLP · 2026</div><div class="proj-desc">AI system that analyzes interview videos and documents to rank candidates objectively, removing human bias from hiring. Source: <a href="https://github.com/Grimzeero78/bIAS" target="_blank">github.com/Grimzeero78/bIAS</a> · Live: <a href="https://truemerit.dev078.workers.dev/" target="_blank">truemerit.dev078.workers.dev</a></div></div>
-                            <div class="project-item"><div class="proj-title">DeepRest - Mental Health App</div><div class="proj-meta">Flutter · Firebase · Grok API · 2026</div><div class="proj-desc">Mobile app for reducing screen time and building healthier habits. Features accountability groups, AI companions, and rank tracking. Source: <a href="https://github.com/Grimzeero78/deeprest" target="_blank">github.com/Grimzeero78/deeprest</a> · Live: <a href="https://deeprest-app.dev078.workers.dev/" target="_blank">deeprest-app.dev078.workers.dev</a></div></div>
-                            <div class="project-item"><div class="proj-title">AI Image Detector</div><div class="proj-meta">Python · TensorFlow · OpenCV · 2024</div><div class="proj-desc">Desktop app using TensorFlow to classify objects in images.</div></div>
-                            <div class="project-item"><div class="proj-title">City Stars FC - Football Website</div><div class="proj-meta">HTML · CSS · JavaScript · 2026</div><div class="proj-desc">Full website for Chuka University's football team with fixtures, results, player profiles, staff, league table, and club blog. Live: <a href="https://citystars.dev078.workers.dev/" target="_blank">citystars.dev078.workers.dev</a></div></div>
-                            <div class="project-item"><div class="proj-title">Philites FC - Current Team Website</div><div class="proj-meta">HTML · CSS · JavaScript · 2026</div><div class="proj-desc">Official website for my current football team, with match fixtures, results, squad profiles, club news, and updates. Live: <a href="https://philites.dev078.workers.dev/" target="_blank">philites.dev078.workers.dev</a></div></div>
-                            <div class="project-item"><div class="proj-title">ChukaHomes - Student Housing Finder (Group Project)</div><div class="proj-meta">HTML · CSS · JavaScript · PWA · 2025</div><div class="proj-desc">A mobile-first web app that helps Chuka University students find bedsitters, hostels and houses near campus. Features verified landlord badges, illustrated map with walking-time rings, in-app chat, advanced filters and admin moderation. Built as a group project.</div></div>
-                            <div class="project-item"><div class="proj-title">Mirrorcam - Camera App</div><div class="proj-meta">Flutter · Camera Plugin · 2023</div><div class="proj-desc">Camera app with real-time mirror-like view and live adjustments for lighting, skin tone, clarity, and shadows.</div></div>
-                            <div class="project-item"><div class="proj-title">Isaac Art - Stencil Art Storefront</div><div class="proj-meta">HTML · CSS · JavaScript · 2024</div><div class="proj-desc">A digital storefront for my stencil art business, showcasing my work and allowing clients to connect for commissions. Live: <a href="https://artweb.dev078.workers.dev" target="_blank">artweb.dev078.workers.dev</a></div></div>
-                        </div></div>
-                        <div class="section"><div class="section-title">References</div><div class="section-content"><p class="ref-note">Available upon request. I am currently building my professional network and happy to connect with mentors, church community, or university contacts for character references.</p></div></div>
-                        <div class="footer-note">Isaac Njuguna Bridget · Applied Computer Science Student · Chuka University · 2026</div>
-                    </div>
-                </div>
-                <div class="no-print">
-                    <button class="btn-download" id="cvDownloadBtn">⬇ Download PDF</button>
-                    <button class="btn-print" onclick="window.print();">🖨 Print</button>
-                    <button class="btn-close" onclick="window.close();">✕ Close</button>
-                </div>
-                <script>
-                    document.getElementById('cvDownloadBtn').addEventListener('click', function() {
-                        try {
-                            const content = document.getElementById('pdfCvContent').outerHTML;
-                            const styleText = document.querySelector('style').innerHTML;
-                            const fullHtml = '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Isaac Njuguna Bridget CV</title><style>' + styleText + '<\/style><\/head><body>' + content + '<\/body><\/html>';
-                            const blob = new Blob([fullHtml], { type: 'text/html;charset=utf-8' });
-                            const url = URL.createObjectURL(blob);
-                            const a = document.createElement('a');
-                            a.href = url;
-                            a.download = 'Isaac_Njuguna_Bridget_CV.html';
-                            document.body.appendChild(a);
-                            a.click();
-                            document.body.removeChild(a);
-                            setTimeout(function(){ URL.revokeObjectURL(url); }, 1500);
-                        } catch (e) {
-                            console.error('Download failed:', e);
-                            alert('Download failed: ' + e.message);
-                        }
-                    });
-                <\/script>
-            </body></html>`;
+                const htmlContent = `<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Isaac Njuguna Bridget · Professional CV</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"><\/script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#f0f2f5;font-family:'Inter',sans-serif;padding:24px;color:#1a1a1a}
+.pdf-cv-page{max-width:1100px;margin:0 auto;background:#fff;display:grid;grid-template-columns:280px 1fr;gap:0;box-shadow:0 8px 40px rgba(0,0,0,0.06);border-radius:12px;overflow:hidden}
+.pdf-cv-page .sidebar{background:#1a1a1a;color:#e5e7eb;padding:40px 28px;display:flex;flex-direction:column;gap:28px}
+.pdf-cv-page .sidebar .name{font-size:26px;font-weight:800;letter-spacing:-0.02em;color:#fff;line-height:1.1}
+.pdf-cv-page .sidebar .title{font-size:14px;font-weight:500;color:#D97706;margin-top:4px}
+.pdf-cv-page .sidebar .contact-item{display:flex;align-items:center;gap:10px;font-size:13px;color:#cbd5e1;margin-bottom:6px}
+.pdf-cv-page .sidebar .contact-item a{color:#cbd5e1;text-decoration:none}
+.pdf-cv-page .sidebar .section-title{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#D97706;border-bottom:1px solid rgba(255,255,255,0.08);padding-bottom:6px;margin-bottom:14px}
+.pdf-cv-page .sidebar .skill-tag,.pdf-cv-page .sidebar .lang-tag{display:inline-block;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);padding:4px 12px;border-radius:20px;font-size:12px;color:#e5e7eb;margin:0 4px 6px 0}
+.pdf-cv-page .sidebar .lang-tag .lvl{color:#94a3b8;font-size:10px;margin-left:4px}
+.pdf-cv-page .main{padding:40px 44px 44px;background:#fff}
+.pdf-cv-page .main .section{margin-bottom:28px}
+.pdf-cv-page .main .section-title{font-size:16px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#D97706;border-bottom:2px solid #f0f0f0;padding-bottom:4px;margin-bottom:14px}
+.pdf-cv-page .main .section-content{font-size:14px;color:#2a2a2a}
+.pdf-cv-page .main .section-content p{margin-bottom:6px}
+.pdf-cv-page .main .project-item{margin-bottom:14px}
+.pdf-cv-page .main .project-item .proj-title{font-weight:700;font-size:15px;color:#1a1a1a}
+.pdf-cv-page .main .project-item .proj-meta{font-size:12px;color:#888;margin-bottom:2px}
+.pdf-cv-page .main .project-item .proj-desc{font-size:13px;color:#3a3a3a}
+.pdf-cv-page .main .project-item .proj-desc a{color:#D97706;text-decoration:none}
+.pdf-cv-page .main .edu-item{margin-bottom:12px}
+.pdf-cv-page .main .edu-item .edu-title{font-weight:700;font-size:15px}
+.pdf-cv-page .main .edu-item .edu-meta{font-size:13px;color:#555}
+.pdf-cv-page .main .edu-item .edu-desc{font-size:13px;color:#4a4a4a}
+.pdf-cv-page .main .ref-note{font-style:italic;color:#666;font-size:13px}
+.pdf-cv-page .main .footer-note{margin-top:24px;padding-top:16px;border-top:1px solid #e5e5e5;font-size:12px;color:#aaa;text-align:center}
+.pdf-cv-page .main .about-text{font-size:14px;line-height:1.7;color:#2a2a2a}
+.pdf-cv-page .main .about-text strong{color:#D97706}
+.pdf-cv-page .main .website-item{margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid #f0f0f0}
+.pdf-cv-page .main .website-item:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.pdf-cv-page .main .website-item .site-title{font-weight:700;font-size:15px;color:#1a1a1a;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.pdf-cv-page .main .website-item .site-title a{color:#D97706;text-decoration:none;font-weight:600;font-size:13px;border-bottom:1px dotted rgba(217,119,6,0.3)}
+.pdf-cv-page .main .website-item .site-desc{font-size:13px;color:#3a3a3a;margin-top:3px;line-height:1.5}
+.pdf-cv-page .main .website-item .site-search{font-size:12px;color:#777;margin-top:4px;background:#f8f8f8;padding:2px 12px;border-radius:14px;display:inline-block}
+.pdf-cv-page .main .website-item .site-search strong{color:#D97706;font-weight:600}
+.pdf-cv-page .main .cert-item{margin-bottom:8px}
+.pdf-cv-page .main .cert-item strong{color:#1a1a1a}
+.pdf-cv-page .main .cert-item .cert-meta{font-size:13px;color:#555}
+.section,.project-item,.edu-item,.website-item,.cert-item{break-inside:avoid;page-break-inside:avoid}
+@media print{body{background:#fff;padding:0}.pdf-cv-page{box-shadow:none;border-radius:0}.no-print{display:none !important}}
+@media(max-width:700px){.pdf-cv-page{grid-template-columns:1fr;border-radius:0}.pdf-cv-page .sidebar{padding:28px 24px}.pdf-cv-page .main{padding:28px 24px}}
+.no-print{display:flex;justify-content:center;gap:16px;margin-top:24px;flex-wrap:wrap;max-width:1100px;margin-left:auto;margin-right:auto}
+.no-print button{font-family:'Inter',sans-serif;padding:10px 28px;border-radius:6px;font-size:14px;font-weight:600;cursor:pointer;transition:all .2s ease;border:none}
+.no-print .btn-download{background:#D97706;color:#fff}
+.no-print .btn-download:hover:not(:disabled){background:#B45309;transform:scale(1.04)}
+.no-print .btn-download:disabled{opacity:0.7;cursor:wait}
+.no-print .btn-print{background:transparent;color:#D97706;border:2px solid #D97706}
+.no-print .btn-print:hover{background:#D97706;color:#fff;transform:scale(1.04)}
+.no-print .btn-close{background:transparent;color:#888;border:1px solid #ddd}
+.no-print .btn-close:hover{background:#f0f0f0}
+</style>
+</head>
+<body>
+    <div class="pdf-cv-page" id="pdfCvContent">
+        <div class="sidebar">
+            <div><div class="name">ISAAC NJUGUNA BRIDGET</div><div class="title">Applied CS Student · Full-Stack &amp; Mobile Developer</div></div>
+            <div><div class="section-title">Contact</div>
+                <div class="contact-item">📧 <a href="mailto:injuguna308@gmail.com">injuguna308@gmail.com</a></div>
+                <div class="contact-item">📞 +254 143374333</div>
+                <div class="contact-item">📍 Kenya</div>
+                <div class="contact-item">🔗 <a href="https://github.com/Grimzeero78" target="_blank">github.com/Grimzeero78</a></div>
+            </div>
+            <div><div class="section-title">Skills</div><span class="skill-tag">Flutter</span><span class="skill-tag">C++</span><span class="skill-tag">Python</span><span class="skill-tag">TypeScript</span><span class="skill-tag">Next.js</span><span class="skill-tag">MySQL</span><span class="skill-tag">TensorFlow</span><span class="skill-tag">Git</span><span class="skill-tag">Cloudflare Workers</span><span class="skill-tag">Prisma</span><span class="skill-tag">Critical Thinking</span><span class="skill-tag">Teamwork</span><span class="skill-tag">Creativity</span></div>
+            <div><div class="section-title">Languages</div><span class="lang-tag">Kiswahili <span class="lvl">Native</span></span><span class="lang-tag">English <span class="lvl">Fluent</span></span><span class="lang-tag">Kikuyu <span class="lvl">Native</span></span><span class="lang-tag">Kimeru <span class="lvl">Native</span></span></div>
+            <div><div class="section-title">Certifications</div><p style="font-size:13px;color:#cbd5e1;line-height:1.5;"><strong style="color:#fff;">Christian Discipleship</strong> (2024)</p><p style="font-size:12px;color:#94a3b8;margin-top:4px;">Character, leadership &amp; service training.</p></div>
+        </div>
+        <div class="main">
+            <div class="section"><div class="section-title">Profile</div><div class="section-content"><p class="about-text">I am an Applied Computer Science student at <strong>Chuka University</strong> (2023-2027) with a passion for mobile development, AI, full-stack engineering, and solving real problems. I build offline-first apps, train practical AI models, and ship products designed to survive decades. My flagship mobile project, <strong>Stockipa</strong>, was born from watching my mom hustle as a mtumba seller without knowing where her money went. My first full-stack product, <strong>Future Voices</strong>, is a time-capsule platform built to last 1,000 years.</p></div></div>
+            <div class="section"><div class="section-title">🌐 Websites I've Built</div><div class="section-content">
+                <div class="website-item"><div class="site-title">⏳ Future Voices <a href="https://futurevoice.dev078.workers.dev" target="_blank">futurevoice.dev078.workers.dev</a></div><div class="site-desc">A digital time-capsule platform - write a letter, seal it with an unlock date (1 day to 1,000 years), and it stays locked. Magic Key system lets heirs open messages without email. Built with Next.js 16, TypeScript, Cloudflare Workers &amp; D1.</div></div>
+                <div class="website-item"><div class="site-title">🎨 Isaac Art <a href="https://artweb.dev078.workers.dev" target="_blank">artweb.dev078.workers.dev</a></div><div class="site-desc">A stencil art storefront where I showcase and sell my spray-paint work.</div></div>
+                <div class="website-item"><div class="site-title">📄 Isaac Bridget Portfolio <a href="https://portfolio.dev078.workers.dev" target="_blank">portfolio.dev078.workers.dev</a></div><div class="site-desc">My developer headquarters - all my projects, skills, and work in one place.</div></div>
+                <div class="website-item"><div class="site-title">⚽ City Stars FC <a href="https://citystars.dev078.workers.dev" target="_blank">citystars.dev078.workers.dev</a></div><div class="site-desc">The digital home of Chuka University's football team - fixtures, results, and club news.</div></div>
+                <div class="website-item"><div class="site-title">🏆 Merit AI <a href="https://truemerit.dev078.workers.dev/" target="_blank">truemerit.dev078.workers.dev</a></div><div class="site-desc">AI hiring-bias remover - analyze interview videos and documents to objectively rank candidates.</div></div>
+                <div class="website-item"><div class="site-title">🧘 DeepRest <a href="https://deeprest-app.dev078.workers.dev/" target="_blank">deeprest-app.dev078.workers.dev</a></div><div class="site-desc">Mental-health app that helps users reduce screen time, build healthier habits, and stay accountable.</div></div>
+                <div class="website-item"><div class="site-title">🏆 Philites FC <a href="https://philites.dev078.workers.dev/" target="_blank">philites.dev078.workers.dev</a></div><div class="site-desc">Official website for my current football team - fixtures, results, squad profiles, and club news.</div></div>
+                <div style="margin-top:12px;padding:10px 14px;background:#f8fafc;border-radius:6px;border-left:3px solid #D97706;font-size:13px;color:#444;"><strong>📌 All sites are live and indexed on Google.</strong></div>
+            </div></div>
+            <div class="section"><div class="section-title">Education</div><div class="section-content">
+                <div class="edu-item"><div class="edu-title">BSc. Applied Computer Science</div><div class="edu-meta">Chuka University · 2023 - 2027</div><div class="edu-desc">Specializing in mobile development and AI. In progress.</div></div>
+                <div class="edu-item"><div class="edu-title">Kagumo High School</div><div class="edu-meta">Secondary Education · 2019 - 2022</div></div>
+                <div class="edu-item"><div class="edu-title">Ngenia Primary School</div><div class="edu-meta">Primary Education · - 2019</div></div>
+            </div></div>
+            <div class="section"><div class="section-title">Projects</div><div class="section-content">
+                <div class="project-item"><div class="proj-title">Stockipa - Finance Tracking App</div><div class="proj-meta">Flutter · SQLite · M-Pesa Integration · 2025</div><div class="proj-desc">Offline mobile app that auto-tracks income and expenses by reading M-Pesa SMS and scanning bills. Features stock management, multi-language support, and yearly charts. Built for small business owners, starting with my mom.</div></div>
+                <div class="project-item"><div class="proj-title">Future Voices - Digital Time Capsule (Full-Stack)</div><div class="proj-meta">Next.js 16 · TypeScript · Cloudflare Workers · D1 · Prisma · 2026</div><div class="proj-desc">My first full-stack product: a time-capsule platform where users seal letters, voice notes, and photos with an unlock date from 1 day to 1,000 years. Magic Key system lets loved ones open messages with a paper secret word, with no email dependency. Custom auth (scrypt hashing, hashed session tokens, brute-force lockouts), streaming media uploads, daily diary mode, and a public heir-lookup. 14,000+ lines of TypeScript; security-audited to 0 vulnerabilities. Live: <a href="https://futurevoice.dev078.workers.dev" target="_blank">futurevoice.dev078.workers.dev</a></div></div>
+                <div class="project-item"><div class="proj-title">Merit AI - Hiring Bias Remover</div><div class="proj-meta">Python · Computer Vision · NLP · 2026</div><div class="proj-desc">AI system that analyzes interview videos and documents to rank candidates objectively, removing human bias from hiring. Source: <a href="https://github.com/Grimzeero78/bIAS" target="_blank">github.com/Grimzeero78/bIAS</a> · Live: <a href="https://truemerit.dev078.workers.dev/" target="_blank">truemerit.dev078.workers.dev</a></div></div>
+                <div class="project-item"><div class="proj-title">DeepRest - Mental Health App</div><div class="proj-meta">Flutter · Firebase · Grok API · 2026</div><div class="proj-desc">Mobile app for reducing screen time and building healthier habits. Features accountability groups, AI companions, and rank tracking. Source: <a href="https://github.com/Grimzeero78/deeprest" target="_blank">github.com/Grimzeero78/deeprest</a> · Live: <a href="https://deeprest-app.dev078.workers.dev/" target="_blank">deeprest-app.dev078.workers.dev</a></div></div>
+                <div class="project-item"><div class="proj-title">AI Image Detector</div><div class="proj-meta">Python · TensorFlow · OpenCV · 2024</div><div class="proj-desc">Desktop app using TensorFlow to classify objects in images.</div></div>
+                <div class="project-item"><div class="proj-title">City Stars FC - Football Website</div><div class="proj-meta">HTML · CSS · JavaScript · 2026</div><div class="proj-desc">Full website for Chuka University's football team with fixtures, results, player profiles, staff, league table, and club blog. Live: <a href="https://citystars.dev078.workers.dev/" target="_blank">citystars.dev078.workers.dev</a></div></div>
+                <div class="project-item"><div class="proj-title">Philites FC - Current Team Website</div><div class="proj-meta">HTML · CSS · JavaScript · 2026</div><div class="proj-desc">Official website for my current football team, with match fixtures, results, squad profiles, club news, and updates. Live: <a href="https://philites.dev078.workers.dev/" target="_blank">philites.dev078.workers.dev</a></div></div>
+                <div class="project-item"><div class="proj-title">ChukaHomes - Student Housing Finder (Group Project)</div><div class="proj-meta">HTML · CSS · JavaScript · PWA · 2025</div><div class="proj-desc">A mobile-first web app that helps Chuka University students find bedsitters, hostels and houses near campus. Features verified landlord badges, illustrated map with walking-time rings, in-app chat, advanced filters and admin moderation. Built as a group project.</div></div>
+                <div class="project-item"><div class="proj-title">Mirrorcam - Camera App</div><div class="proj-meta">Flutter · Camera Plugin · 2023</div><div class="proj-desc">Camera app with real-time mirror-like view and live adjustments for lighting, skin tone, clarity, and shadows.</div></div>
+                <div class="project-item"><div class="proj-title">Isaac Art - Stencil Art Storefront</div><div class="proj-meta">HTML · CSS · JavaScript · 2024</div><div class="proj-desc">A digital storefront for my stencil art business, showcasing my work and allowing clients to connect for commissions. Live: <a href="https://artweb.dev078.workers.dev" target="_blank">artweb.dev078.workers.dev</a></div></div>
+            </div></div>
+            <div class="section"><div class="section-title">References</div><div class="section-content"><p class="ref-note">Available upon request. I am currently building my professional network and happy to connect with mentors, church community, or university contacts for character references.</p></div></div>
+            <div class="footer-note">Isaac Njuguna Bridget · Applied Computer Science Student · Chuka University · 2026</div>
+        </div>
+    </div>
+    <div class="no-print">
+        <button class="btn-download" id="cvDownloadBtn">⬇ Download PDF</button>
+        <button class="btn-print" id="cvPrintBtn">🖨 Print / Save as PDF</button>
+        <button class="btn-close" onclick="window.close();">✕ Close</button>
+    </div>
+    <script>
+    document.getElementById('cvPrintBtn').addEventListener('click', function() { window.print(); });
+    document.getElementById('cvDownloadBtn').addEventListener('click', async function() {
+        const btn = this;
+        const originalText = btn.textContent;
+        btn.textContent = '⏳ Generating PDF...';
+        btn.disabled = true;
+        btn.style.opacity = '0.7';
+        if (typeof html2pdf === 'undefined') {
+            alert('PDF library not loaded yet. Please wait a few seconds or use "Print / Save as PDF".');
+            btn.textContent = originalText;
+            btn.disabled = false;
+            btn.style.opacity = '1';
+            return;
+        }
+        const content = document.getElementById('pdfCvContent');
+        const originalMaxWidth = content.style.maxWidth;
+        try {
+            content.style.maxWidth = '900px';
+            content.style.margin = '0 auto';
+            await html2pdf().set({
+                margin: [6, 6, 6, 6],
+                filename: 'Isaac_Njuguna_Bridget_CV.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: {
+                    scale: 2,
+                    useCORS: true,
+                    letterRendering: true,
+                    backgroundColor: '#ffffff',
+                    logging: false
+                },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+                pagebreak: { mode: ['css', 'legacy'] }
+            }).from(content).save();
+            btn.textContent = '✅ PDF Downloaded!';
+            btn.style.opacity = '1';
+            setTimeout(function() {
+                btn.textContent = originalText;
+                btn.disabled = false;
+            }, 2500);
+        } catch (err) {
+            console.error('PDF error:', err);
+            alert('PDF generation failed: ' + err.message + '\\n\\nFallback: Click "Print / Save as PDF" and choose "Save as PDF" as destination.');
+            btn.textContent = originalText;
+            btn.disabled = false;
+            btn.style.opacity = '1';
+        } finally {
+            content.style.maxWidth = originalMaxWidth;
+        }
+    });
+    <\/script>
+</body>
+</html>`;
 
                 const blob = new Blob([htmlContent], { type: 'text/html;charset=utf-8' });
                 const url = URL.createObjectURL(blob);
                 const win = window.open(url, '_blank');
-                setTimeout(function(){ URL.revokeObjectURL(url); }, 15000);
-                if (!win) { alert('Please allow popups to view the PDF CV.'); }
+                setTimeout(function(){ URL.revokeObjectURL(url); }, 30000);
+                if (!win) {
+                    alert('Please allow popups to view the PDF CV.');
+                }
             } catch (err) {
                 console.error('PDF CV error:', err);
                 alert('Failed to open PDF CV. Please try again.');
